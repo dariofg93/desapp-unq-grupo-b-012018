@@ -8,13 +8,7 @@
   before_install:
   - mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
   - mysql -e 'CREATE DATABASE IF NOT EXISTS Bookstore;'
-  script:
-      - mvn clean test 
-  cache:
-      directories:
-          - $HOME/.m2
-  dist:
-      - trusty
+
   sudo:
       - false
   notifications:
