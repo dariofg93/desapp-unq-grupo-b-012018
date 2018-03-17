@@ -2,9 +2,6 @@
       - java
   jdk:
       - oraclejdk8
-      
-  install: ant deps
-  ant test
   
   mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   mvn test -B
