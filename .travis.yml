@@ -1,17 +1,13 @@
-  language:
-      - java
-  jdk:
-      - oraclejdk8
-  
-  mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  mvn test -B
-  
-  services:
-      - mysql
+  language: java
+  jdk: oraclejdk8
+  services: mysql
       
-  sudo:
-      - false
+  sudo: false
       
   notifications:
       - email: 
           - dariofg93@gmail.com
+
+
+  mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  mvn test -B
