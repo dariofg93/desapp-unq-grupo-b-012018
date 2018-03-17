@@ -2,6 +2,9 @@
       - java
   services:
       - mysql
+  jdk:
+      - oraclejdk8
+  script: ant build
   sudo:
       - false
   notifications:
