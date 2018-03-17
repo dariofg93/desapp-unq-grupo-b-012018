@@ -1,12 +1,19 @@
   language:
       - java
-  services:
-      - mysql
   jdk:
       - oraclejdk8
-  script: ant build
+      
+  install: ant deps
+  ant test
+  
+  mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  
+  services:
+      - mysql
+      
   sudo:
       - false
+      
   notifications:
       - email: 
           - dariofg93@gmail.com
