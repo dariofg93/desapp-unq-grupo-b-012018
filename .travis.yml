@@ -2,13 +2,6 @@
       - java
   services:
       - mysql
-  jdk:
-      - oraclejdk8
-      - openjdk8
-
-  env:
-      - TASKS='test'
-  
   sudo:
       - false
   notifications:
