@@ -6,8 +6,11 @@
       - oraclejdk8
       - openjdk8
 
+  env:
+      - TASKS='test'
+  
   sudo:
       - false
   notifications:
       - email: 
-        - dariofg93@gmail.com
+          - dariofg93@gmail.com
