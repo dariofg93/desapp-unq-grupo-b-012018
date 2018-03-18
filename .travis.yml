@@ -1,6 +1,9 @@
   language: java
   jdk: oraclejdk8
   services: mysql
+  
+  install: ant deps
+  ant test
   script: ant build
       
   sudo: false
