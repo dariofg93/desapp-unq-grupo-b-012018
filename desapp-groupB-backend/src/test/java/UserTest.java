@@ -12,7 +12,4 @@ public class UserTest extends TestCase {
 		assertTrue(true);
 	}
 
-	public void testFailed() {
-		assertTrue(false);
-	}
 }
