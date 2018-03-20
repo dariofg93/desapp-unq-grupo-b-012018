@@ -1,6 +1,6 @@
 import junit.framework.TestCase;
 
-public class UserTest extends TestCase {
+public class CarTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
