@@ -1,22 +1,22 @@
 package model.website;
 
-import model.publication.Publication;
+import model.notifier.Notifier;
 import model.user.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WebSite {
 
     private List<User> users;
-    private List<Publication> publications;
+    private Notifier notifier;
 
-    public WebSite(){
-        users = new ArrayList<User>();
-        publications = new ArrayList<Publication>();
+    public void addUSer(User anyUser) {
+        this.users.add(anyUser);
     }
 
-    public void addPublication(Publication anyPublication) {
-        this.publications.add(anyPublication);
+    /** Setters and Getters **/
+
+    public Notifier getNotifier() {
+        return this.notifier;
     }
 }
