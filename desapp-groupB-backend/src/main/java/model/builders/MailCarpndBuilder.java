@@ -1,6 +1,6 @@
 package model.builders;
 
-import model.booking.BookingRequest;
+import model.email.MailBody;
 import model.email.MailCarpnd;
 
 public class MailCarpndBuilder {
@@ -21,8 +21,8 @@ public class MailCarpndBuilder {
         return this;
     }
 
-    public MailCarpndBuilder withRequest(BookingRequest anyRequest) {
-        this.buildMail.setRequest(anyRequest);
+    public MailCarpndBuilder withRequest(MailBody anyMailBody) {
+        this.buildMail.setBody(anyMailBody);
         return this;
     }
 }

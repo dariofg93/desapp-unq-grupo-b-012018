@@ -19,4 +19,8 @@ public class ScoreManager {
         else
             return this.scores.stream().mapToDouble(Score::getValue).sum() / this.scores.size();
     }
+
+    public void addScore(Score anyScore) {
+        this.scores.add(anyScore);
+    }
 }

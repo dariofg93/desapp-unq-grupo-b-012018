@@ -1,6 +1,6 @@
 package model.bookingState;
 
-public class AwaitingApprobal implements BookingState {
+public class AwaitingApprobal extends BookingState {
 
     @Override
     public BookingState setAcepted() {

@@ -1,10 +1,8 @@
 package model.email;
 
-import model.booking.BookingRequest;
-
 public class MailCarpnd {
     private String subject;
-    private BookingRequest request;
+    private MailBody body;
 
     /** Setters and Getters **/
 
@@ -12,7 +10,7 @@ public class MailCarpnd {
         this.subject = subject;
     }
 
-    public void setRequest(BookingRequest request) {
-        this.request = request;
+    public void setBody(MailBody body) {
+        this.body = body;
     }
 }

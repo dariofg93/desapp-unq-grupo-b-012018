@@ -6,7 +6,7 @@ public class Email {
 
     private List<MailCarpnd> received;
 
-    public void addRequestBooking(MailCarpnd anyMail) {
+    public void addMailCarpnd(MailCarpnd anyMail) {
         this.received.add(anyMail);
     }
 }

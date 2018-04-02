@@ -1,6 +1,7 @@
 package model.bookingState;
 
-public class Rejected implements BookingState {
+public class Rejected extends BookingState {
+
     @Override
     public BookingState setAcepted() {
         return new Approved();

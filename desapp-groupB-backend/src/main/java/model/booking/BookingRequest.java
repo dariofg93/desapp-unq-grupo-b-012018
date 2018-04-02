@@ -2,25 +2,22 @@ package model.booking;
 
 import model.bookingState.AwaitingApprobal;
 import model.bookingState.BookingState;
+import model.email.MailBody;
+import model.exceptions.NoAceptedException;
 import model.user.User;
+import org.joda.time.DateTime;
 
-import java.time.LocalDateTime;
-
-public class BookingRequest {
+public class BookingRequest implements MailBody {
 
     private BookingState state;
     private User requester;
-    private LocalDateTime fromDate;
-    private LocalDateTime toDate;
+    private Integer totalHours;
+    private DateTime dateTimeOfReservation;
+    private Integer hoursOfTheReservation;
 
     public BookingRequest(){
         this.state = new AwaitingApprobal();
-    }
-
-    public Boolean onTheSameDatesAs(BookingRequest anyRequest) {
-        return !(anyRequest.getFromDate().isBefore(this.fromDate) && anyRequest.getToDate().isBefore(this.fromDate))
-                                                            &&
-                !(anyRequest.getFromDate().isAfter(this.toDate) && anyRequest.getToDate().isAfter(this.toDate));
+        this.dateTimeOfReservation = null;
     }
 
     public void setAcepted() {
@@ -31,17 +28,49 @@ public class BookingRequest {
         this.state = this.state.setRejected();
     }
 
+    public void setStateOfVehicleRetreatBuyer(Boolean state) throws NoAceptedException {
+        this.state.setConfirmRetreatBuyer(state);
+    }
+
+    public void setStateOfVehicleRetreatSeller(Boolean state) throws NoAceptedException {
+        this.state.setConfirmRetreatSeller(state);
+    }
+
+    public void setStateOfVehicleReturnBuyer(Boolean state) throws NoAceptedException {
+        this.state.setConfirmReturnBuyer(state);
+    }
+
+    public void setStateOfVehicleReturnSeller(Boolean state) throws NoAceptedException {
+        this.state.setConfirmReturnSeller(state);
+    }
+
+    public DateTime endOfReservation() {
+        return this.dateTimeOfReservation.plusHours(this.totalHours);
+    }
+
     /** Setters and Getters **/
-
-    public LocalDateTime getFromDate() {
-        return this.fromDate;
-    }
-
-    public LocalDateTime getToDate() {
-        return this.toDate;
-    }
 
     public User getRequester() {
         return this.requester;
+    }
+
+    public BookingState getState() {
+        return this.state;
+    }
+
+    public Integer getTotalHours() {
+        return this.totalHours;
+    }
+
+    public void setDateTimeOfReservation(DateTime dateTimeOfReservation) {
+        this.dateTimeOfReservation = dateTimeOfReservation;
+    }
+
+    public DateTime getDateTimeOfReservation() {
+        return this.dateTimeOfReservation;
+    }
+
+    public void setHoursOfTheReservation(Integer hoursOfTheReservation) {
+        this.hoursOfTheReservation = hoursOfTheReservation;
     }
 }

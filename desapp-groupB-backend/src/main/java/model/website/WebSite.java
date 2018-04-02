@@ -1,9 +1,12 @@
 package model.website;
 
 import model.notifier.Notifier;
+import model.publication.Publication;
 import model.user.User;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WebSite {
 
@@ -18,5 +21,15 @@ public class WebSite {
 
     public Notifier getNotifier() {
         return this.notifier;
+    }
+
+    public List<Publication> publications() {
+        return users.stream()
+                .map(User::getMyPublications)
+                .collect(ArrayList::new, List::addAll, List::addAll);
+    }
+
+    public void sendMovementsOfTheMonth(){
+        this.getNotifier().sendMovementsOfTheMonthToUsers(this.users);
     }
 }
