@@ -1,10 +1,10 @@
 package model.vehicleType;
 
-public abstract class VehicleType {
+public abstract class Category {
 
     protected String name;
 
-    public abstract Boolean isSame(VehicleType anyVehicleType);
+    public abstract Boolean isSame(Category anyCategory);
 
     /** Setters and Getters **/
 

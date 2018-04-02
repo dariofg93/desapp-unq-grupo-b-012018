@@ -24,10 +24,6 @@ public class CreditsAccount {
     /** Setters and Getters **/
 
     public Double getAmount() {
-        return amount;
-    }
-
-    public Boolean moreCreditsThan(Double price) {
-        return this.amount >= price;
+        return this.amount;
     }
 }

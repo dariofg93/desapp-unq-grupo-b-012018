@@ -1,19 +1,19 @@
 package model.filter;
 
+import model.locality.Locality;
 import model.publication.Publication;
-import model.vehicleType.Category;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ByCategory extends QuestFilter{
+public class ByLocality extends QuestFilter {
 
-    private Category category;
+    private Locality locality;
 
     @Override
     public List<Publication> filterAndOrder(List<Publication> anyPublications) {
         List publications = anyPublications.stream()
-                .filter(p-> p.getPublishedVehicle().itsCategory(this.category))
+                .filter(p-> p.getLocality().isSame(this.locality))
                 .collect(Collectors.toList());
 
         return this.order.order(publications);
@@ -21,7 +21,7 @@ public class ByCategory extends QuestFilter{
 
     /** Setters and Getters **/
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setLocality(Locality locality) {
+        this.locality = locality;
     }
 }

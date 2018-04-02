@@ -81,4 +81,8 @@ public class Publication {
     public DateTime getToDate() {
         return this.toDate;
     }
+
+    public Locality getLocality() {
+        return this.locality;
+    }
 }

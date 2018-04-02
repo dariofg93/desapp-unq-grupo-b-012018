@@ -7,7 +7,7 @@ public class PublicationBuilder {
     private Publication buildPublication;
 
     public Publication build() {
-        return buildPublication;
+        return this.buildPublication;
     }
 
     public PublicationBuilder createPublication() {

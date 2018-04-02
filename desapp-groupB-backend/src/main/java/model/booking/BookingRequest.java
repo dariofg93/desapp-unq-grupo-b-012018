@@ -73,4 +73,20 @@ public class BookingRequest implements MailBody {
     public void setHoursOfTheReservation(Integer hoursOfTheReservation) {
         this.hoursOfTheReservation = hoursOfTheReservation;
     }
+
+    public void setState(BookingState state) {
+        this.state = state;
+    }
+
+    public void setTotalHours(Integer totalHours) {
+        this.totalHours = totalHours;
+    }
+
+    public void setRequester(User requester) {
+        this.requester = requester;
+    }
+
+    public Integer getHoursOfTheReservation() {
+        return this.hoursOfTheReservation;
+    }
 }

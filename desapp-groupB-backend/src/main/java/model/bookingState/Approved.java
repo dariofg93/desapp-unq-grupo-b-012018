@@ -38,7 +38,7 @@ public class Approved extends BookingState {
 
     @Override
     public Boolean getConfirmReturnBuyer(){
-        return this.confirmRetreatSeller;
+        return this.confirmReturnBuyer;
     }
 
     @Override

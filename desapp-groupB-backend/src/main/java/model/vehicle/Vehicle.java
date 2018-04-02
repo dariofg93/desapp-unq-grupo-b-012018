@@ -1,12 +1,12 @@
 package model.vehicle;
 
-import model.vehicleType.VehicleType;
+import model.vehicleType.Category;
 
 public class Vehicle {
 
-    private VehicleType vehicleType;
+    private Category category;
 
-    public Boolean itsType(VehicleType anyVehicleType) {
-        return this.vehicleType.isSame(anyVehicleType);
+    public Boolean itsCategory(Category anyCategory) {
+        return this.category.isSame(category);
     }
 }

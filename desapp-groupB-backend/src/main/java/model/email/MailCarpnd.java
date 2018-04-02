@@ -1,6 +1,7 @@
 package model.email;
 
 public class MailCarpnd {
+
     private String subject;
     private MailBody body;
 
@@ -12,5 +13,13 @@ public class MailCarpnd {
 
     public void setBody(MailBody body) {
         this.body = body;
+    }
+
+    public String getSubject() {
+        return this.subject;
+    }
+
+    public MailBody getBody() {
+        return this.body;
     }
 }

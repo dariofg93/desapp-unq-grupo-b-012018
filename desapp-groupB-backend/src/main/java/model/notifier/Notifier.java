@@ -90,7 +90,7 @@ public class Notifier {
     private MailCarpnd prepareMailCarpndWithSubject(MailBody mailBody, String subject) {
         return new MailCarpndBuilder().createMail()
                 .withSubject(subject)
-                .withRequest(mailBody)
+                .withBody(mailBody)
                 .build();
     }
 }

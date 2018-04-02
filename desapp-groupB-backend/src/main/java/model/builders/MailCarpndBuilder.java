@@ -13,7 +13,7 @@ public class MailCarpndBuilder {
     }
 
     public MailCarpnd build() {
-        return buildMail;
+        return this.buildMail;
     }
 
     public MailCarpndBuilder withSubject(String anySubject) {
@@ -21,7 +21,7 @@ public class MailCarpndBuilder {
         return this;
     }
 
-    public MailCarpndBuilder withRequest(MailBody anyMailBody) {
+    public MailCarpndBuilder withBody(MailBody anyMailBody) {
         this.buildMail.setBody(anyMailBody);
         return this;
     }

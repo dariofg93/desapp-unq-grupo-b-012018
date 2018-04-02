@@ -18,7 +18,7 @@ public class UserBuilder {
     }
 
     public User build() {
-        return buildUser;
+        return this.buildUser;
     }
 
     public UserBuilder withWebSite(WebSite anyWebSite) {
