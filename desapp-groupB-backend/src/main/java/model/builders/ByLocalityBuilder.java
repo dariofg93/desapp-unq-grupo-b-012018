@@ -1,7 +1,7 @@
 package model.builders;
 
 import model.filter.ByLocality;
-import model.locality.Locality;
+import model.city.City;
 import model.order.Order;
 
 public class ByLocalityBuilder {
@@ -22,8 +22,8 @@ public class ByLocalityBuilder {
         return this;
     }
 
-    public ByLocalityBuilder withLocality(Locality anyLocality) {
-        this.buildByLocality.setLocality(anyLocality);
+    public ByLocalityBuilder withLocality(City anyCity) {
+        this.buildByLocality.setCity(anyCity);
         return this;
     }
 }

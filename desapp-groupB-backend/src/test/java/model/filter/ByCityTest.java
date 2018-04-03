@@ -2,7 +2,7 @@ package model.filter;
 
 import junit.framework.TestCase;
 import model.builders.ByLocalityBuilder;
-import model.locality.Locality;
+import model.city.City;
 import model.order.Order;
 import model.publication.Publication;
 import org.junit.Before;
@@ -14,12 +14,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class ByLocalityTest extends TestCase {
+public class ByCityTest extends TestCase {
 
     private ByLocalityBuilder byLocalityBuilder;
 
     private Order orderMock;
-    private Locality localityMock;
+    private City cityMock;
     private Publication anyPublicationMock;
 
     @Before
@@ -28,7 +28,7 @@ public class ByLocalityTest extends TestCase {
         this.byLocalityBuilder = new ByLocalityBuilder();
 
         this.orderMock = mock(Order.class);
-        this.localityMock = mock(Locality.class);
+        this.cityMock = mock(City.class);
         this.anyPublicationMock = mock(Publication.class);
 	}
 
@@ -37,11 +37,11 @@ public class ByLocalityTest extends TestCase {
 
         ByLocality filterByLocality = byLocalityBuilder.createFilterByLocality()
                 .withOrder(orderMock)
-                .withLocality(localityMock)
+                .withLocality(cityMock)
                 .build();
 
-        when(anyPublicationMock.getLocality()).thenReturn(localityMock);
-        when(localityMock.isSame(localityMock)).thenReturn(true);
+        when(anyPublicationMock.getCity()).thenReturn(cityMock);
+        when(cityMock.isSame(cityMock)).thenReturn(true);
 
         filterByLocality.filterAndOrder(publications);
 

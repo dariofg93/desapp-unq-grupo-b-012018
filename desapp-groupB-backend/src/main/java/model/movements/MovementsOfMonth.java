@@ -17,4 +17,11 @@ public class MovementsOfMonth implements MailBody {
     public void cleanHistory() {
         this.history = "";
     }
+
+    /** Setters and Getters **/
+
+    public String getHistory() {
+        return this.history;
+    }
+
 }

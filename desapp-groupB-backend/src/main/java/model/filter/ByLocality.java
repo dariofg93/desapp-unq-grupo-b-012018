@@ -1,6 +1,6 @@
 package model.filter;
 
-import model.locality.Locality;
+import model.city.City;
 import model.publication.Publication;
 
 import java.util.List;
@@ -8,12 +8,12 @@ import java.util.stream.Collectors;
 
 public class ByLocality extends QuestFilter {
 
-    private Locality locality;
+    private City city;
 
     @Override
     public List<Publication> filterAndOrder(List<Publication> anyPublications) {
         List publications = anyPublications.stream()
-                .filter(p-> p.getLocality().isSame(this.locality))
+                .filter(p-> p.getCity().isSame(this.city))
                 .collect(Collectors.toList());
 
         return this.order.order(publications);
@@ -21,7 +21,7 @@ public class ByLocality extends QuestFilter {
 
     /** Setters and Getters **/
 
-    public void setLocality(Locality locality) {
-        this.locality = locality;
+    public void setCity(City city) {
+        this.city = city;
     }
 }
