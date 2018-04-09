@@ -1,0 +1,30 @@
+<!--<div style="text-align:center">
+  <h1>
+    <span class="label label-success">Google Maps in Angular 5</span>
+  </h1>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-md-3 col-sm-12 col-xs-12">
+    <button (click)="setMapType('terrain')" class="btn btn-primary">Terrain</button>
+    <button (click)="setMapType('satellite')" class="btn btn-danger">Satellite</button>
+    <button (click)="setMapType('roadmap')" class="btn btn-warning">Road Map</button>
+  </div>
+  <div class="col-md-8 col-sm-12 col-xs-12">
+    <form class="form-inline" #form="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control" name="latitude" [(ngModel)]="latitude" placeholder="Enter latitude" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="longitude" [(ngModel)]="longitude" placeholder="Enter longitude" required>
+      </div>
+      <button type="button" (click)="setCenter()" class="btn btn-primary" [disabled]="form.invalid"> Go</button>
+    </form>
+  </div>
+</div>
+-->
+
+<div (mapClick)="placeMarker($event)">
+  <div #gmap style="width:400px;height:260px"></div>
+</div>

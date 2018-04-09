@@ -1,0 +1,9 @@
+.footer {
+  height: 20px;
+  background-color: #337ab7;
+}
+
+.text-footer {
+  color: white;
+  text-decoration: underline;
+}
