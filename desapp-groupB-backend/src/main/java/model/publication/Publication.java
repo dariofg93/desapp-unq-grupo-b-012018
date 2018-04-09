@@ -8,7 +8,10 @@ import model.vehicle.Vehicle;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Publication {
 
@@ -20,15 +23,26 @@ public class Publication {
     private List<BookingRequest> requests;
     private Vehicle publishedVehicle;
     private City city;
-    private GeographicZoneDescription pickUpZone;
-    private GeographicZoneDescription pickDownZone;
-    private BookingRequest currentAprovedRequest;
+	private GeographicZoneDescription pickUpZone;
+    private GeographicZoneDescription dropZone;
 
-    public Publication(){
-        this.currentAprovedRequest = null;
-    }
 
-    public void addBookingRequest(BookingRequest anyRequest) {
+    public Publication(Vehicle aVehicle, DateTime someDate, DateTime anotherDate, User aUser, City aCity,
+			GeographicZoneDescription aZone, GeographicZoneDescription anotherZone, Double price, int phoneNumber) {
+    	
+    	publishedVehicle = aVehicle;
+    	fromDate = someDate;
+    	toDate = anotherDate;
+    	user = aUser;
+    	city = aCity;
+    	pickUpZone = aZone;
+    	dropZone = anotherZone;
+    	pricePerHour = price;
+    	phone = phoneNumber;
+    	requests = new ArrayList<BookingRequest>();
+	}
+
+	public void addBookingRequest(BookingRequest anyRequest) {
         this.requests.add(anyRequest);
     }
 
@@ -37,10 +51,23 @@ public class Publication {
     }
 
     public Integer remainingTime() {
+    	
+    	/*
+    	 * 
+    	 * Aca lo que se tiene que hacer es buscar entre los booking request cual esta aprobada para dateTime.now()
+    	 * y a esa  es la currentAprovedReques
+    	 * y despues es solo hacer lo que hace esta linea
+    	 * 
+    	 * return Hours.hoursBetween(this.currentAprovedRequest.endOfReservation(),this.toDate).getHours()
+        
+        
+        
         if(this.currentAprovedRequest == null)
             return Hours.hoursBetween(new DateTime(),this.toDate).getHours();
         else
             return Hours.hoursBetween(this.currentAprovedRequest.endOfReservation(),this.toDate).getHours();
+            */
+    	return 0;
     }
 
     public Boolean isExpired() {
@@ -49,20 +76,12 @@ public class Publication {
 
     /** Setters and Getters **/
 
-    public List<BookingRequest> getRequests() {
-        return this.requests;
-    }
-
     public Double getPricePerHour() {
         return this.pricePerHour;
     }
 
     public Vehicle getPublishedVehicle() {
         return publishedVehicle;
-    }
-
-    public void setCurrentAprovedRequest(BookingRequest request) {
-        this.currentAprovedRequest = request;
     }
 
     public void setUser(User user) {
@@ -84,4 +103,30 @@ public class Publication {
     public City getCity() {
         return this.city;
     }
+
+	public Integer getPhone() {
+		return phone;
+	}
+	
+    public GeographicZoneDescription getPickUpZone() {
+		return pickUpZone;
+	}
+
+	public GeographicZoneDescription getDropZone() {
+		return dropZone;
+	}
+	
+	public List<BookingRequest> allBookingRequest(){
+		return requests;
+	}
+	
+	public BookingRequest approvedRequestForDate(DateTime date) {
+		List<BookingRequest> aproovedRequests = 
+					requests.stream()
+						.filter(request -> request.isApproved() && 
+										   (request.getDateTimeOfReservation().isBefore(date) 
+												   && request.endOfReservation().isAfter(date)))
+						.collect(Collectors.toList());
+		
+	}
 }
