@@ -5,11 +5,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.publication.Publication;
 import static org.mockito.Mockito.*;
 
 public class ScoreManagerTest {
