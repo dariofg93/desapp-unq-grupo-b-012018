@@ -8,15 +8,15 @@ import model.builders.UserBuilder;
 import model.creditsAccount.CreditsAccount;
 import model.exceptions.BannedException;
 import model.exceptions.NoAceptedException;
-import model.exceptions.NotEnoughCreditsException;
 import model.exceptions.RequestNoExistException;
 import model.filter.ByCategory;
 import model.filter.QuestFilter;
 import model.notifier.Notifier;
 import model.publication.Publication;
-import model.score.OfBuyer;
-import model.score.OfSeller;
-import model.score.OfVehicle;
+import model.score.LesseeScoreType;
+import model.score.OwnerScoreType;
+import model.score.Score;
+import model.score.VehicleScoreType;
 import model.score.ScoreManager;
 import model.user.User;
 import model.website.WebSite;
@@ -29,12 +29,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
-public class UserTest extends TestCase {
-
-    @Rule
-    private ExpectedException thrown= ExpectedException.none();
+public class UserTest {
     
 
     private UserBuilder userBuilder;
@@ -42,9 +41,9 @@ public class UserTest extends TestCase {
     private QuestFilter anyFilterMock;
     private WebSite anyWebSiteMock;
     private Notifier anyNotifierMock;
-    private OfBuyer anyBuyerScoreMock;
-    private OfSeller anySellerScoreMock;
-    private OfVehicle anyVehicleScoreMock;
+    private Score anyBuyerScoreMock;
+    private Score anySellerScoreMock;
+    private Score anyVehicleScoreMock;
     private Publication anyPublicationMock;
     private ScoreManager anyScoreManagerMock;
     private BookingState anyBookingStateMock;
@@ -53,22 +52,22 @@ public class UserTest extends TestCase {
 
     @Before
 	public void setUp() throws Exception {
-        super.setUp();
         this.userBuilder = new UserBuilder();
 
         this.anyFilterMock = mock(ByCategory.class);
         this.anyWebSiteMock = mock(WebSite.class);
         this.anyNotifierMock = mock(Notifier.class);
-        this.anyBuyerScoreMock = mock(OfBuyer.class);
-        this.anySellerScoreMock = mock(OfSeller.class);
-        this.anyVehicleScoreMock = mock(OfVehicle.class);
+        this.anyBuyerScoreMock = mock(Score.class);
+        this.anySellerScoreMock = mock(Score.class);
+        this.anyVehicleScoreMock = mock(Score.class);
         this.anyBookingStateMock = mock(Approved.class);
         this.anyPublicationMock = mock(Publication.class);
         this.anyScoreManagerMock = mock(ScoreManager.class);
         this.anyCreditsAccountMock = mock(CreditsAccount.class);
         this.anyBookingRequestMock = mock(BookingRequest.class);
 	}
-
+    
+    @Test
     public void testPublishSuccessfully() throws BannedException {
 	    User anyUser = userBuilder.createUser()
                 .withPublications(new ArrayList<>())
@@ -82,7 +81,8 @@ public class UserTest extends TestCase {
 
         assertEquals(anyUser.numberOfPublications(),1,0);
     }
-/*
+
+    @Test(expected = BannedException.class)
     public void testPublishWithFailure() throws BannedException{
         User anyUser = userBuilder.createUser()
                 .withPublications(new ArrayList<>())
@@ -92,11 +92,11 @@ public class UserTest extends TestCase {
         when(anyScoreManagerMock.minimumScoreAccepted()).thenReturn(4.0);
         when(anyScoreManagerMock.averageScore()).thenReturn(3.5);
 
-        thrown.expect(BannedException.class);
+ 
         anyUser.publish(anyPublicationMock);
     }
-*/
 
+    @Test
     public void testDepositCredits(){
         User anyUser = userBuilder.createUser()
                 .withCreditsAccount(anyCreditsAccountMock)
@@ -106,10 +106,11 @@ public class UserTest extends TestCase {
 
         anyUser.depositCredits(25.0);
 
-        assertEquals(anyUser.availableCredits(),25.0);
+        assertEquals(anyUser.availableCredits(), new Double(25.0));
     }
-
-    public void testRetireCreditsWithSufficientSalary() throws NotEnoughCreditsException {
+    
+    @Test
+    public void testRetireCreditsWithSufficientSalary() {
         User anyUser = userBuilder.createUser()
                 .withCreditsAccount(anyCreditsAccountMock)
                 .build();
@@ -118,7 +119,8 @@ public class UserTest extends TestCase {
 
         verify(anyCreditsAccountMock).sustractCredits(20.0);
     }
-
+    
+    @Test
     public void testRentVehicle() throws BannedException {
         User anyUser = userBuilder.createUser()
                 .withWebSite(anyWebSiteMock)
@@ -135,8 +137,9 @@ public class UserTest extends TestCase {
         verify(anyPublicationMock).addBookingRequest(anyBookingRequestMock);
         verify(anyNotifierMock).notifyRequestByMail(anyUser,anyBookingRequestMock);
     }
-/*
-    public void testRentVehicle() throws BannedException {
+
+    @Test(expected = BannedException.class)
+    public void testFailRentVehicle() throws BannedException {
         User anyUser = userBuilder.createUser()
                 .withScoreManager(anyScoreManagerMock)
                 .build();
@@ -144,10 +147,10 @@ public class UserTest extends TestCase {
         when(anyScoreManagerMock.minimumScoreAccepted()).thenReturn(4.0);
         when(anyScoreManagerMock.averageScore()).thenReturn(0.5);
 
-        thrown.expect(BannedException.class);
         anyUser.rentVehicle(anyPublicationMock,anyBookingRequestMock);
     }
-*/
+
+    @Test
     public void testAceptRequest() throws RequestNoExistException {
         User anyUserMock = mock(User.class);
         CreditsAccount anotherCreditsMock = mock(CreditsAccount.class);
@@ -167,8 +170,9 @@ public class UserTest extends TestCase {
 
         verify(anyNotifierMock).notifyAceptByMail(anyBookingRequestMock);
     }
-/*
-    public void testAceptRequestFailed() throws NotEnoughCreditsException, RequestNoExistException {
+    
+    @Test(expected = RequestNoExistException.class)
+    public void testAceptRequestFailed() throws  RequestNoExistException {
 
         User anyUser = userBuilder.createUser()
                 .withPublications(Collections.singletonList(anyPublicationMock))
@@ -176,10 +180,10 @@ public class UserTest extends TestCase {
 
         when(anyPublicationMock.containsRequest(anyBookingRequestMock)).thenReturn(false);
 
-        thrown.expect(RequestNoExistException.class);
         anyUser.aceptRequest(anyBookingRequestMock);
     }
-*/
+
+    @Test
     public void testRejectRequest(){
         User anyUser = userBuilder.createUser()
                 .withWebSite(anyWebSiteMock)
@@ -192,6 +196,7 @@ public class UserTest extends TestCase {
         verify(anyNotifierMock).notifyRejectByMail(anyBookingRequestMock);
     }
 
+    @Test
     public void testSearchVehicle(){
         List<Publication> publications = Collections.singletonList(anyPublicationMock);
         User anyUser = userBuilder.createUser()
@@ -205,6 +210,7 @@ public class UserTest extends TestCase {
         verify(anyFilterMock).filterAndOrder(publications);
     }
 
+    @Test
     public void testDeleteExpiredPublications(){
         Publication anyPublicationMock2 = mock(Publication.class);
         Publication anyPublicationMock3 = mock(Publication.class);
@@ -228,8 +234,9 @@ public class UserTest extends TestCase {
         assertTrue(anyUser.getMyPublications().contains(anyPublicationMock2));
         assertTrue(anyUser.getMyPublications().contains(anyPublicationMock3));
     }
-
-    public void testConfirmRequestBuyerWith2PartsAcepted() throws NoAceptedException, NotEnoughCreditsException {
+    
+    @Test
+    public void testConfirmRequestBuyerWith2PartsAcepted() throws NoAceptedException {
         User anyUserMock = mock(User.class);
         CreditsAccount anotherCreditsMock = mock(CreditsAccount.class);
         User anyUser = userBuilder.createUser()
@@ -247,7 +254,8 @@ public class UserTest extends TestCase {
         this.verifyTestConfirmRequest(anotherCreditsMock,anyCreditsAccountMock);
     }
 
-    public void testConfirmRequestBuyerWithOut2PartsAcepted() throws NoAceptedException, NotEnoughCreditsException {
+    @Test
+    public void testConfirmRequestBuyerWithOut2PartsAcepted() throws NoAceptedException {
         User anyUserMock = mock(User.class);
         CreditsAccount anotherCreditsMock = mock(CreditsAccount.class);
         User anyUser = userBuilder.createUser()
@@ -266,7 +274,8 @@ public class UserTest extends TestCase {
         verify(anyBookingRequestMock).setStateOfVehicleRetreatSeller(false);
     }
 
-    public void testConfirmRequestSellerWith2PartsAcepted() throws NoAceptedException, NotEnoughCreditsException {
+    @Test
+    public void testConfirmRequestSellerWith2PartsAcepted() throws NoAceptedException {
         User anyUserMock = mock(User.class);
         CreditsAccount anotherCreditsMock = mock(CreditsAccount.class);
         User anyUser = userBuilder.createUser()
@@ -284,7 +293,8 @@ public class UserTest extends TestCase {
         this.verifyTestConfirmRequest(anyCreditsAccountMock,anotherCreditsMock);
     }
 
-    public void testConfirmRequestSellerWithOut2PartsAcepted() throws NoAceptedException, NotEnoughCreditsException {
+    @Test
+    public void testConfirmRequestSellerWithOut2PartsAcepted() throws NoAceptedException {
         User anyUserMock = mock(User.class);
         CreditsAccount anotherCreditsMock = mock(CreditsAccount.class);
         User anyUser = userBuilder.createUser()
@@ -302,6 +312,7 @@ public class UserTest extends TestCase {
         this.verifyTestConfirmRequest(anyCreditsAccountMock,anotherCreditsMock);
     }
 
+    @Test
     public void testConfirmVehicleReturnBuyerWith2PartsAcepted() throws NoAceptedException {
         User anyUser = userBuilder.createUser()
                 .withWebSite(anyWebSiteMock)
@@ -323,6 +334,7 @@ public class UserTest extends TestCase {
         verify(anyScoreManagerMock).addScore(anyVehicleScoreMock);
     }
 
+    @Test
     public void testConfirmVehicleReturnSellerWithOut2PartsAcepted() throws NoAceptedException {
         User anyUser = userBuilder.createUser()
                 .withWebSite(anyWebSiteMock)
@@ -354,8 +366,7 @@ public class UserTest extends TestCase {
         when(anyWebSiteMock.getNotifier()).thenReturn(anyNotifierMock);
     }
 
-    private void verifyTestConfirmRequest(CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount)
-            throws NotEnoughCreditsException {
+    private void verifyTestConfirmRequest(CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount) {
         verify(beneficiaryAccount).addCredits(100.0);
         verify(damagedAccount).sustractCredits(100.0);
     }

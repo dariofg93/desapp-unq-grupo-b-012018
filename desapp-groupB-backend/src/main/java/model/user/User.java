@@ -5,7 +5,6 @@ import model.creditsAccount.CreditsAccount;
 import model.email.Email;
 import model.exceptions.BannedException;
 import model.exceptions.NoAceptedException;
-import model.exceptions.NotEnoughCreditsException;
 import model.exceptions.RequestNoExistException;
 import model.filter.QuestFilter;
 import model.movements.MovementsOfMonth;
@@ -66,7 +65,7 @@ public class User {
         this.creditsAccount.addCredits(anyCredits);
     }
 
-    public void retireCredits(Double anyCredits) throws NotEnoughCreditsException {
+    public void retireCredits(Double anyCredits) {
         this.creditsAccount.sustractCredits(anyCredits);
     }
 
@@ -120,7 +119,7 @@ public class User {
  *   y no exista respuesta de su contraparte dentro de los 30 minutos, la misma se da por rechazada.
  */
     public void confirmVehicleRetreatBuyer(BookingRequest anyRequest)
-            throws NoAceptedException, NotEnoughCreditsException {
+            throws NoAceptedException {
 
         Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
         anyRequest.setStateOfVehicleRetreatBuyer(true);
@@ -136,7 +135,7 @@ public class User {
     }
 
     public void confirmVehicleRetreatSeller(BookingRequest anyRequest)
-            throws NoAceptedException, NotEnoughCreditsException {
+            throws NoAceptedException {
 
         Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
         anyRequest.setStateOfVehicleRetreatSeller(true);
@@ -158,16 +157,14 @@ public class User {
         //}
     }
 
-    private void executeTransferByTimeLimit(BookingRequest anyRequest,CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount, Publication anyPublication)
-            throws NotEnoughCreditsException {
+    private void executeTransferByTimeLimit(BookingRequest anyRequest,CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount, Publication anyPublication){
         //if(Pasaron 30 minutos && !anyRequest.getState().getConfirmRetreatBuyer()){
             this.executeTransfer(anyRequest,beneficiaryAccount,damagedAccount,anyPublication);
             this.movementsOfMonth.addToHistory("The transaction has been canceled!");
         //}
     }
 /**----------------------------------------------------------------------------------------------------------------------------------*/
-    private void executeTransfer(BookingRequest anyRequest, CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount, Publication anyPublication)
-            throws NotEnoughCreditsException {
+    private void executeTransfer(BookingRequest anyRequest, CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount, Publication anyPublication) {
 
         anyRequest.setDateTimeOfReservation(DateTime.now());
 
@@ -188,7 +185,7 @@ public class User {
  * Ambos usuarios pueden ingresar comentarios al momento de puntuar a su contraparte.
  */
 
-    public void confirmVehicleReturnBuyer(BookingRequest anyRequest, OfVehicle scoreOfVehicle, OfSeller scoreOfSeller)
+    public void confirmVehicleReturnBuyer(BookingRequest anyRequest, Score scoreOfVehicle, Score scoreOfSeller)
             throws NoAceptedException {
 
         Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
@@ -203,7 +200,7 @@ public class User {
         this.checkFixRentalTime(anyRequest,anyPublication);
     }
 
-    public void confirmVehicleReturnSeller(BookingRequest anyRequest, OfBuyer scoreOfBuyer)
+    public void confirmVehicleReturnSeller(BookingRequest anyRequest, Score scoreOfBuyer)
             throws NoAceptedException {
 
         Publication anyPublication = this.searchPublicationOfRequest(anyRequest);

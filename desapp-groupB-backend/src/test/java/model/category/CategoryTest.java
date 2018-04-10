@@ -1,4 +1,4 @@
-package category;
+package model.category;
 
 import static org.junit.Assert.*;
 

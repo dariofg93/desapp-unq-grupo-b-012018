@@ -1,6 +1,5 @@
 package model.creditsAccount;
 
-import model.exceptions.NotEnoughCreditsException;
 
 public class CreditsAccount {
 
@@ -14,7 +13,7 @@ public class CreditsAccount {
         this.amount+= anyCredits;
     }
 
-    public void sustractCredits(Double anyCredits) throws NotEnoughCreditsException {
+    public void sustractCredits(Double anyCredits) {
         if(anyCredits <= this.amount)
             this.amount-= anyCredits;
     }

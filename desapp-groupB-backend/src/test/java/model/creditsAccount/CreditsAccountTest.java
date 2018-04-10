@@ -1,7 +1,6 @@
 package model.creditsAccount;
 
 import junit.framework.TestCase;
-import model.exceptions.NotEnoughCreditsException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
@@ -24,17 +23,11 @@ public class CreditsAccountTest extends TestCase {
         assertEquals(creditsAccount.getAmount(), 50.0);
     }
 
-    public void testSustractCreditsWithSuficientCredits() throws NotEnoughCreditsException {
+    public void testSustractCreditsWithSuficientCredits() {
         creditsAccount.addCredits(50.0);
         creditsAccount.sustractCredits(30.0);
         assertEquals(creditsAccount.getAmount(), 20.0);
     }
-/*
-    public void testSustractCreditsWithOutSuficientCredits() throws NotEnoughCreditsException {
-        creditsAccount.addCredits(50.0);
 
-        thrown.expect(NotEnoughCreditsException.class);
-        creditsAccount.sustractCredits(80.0);
-    }
-*/
+
 }
