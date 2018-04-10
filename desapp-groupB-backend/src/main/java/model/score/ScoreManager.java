@@ -5,6 +5,10 @@ import java.util.List;
 public class ScoreManager {
 
     private List<Score> scores;
+    
+    public ScoreManager(List<Score> someList) {
+    	scores = someList;
+    }
 
     public Double minimumScoreAccepted() {
         return 4.0;
