@@ -6,9 +6,10 @@ import model.publication.Publication;
 import java.util.List;
 
 public abstract class QuestFilter {
-    protected Order order;
+    
+	protected Order order;
 
-    public abstract List<Publication> filterAndOrder(List<Publication> anyPublications);
+	public abstract List<Publication> filterAndOrder(List<Publication> anyPublications);
 
     /** Setters and Getters **/
 

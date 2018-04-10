@@ -8,7 +8,7 @@ public class Approved extends BookingState {
     private Boolean confirmReturnSeller;
 
     public Approved(){
-        this.confirmRetreatSeller = false;
+        this.confirmRetreatSeller = false; 
         this.confirmRetreatBuyer = false;
         this.confirmReturnBuyer = false;
         this.confirmReturnSeller = false;

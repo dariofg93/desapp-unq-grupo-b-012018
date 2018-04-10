@@ -25,6 +25,7 @@ public class Notifier {
         anyUser.getEmail().addMailCarpnd(this.mailBuilded);
         this.mailBuilded = null;
     }
+    
 
     public void notifyAceptByMail(BookingRequest anyRequest) {
         anyRequest.setAcepted();

@@ -1,24 +1,20 @@
 package model.filter;
 
 import junit.framework.TestCase;
-import model.builders.ByCategoryBuilder;
+import model.builders.FilterByCategoryBuilder;
 import model.order.Order;
 import model.publication.Publication;
 import model.vehicle.Vehicle;
 import model.vehicleType.Category;
 import org.junit.Before;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-public class ByCategoryTest extends TestCase {
+public class FilterByCategoryTest extends TestCase {
 
-    private ByCategoryBuilder byCategoryBuilder;
-
-    private Order orderMock;
+	private Order orderMock;
     private Vehicle vehicleMock;
     private Category categoryMock;
     private Publication anyPublicationMock;
@@ -26,7 +22,6 @@ public class ByCategoryTest extends TestCase {
     @Before
 	public void setUp() throws Exception {
         super.setUp();
-        this.byCategoryBuilder = new ByCategoryBuilder();
 
         this.orderMock = mock(Order.class);
         this.vehicleMock = mock(Vehicle.class);
@@ -35,18 +30,18 @@ public class ByCategoryTest extends TestCase {
 	}
 
     public void testFilterAndOrder(){
-        List<Publication> publications = Collections.singletonList(anyPublicationMock);
+        List<Publication> publications = spy(new ArrayList<Publication>());
+        publications.add(anyPublicationMock);
 
-        ByCategory filterByCategory = byCategoryBuilder.createFilterByCategory()
-                .withOrder(orderMock)
-                .withCategory(categoryMock)
-                .build();
+        FilterByCategory filterByCategory = new FilterByCategory(orderMock, categoryMock);
 
         when(anyPublicationMock.getPublishedVehicle()).thenReturn(vehicleMock);
         when(vehicleMock.itsCategory(categoryMock)).thenReturn(true);
 
         filterByCategory.filterAndOrder(publications);
 
-        //No hay control sobre la lista que le llega al order, no se puede verificar nada.
+        verify(orderMock).order(any());
+        verify(publications).stream();
+        verify(vehicleMock).itsCategory(any());
     }
 }

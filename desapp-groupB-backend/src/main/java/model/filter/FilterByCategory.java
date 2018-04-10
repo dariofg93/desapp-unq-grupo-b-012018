@@ -1,18 +1,28 @@
 package model.filter;
 
+import model.order.Order;
 import model.publication.Publication;
 import model.vehicleType.Category;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ByCategory extends QuestFilter{
+public class FilterByCategory extends QuestFilter{
 
     private Category category;
 
-    @Override
+    public FilterByCategory(Order anOrder, Category aCategory) {
+    	category = aCategory;
+    	order = anOrder;
+	}
+
+	public FilterByCategory() {
+		// para el builder y la persistencia
+	}
+	
+	@Override
     public List<Publication> filterAndOrder(List<Publication> anyPublications) {
-        List publications = anyPublications.stream()
+        List<Publication> publications = anyPublications.stream()
                 .filter(p-> p.getPublishedVehicle().itsCategory(this.category))
                 .collect(Collectors.toList());
 

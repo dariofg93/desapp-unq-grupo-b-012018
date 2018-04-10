@@ -9,7 +9,7 @@ import model.creditsAccount.CreditsAccount;
 import model.exceptions.BannedException;
 import model.exceptions.NoAceptedException;
 import model.exceptions.RequestNoExistException;
-import model.filter.ByCategory;
+import model.filter.FilterByCategory;
 import model.filter.QuestFilter;
 import model.notifier.Notifier;
 import model.publication.Publication;
@@ -54,7 +54,7 @@ public class UserTest {
 	public void setUp() throws Exception {
         this.userBuilder = new UserBuilder();
 
-        this.anyFilterMock = mock(ByCategory.class);
+        this.anyFilterMock = mock(FilterByCategory.class);
         this.anyWebSiteMock = mock(WebSite.class);
         this.anyNotifierMock = mock(Notifier.class);
         this.anyBuyerScoreMock = mock(Score.class);

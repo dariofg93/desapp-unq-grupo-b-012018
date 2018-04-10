@@ -6,13 +6,13 @@ import model.publication.Publication;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ByLocality extends QuestFilter {
+public class FilterByCity extends QuestFilter {
 
     private City city;
 
     @Override
     public List<Publication> filterAndOrder(List<Publication> anyPublications) {
-        List publications = anyPublications.stream()
+    	 List<Publication> publications = anyPublications.stream()
                 .filter(p-> p.getCity().isSame(this.city))
                 .collect(Collectors.toList());
 
