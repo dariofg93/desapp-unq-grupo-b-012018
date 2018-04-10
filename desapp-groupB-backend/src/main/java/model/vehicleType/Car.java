@@ -1,9 +1,10 @@
 package model.vehicleType;
 
-public class Scooter extends Category {  
-
+public class Car extends Category{
+	
 	@Override
 	public String getName() {
-		return "Scooter";
+		return "Car";
 	}
+
 }
