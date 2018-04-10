@@ -1,0 +1,29 @@
+========================================================================
+Carpnd -- An Booking, but of cars... 
+========================================================================
+
+Carpnd is a social network, which you can use to rent your car
+in those moments that you're not using it, and that way you get
+the best possible benefit.
+
+---------------------------------------------------------------------
+Release 1.0.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Creation of the Repository in Github (https://github.com/fbritez/desapp-unq-grupo-b-012018).
+* Configuration in Travis (https://travis-ci.org/fbritez/desapp-unq-grupo-b-012018).
+* Project configuration in Codacy https://www.codacy.com.
+* Deploy automatic using ng serve, with ng cli.
+* Project Front and Layout of the solution.
+* Integration with gmaps for angular5.
+* Complete implementation of the model.
+* Automatic unit test.
+
+NOTES:
+* Lack of integration with HEROKU.
+* Implementation of some unit tests, to have complete coverage in the model.
+* Basic features in the layout of the map (distance and time between 2 points).
+* The SUCCES in the Travis build.
+
+KNOWN ISSUES:
+...
