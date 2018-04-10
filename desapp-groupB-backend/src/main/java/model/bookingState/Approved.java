@@ -65,4 +65,9 @@ public class Approved extends BookingState {
     public void setConfirmReturnSeller(Boolean confirmReturnSeller){
         this.confirmReturnSeller = confirmReturnSeller;
     }
+    
+	@Override
+	public boolean isApproved() {
+		return true;
+	}
 }

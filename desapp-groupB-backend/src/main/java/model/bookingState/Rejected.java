@@ -11,4 +11,9 @@ public class Rejected extends BookingState {
     public BookingState setRejected() {
         return this;
     }
+    
+	@Override
+	public boolean isApproved() {
+		return false;
+	}
 }

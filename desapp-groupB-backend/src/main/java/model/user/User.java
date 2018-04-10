@@ -45,6 +45,7 @@ public class User {
         }else
             throw new BannedException("You can't make publications if you're banned");
     }
+    
 
     public void rentVehicle(Publication anyPublication, BookingRequest bookingRequest) throws BannedException {
         if(!this.isBanned()){
@@ -79,7 +80,7 @@ public class User {
         if(anyPublication != null) {
             this.webSite.getNotifier().notifyAceptByMail(anyRequest);
 
-            anyPublication.getRequests().stream()
+            anyPublication.allBookingRequest().stream()
                     .filter(request -> !request.equals(anyRequest) && anyPublication.remainingTime() < anyRequest.getTotalHours())
                     .forEach(request -> this.webSite.getNotifier().notifyRejectByMail(request));
 
@@ -168,7 +169,6 @@ public class User {
     private void executeTransfer(BookingRequest anyRequest, CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount, Publication anyPublication)
             throws NotEnoughCreditsException {
 
-        anyPublication.setCurrentAprovedRequest(anyRequest);
         anyRequest.setDateTimeOfReservation(DateTime.now());
 
         Double totalCharge = anyPublication.getPricePerHour() * anyRequest.getTotalHours();
@@ -221,8 +221,6 @@ public class User {
 
     private void checkFixRentalTime(BookingRequest anyRequest, Publication anyPublication) throws NoAceptedException {
         if(anyRequest.getState().getConfirmReturnBuyer() && anyRequest.getState().getConfirmReturnSeller()) {
-            anyPublication.setCurrentAprovedRequest(null);
-
             Integer hoursOfTheReservation = Hours.hoursBetween(anyRequest.getDateTimeOfReservation(), DateTime.now()).getHours();
             anyRequest.setHoursOfTheReservation(hoursOfTheReservation);
         }

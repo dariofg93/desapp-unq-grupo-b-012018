@@ -35,6 +35,7 @@ public class UserTest extends TestCase {
 
     @Rule
     private ExpectedException thrown= ExpectedException.none();
+    
 
     private UserBuilder userBuilder;
 
@@ -314,7 +315,6 @@ public class UserTest extends TestCase {
 
         anyUser.confirmVehicleReturnBuyer(anyBookingRequestMock, anyVehicleScoreMock, anySellerScoreMock);
 
-        verify(anyPublicationMock).setCurrentAprovedRequest(null);
         verify(anyBookingRequestMock).setHoursOfTheReservation(5);
 
         verify(anyBookingRequestMock).setStateOfVehicleReturnBuyer(true);
@@ -356,7 +356,6 @@ public class UserTest extends TestCase {
 
     private void verifyTestConfirmRequest(CreditsAccount beneficiaryAccount, CreditsAccount damagedAccount)
             throws NotEnoughCreditsException {
-        verify(anyPublicationMock).setCurrentAprovedRequest(anyBookingRequestMock);
         verify(beneficiaryAccount).addCredits(100.0);
         verify(damagedAccount).sustractCredits(100.0);
     }

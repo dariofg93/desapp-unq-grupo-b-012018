@@ -11,4 +11,9 @@ public class AwaitingApprobal extends BookingState {
     public BookingState setRejected() {
         return new Rejected();
     }
+
+	@Override
+	public boolean isApproved() {
+		return false;
+	}
 }

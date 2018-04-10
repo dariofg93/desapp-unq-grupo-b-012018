@@ -2,13 +2,13 @@ package model.publication;
 
 import model.booking.BookingRequest;
 import model.city.City;
+import model.exceptions.BookingNotFoundException;
 import model.maps.GeographicZoneDescription;
 import model.user.User;
 import model.vehicle.Vehicle;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,23 +51,14 @@ public class Publication {
     }
 
     public Integer remainingTime() {
+    	Integer hours;
+    	try {
+    		hours = Hours.hoursBetween(this.currentAprovedRequest().endOfReservation(),this.toDate).getHours();
+    	} catch (BookingNotFoundException ex) {
+    		hours = Hours.ZERO.getHours();
+    	}
     	
-    	/*
-    	 * 
-    	 * Aca lo que se tiene que hacer es buscar entre los booking request cual esta aprobada para dateTime.now()
-    	 * y a esa  es la currentAprovedReques
-    	 * y despues es solo hacer lo que hace esta linea
-    	 * 
-    	 * return Hours.hoursBetween(this.currentAprovedRequest.endOfReservation(),this.toDate).getHours()
-        
-        
-        
-        if(this.currentAprovedRequest == null)
-            return Hours.hoursBetween(new DateTime(),this.toDate).getHours();
-        else
-            return Hours.hoursBetween(this.currentAprovedRequest.endOfReservation(),this.toDate).getHours();
-            */
-    	return 0;
+    	return hours;
     }
 
     public Boolean isExpired() {
@@ -82,10 +73,6 @@ public class Publication {
 
     public Vehicle getPublishedVehicle() {
         return publishedVehicle;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public User getUser() {
@@ -120,13 +107,36 @@ public class Publication {
 		return requests;
 	}
 	
-	public BookingRequest approvedRequestForDate(DateTime date) {
-		List<BookingRequest> aproovedRequests = 
-					requests.stream()
-						.filter(request -> request.isApproved() && 
+	public List<BookingRequest> approvedRequestsForDate(DateTime date){
+		
+		// Delegar esto a la base de datos.
+		
+		return requests.stream()
+						.filter(request -> 
+						request.isApproved()
+						&& 
 										   (request.getDateTimeOfReservation().isBefore(date) 
-												   && request.endOfReservation().isAfter(date)))
+												   && request.endOfReservation().isAfter(date))
+						)
 						.collect(Collectors.toList());
+		
+	}
+
+	public boolean isAvailableFor(DateTime someDate) {
+		
+		return this.approvedRequestsForDate(someDate).isEmpty();
+	}
+	
+	public BookingRequest currentAprovedRequest() throws BookingNotFoundException{
+		List<BookingRequest> maybeResult = this.approvedRequestsForDate(DateTime.now());
+		if (maybeResult.isEmpty()) {
+			throw new BookingNotFoundException();
+ 		}
+		return maybeResult.get(0);
+	}
+	
+	public void setUser(User anUser) {
+		user = anUser;
 		
 	}
 }

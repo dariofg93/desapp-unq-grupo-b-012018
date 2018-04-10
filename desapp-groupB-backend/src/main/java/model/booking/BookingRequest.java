@@ -89,4 +89,9 @@ public class BookingRequest implements MailBody {
     public Integer getHoursOfTheReservation() {
         return this.hoursOfTheReservation;
     }
+
+	public boolean isApproved() {
+		
+		return state.isApproved();
+	}
 }

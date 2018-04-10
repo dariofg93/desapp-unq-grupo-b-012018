@@ -41,4 +41,6 @@ public abstract class BookingState {
     public void setConfirmReturnSeller(Boolean confirmReturnSeller) throws NoAceptedException {
         throw new NoAceptedException();
     }
+
+	public abstract boolean isApproved();
 }
