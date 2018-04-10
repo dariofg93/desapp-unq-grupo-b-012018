@@ -1,62 +1,61 @@
 package model.bookingState;
-/*
+
 import junit.framework.TestCase;
+import model.exceptions.BookingNotFoundException;
 import model.exceptions.NoAceptedException;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class BookingStateTest extends TestCase {
-
-    @Rule
-    private ExpectedException thrown= ExpectedException.none();
+public class BookingStateTest {
 
     private BookingState anyState;
 
     @Before
     public void setUp() throws Exception {
-        super.setUp();
+
         this.anyState = new AwaitingApprobal();
     }
 
+    @Test(expected = NoAceptedException.class)	
     public void testGetConfirmRetreatBuyer() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.getConfirmRetreatBuyer();
     }
+    
 
+    @Test(expected = NoAceptedException.class)	
     public void testGetConfirmRetreatSeller() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.getConfirmRetreatSeller();
     }
-
+    
+    @Test(expected = NoAceptedException.class)	
     public void testGetConfirmReturnBuyer() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.getConfirmReturnBuyer();
     }
 
+    @Test(expected = NoAceptedException.class)	
     public void testGetConfirmReturnSeller() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.getConfirmReturnSeller();
     }
 
+    @Test(expected = NoAceptedException.class)	
     public void testSetConfirmRetreatBuyer() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.setConfirmRetreatBuyer(true);
     }
-
+    
+    @Test(expected = NoAceptedException.class)	
     public void testSetConfirmRetreatSeller() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.setConfirmRetreatSeller(true);
     }
 
+    @Test(expected = NoAceptedException.class)	
     public void testSetConfirmReturnBuyer() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.setConfirmReturnBuyer(true);
     }
 
+    @Test(expected = NoAceptedException.class)	
     public void testSetConfirmReturnSeller() throws NoAceptedException {
-        thrown.expect(NoAceptedException.class);
         anyState.setConfirmReturnSeller(true);
     }
 }
-*/

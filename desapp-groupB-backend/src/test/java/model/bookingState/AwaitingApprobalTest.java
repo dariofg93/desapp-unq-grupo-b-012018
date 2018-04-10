@@ -20,4 +20,8 @@ public class AwaitingApprobalTest extends TestCase {
     public void testSetRejected(){
         assertTrue(anyAwaitingApprobal.setRejected() instanceof Rejected);
     }
+    
+    public void testIsApproved(){
+        assertFalse(anyAwaitingApprobal.isApproved());
+    }
 }

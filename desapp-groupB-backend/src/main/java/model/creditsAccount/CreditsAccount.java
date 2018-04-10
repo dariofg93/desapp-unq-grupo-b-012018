@@ -17,8 +17,6 @@ public class CreditsAccount {
     public void sustractCredits(Double anyCredits) throws NotEnoughCreditsException {
         if(anyCredits <= this.amount)
             this.amount-= anyCredits;
-        else
-            throw new NotEnoughCreditsException();
     }
 
     /** Setters and Getters **/

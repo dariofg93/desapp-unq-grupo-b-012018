@@ -40,4 +40,8 @@ public class ApprovedTest extends TestCase {
         anyApproved.setConfirmReturnBuyer(true);
         assertTrue(anyApproved.getConfirmReturnBuyer());
     }
+    
+    public void testIsApproved(){
+        assertTrue(anyApproved.isApproved());
+    }
 }

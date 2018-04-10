@@ -20,4 +20,8 @@ public class RejectedTest extends TestCase {
     public void testSetRejected(){
         assertTrue(anyRejected.setRejected() instanceof Rejected);
     }
+    
+    public void testIsApproved(){
+        assertFalse(anyRejected.isApproved());
+    }
 }

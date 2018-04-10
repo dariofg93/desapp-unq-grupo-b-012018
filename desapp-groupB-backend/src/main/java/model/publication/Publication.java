@@ -42,6 +42,10 @@ public class Publication {
     	requests = new ArrayList<BookingRequest>();
 	}
 
+	public Publication() {
+		// Do nothing.
+	}
+
 	public void addBookingRequest(BookingRequest anyRequest) {
         this.requests.add(anyRequest);
     }
