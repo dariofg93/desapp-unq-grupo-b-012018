@@ -4,3 +4,6 @@
 *.iml
 .project
 .settings/
+desapp-groupB-backend/target/
+desapp-groupB-backend/bin/
+

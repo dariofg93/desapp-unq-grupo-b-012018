@@ -28,6 +28,14 @@
             <version>2.9.9</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-runner -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-runner</artifactId>
+            <version>9.4.9.v20180320</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
   <build>
     <finalName>desapp-groupB-backend</finalName>
