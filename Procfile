@@ -1,0 +1,1 @@
+web: java -jar desapp-groupB-backend/target/dependency/jetty-runner-9.4.9.v20180320.jar --port $PORT target/*.war
