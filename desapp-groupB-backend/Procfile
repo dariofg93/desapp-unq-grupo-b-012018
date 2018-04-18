@@ -1,1 +1,1 @@
-web: java -jar target/dependency/jetty-runner-9.4.9.v20180320.jar --port $PORT target/*.war
+web: java -jar target/java-getting-started-1.0.jar
