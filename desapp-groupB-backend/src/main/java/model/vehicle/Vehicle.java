@@ -1,14 +1,17 @@
 package model.vehicle;
 
+import model.utils.Entity;
 import model.vehicleType.Category;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Vehicle {
 
-    private Category category;
+public class Vehicle extends Entity{
+	
+	private static final long serialVersionUID = -7816019452762349441L;
+
+	private Category category;
     private String description;
     private List<BufferedImage> pictures; 
     private Integer passengerCapacity;
@@ -19,6 +22,10 @@ public class Vehicle {
     	description = aDescription;
     	pictures = somePictures;
     	passengerCapacity = aNumberOfPassenger;
+    }
+    
+    public Vehicle() {
+    	
     }
     
     public Boolean itsCategory(Category anyCategory) {
@@ -44,5 +51,41 @@ public class Vehicle {
 	public void addPicture(BufferedImage img) {
 		pictures.add(img);
 	}
+	
+	
+	/*		GETTERS Y SETTERS		*/
+
+    public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<BufferedImage> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<BufferedImage> pictures) {
+		this.pictures = pictures;
+	}
+
+	public Integer getPassengerCapacity() {
+		return passengerCapacity;
+	}
+
+	public void setPassengerCapacity(Integer passengerCapacity) {
+		this.passengerCapacity = passengerCapacity;
+	}
+
     
 }
