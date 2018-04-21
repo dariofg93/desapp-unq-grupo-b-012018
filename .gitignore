@@ -4,6 +4,6 @@
 *.iml
 .project
 .settings/
-desapp-groupB-backend/target/
 desapp-groupB-backend/bin/
-
+.jar
+!/target/dependency/jetty-runner-9.4.9.v20180320.jar
