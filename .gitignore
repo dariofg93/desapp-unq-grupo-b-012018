@@ -5,6 +5,7 @@
 .project
 .settings/
 desapp-groupB-backend/bin/
+*.log
 
 target/ 
 #!/target/dependency/jetty-runner-9.4.9.v20180320.jar
