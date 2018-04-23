@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-
 public class GenericService<T> implements Serializable {
 
     private static final long serialVersionUID = -6540963495078524186L;
