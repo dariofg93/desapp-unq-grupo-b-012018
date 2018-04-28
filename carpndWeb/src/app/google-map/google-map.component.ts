@@ -27,7 +27,7 @@ export class GoogleMapComponent implements OnInit {
     /*------------------------ -------- -----------------------------------*/
 
     map.addListener('click', function(ev) {
-      placeMarker(ev.latLng, map);
+      this.placeMarker(ev.latLng, map);
     });
 
     function placeMarker(latLng, mapChanged) {
