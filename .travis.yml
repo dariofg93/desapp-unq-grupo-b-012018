@@ -8,3 +8,7 @@ install:
 script: 
     mvn test -B
 
+after_success:
+    after_success:
+  - mvn cobertura:cobertura
+  - mvn com.gavinmogan:codacy-maven-plugin:coverage -DcoverageReportFile=target/site/cobertura/coverage.xml -DprojectToken=00afb194beed4589aaa835437d603e98 -DapiToken=123121
