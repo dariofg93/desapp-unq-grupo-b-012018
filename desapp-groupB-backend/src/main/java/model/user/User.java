@@ -7,6 +7,7 @@ import model.exceptions.BannedException;
 import model.exceptions.NoAceptedException;
 import model.exceptions.RequestNoExistException;
 import model.filter.QuestFilter;
+import model.maps.GeographicZoneDescription;
 import model.movements.MovementsOfMonth;
 import model.publication.Publication;
 import model.score.*;
@@ -28,7 +29,7 @@ public class User {
     private String firstName;
     private String lastName;
     private Integer cuil;
-    private String addres;
+    private GeographicZoneDescription addres;
     private MovementsOfMonth movementsOfMonth;
 
     public User(){
