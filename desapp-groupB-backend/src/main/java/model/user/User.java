@@ -77,11 +77,11 @@ public class User {
         Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
 
         if(anyPublication != null) {
-            this.webSite.getNotifier().notifyAceptByMail(anyRequest);
+            this.webSite.getNotifier().notifyAceptByMail(this,anyRequest);
 
             anyPublication.allBookingRequest().stream()
                     .filter(request -> !request.equals(anyRequest) && anyPublication.remainingTime() < anyRequest.getTotalHours())
-                    .forEach(request -> this.webSite.getNotifier().notifyRejectByMail(request));
+                    .forEach(request -> this.webSite.getNotifier().notifyRejectByMail(this,request));
 
             this.movementsOfMonth.addToHistory("You have accepted a reservation by " +
                     anyRequest.getTotalHours() + " hours.");
@@ -91,7 +91,7 @@ public class User {
     }
 
     public void rejectRequest(BookingRequest anyRequest) {
-        this.webSite.getNotifier().notifyRejectByMail(anyRequest);
+        this.webSite.getNotifier().notifyRejectByMail(this,anyRequest);
         this.movementsOfMonth.addToHistory("You have rejected a reservation by " +
                 anyRequest.getTotalHours() + " hours.");
     }
@@ -123,7 +123,7 @@ public class User {
 
         Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
         anyRequest.setStateOfVehicleRetreatBuyer(true);
-        this.webSite.getNotifier().notifyRetreatBuyerByMail(anyRequest,anyPublication);
+        this.webSite.getNotifier().notifyRetreatBuyerByMail(anyPublication.getUser(),anyRequest);
 
         this.movementsOfMonth.addToHistory("You have confirmed that you have retreat a vehicle for a " +
                 anyRequest.getTotalHours() + " hours reservation.");
@@ -190,7 +190,7 @@ public class User {
 
         Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
         anyRequest.setStateOfVehicleReturnBuyer(true);
-        this.webSite.getNotifier().notifyReturnBuyerByMail(anyRequest,anyPublication);
+        this.webSite.getNotifier().notifyReturnBuyerByMail(anyPublication.getUser(),anyRequest);
 
         anyPublication.getUser().addScore(scoreOfSeller);
         anyPublication.getUser().addScore(scoreOfVehicle);
@@ -280,5 +280,9 @@ public class User {
 
     public MovementsOfMonth getMovementsOfMonth() {
         return this.movementsOfMonth;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
     }
 }

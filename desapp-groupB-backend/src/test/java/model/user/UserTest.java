@@ -1,11 +1,11 @@
 package model.user;
 
-import junit.framework.TestCase;
 import model.booking.BookingRequest;
 import model.bookingState.Approved;
 import model.bookingState.BookingState;
 import model.builders.UserBuilder;
 import model.creditsAccount.CreditsAccount;
+import model.email.Email;
 import model.exceptions.BannedException;
 import model.exceptions.NoAceptedException;
 import model.exceptions.RequestNoExistException;
@@ -13,16 +13,11 @@ import model.filter.FilterByCategory;
 import model.filter.QuestFilter;
 import model.notifier.Notifier;
 import model.publication.Publication;
-import model.score.LesseeScoreType;
-import model.score.OwnerScoreType;
 import model.score.Score;
-import model.score.VehicleScoreType;
 import model.score.ScoreManager;
-import model.user.User;
 import model.website.WebSite;
 import org.joda.time.DateTime;
 import org.junit.*;
-import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +29,6 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class UserTest {
-    
 
     private UserBuilder userBuilder;
 
@@ -51,7 +45,7 @@ public class UserTest {
     private BookingRequest anyBookingRequestMock;
 
     @Before
-	public void setUp() throws Exception {
+	public void setUp() {
         this.userBuilder = new UserBuilder();
 
         this.anyFilterMock = mock(FilterByCategory.class);
@@ -92,7 +86,6 @@ public class UserTest {
         when(anyScoreManagerMock.minimumScoreAccepted()).thenReturn(4.0);
         when(anyScoreManagerMock.averageScore()).thenReturn(3.5);
 
- 
         anyUser.publish(anyPublicationMock);
     }
 
@@ -168,7 +161,7 @@ public class UserTest {
 
         anyUser.aceptRequest(anyBookingRequestMock);
 
-        verify(anyNotifierMock).notifyAceptByMail(anyBookingRequestMock);
+        verify(anyNotifierMock).notifyAceptByMail(anyUser,anyBookingRequestMock);
     }
     
     @Test(expected = RequestNoExistException.class)
@@ -193,7 +186,7 @@ public class UserTest {
 
         anyUser.rejectRequest(anyBookingRequestMock);
 
-        verify(anyNotifierMock).notifyRejectByMail(anyBookingRequestMock);
+        verify(anyNotifierMock).notifyRejectByMail(anyUser,anyBookingRequestMock);
     }
 
     @Test
@@ -245,12 +238,12 @@ public class UserTest {
                 .withCreditsAccount(anyCreditsAccountMock)
                 .build();
 
-        this.prepareTestConfirmRequest(anyUserMock,anotherCreditsMock,true);
+        this.prepareTestConfirmRequest(anyUser,anyUserMock,anotherCreditsMock,true);
 
         anyUser.confirmVehicleRetreatBuyer(anyBookingRequestMock);
 
         verify(anyBookingRequestMock).setStateOfVehicleRetreatBuyer(true);
-        verify(anyNotifierMock).notifyRetreatBuyerByMail(anyBookingRequestMock,anyPublicationMock);
+        verify(anyNotifierMock).notifyRetreatBuyerByMail(anyUser,anyBookingRequestMock);
         this.verifyTestConfirmRequest(anotherCreditsMock,anyCreditsAccountMock);
     }
 
@@ -264,12 +257,12 @@ public class UserTest {
                 .withCreditsAccount(anyCreditsAccountMock)
                 .build();
 
-        this.prepareTestConfirmRequest(anyUserMock,anotherCreditsMock,false);
+        this.prepareTestConfirmRequest(anyUser,anyUserMock,anotherCreditsMock,false);
 
         anyUser.confirmVehicleRetreatBuyer(anyBookingRequestMock);
 
         verify(anyBookingRequestMock).setStateOfVehicleRetreatBuyer(true);
-        verify(anyNotifierMock).notifyRetreatBuyerByMail(anyBookingRequestMock,anyPublicationMock);
+        verify(anyNotifierMock).notifyRetreatBuyerByMail(anyUser,anyBookingRequestMock);
         verify(anyBookingRequestMock).setStateOfVehicleRetreatBuyer(false);
         verify(anyBookingRequestMock).setStateOfVehicleRetreatSeller(false);
     }
@@ -284,7 +277,7 @@ public class UserTest {
                 .withCreditsAccount(anyCreditsAccountMock)
                 .build();
 
-        this.prepareTestConfirmRequest(anyUserMock,anotherCreditsMock,true);
+        this.prepareTestConfirmRequest(anyUser,anyUserMock,anotherCreditsMock,true);
 
         anyUser.confirmVehicleRetreatSeller(anyBookingRequestMock);
 
@@ -303,7 +296,7 @@ public class UserTest {
                 .withCreditsAccount(anyCreditsAccountMock)
                 .build();
 
-        this.prepareTestConfirmRequest(anyUserMock,anotherCreditsMock,false);
+        this.prepareTestConfirmRequest(anyUser,anyUserMock,anotherCreditsMock,false);
 
         anyUser.confirmVehicleRetreatSeller(anyBookingRequestMock);
 
@@ -329,7 +322,7 @@ public class UserTest {
         verify(anyBookingRequestMock).setHoursOfTheReservation(5);
 
         verify(anyBookingRequestMock).setStateOfVehicleReturnBuyer(true);
-        verify(anyNotifierMock).notifyReturnBuyerByMail(anyBookingRequestMock,anyPublicationMock);
+        verify(anyNotifierMock).notifyReturnBuyerByMail(anyUser,anyBookingRequestMock);
         verify(anyScoreManagerMock).addScore(anySellerScoreMock);
         verify(anyScoreManagerMock).addScore(anyVehicleScoreMock);
     }
@@ -353,10 +346,11 @@ public class UserTest {
     }
 
 /** ---------------------------------------- Privates(no tests) ------------------------------------------------- */
-    private void prepareTestConfirmRequest(User anyUserMock, CreditsAccount anotherCreditsMock, Boolean confirmParts)
+    private void prepareTestConfirmRequest(User anyPublisher, User anyUserMock, CreditsAccount anotherCreditsMock, Boolean confirmParts)
             throws NoAceptedException {
         when(anyPublicationMock.containsRequest(anyBookingRequestMock)).thenReturn(true);
         when(anyPublicationMock.getPricePerHour()).thenReturn(20.0);
+        when(anyPublicationMock.getUser()).thenReturn(anyPublisher);
         when(anyBookingRequestMock.getTotalHours()).thenReturn(5);
         when(anyBookingRequestMock.getRequester()).thenReturn(anyUserMock);
         when(anyUserMock.getCreditsAccount()).thenReturn(anotherCreditsMock);

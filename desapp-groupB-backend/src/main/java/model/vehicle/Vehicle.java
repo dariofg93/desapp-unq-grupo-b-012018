@@ -18,71 +18,47 @@ public class Vehicle extends Entity{
     // Por ahora modelamos las imaganes con BufferedImage. Si despues hay uqe cambiar la clase vemos.
 
     public Vehicle(Category aCategory , String aDescription, List<BufferedImage> somePictures, Integer aNumberOfPassenger) {
-    	category = aCategory;
-    	description = aDescription;
-    	pictures = somePictures;
-    	passengerCapacity = aNumberOfPassenger;
+		this.category = aCategory;
+		this.description = aDescription;
+		this.pictures = somePictures;
+		this.passengerCapacity = aNumberOfPassenger;
     }
     
-    public Vehicle() {
-    	
-    }
+    public Vehicle() {}
     
     public Boolean itsCategory(Category anyCategory) {
-        return this.category.isSame(category);
-    }
-    
-    public Integer passengerCapacity() {
-    	return passengerCapacity;
-    }
-    
-    public Category category() {
-    	return category;
-    }
-    
-    public  List<BufferedImage> pictures(){
-    	return pictures;
-    }
-    
-    public String description() {
-    	return description;
+        return this.category.isSame(anyCategory);
     }
 
 	public void addPicture(BufferedImage img) {
 		pictures.add(img);
 	}
-	
-	
-	/*		GETTERS Y SETTERS		*/
 
+	/** Setters and Getters **/
     public Category getCategory() {
-		return category;
+		return this.category;
 	}
-
 	public void setCategory(Category category) {
 		this.category = category;
 	}
 
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
 	public List<BufferedImage> getPictures() {
-		return pictures;
+		return this.pictures;
 	}
-
 	public void setPictures(List<BufferedImage> pictures) {
 		this.pictures = pictures;
 	}
 
 	public Integer getPassengerCapacity() {
-		return passengerCapacity;
+		return this.passengerCapacity;
 	}
-
 	public void setPassengerCapacity(Integer passengerCapacity) {
 		this.passengerCapacity = passengerCapacity;
 	}

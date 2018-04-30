@@ -31,9 +31,9 @@ public class VehicleTest {
 	public void testCreation() {
 		assertTrue(vehicle.itsCategory(Category.car()));
 		
-		assertEquals(vehicle.description(), "Auto grande y espacioso. Motor 2.0.");
-		assertEquals(vehicle.pictures(),collectionOfPictures);
-		assertEquals(vehicle.passengerCapacity(), new Integer(5));
+		assertEquals(vehicle.getDescription(), "Auto grande y espacioso. Motor 2.0.");
+		assertEquals(vehicle.getPictures(),collectionOfPictures);
+		assertEquals(vehicle.getPassengerCapacity(), new Integer(5));
 	}
 	
 	

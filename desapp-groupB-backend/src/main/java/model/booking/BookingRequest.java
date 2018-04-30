@@ -48,6 +48,11 @@ public class BookingRequest implements MailBody {
         return this.dateTimeOfReservation.plusHours(this.totalHours);
     }
 
+    public boolean isApproved() {
+
+        return state.isApproved();
+    }
+
     /** Setters and Getters **/
 
     public User getRequester() {
@@ -89,9 +94,4 @@ public class BookingRequest implements MailBody {
     public Integer getHoursOfTheReservation() {
         return this.hoursOfTheReservation;
     }
-
-	public boolean isApproved() {
-		
-		return state.isApproved();
-	}
 }

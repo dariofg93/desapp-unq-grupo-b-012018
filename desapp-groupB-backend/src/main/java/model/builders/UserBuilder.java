@@ -1,6 +1,7 @@
 package model.builders;
 
 import model.creditsAccount.CreditsAccount;
+import model.email.Email;
 import model.publication.Publication;
 import model.score.ScoreManager;
 import model.user.User;
@@ -39,6 +40,11 @@ public class UserBuilder {
 
     public UserBuilder withCreditsAccount(CreditsAccount anyCreditsAccountMock) {
         buildUser.setCreditsAccount(anyCreditsAccountMock);
+        return this;
+    }
+
+    public UserBuilder withEmail(Email anyEmail) {
+        buildUser.setEmail(anyEmail);
         return this;
     }
 }
