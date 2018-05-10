@@ -1,5 +1,7 @@
 package persistence;
 
+import org.hibernate.Query;
+
 import model.vehicle.Vehicle;
 
 public class VehicleRepository extends HibernateGenericDAO<Vehicle> implements GenericRepository<Vehicle> {
@@ -10,5 +12,13 @@ public class VehicleRepository extends HibernateGenericDAO<Vehicle> implements G
     protected Class<Vehicle> getDomainClass() {
         return Vehicle.class;
     }
+
+	@Override
+	public void execute(String stringQuery) {
+		Query query = this.getSessionFactory().getCurrentSession().createQuery(stringQuery);
+		query.executeUpdate();
+	}
+    
+    
 
 }

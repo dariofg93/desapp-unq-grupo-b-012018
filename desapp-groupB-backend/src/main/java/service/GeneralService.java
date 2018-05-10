@@ -4,7 +4,6 @@ public class GeneralService {
 
 		private VehicleService vehicleService;
 		
-	
 		public VehicleService getVehicleService() {
 			return vehicleService;
 		}
@@ -13,5 +12,4 @@ public class GeneralService {
 			this.vehicleService = vehicleService;
 		}
 
-	
 }

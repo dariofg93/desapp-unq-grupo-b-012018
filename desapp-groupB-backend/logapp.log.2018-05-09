@@ -1,0 +1,229 @@
+2018-05-09 01:28:20,704 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-05-09 01:28:20,817 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71423665, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@20398b7c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fc6f14e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@56235b8e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3632be31]
+2018-05-09 01:28:21,310 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-05-09 01:28:22,079 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-05-09 01:28:22,199 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 01:28:22 ART 2018]; root of context hierarchy
+2018-05-09 01:28:22,447 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-05-09 01:28:22,448 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-05-09 01:28:22,891 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-05-09 01:28:22,913 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-05-09 01:28:22,918 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-05-09 01:28:22,921 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-05-09 01:28:23,024 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-05-09 01:28:23,490 WARN  org.hibernate.engine.jdbc.internal.JdbcServicesImpl (JdbcServicesImpl.java:204) - HHH000342: Could not obtain connection to query metadata : Cannot create PoolableConnectionFactory (Unknown database 'desapp-unq')
+2018-05-09 01:28:23,498 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2018-05-09 01:28:23,509 INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder (LobCreatorBuilder.java:88) - HHH000422: Disabling contextual LOB creation as connection was null
+2018-05-09 01:28:23,577 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-05-09 01:28:23,584 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-05-09 01:28:24,052 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@5b7ea70d] of Hibernate SessionFactory for HibernateTransactionManager
+2018-05-09 01:28:24,070 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-05-09 01:28:24,100 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-05-09 01:28:24,111 WARN  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:227) - Error while extracting database product name - falling back to empty error codes
+org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta data; nested exception is org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Unknown database 'desapp-unq')
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:302)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:329)
+	at org.springframework.jdbc.support.SQLErrorCodesFactory.getErrorCodes(SQLErrorCodesFactory.java:214)
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.setDataSource(SQLErrorCodeSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.<init>(SQLErrorCodeSQLExceptionTranslator.java:97)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:147)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:122)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:270)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1131)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1034)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:504)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:762)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Could not get JDBC Connection; nested exception is org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Unknown database 'desapp-unq')
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:289)
+	... 53 more
+Caused by: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Unknown database 'desapp-unq')
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:77)
+	... 54 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'desapp-unq'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.Util.getInstance(Util.java:381)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1030)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3491)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3423)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:910)
+	at com.mysql.jdbc.MysqlIO.secureAuth411(MysqlIO.java:3923)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1273)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2031)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:718)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:302)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:282)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 58 more
+2018-05-09 01:28:24,358 WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:144) - SQL Error: 0, SQLState: null
+2018-05-09 01:28:24,360 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:146) - Cannot create PoolableConnectionFactory (Unknown database 'desapp-unq')
+2018-05-09 01:28:24,376 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 01:28:22 ART 2018]; root of context hierarchy
+2018-05-09 23:26:20,495 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-05-09 23:26:20,539 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71423665, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@20398b7c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fc6f14e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@56235b8e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3632be31]
+2018-05-09 23:26:20,805 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-05-09 23:26:21,131 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-05-09 23:26:21,191 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:26:21 ART 2018]; root of context hierarchy
+2018-05-09 23:26:21,415 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-05-09 23:26:21,416 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-05-09 23:26:21,747 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-05-09 23:26:21,757 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-05-09 23:26:21,757 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-05-09 23:26:21,768 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-05-09 23:26:21,843 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-05-09 23:26:22,502 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2018-05-09 23:26:22,518 INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder (LobCreatorBuilder.java:97) - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2018-05-09 23:26:22,581 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-05-09 23:26:22,592 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-05-09 23:26:23,081 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@44e3760b] of Hibernate SessionFactory for HibernateTransactionManager
+2018-05-09 23:26:23,098 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-05-09 23:26:23,126 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-05-09 23:26:23,498 WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:144) - SQL Error: 1146, SQLState: 42S02
+2018-05-09 23:26:23,498 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:146) - Table 'carpnd.vehicle' doesn't exist
+2018-05-09 23:26:23,536 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:26:21 ART 2018]; root of context hierarchy
+2018-05-09 23:39:16,005 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-05-09 23:39:16,039 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71423665, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@20398b7c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fc6f14e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@56235b8e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3632be31]
+2018-05-09 23:39:16,255 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-05-09 23:39:16,477 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-05-09 23:39:16,532 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:39:16 ART 2018]; root of context hierarchy
+2018-05-09 23:39:16,784 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-05-09 23:39:16,790 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-05-09 23:39:17,290 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-05-09 23:39:17,302 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-05-09 23:39:17,305 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-05-09 23:39:17,308 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-05-09 23:39:17,366 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-05-09 23:39:17,957 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2018-05-09 23:39:17,971 INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder (LobCreatorBuilder.java:97) - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2018-05-09 23:39:18,022 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-05-09 23:39:18,028 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-05-09 23:39:18,404 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@44e3760b] of Hibernate SessionFactory for HibernateTransactionManager
+2018-05-09 23:39:18,418 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-05-09 23:39:18,449 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-05-09 23:39:18,822 WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:144) - SQL Error: 1054, SQLState: 42S22
+2018-05-09 23:39:18,823 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:146) - Unknown column 'DESCRIPTION' in 'field list'
+2018-05-09 23:39:18,841 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:39:16 ART 2018]; root of context hierarchy
+2018-05-09 23:40:16,559 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-05-09 23:40:16,595 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ce81285, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@78c03f1f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5ec0a365, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4fe3c938, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5383967b]
+2018-05-09 23:40:16,795 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-05-09 23:40:17,001 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-05-09 23:40:17,052 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@614ddd49: startup date [Wed May 09 23:40:17 ART 2018]; root of context hierarchy
+2018-05-09 23:40:17,243 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-05-09 23:40:17,244 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-05-09 23:40:17,494 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-05-09 23:40:17,506 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-05-09 23:40:17,506 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-05-09 23:40:17,512 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-05-09 23:40:17,588 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-05-09 23:40:18,551 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2018-05-09 23:40:18,569 INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder (LobCreatorBuilder.java:97) - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2018-05-09 23:40:18,626 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-05-09 23:40:18,639 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-05-09 23:40:19,078 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71ae31b0] of Hibernate SessionFactory for HibernateTransactionManager
+2018-05-09 23:40:19,098 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-05-09 23:40:19,126 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-05-09 23:40:19,465 WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:144) - SQL Error: 1364, SQLState: HY000
+2018-05-09 23:40:19,465 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:146) - Field 'ID' doesn't have a default value
+2018-05-09 23:40:19,478 WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:144) - SQL Error: 1364, SQLState: HY000
+2018-05-09 23:40:19,481 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:146) - Field 'ID' doesn't have a default value
+2018-05-09 23:40:19,484 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@614ddd49: startup date [Wed May 09 23:40:17 ART 2018]; root of context hierarchy
+2018-05-09 23:42:06,835 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-05-09 23:42:06,880 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71423665, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@20398b7c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fc6f14e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@56235b8e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3632be31]
+2018-05-09 23:42:07,102 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-05-09 23:42:07,318 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-05-09 23:42:07,365 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:42:07 ART 2018]; root of context hierarchy
+2018-05-09 23:42:07,549 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-05-09 23:42:07,550 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-05-09 23:42:07,859 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-05-09 23:42:07,868 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-05-09 23:42:07,873 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-05-09 23:42:07,875 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-05-09 23:42:07,920 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-05-09 23:42:08,474 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2018-05-09 23:42:08,488 INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder (LobCreatorBuilder.java:97) - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2018-05-09 23:42:08,543 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-05-09 23:42:08,549 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-05-09 23:42:08,992 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@6a66a204] of Hibernate SessionFactory for HibernateTransactionManager
+2018-05-09 23:42:09,027 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-05-09 23:42:09,085 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-05-09 23:42:09,630 WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:144) - SQL Error: 1048, SQLState: 23000
+2018-05-09 23:42:09,632 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:146) - Column 'ID' cannot be null
+2018-05-09 23:42:09,664 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:42:07 ART 2018]; root of context hierarchy
+2018-05-09 23:45:45,463 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-05-09 23:45:45,499 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71423665, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@20398b7c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fc6f14e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@56235b8e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3632be31]
+2018-05-09 23:45:45,703 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-05-09 23:45:45,946 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-05-09 23:45:45,998 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:45:45 ART 2018]; root of context hierarchy
+2018-05-09 23:45:46,172 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-05-09 23:45:46,173 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-05-09 23:45:46,417 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-05-09 23:45:46,437 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-05-09 23:45:46,441 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-05-09 23:45:46,443 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-05-09 23:45:46,506 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-05-09 23:45:47,099 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2018-05-09 23:45:47,112 INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder (LobCreatorBuilder.java:97) - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2018-05-09 23:45:47,152 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-05-09 23:45:47,172 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-05-09 23:45:47,674 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@71ae31b0] of Hibernate SessionFactory for HibernateTransactionManager
+2018-05-09 23:45:47,695 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-05-09 23:45:47,722 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-05-09 23:45:48,265 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@3fd7a715: startup date [Wed May 09 23:45:45 ART 2018]; root of context hierarchy
