@@ -5,6 +5,7 @@ import persistence.VehicleRepository;
 import service.VehicleService;
 
 import javax.ws.rs.*;
+
 import java.util.List;
 
 @Path("/vehicles")
@@ -30,11 +31,7 @@ public class VehicleRest{
     @Path("/{id}")
     @Produces("application/json")
     public Vehicle seachById(@PathParam("id") final Integer id) {
-        try{
-            return new Vehicle();
-        }catch (NotFoundException nf){
-            return jsonReturn.notFoundError("The vehicle was not found");
-        }
+            return new Vehicle(); 
     }
 
     public void setVehicleService(final VehicleService vehicleService) {
