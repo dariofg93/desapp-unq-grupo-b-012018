@@ -10,8 +10,9 @@
        
     <tx:annotation-driven transaction-manager="persistence.transactionManager"	proxy-target-class="true" />
 
-<!--
-		========================= GENERAL DEFINITIONS
+	<!--
+		========================= 
+			GENERAL DEFINITIONS
 		=========================
 	-->
 	<!--
@@ -106,8 +107,6 @@
 		</constructor-arg>
 	</bean>
 	
-
-	
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
 	<!-- ___________ Beans de negocio____________ -->
@@ -116,6 +115,10 @@
 	
 	<bean id="persistence.vehiclerepository" class="persistence.VehicleRepository" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+ 	<bean id="persistence.dummyVehicles" class="dummies.VehiclesRepository" >
+		<property name="repository" ref="persistence.vehiclerepository" />
 	</bean>
 	
 </beans>

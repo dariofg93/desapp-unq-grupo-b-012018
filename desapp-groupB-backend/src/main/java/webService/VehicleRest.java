@@ -30,9 +30,17 @@ public class VehicleRest{
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Vehicle seachById(@PathParam("id") final Integer id) {
-            return new Vehicle(); 
+    public Vehicle seachById(@PathParam("id") final Long id) {
+    	return vehicleService.searchById(id);
     }
+    
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces("application/json")
+    public void deleteById(@PathParam("id") final Long id) {
+    	vehicleService.delete(vehicleService.searchById(id));
+    }
+
 
     public void setVehicleService(final VehicleService vehicleService) {
         this.vehicleService = vehicleService;
