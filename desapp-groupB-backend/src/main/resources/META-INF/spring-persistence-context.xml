@@ -57,6 +57,8 @@
 		<property name="entityCacheStrategies" ref="persistence.hibernateClassCacheProperties" />
 		<property name="collectionCacheStrategies" ref="persistence.hibernateCollectionCacheProperties" />
 -->
+	
+
 
 		<property name="hibernateProperties">
 			<props>
@@ -84,7 +86,11 @@
 		</property>
 
 	</bean>
-
+	
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="persistence.dataSource"/>
+	</bean>
+	
 
 <!-- Transaction manager for a single JDBC DataSource -->
 	<bean id="persistence.transactionManager"
@@ -99,6 +105,7 @@
 			<ref bean="persistence.dataSource" />
 		</constructor-arg>
 	</bean>
+	
 
 	
 	<!-- ________________________________________ -->
