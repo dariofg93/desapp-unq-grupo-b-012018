@@ -19,7 +19,7 @@ import model.vehicleType.Category;
 import service.VehicleService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "/META-INF/spring-persistence-context.xml", "/META-INF/spring-services-context.xml" })
+@ContextConfiguration({ "/META-INF/spring-persistence-context.xml", "/META-INF/spring-services-context.xml", "/META-INF/spring-application-context.xml"})
 public class VehicleRepositoryTest {
 	
     @Autowired
