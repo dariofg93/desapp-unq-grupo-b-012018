@@ -52,13 +52,13 @@ public class VehicleRest{
     @Path("/vehicle/{id}")
     @Produces("application/json")
     public ResponseEntity updateVehicleById(@PathParam("id") final Long id, @RequestBody Vehicle vehicle) {
-		//try {
+		try {
 			System.out.println(id.toString() + "aca stoy en el servicio rest");
 			vehicleService.updateById(id,vehicle);
 			return new ResponseEntity<Vehicle>(vehicle, HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
+		} catch (Exception e) {
+			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
     
 

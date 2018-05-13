@@ -13,7 +13,7 @@ public class VehicleService extends GenericService<Vehicle>{
 
 	public void updateById(Long id, Vehicle updatedVehicle) {
 		updatedVehicle.setId(id);
-		System.out.println(id.toString());
+		System.out.println(id.toString() + "aca estoy n el servicio de persistencia");
 		this.getRepository().saveOrUpdate(updatedVehicle);
 	}
 }
