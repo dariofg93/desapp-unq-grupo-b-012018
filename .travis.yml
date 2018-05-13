@@ -22,6 +22,7 @@ before_script:
   - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';"
   - mysql -u root -e "GRANT ALL ON carpnd.* TO 'root'@'localhost';"
 
+
 after_success:
   - mvn cobertura:cobertura
   - mvn com.gavinmogan:codacy-maven-plugin:coverage -DcoverageReportFile=target/site/cobertura/coverage.xml -DprojectToken=00afb194beed4589aaa835437d603e98 -DapiToken=123121
