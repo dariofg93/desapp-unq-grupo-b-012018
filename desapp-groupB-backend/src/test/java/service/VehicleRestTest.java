@@ -54,9 +54,9 @@
 //      	vehicles.add(vehicle);
 //      	vehicles.add(anotherVehicle);
 //      	
-////        when(spiedVehicleService.retriveAll()).thenReturn(vehicles);
+//     //   when(spiedVehicleService.retriveAll()).thenReturn(vehicles);
 // 
-//        mockMvc.perform(get("/vehicles"))
+//        mockMvc.perform(get("/vehicles/1"))
 //                .andExpect(status().isOk())
 //                .andExpect(jsonPath("$", hasSize(2)));
 ////                .andExpect(jsonPath("$[0].id", is(1)))

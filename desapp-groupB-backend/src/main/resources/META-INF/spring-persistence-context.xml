@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-       
-       
-       
-    <tx:annotation-driven transaction-manager="persistence.transactionManager"	proxy-target-class="true" />
 
-<!--
-		========================= GENERAL DEFINITIONS
-		=========================
-	-->
-	<!--
-		Configurer that replaces ${...} placeholders with values from
-		properties files
-	-->
+
+
+	<tx:annotation-driven
+		transaction-manager="persistence.transactionManager"	
+		proxy-target-class="true" />
+
+	<!-- ========================= GENERAL DEFINITIONS ========================= -->
+	<!-- Configurer that replaces ${...} placeholders with values from properties 
+		files -->
 	<!-- (in this case, mail and JDBC related properties) -->
 	<bean id="persistence.propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -30,8 +28,10 @@
 		</property>
 	</bean>
 
-	<bean id="persistence.dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="${jdbc.driverClassName}" />
+	<bean id="persistence.dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.db.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
@@ -43,40 +43,32 @@
 
 	</bean>
 
-	<!--
-		Defines a global session factory that will be used by all modules.
-	-->
-<!-- 	<bean id="persistence.sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> -->
-		
-		<bean id="persistence.sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
+	<!-- Defines a global session factory that will be used by all modules. -->
+	<!-- <bean id="persistence.sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> -->
+
+	<bean id="persistence.sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 
 		<property name="dataSource" ref="persistence.dataSource" />
-<!--  
-		<property name="entityCacheStrategies" ref="persistence.hibernateClassCacheProperties" />
-		<property name="collectionCacheStrategies" ref="persistence.hibernateCollectionCacheProperties" />
--->
-	
+		<!-- <property name="entityCacheStrategies" ref="persistence.hibernateClassCacheProperties" 
+			/> <property name="collectionCacheStrategies" ref="persistence.hibernateCollectionCacheProperties" 
+			/> -->
+
 
 
 		<property name="hibernateProperties">
 			<props>
-				<!--
-					Configuration generic properties. They are loaded from file
-					hibernate.properties
-				-->
+				<!-- Configuration generic properties. They are loaded from file hibernate.properties -->
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 
 				<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
-				<!-- Propiedades para la configuración de la cache de segundo nivel
-				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
-				<prop key="hibernate.cache.use_second_level_cache">false</prop>
-				<prop key="hibernate.cache.use_query_cache">true</prop> -->
+				<!-- Propiedades para la configuración de la cache de segundo nivel <prop 
+					key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop> 
+					<prop key="hibernate.cache.use_second_level_cache">false</prop> <prop key="hibernate.cache.use_query_cache">true</prop> -->
 				<prop key="hibernate.connection.autocommit">false</prop>
-<!-- 				<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop> -->
+				<!-- <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop> -->
 			</props>
 		</property>
 		<property name="mappingLocations">
@@ -86,16 +78,19 @@
 		</property>
 
 	</bean>
-	
-	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    	<property name="dataSource" ref="persistence.dataSource"/>
+
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="persistence.dataSource" />
 	</bean>
 
-<!-- Transaction manager for a single JDBC DataSource -->
+
+	<!-- Transaction manager for a single JDBC DataSource -->
 	<bean id="persistence.transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="persistence.sessionFactory" />
-<!-- 		<property name="jdbcExceptionTranslator" ref="persistence.jdbcExceptionTranslator" /> -->
+		<property name="sessionFactory"
+			ref="persistence.sessionFactory" />
+		<!-- <property name="jdbcExceptionTranslator" ref="persistence.jdbcExceptionTranslator" /> -->
 	</bean>
 
 	<bean name="persistence.jdbcExceptionTranslator"
