@@ -10,5 +10,11 @@ public class VehicleService extends GenericService<Vehicle>{
 	public Vehicle searchById(Long id) {
 		return this.getRepository().findById(id) ;
 	}
+
+	public void updateById(Long id, Vehicle updatedVehicle) {
+		updatedVehicle.setId(id);
+		System.out.println(id.toString());
+		this.getRepository().saveOrUpdate(updatedVehicle);
+	}
 }
 

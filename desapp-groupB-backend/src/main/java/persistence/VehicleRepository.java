@@ -18,7 +18,6 @@ public class VehicleRepository extends HibernateGenericDAO<Vehicle> implements G
 		Query query = this.getSessionFactory().getCurrentSession().createQuery(stringQuery);
 		query.executeUpdate();
 	}
-    
-    
+
 
 }

@@ -36,10 +36,10 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 		<property name="defaultAutoCommit" value="false" />
-        <property name="poolPreparedStatements" value="true" />
-        <property name="initialSize" value="20" />
-        <property name="maxActive" value="30" />
-        <property name="maxIdle" value="25" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="initialSize" value="20" />
+		<property name="maxActive" value="30" />
+		<property name="maxIdle" value="25" />
 
 	</bean>
 
@@ -90,7 +90,6 @@
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     	<property name="dataSource" ref="persistence.dataSource"/>
 	</bean>
-	
 
 <!-- Transaction manager for a single JDBC DataSource -->
 	<bean id="persistence.transactionManager"
@@ -105,9 +104,7 @@
 			<ref bean="persistence.dataSource" />
 		</constructor-arg>
 	</bean>
-	
 
-	
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
 	<!-- ___________ Beans de negocio____________ -->
