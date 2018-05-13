@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import model.vehicle.Vehicle;
+
 public class GenericService<T> implements Serializable {
 
     private static final long serialVersionUID = -6540963495078524186L;
@@ -38,5 +40,10 @@ public class GenericService<T> implements Serializable {
     public void update(final T object) {
         this.getRepository().update(object);
     }
+    
+	@Transactional(readOnly = true)
+	public void saveOrUpdate(final T object) {
+	    	this.getRepository().saveOrUpdate(object);
+	    }
 
 }

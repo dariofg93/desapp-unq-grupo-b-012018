@@ -6,6 +6,10 @@ import service.VehicleService;
 
 import javax.ws.rs.*;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.util.List;
 
 @Path("/vehicles")
@@ -34,7 +38,31 @@ public class VehicleRest{
     	return vehicleService.searchById(id);
     }
     
-    @DELETE
+    @POST
+    @Path("/newVehicle")
+    @Produces("application/json")
+    public ResponseEntity newVehicle(@RequestBody Vehicle vehicle) {
+    	
+    	vehicleService.save(vehicle);
+
+		return new ResponseEntity<Vehicle>(vehicle, HttpStatus.OK);
+    }
+    
+    @PUT
+    @Path("/vehicle/{id}")
+    @Produces("application/json")
+    public ResponseEntity updateVehicleById(@PathParam("id") final Long id, @RequestBody Vehicle vehicle) {
+		//try {
+			System.out.println(id.toString() + "aca stoy en el servicio rest");
+			vehicleService.updateById(id,vehicle);
+			return new ResponseEntity<Vehicle>(vehicle, HttpStatus.OK);
+//		} catch (Exception e) {
+//			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+	}
+    
+
+	@DELETE
     @Path("/delete/{id}")
     @Produces("application/json")
     public void deleteById(@PathParam("id") final Long id) {

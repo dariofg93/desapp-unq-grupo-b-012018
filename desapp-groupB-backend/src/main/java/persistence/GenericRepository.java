@@ -28,4 +28,9 @@ public interface GenericRepository<T> {
 	
 	void execute(String query);
 
+	void saveOrUpdate(T object);
+	
+	
+
+	   
 }
