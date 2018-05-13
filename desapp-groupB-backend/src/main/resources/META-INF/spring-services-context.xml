@@ -8,13 +8,8 @@
 
 	<!-- beans de spring -->
 
-	<bean id="services.vehicle" class="service.VehicleService">
-		<property name="repository" ref="persistence.vehiclerepository" />
-	</bean>
-
-	<bean id="services.general" class="service.GeneralService">
-		<property name="vehicleService" ref="services.vehicle" />
-		
+	<bean id="vehiclesService" class="service.VehicleService">
+		<property name="repository" ref="vehiclesRepository" />
 	</bean>
 
 </beans>

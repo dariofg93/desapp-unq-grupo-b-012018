@@ -106,17 +106,8 @@
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
 
-	<bean id="persistence.vehiclerepository"
-		class="persistence.VehicleRepository">
-		<property name="sessionFactory"
-			ref="persistence.sessionFactory" />
-
-	</bean>
-
-	<bean id="persistence.dummyVehicles"
-		class="dummies.VehiclesRepository">
-		<property name="repository"
-			ref="persistence.vehiclerepository" />
+	<bean id="vehiclesRepository" class="persistence.VehicleRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
 </beans>

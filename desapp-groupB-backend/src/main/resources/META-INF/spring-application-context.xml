@@ -48,8 +48,12 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<bean id="json" class="webService.JsonReturn" />
 
 	<bean id="vehiclesRest" class="webService.VehicleRest">
-		<property name="vehicleService" ref="services.vehicle" />
+		<property name="vehicleService" ref="vehiclesService" />
 		<property name="jsonReturn" ref="json" />
+	</bean>
+
+	<bean id="vehiclesDummy" class="dummies.VehiclesDummy" init-method="instantiateDataMock">
+		<property name="service" ref="vehiclesService" />
 	</bean>
 
 </beans>
