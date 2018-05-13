@@ -1,4 +1,4 @@
-package persistence;
+package persistence.generic;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,4 +1,6 @@
-package service;
+package service.generic;
+
+import service.vehicle.VehicleService;
 
 public class GeneralService {
 

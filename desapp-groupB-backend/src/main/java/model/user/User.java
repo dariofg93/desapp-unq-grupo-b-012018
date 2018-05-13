@@ -11,6 +11,7 @@ import model.maps.GeographicZoneDescription;
 import model.movements.MovementsOfMonth;
 import model.publication.Publication;
 import model.score.*;
+import model.utils.Entity;
 import model.vehicle.Vehicle;
 import model.website.WebSite;
 import org.joda.time.DateTime;
@@ -19,7 +20,8 @@ import org.joda.time.Hours;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class User {
+public class User extends Entity {
+
     private List<Publication> myPublications;
     private ScoreManager scoreManager;
     private WebSite webSite;

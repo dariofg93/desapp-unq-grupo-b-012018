@@ -4,12 +4,12 @@ import model.builders.VehicleBuilder;
 import model.vehicle.Vehicle;
 import model.vehicleType.Car;
 import model.vehicleType.Scooter;
-import service.VehicleService;
+import service.vehicle.VehicleService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehiclesDummy {
+public class VehiclesDummy implements DummyData{
 
     private List<Vehicle> vehicles = new ArrayList<>();
     private VehicleBuilder builder = new VehicleBuilder();

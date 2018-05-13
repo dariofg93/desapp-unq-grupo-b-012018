@@ -13,6 +13,10 @@ public class WebSite {
     private List<User> users;
     private Notifier notifier;
 
+    public WebSite(){
+        this.users = new ArrayList<>();
+    }
+
     public void addUSer(User anyUser) {
         this.users.add(anyUser);
     }

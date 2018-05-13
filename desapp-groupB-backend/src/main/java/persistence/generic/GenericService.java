@@ -1,11 +1,9 @@
-package persistence;
+package persistence.generic;
 
 import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
-
-import model.vehicle.Vehicle;
 
 public class GenericService<T> implements Serializable {
 

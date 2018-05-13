@@ -1,8 +1,10 @@
-package persistence;
+package persistence.vehicle;
 
 import org.hibernate.Query;
 
 import model.vehicle.Vehicle;
+import persistence.generic.GenericRepository;
+import persistence.generic.HibernateGenericDAO;
 
 public class VehicleRepository extends HibernateGenericDAO<Vehicle> implements GenericRepository<Vehicle> {
 

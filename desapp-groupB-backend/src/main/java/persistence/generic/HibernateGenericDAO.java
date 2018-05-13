@@ -1,10 +1,11 @@
-package persistence;
+package persistence.generic;
 
 import java.io.Serializable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import persistence.vehicle.VehicleRepository;
 
 /**
  * Generic hibernate DAO

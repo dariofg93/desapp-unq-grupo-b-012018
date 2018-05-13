@@ -1,14 +1,15 @@
-package webService;
+package webService.vehicleCorcern;
 
 import model.vehicle.Vehicle;
-import persistence.VehicleRepository;
-import service.VehicleService;
+import persistence.vehicle.VehicleRepository;
+import service.vehicle.VehicleService;
 
 import javax.ws.rs.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import webService.utils.JsonReturn;
 
 import java.util.List;
 

@@ -106,8 +106,32 @@
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
 
-	<bean id="vehiclesRepository" class="persistence.VehicleRepository" >
+	<bean id="vehiclesRepository" class="persistence.vehicle.VehicleRepository" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+	<!--<bean id="usersRepository" class="persistence.user.UserRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>-->
+
+
+	<!-- DUMMIES -->
+
+	<bean id="vehiclesDummy" class="dummies.VehiclesDummy" >
+		<property name="service" ref="vehiclesService" />
+	</bean>
+
+	<!--<bean id="usersDummy" class="dummies.UsersDummy" >
+		<property name="service" ref="usersService" />
+	</bean>-->
+
+	<bean id="dataRepository" class="dummies.DataRepository" init-method="instantiateDataMock">
+		<property name="dummies">
+			<list value-type="dummies.DummyData">
+				<ref bean="vehiclesDummy"/>
+				<!--<ref bean="usersDummy"/>-->
+			</list>
+		</property>
 	</bean>
 
 </beans>

@@ -1,4 +1,4 @@
-package webService;
+package webService.utils;
 
 public class JsonReturn<T> {
 
