@@ -113,9 +113,9 @@
 	<!-- ___________ Beans de negocio____________ -->
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
-	
-	<bean id="persistence.vehiclerepository" class="persistence.VehicleRepository" >
+
+	<bean id="vehiclesRepository" class="persistence.VehicleRepository" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
-	
+
 </beans>
