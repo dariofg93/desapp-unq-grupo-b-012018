@@ -6,11 +6,9 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import org.junit.After;
-<<<<<<< HEAD
-import org.junit.AfterClass;
+
 import org.junit.Before;
-=======
->>>>>>> c23571953125c05208dddc297727aa9c50c5b2bc
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class VehicleRepositoryTest {
     private VehicleService vehicleService;
     
     @Before
-    public void seuTp(){
+    public void seTup(){
     	this.cleanDatabase();
     }
     
