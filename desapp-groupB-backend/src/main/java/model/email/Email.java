@@ -12,6 +12,11 @@ public class Email {
         this.received = new ArrayList<>();
     }
 
+    public Email(String account){
+        this.received = new ArrayList<>();
+        this.account = account;
+    }
+
     public void addMailCarpnd(MailCarpnd anyMail) {
         this.received.add(anyMail);
     }

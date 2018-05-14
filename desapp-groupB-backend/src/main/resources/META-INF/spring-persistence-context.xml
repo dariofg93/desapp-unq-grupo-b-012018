@@ -68,6 +68,8 @@
 					key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop> 
 					<prop key="hibernate.cache.use_second_level_cache">false</prop> <prop key="hibernate.cache.use_query_cache">true</prop> -->
 				<prop key="hibernate.connection.autocommit">false</prop>
+				
+				
 				<!-- <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop> -->
 			</props>
 		</property>

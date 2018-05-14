@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.hibernate.Query;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,18 @@ public class VehicleRepositoryTest {
     @Autowired
     private VehicleService vehicleService;
     
+    @Before
+    public void seuTp(){
+    	this.cleanDatabase();
+    }
+    
+	private void cleanDatabase() {
+		vehicleService.retriveAll().stream().forEach(user -> vehicleService.delete(user));
+	}
+
 	@After
 	public void tearDown() {
-		vehicleService.retriveAll().stream().forEach(user -> vehicleService.delete(user));
+		this.cleanDatabase();
 	}
     
     @Test
