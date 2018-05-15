@@ -1,6 +1,8 @@
 package model.bookingState;
 
 import junit.framework.TestCase;
+import model.bookingstate.*;
+
 import org.junit.Before;
 
 public class AwaitingApprobalTest extends TestCase {

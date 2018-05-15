@@ -1,6 +1,6 @@
 package model.builders;
 
-import model.creditsAccount.CreditsAccount;
+import model.creditsaccount.CreditsAccount;
 import model.email.Email;
 import model.publication.Publication;
 import model.score.ScoreManager;

@@ -1,7 +1,7 @@
 package model.booking;
 
-import model.bookingState.AwaitingApprobal;
-import model.bookingState.BookingState;
+import model.bookingstate.AwaitingApprobal;
+import model.bookingstate.BookingState;
 import model.email.MailBody;
 import model.exceptions.NoAceptedException;
 import model.user.User;

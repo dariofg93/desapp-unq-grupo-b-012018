@@ -16,7 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import model.vehicle.Vehicle;
-import model.vehicleType.Category;
+import model.vehicletype.Category;
 import service.vehicle.VehicleService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,7 +27,7 @@ public class VehicleRepositoryTest {
     private VehicleService vehicleService;
     
     @Before
-    public void seTup(){
+    public void setUp(){
     	this.cleanDatabase();
     }
     
@@ -81,6 +81,24 @@ public class VehicleRepositoryTest {
     	
     	assertEquals(restoredVehicle.getPassengerCapacity(), vehicle.getPassengerCapacity());
     	assertEquals(restoredVehicle.getDescription(), newDescription);
+
+    }
+    
+    @Test
+    public void testUpdateVehicleWhenNotHaveId() {
+    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5);
+    	Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo" , new ArrayList<BufferedImage>(), 2);
+    	
+    	vehicleService.save(vehicle);
+    			
+    	anotherVehicle.setId(vehicle.getId());
+    	
+    	vehicleService.update(anotherVehicle);
+    	
+    	Vehicle restoredVehicle = vehicleService.searchById(vehicle.getId());
+    	
+    	assertEquals(restoredVehicle.getPassengerCapacity(), anotherVehicle.getPassengerCapacity());
+    	assertEquals(restoredVehicle.getDescription(), anotherVehicle.getDescription());
 
     }
 

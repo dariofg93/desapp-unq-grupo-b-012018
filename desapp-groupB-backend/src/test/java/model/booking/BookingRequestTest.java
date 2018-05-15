@@ -1,7 +1,7 @@
 package model.booking;
 
 import junit.framework.TestCase;
-import model.bookingState.BookingState;
+import model.bookingstate.BookingState;
 import model.builders.BookingRequestBuilder;
 import model.exceptions.NoAceptedException;
 import model.user.User;

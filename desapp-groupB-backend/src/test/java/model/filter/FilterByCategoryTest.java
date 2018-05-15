@@ -5,7 +5,7 @@ import model.builders.FilterByCategoryBuilder;
 import model.order.Order;
 import model.publication.Publication;
 import model.vehicle.Vehicle;
-import model.vehicleType.Category;
+import model.vehicletype.Category;
 import org.junit.Before;
 
 import java.util.*;

@@ -1,11 +1,10 @@
 package model.user;
 
 import model.booking.BookingRequest;
-import model.bookingState.Approved;
-import model.bookingState.BookingState;
+import model.bookingstate.Approved;
+import model.bookingstate.BookingState;
 import model.builders.UserBuilder;
-import model.creditsAccount.CreditsAccount;
-import model.email.Email;
+import model.creditsaccount.CreditsAccount;
 import model.exceptions.BannedException;
 import model.exceptions.NoAceptedException;
 import model.exceptions.RequestNoExistException;

@@ -1,4 +1,4 @@
-package model.vehicleType;
+package model.vehicletype;
 
 public class Scooter extends Category {  
 

@@ -3,16 +3,16 @@ package model.filter;
 import junit.framework.TestCase;
 import model.builders.FilterByCityBuilder;
 import model.city.City;
-import model.order.Order;
+import model.order.*;
 import model.publication.Publication;
 import org.junit.Before;
+
 
 import java.util.Collections;
 import java.util.List;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 
 public class FilterByCityTest extends TestCase {
 
@@ -27,12 +27,13 @@ public class FilterByCityTest extends TestCase {
         super.setUp();
         this.byLocalityBuilder = new FilterByCityBuilder();
 
-        this.orderMock = mock(Order.class);
+        this.orderMock = new ByPrice();
         this.cityMock = mock(City.class);
         this.anyPublicationMock = mock(Publication.class);
 	}
 
-    public void testFilterAndOrder(){
+    @SuppressWarnings("unlikely-arg-type")
+	public void testFilterAndOrder(){
         List<Publication> publications = Collections.singletonList(anyPublicationMock);
 
         FilterByCity filterByLocality = byLocalityBuilder.createFilterByLocality()
@@ -43,8 +44,10 @@ public class FilterByCityTest extends TestCase {
         when(anyPublicationMock.getCity()).thenReturn(cityMock);
         when(cityMock.isSame(cityMock)).thenReturn(true);
 
-        filterByLocality.filterAndOrder(publications);
-
-        //No hay control sobre la lista que le llega al order, no se puede verificar nada.
+        List<Publication> filteredPublications = filterByLocality.filterAndOrder(publications);
+        
+	
+        assertEquals(filteredPublications.size(), 1);
+        assertTrue(filteredPublications.contains(anyPublicationMock));
     }
 }

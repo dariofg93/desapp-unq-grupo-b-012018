@@ -1,7 +1,7 @@
 package model.user;
 
 import model.booking.BookingRequest;
-import model.creditsAccount.CreditsAccount;
+import model.creditsaccount.CreditsAccount;
 import model.email.Email;
 import model.exceptions.BannedException;
 import model.exceptions.NoAceptedException;

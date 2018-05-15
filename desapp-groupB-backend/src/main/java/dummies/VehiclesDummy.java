@@ -2,8 +2,8 @@ package dummies;
 
 import model.builders.VehicleBuilder;
 import model.vehicle.Vehicle;
-import model.vehicleType.Car;
-import model.vehicleType.Scooter;
+import model.vehicletype.Car;
+import model.vehicletype.Scooter;
 import service.vehicle.VehicleService;
 
 import java.util.ArrayList;

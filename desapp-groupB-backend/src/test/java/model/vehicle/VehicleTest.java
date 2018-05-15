@@ -9,9 +9,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.score.OwnerScoreType;
-import model.score.Score;
-import model.vehicleType.Category;
+
+import model.vehicletype.Category;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;

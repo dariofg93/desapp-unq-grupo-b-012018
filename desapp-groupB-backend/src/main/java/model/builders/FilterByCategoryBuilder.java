@@ -2,7 +2,7 @@ package model.builders;
 
 import model.filter.FilterByCategory;
 import model.order.Order;
-import model.vehicleType.Category;
+import model.vehicletype.Category;
 
 public class FilterByCategoryBuilder {
 

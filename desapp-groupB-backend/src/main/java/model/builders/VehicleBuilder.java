@@ -1,7 +1,7 @@
 package model.builders;
 
 import model.vehicle.Vehicle;
-import model.vehicleType.Category;
+import model.vehicletype.Category;
 
 import java.awt.image.BufferedImage;
 import java.util.List;

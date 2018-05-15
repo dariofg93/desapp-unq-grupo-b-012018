@@ -1,6 +1,6 @@
-package model.bookingState;
+package model.bookingstate;
 
-public class Rejected extends BookingState {
+public class AwaitingApprobal extends BookingState {
 
     @Override
     public BookingState setAcepted() {
@@ -9,9 +9,9 @@ public class Rejected extends BookingState {
 
     @Override
     public BookingState setRejected() {
-        return this;
+        return new Rejected();
     }
-    
+
 	@Override
 	public boolean isApproved() {
 		return false;

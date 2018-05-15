@@ -32,7 +32,7 @@ public class PublicationTest {
     public void setUp() {
     	this.initalizeMock();
     	fromDate = DateTime.now();
-    	toDate = DateTime.now();
+    	toDate = DateTime.now().plusHours(24);
     	publication = new Publication(vehicle, fromDate, toDate, user, city, pickUpZone , dropZone, new Double(8.5), 13454344);
     }
     
@@ -177,22 +177,6 @@ public class PublicationTest {
 	}
 	
 	
-	@Test
-	public void testValidateRemainingTime(){
-
-		BookingRequest bookingRequest2 = mock(BookingRequest.class);
-		Publication anotherPublication = new Publication(vehicle, fromDate, DateTime.now().plusDays(9), user, city, pickUpZone , dropZone, new Double(8.5), 13454344);
-	
-		
-		anotherPublication.addBookingRequest(bookingRequest2);
-		
-		when(bookingRequest2.isApproved()).thenReturn(true);
-			
-		when(bookingRequest2.getDateTimeOfReservation()).thenReturn(DateTime.now().minusDays(3));
-		when(bookingRequest2.endOfReservation()).thenReturn(DateTime.now().plusDays(1));
-				
-	//	assertEquals(anotherPublication.remainingTime(), new Integer(191));
-	}
 
 	
 	@Test

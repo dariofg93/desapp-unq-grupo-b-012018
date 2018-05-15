@@ -1,7 +1,7 @@
 package model.builders;
 
 import model.booking.BookingRequest;
-import model.bookingState.BookingState;
+import model.bookingstate.BookingState;
 import model.user.User;
 import org.joda.time.DateTime;
 

@@ -2,7 +2,7 @@ package model.filter;
 
 import model.order.Order;
 import model.publication.Publication;
-import model.vehicleType.Category;
+import model.vehicletype.Category;
 
 import java.util.List;
 import java.util.stream.Collectors;

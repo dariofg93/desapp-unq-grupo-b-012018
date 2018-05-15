@@ -1,4 +1,4 @@
-package model.bookingState;
+package model.bookingstate;
 
 public class Approved extends BookingState {
 

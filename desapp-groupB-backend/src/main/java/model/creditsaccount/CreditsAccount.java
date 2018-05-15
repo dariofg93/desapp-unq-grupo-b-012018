@@ -1,4 +1,4 @@
-package model.creditsAccount;
+package model.creditsaccount;
 
 
 public class CreditsAccount {

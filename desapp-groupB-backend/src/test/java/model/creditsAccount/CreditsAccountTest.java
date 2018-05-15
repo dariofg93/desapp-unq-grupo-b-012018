@@ -1,6 +1,8 @@
 package model.creditsAccount;
 
 import junit.framework.TestCase;
+import model.creditsaccount.CreditsAccount;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
