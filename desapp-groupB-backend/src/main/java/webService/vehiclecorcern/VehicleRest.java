@@ -1,4 +1,4 @@
-package webService.vehicle_corcern;
+package webService.vehiclecorcern;
 
 import model.vehicle.Vehicle;
 import persistence.vehicle.VehicleRepository;

@@ -47,7 +47,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
 	<bean id="json" class="webService.utils.JsonReturn" />
 
-	<bean id="vehiclesRest" class="webService.vehicleCorcern.VehicleRest">
+	<bean id="vehiclesRest" class="webService.vehiclecorcern.VehicleRest">
 		<property name="vehicleService" ref="vehiclesService" />
 		<property name="jsonReturn" ref="json" />
 	</bean>
