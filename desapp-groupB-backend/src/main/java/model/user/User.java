@@ -24,19 +24,22 @@ public class User extends Entity {
 
     private List<Publication> myPublications;
     private ScoreManager scoreManager;
-    private WebSite webSite;
+   
+	private WebSite webSite;
     private CreditsAccount creditsAccount;
     private Email email;
     private List<Vehicle> myVehicles;
-    private String firstName;
+	private String firstName;
     private String lastName;
-    private Integer cuil;
-    private GeographicZoneDescription addres;
+    private String cuil;
+    private GeographicZoneDescription address;
     private MovementsOfMonth movementsOfMonth;
 
     public User(){
         this.movementsOfMonth = new MovementsOfMonth();
     }
+    
+    
 
     public void publish(Publication anyPublication) throws BannedException {
         if(!this.isBanned()) {
@@ -186,7 +189,7 @@ public class User extends Entity {
  * Quien recibe el vehículo notifica su recepción y puntúa a su contraparte.
  * El tiempo de alquiler se fija a partir de que ambos usuarios cumplieron con su acción.
  * Ambos usuarios pueden ingresar comentarios al momento de puntuar a su contraparte.
- */
+ */ 
 
     public void confirmVehicleReturnBuyer(BookingRequest anyRequest, Score scoreOfVehicle, Score scoreOfSeller)
             throws NoAceptedException {
@@ -268,6 +271,10 @@ public class User extends Entity {
     public String getLastName() {
         return this.lastName;
     }
+    
+    public GeographicZoneDescription getaddresss() {
+        return this.address;
+    }
 
     public CreditsAccount getCreditsAccount() {
         return this.creditsAccount;
@@ -288,4 +295,44 @@ public class User extends Entity {
     public void setEmail(Email email) {
         this.email = email;
     }
+    public String getCuil() {
+		return cuil;
+	}
+
+	public void setCuil(String cuil) {
+		this.cuil = cuil;
+	}
+
+	public GeographicZoneDescription getAddress() {
+		return address;
+	}
+
+	public void setAddress(GeographicZoneDescription anAddress) {
+		this.address = anAddress;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setMovementsOfMonth(MovementsOfMonth movementsOfMonth) {
+		this.movementsOfMonth = movementsOfMonth;
+	}
+	
+	public ScoreManager getScoreManager() {
+			return scoreManager;
+		}
+	
+	/*
+	 * 	SACAR STO DE ACA!!! DESACOPLAR TODO ESTO
+	 */
+	
+	public static Email fromCode( String emailAdrressName) {
+		return new Email(emailAdrressName);
+	}
+
 }

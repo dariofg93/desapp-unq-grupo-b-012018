@@ -117,7 +117,7 @@ public class NotifierTest extends TestCase {
 
         verify(userEmailMock).addMailCarpnd(notifier.getMailBuilded());
     }
-
+ 
     public void testNotifyReturnSellerByMail(){
         when(anyRequestMock.getRequester()).thenReturn(requesterMock);
         when(anyRequestMock.getTotalHours()).thenReturn(1);

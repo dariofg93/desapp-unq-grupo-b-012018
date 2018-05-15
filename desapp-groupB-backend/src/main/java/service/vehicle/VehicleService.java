@@ -1,5 +1,7 @@
 package service.vehicle;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import model.vehicle.Vehicle;
 import persistence.generic.GenericService;
 
@@ -10,10 +12,11 @@ public class VehicleService extends GenericService<Vehicle>{
 	public Vehicle searchById(Long id) {
 		return this.getRepository().findById(id) ;
 	}
-
+	@Transactional (readOnly=false)
 	public void updateById(Long id, Vehicle updatedVehicle) {
 		updatedVehicle.setId(id);
-		this.getRepository().saveOrUpdate(updatedVehicle);
+		this.getRepository().update(updatedVehicle);
 	}
+	
 }
 

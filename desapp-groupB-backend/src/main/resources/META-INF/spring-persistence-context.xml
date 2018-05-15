@@ -10,7 +10,7 @@
 
 
 	<tx:annotation-driven
-		transaction-manager="persistence.transactionManager"	
+		transaction-manager="persistence.transactionManager"
 		proxy-target-class="true" />
 
 	<!-- ========================= GENERAL DEFINITIONS ========================= -->
@@ -68,8 +68,8 @@
 					key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop> 
 					<prop key="hibernate.cache.use_second_level_cache">false</prop> <prop key="hibernate.cache.use_query_cache">true</prop> -->
 				<prop key="hibernate.connection.autocommit">false</prop>
-				
-				
+
+
 				<!-- <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop> -->
 			</props>
 		</property>
@@ -80,6 +80,7 @@
 		</property>
 
 	</bean>
+
 
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -92,7 +93,8 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory"
 			ref="persistence.sessionFactory" />
-		<!-- <property name="jdbcExceptionTranslator" ref="persistence.jdbcExceptionTranslator" /> -->
+		<!-- <property name="jdbcExceptionTranslator" ref="persistence.jdbcExceptionTranslator" 
+			/> -->
 	</bean>
 
 	<bean name="persistence.jdbcExceptionTranslator"
@@ -108,30 +110,34 @@
 	<!-- ________________________________________ -->
 	<!-- ________________________________________ -->
 
-	<bean id="vehiclesRepository" class="persistence.vehicle.VehicleRepository" >
-		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	<bean id="vehiclesRepository"
+		class="persistence.vehicle.VehicleRepository">
+		<property name="sessionFactory"
+			ref="persistence.sessionFactory" />
 	</bean>
 
-	<!--<bean id="usersRepository" class="persistence.user.UserRepository" >
-		<property name="sessionFactory" ref="persistence.sessionFactory" />
-	</bean>-->
+	<bean id="usersRepository" class="persistence.user.UserRepository">
+		<property name="sessionFactory"
+			ref="persistence.sessionFactory" />
+	</bean>
 
 
 	<!-- DUMMIES -->
 
-	<bean id="vehiclesDummy" class="dummies.VehiclesDummy" >
+	<bean id="vehiclesDummy" class="dummies.VehiclesDummy">
 		<property name="service" ref="vehiclesService" />
 	</bean>
 
-	<!--<bean id="usersDummy" class="dummies.UsersDummy" >
+	<bean id="usersDummy" class="dummies.UsersDummy">
 		<property name="service" ref="usersService" />
-	</bean>-->
+	</bean>
 
-	<bean id="dataRepository" class="dummies.DataRepository" init-method="instantiateDataMock">
+	<bean id="dataRepository" class="dummies.DataRepository"
+		init-method="instantiateDataMock">
 		<property name="dummies">
 			<list value-type="dummies.DummyData">
-				<ref bean="vehiclesDummy"/>
-				<!--<ref bean="usersDummy"/>-->
+				<ref bean="vehiclesDummy" />
+				<ref bean="usersDummy" />
 			</list>
 		</property>
 	</bean>

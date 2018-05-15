@@ -46,6 +46,7 @@ public class UserTest {
     @Before
 	public void setUp() {
         this.userBuilder = new UserBuilder();
+        
 
         this.anyFilterMock = mock(FilterByCategory.class);
         this.anyWebSiteMock = mock(WebSite.class);

@@ -17,7 +17,7 @@ public class UserBuilder {
         this.buildUser = new User();
         return this;
     }
-
+	
     public User build() {
         return this.buildUser;
     }
@@ -28,6 +28,7 @@ public class UserBuilder {
         return this;
     }
 
+    
     public UserBuilder withPublications(List<Publication> anyPublications) {
         this.buildUser.setMyPublications(anyPublications);
         return this;
@@ -47,4 +48,6 @@ public class UserBuilder {
         buildUser.setEmail(anyEmail);
         return this;
     }
+
+
 }

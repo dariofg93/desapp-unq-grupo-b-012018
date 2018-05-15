@@ -100,6 +100,24 @@ public class VehicleRepositoryTest {
     	assertEquals(restoredVehicle.getPassengerCapacity(), anotherVehicle.getPassengerCapacity());
     	assertEquals(restoredVehicle.getDescription(), anotherVehicle.getDescription());
 
+    }    
+    
+    @Test
+    public void testUpdateVehicleById() {
+    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5);
+    	Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo" , new ArrayList<BufferedImage>(), 2);
+    	
+    	vehicleService.save(vehicle);
+    			
+    	anotherVehicle.setId(null);
+    	
+    	vehicleService.updateById(vehicle.getId(), anotherVehicle);
+    	
+    	Vehicle restoredVehicle = vehicleService.searchById(vehicle.getId());
+    	
+    	assertEquals(restoredVehicle.getPassengerCapacity(), anotherVehicle.getPassengerCapacity());
+    	assertEquals(restoredVehicle.getDescription(), anotherVehicle.getDescription());
+
     }
 
 

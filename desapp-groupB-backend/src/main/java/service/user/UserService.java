@@ -13,7 +13,8 @@ public class UserService extends GenericService<User>{
 
 	public void updateById(Long id, User updatedUser) {
 		updatedUser.setId(id);
-		this.getRepository().saveOrUpdate(updatedUser);
+		this.getRepository().update(updatedUser);
 	}
+	
 }
 

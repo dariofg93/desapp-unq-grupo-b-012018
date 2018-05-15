@@ -1,20 +1,21 @@
 package model.email;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Email {
+public class Email implements Serializable {
 
     private List<MailCarpnd> received;
-    private String account;
+    private String accountName;
 
     public Email(){
         this.received = new ArrayList<>();
     }
 
-    public Email(String account){
+    public Email(String accountName){
         this.received = new ArrayList<>();
-        this.account = account;
+        this.accountName = accountName;
     }
 
     public void addMailCarpnd(MailCarpnd anyMail) {
@@ -26,5 +27,5 @@ public class Email {
         return this.received;
     }
 
-    public String getAccount() { return this.account; }
+    public String getAccount() { return this.accountName; }
 }

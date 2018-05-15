@@ -1,6 +1,8 @@
 package model.score;
 
-public class OwnerScoreType implements ScoreType{
+import java.io.Serializable;
+
+public class OwnerScoreType implements Serializable, ScoreType{
 	
 	@Override
 	public String description() {

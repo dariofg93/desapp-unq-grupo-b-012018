@@ -25,7 +25,7 @@ public class UsersDummy implements DummyData{
         User user1 = builder.createUser()
                 .withWebSite(new WebSite())
                 .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
-                .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
+                .withScoreManager(new ScoreManager(new ArrayList<Score>()))//Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("dariofg93@gmail.com"))
                 .build();
@@ -34,7 +34,7 @@ public class UsersDummy implements DummyData{
         User user2 = builder.createUser()
                 .withWebSite(new WebSite())
                 .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
-                .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
+                .withScoreManager(new ScoreManager(new ArrayList<Score>()))//Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("fabri1108@gmail.com"))
                 .build();

@@ -13,7 +13,6 @@ public class UserRepository extends HibernateGenericDAO<User> implements Generic
     protected Class<User> getDomainClass() {
         return User.class;
     }
-
 	@Override
 	public void execute(String stringQuery) {
 		Query query = this.getSessionFactory().getCurrentSession().createQuery(stringQuery);

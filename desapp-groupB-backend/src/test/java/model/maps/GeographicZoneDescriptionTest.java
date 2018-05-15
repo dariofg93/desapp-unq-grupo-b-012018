@@ -2,6 +2,8 @@ package model.maps;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,9 +15,59 @@ public class GeographicZoneDescriptionTest {
 		public void setUp() throws Exception {
 		 zone = new GeographicZoneDescription();
 	 }
+	 
 	@Test
 	public void testCreation() {
 		assertFalse(zone == null);
+	}
+	
+	@Test
+	public void testCreationAndSomeSpecificalAdrress() {
+		
+		/*
+		 *  Direccion: Toay 6198, Partido de Avellaneda, 1875 Wilde, Argentina
+		 */
+		Double longitud= -58.302840100000026;
+		Double latitud = -34.6907607;
+		
+		GeographicZoneDescription anotherZone = new GeographicZoneDescription(latitud, longitud);
+		
+		assertEquals(anotherZone.getLatitud(), latitud);
+		assertEquals(anotherZone.getLongitud(), longitud);
+	}
+
+	
+	@Test
+	public void testCreationAndSetSomeSpecificalAdrress() {
+		
+		/*
+		 *  Direccion: Toay 6198, Partido de Avellaneda, 1875 Wilde, Argentina
+		 */
+		Double longitud= -58.302840100000026;
+		Double latitud = -34.6907607;
+		
+		zone.setLatitud(latitud);
+		zone.setLongitud(longitud);
+		
+		assertEquals(zone.getLatitud(), latitud);
+		assertEquals(zone.getLongitud(), longitud);
+	}
+	
+	@Test
+	public void testEquals() {
+		
+		/*
+		 *  Direccion: Toay 6198, Partido de Avellaneda, 1875 Wilde, Argentina
+		 */
+		Double longitud= -58.302840100000026;
+		Double latitud = -34.6907607;
+		
+		zone.setLatitud(latitud);
+		zone.setLongitud(longitud);
+		
+		assertFalse(zone.equalsTo(new GeographicZoneDescription(0.0, longitud)));
+		assertFalse(zone.equalsTo(new GeographicZoneDescription(latitud, 0.0)));
+		assertTrue(zone.equalsTo(new GeographicZoneDescription(latitud,longitud)));
 	}
 
 }

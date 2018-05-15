@@ -17,10 +17,11 @@ public class ScoreTest {
 	public void testCreation() {
 		ownerScoreType = new OwnerScoreType();
 		score = new Score(ownerScoreType);
-		
+	
 		assertEquals(score.getValue(), new Double(5.0));
 		assertEquals(score.description(), ownerScoreType.description());
 	}
+	
 	
 	@Test
 	public void testSetValue() {

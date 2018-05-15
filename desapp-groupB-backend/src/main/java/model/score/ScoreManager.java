@@ -2,13 +2,16 @@ package model.score;
 
 import java.util.List;
 
-public class ScoreManager {
+import model.utils.Entity;
+
+public class ScoreManager extends Entity {
 
     private List<Score> scores;
-    
-    public ScoreManager(List<Score> someList) {
+
+	public ScoreManager(List<Score> someList) {
+		super();
     	scores = someList;
-    }
+    } 
 
     public Double minimumScoreAccepted() {
         return 4.0;
@@ -26,5 +29,17 @@ public class ScoreManager {
 
     public void addScore(Score anyScore) {
         this.scores.add(anyScore);
+    }
+    
+    public List<Score> getScores() {
+		return scores;
+	}
+
+	public void setScores(List<Score> scores) {
+		this.scores = scores;
+	}
+    
+    public ScoreManager() {
+		super();
     }
 }
