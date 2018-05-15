@@ -11,7 +11,12 @@ public class Score extends Entity{
     private Double value;
     private ScoreType scoreType;
     
-    public ScoreType getScoreType() {
+    
+    public Score() {
+		super();
+	}
+
+	public ScoreType getScoreType() {
 		return scoreType;
 	}
 

@@ -4,14 +4,14 @@
 <hibernate-mapping default-cascade="save-update">
 	<class name="model.score.ScoreManager" table="SCORE_MANAGERS">
 
-		<id column="id" name="id" type="java.lang.Long">
+		<id column="id_sm" name="id" type="java.lang.Long">
 			<generator class="increment" />
 		</id>
 		
 		
 		<list name="scores" table="SCORES" inverse="false" cascade="all">
 			<key >
-				<column name="scoreManager_id" />
+				<column name="id_sm" />
 			</key>
 			  <list-index column = "indx"/>
 			<one-to-many class="model.score.Score" />
