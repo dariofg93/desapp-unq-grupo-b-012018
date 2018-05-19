@@ -1,21 +1,8 @@
-<nav class="navbar navbar-dark bg-primary navbar-fixed-top">
-  <div class="navbar-header">
-    <p class="navbar-brand">{{ title | uppercase }}</p>
-  </div>
-  <ul class="nav navbar-nav">
-    <li><p class="navbar-brand">Buscar vehiculo</p></li> 
-    <li><p class="navbar-brand">Publicaciones</p></li>
-    <li><p class="navbar-brand">Solicitudes</p></li>
-  </ul>
-</nav>
-<br><br><br><br>
+<app-header></app-header>
 
-<div class="container">
-	<app-google-map></app-google-map>
+<div class="body">
+	<br>
+	<router-outlet></router-outlet>
 </div>
 
-<footer>
-  <div class="footer navbar-fixed-bottom">
-      <p class="text-center text-footer">©2018, Derechos reservados a los pibes de Carpnd</p>
-  </div>
-</footer>
+<app-footer></app-footer>
