@@ -27,3 +27,23 @@ NOTES:
 
 KNOWN ISSUES:
 ...
+
+---------------------------------------------------------------------
+Release 2.0.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Use of HSQLDB for data persistence
+* Fake data to test the application.
+* Mappings in user and vehicle classes.
+* Api Rest of users and vehicles.
+* Implementation in heroku for frontend and backend.
+* Implementation of some unit tests of model, services and persistence.
+* Generic services for consumption of backend data from frontend.
+
+NOTES:
+* I18n- US_ES.
+* ABM of vehicles.
+* AM of users.
+
+KNOWN ISSUES:
+...
