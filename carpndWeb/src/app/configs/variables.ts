@@ -13,7 +13,7 @@ class Language{
   }
 }
 
-export var LANGUAGE = {
+export var VARIABLES = {
   i18n: new Language(),
 
   getI18n(): string{

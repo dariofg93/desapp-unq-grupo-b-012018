@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LANGUAGE } from './../../../configs/variables';
 import { Router } from '@angular/router';
 
 @Component({

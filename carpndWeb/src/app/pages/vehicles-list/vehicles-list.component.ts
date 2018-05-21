@@ -1,5 +1,6 @@
 import { Vehicle } from './../../models/vehicle'
 import { GenericRestService } from './../../services/generic/generic-rest.service';
+import { PATHBACKEND } from './../../../environments/environment';
 
 import { Observable } from "rxjs/Observable";
 import { ActivatedRoute,Router } from "@angular/router";
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicles-list.component.css'],
   providers: [
     GenericRestService,
-    { provide: 'url', useValue: 'http://localhost:8080' },
+    { provide: 'url', useValue: PATHBACKEND },
     { provide: 'endpoint', useValue: 'vehicles' }
   ]
 })

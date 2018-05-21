@@ -3,7 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { LANGUAGE } from './app/configs/variables';
+import { VARIABLES } from './app/configs/variables';
 
 if (environment.production) {
   enableProdMode();
@@ -12,7 +12,7 @@ if (environment.production) {
 // use the require method provided by webpack
 declare const require;
 // we use the webpack raw-loader to return the content as a string
-const translations = require(`raw-loader!./app/locale/${LANGUAGE.getI18n()}.xlf`);
+const translations = require(`raw-loader!./app/locale/${VARIABLES.getI18n()}.xlf`);
 
 platformBrowserDynamic().bootstrapModule(AppModule,{
 	providers: [
