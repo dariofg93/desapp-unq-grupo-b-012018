@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 
+import { LANGUAGE } from './configs/variables';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersEditComponent } from './pages/users-edit/users-edit.component';
@@ -72,8 +73,9 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-    GenericRestService
+    GenericRestService,
+    { provide: LOCALE_ID, useValue: LANGUAGE.getI18n() }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

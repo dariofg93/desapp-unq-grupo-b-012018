@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LANGUAGE } from './../../../configs/variables';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  setLanguage(i18nValue: string): void{
+  	this.router.navigateByUrl(`${window.location.pathname}?language=${i18nValue}`);
+  	location.reload();
+  }
 }

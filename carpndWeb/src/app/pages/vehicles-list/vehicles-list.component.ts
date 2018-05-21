@@ -1,5 +1,6 @@
 import { Vehicle } from './../../models/vehicle'
 import { GenericRestService } from './../../services/generic/generic-rest.service';
+
 import { Observable } from "rxjs/Observable";
 import { ActivatedRoute,Router } from "@angular/router";
 import { Component, OnInit } from '@angular/core';
