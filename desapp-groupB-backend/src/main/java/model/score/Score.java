@@ -44,7 +44,7 @@ public class Score extends Entity{
     }
     
     public static ScoreType fromCode(String description) {
-        for (ScoreType type : maybeScoreTypes()){
+        for (ScoreType type : avaliableScoreType()){
             if (type.description().equals(description)){
                 return type;
             }
@@ -52,11 +52,11 @@ public class Score extends Entity{
         throw new UnsupportedOperationException();
     }
 
-	private static List<ScoreType> maybeScoreTypes() {
-		List<ScoreType> maybeTyes = new ArrayList<ScoreType>();
-		maybeTyes.add(new LesseeScoreType());
-		maybeTyes.add(new OwnerScoreType());
-		maybeTyes.add(new VehicleScoreType());
-		return maybeTyes;
+	private static List<ScoreType> avaliableScoreType() {
+		List<ScoreType> avaliableScoreType = new ArrayList<ScoreType>();
+		avaliableScoreType.add(new LesseeScoreType());
+		avaliableScoreType.add(new OwnerScoreType());
+		avaliableScoreType.add(new VehicleScoreType());
+		return avaliableScoreType;
 	}
 }

@@ -8,12 +8,15 @@
 			<generator class="increment" />
 		</id>
 
-		<!-- <property name="category" column="category" unique="false"
-			type="model.vehicleType.Category" not-null="false" lazy="false" />
-		-->
 		<property name="description" type="string" column="DESCRIPTION" />
 			
 		<property name="passengerCapacity" type="integer" column="PASSAGER_CAPACITY" />
+		
+		<property name="category" lazy="false">
+			<column name="CATEGORY" />
+			<type name="model.vehicle.Vehicle" />
+		</property>
+		
 
 	</class>
 </hibernate-mapping>

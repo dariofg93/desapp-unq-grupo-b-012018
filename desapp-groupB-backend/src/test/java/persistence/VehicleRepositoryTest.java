@@ -60,6 +60,7 @@ public class VehicleRepositoryTest {
     	
     	assertEquals(restoredVehicle.getPassengerCapacity(), vehicle.getPassengerCapacity());
     	assertEquals(restoredVehicle.getDescription(), vehicle.getDescription());
+    	assertEquals(restoredVehicle.getCategory().getName(), vehicle.getCategory().getName());
 
     }
     
@@ -81,6 +82,7 @@ public class VehicleRepositoryTest {
     	
     	assertEquals(restoredVehicle.getPassengerCapacity(), vehicle.getPassengerCapacity());
     	assertEquals(restoredVehicle.getDescription(), newDescription);
+    	assertEquals(restoredVehicle.getCategory().getName(), vehicle.getCategory().getName());
 
     }
     
@@ -99,6 +101,7 @@ public class VehicleRepositoryTest {
     	
     	assertEquals(restoredVehicle.getPassengerCapacity(), anotherVehicle.getPassengerCapacity());
     	assertEquals(restoredVehicle.getDescription(), anotherVehicle.getDescription());
+       	assertEquals(restoredVehicle.getCategory().getName(), anotherVehicle.getCategory().getName());
 
     }    
     

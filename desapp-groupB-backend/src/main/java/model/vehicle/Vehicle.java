@@ -1,9 +1,12 @@
 package model.vehicle;
 
 import model.utils.Entity;
+import model.vehicletype.Car;
 import model.vehicletype.Category;
+import model.vehicletype.Scooter;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,6 +18,7 @@ public class Vehicle extends Entity{
     private String description;
     private List<BufferedImage> pictures; 
     private Integer passengerCapacity;
+    
     // Por ahora modelamos las imaganes con BufferedImage. Si despues hay uqe cambiar la clase vemos.
 
     public Vehicle(Category aCategory , String aDescription, List<BufferedImage> somePictures, Integer aNumberOfPassenger) {
@@ -63,5 +67,21 @@ public class Vehicle extends Entity{
 		this.passengerCapacity = passengerCapacity;
 	}
 
+	 
+    public static Category fromCode(String description) {
+        for (Category category : avaliableCategories()){
+            if (category.getName().equals(description)){
+                return category;
+            }
+        }
+        throw new UnsupportedOperationException();
+    }
+
+	private static List<Category> avaliableCategories() {
+		List<Category> avaliableCategories = new ArrayList<Category>();
+		avaliableCategories.add(new Car());
+		avaliableCategories.add(new Scooter());
+		return avaliableCategories;
+	}   
     
 }

@@ -1,6 +1,10 @@
 package model.vehicletype;
 
-public abstract class Category {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Category implements Serializable {
 	
 	public static Category scooter() {
 		return new Scooter();
@@ -15,6 +19,6 @@ public abstract class Category {
         return this.getName().equals(anyCategory.getName());
     }
 
-	   public abstract String getName();
-
+	public abstract String getName();
+	   
 }
