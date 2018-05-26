@@ -182,7 +182,7 @@ public class User extends Entity {
 	private void executeTransfer(BookingRequest anyRequest, CreditsAccount beneficiaryAccount,
 			CreditsAccount damagedAccount, Publication anyPublication) {
 
-		anyRequest.setDateTimeOfReservation(DateTime.now());
+		anyRequest.setReservationDateTime(DateTime.now());
 
 		Double totalCharge = anyPublication.getPricePerHour() * anyRequest.getTotalHours();
 
@@ -239,7 +239,7 @@ public class User extends Entity {
 
 	private void checkFixRentalTime(BookingRequest anyRequest, Publication anyPublication) throws NoAceptedException {
 		if (anyRequest.getState().getConfirmReturnBuyer() && anyRequest.getState().getConfirmReturnSeller()) {
-			Integer hoursOfTheReservation = Hours.hoursBetween(anyRequest.getDateTimeOfReservation(), DateTime.now())
+			Integer hoursOfTheReservation = Hours.hoursBetween(anyRequest.getReservationDateTime(), DateTime.now())
 					.getHours();
 			anyRequest.setHoursOfTheReservation(hoursOfTheReservation);
 		}

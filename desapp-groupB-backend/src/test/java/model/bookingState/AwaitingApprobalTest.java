@@ -7,12 +7,12 @@ import org.junit.Before;
 
 public class AwaitingApprobalTest extends TestCase {
 
-    private AwaitingApprobal anyAwaitingApprobal;
+    private AwaitingApproval anyAwaitingApprobal;
 
     @Before
 	public void setUp() throws Exception {
         super.setUp();
-        this.anyAwaitingApprobal = new AwaitingApprobal();
+        this.anyAwaitingApprobal = new AwaitingApproval();
 	}
 
     public void testSetAcepted(){

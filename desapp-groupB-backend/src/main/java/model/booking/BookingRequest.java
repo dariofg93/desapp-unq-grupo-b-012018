@@ -1,23 +1,32 @@
 package model.booking;
 
-import model.bookingstate.AwaitingApprobal;
+import model.bookingstate.AwaitingApproval;
 import model.bookingstate.BookingState;
 import model.email.MailBody;
 import model.exceptions.NoAceptedException;
+import model.score.LesseeScoreType;
+import model.score.OwnerScoreType;
+import model.score.ScoreType;
+import model.score.VehicleScoreType;
 import model.user.User;
+import model.utils.Entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.joda.time.DateTime;
 
-public class BookingRequest implements MailBody {
+public class BookingRequest extends Entity implements MailBody {
 
     private BookingState state;
     private User requester;
-    private Integer totalHours;
-    private DateTime dateTimeOfReservation;
-    private Integer hoursOfTheReservation;
+	private Integer totalHours;
+    private DateTime reservationDateTime;
+	private Integer hoursOfTheReservation;
 
     public BookingRequest(){
-        this.state = new AwaitingApprobal();
-        this.dateTimeOfReservation = null;
+        this.state = new AwaitingApproval();
+        this.reservationDateTime = DateTime.now();
     }
 
     public void setAcepted() {
@@ -45,7 +54,7 @@ public class BookingRequest implements MailBody {
     }
 
     public DateTime endOfReservation() {
-        return this.dateTimeOfReservation.plusHours(this.totalHours);
+        return this.reservationDateTime.plusHours(this.totalHours);
     }
 
     public boolean isApproved() {
@@ -55,9 +64,7 @@ public class BookingRequest implements MailBody {
 
     /** Setters and Getters **/
 
-    public User getRequester() {
-        return this.requester;
-    }
+
 
     public BookingState getState() {
         return this.state;
@@ -67,13 +74,6 @@ public class BookingRequest implements MailBody {
         return this.totalHours;
     }
 
-    public void setDateTimeOfReservation(DateTime dateTimeOfReservation) {
-        this.dateTimeOfReservation = dateTimeOfReservation;
-    }
-
-    public DateTime getDateTimeOfReservation() {
-        return this.dateTimeOfReservation;
-    }
 
     public void setHoursOfTheReservation(Integer hoursOfTheReservation) {
         this.hoursOfTheReservation = hoursOfTheReservation;
@@ -87,11 +87,26 @@ public class BookingRequest implements MailBody {
         this.totalHours = totalHours;
     }
 
-    public void setRequester(User requester) {
-        this.requester = requester;
-    }
 
     public Integer getHoursOfTheReservation() {
         return this.hoursOfTheReservation;
     }
+    
+    public User getRequester() {
+  		return requester;
+  	}
+
+  	public void setRequester(User requester) {
+  		this.requester = requester;
+  	}
+  	
+    public DateTime getReservationDateTime() {
+  		return reservationDateTime;
+  	}
+
+  	public void setReservationDateTime(DateTime reservationDateTime) {
+  		this.reservationDateTime = reservationDateTime;
+  	}
+
+    
 }

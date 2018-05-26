@@ -1,14 +1,27 @@
 package model.bookingstate;
 
 import model.exceptions.NoAceptedException;
+import model.utils.Entity;
 
-public abstract class BookingState {
 
-    public abstract BookingState setAcepted();
+public abstract class BookingState extends Entity{
+	
+	protected String description;
+
+	public abstract BookingState setAcepted();
 
     public abstract BookingState setRejected();
 
     /** Setters and Getters **/
+    
+    public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 
     public Boolean getConfirmRetreatBuyer() throws NoAceptedException{
         throw new NoAceptedException();

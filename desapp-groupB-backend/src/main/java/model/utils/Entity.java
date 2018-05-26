@@ -2,6 +2,8 @@ package model.utils;
 
 import java.io.Serializable;
 
+import model.user.User;
+
 @SuppressWarnings("serial")
 public abstract class Entity implements Serializable {
 
@@ -15,5 +17,18 @@ public abstract class Entity implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		Entity entity = (Entity) o;
+		return (super.equals(o) && (entity.getId() == this.getId()));
+
+	}
+
+	@Override
+
+	public int hashCode() {
+		return super.hashCode() + this.id.hashCode();
 	}
 }

@@ -24,7 +24,7 @@ public class BookingRequestBuilder {
     }
 
     public BookingRequestBuilder withDateTimeOfReservation(DateTime anyDateTime) {
-        this.buildBookingRequest.setDateTimeOfReservation(anyDateTime);
+        this.buildBookingRequest.setReservationDateTime(anyDateTime);
         return this;
     }
 

@@ -16,7 +16,7 @@ public class BookingStateTest {
     @Before
     public void setUp() throws Exception {
 
-        this.anyState = new AwaitingApprobal();
+        this.anyState = new AwaitingApproval();
     }
 
     @Test(expected = NoAceptedException.class)	

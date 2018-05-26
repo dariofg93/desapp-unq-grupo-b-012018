@@ -94,7 +94,7 @@ public class BookingRequestTest extends TestCase {
         DateTime endOfReservation = anyBookingRequest.endOfReservation();
 
         assertEquals(
-                Hours.hoursBetween(anyBookingRequest.getDateTimeOfReservation(),endOfReservation).getHours(),
+                Hours.hoursBetween(anyBookingRequest.getReservationDateTime(),endOfReservation).getHours(),
                 20);
     }
 

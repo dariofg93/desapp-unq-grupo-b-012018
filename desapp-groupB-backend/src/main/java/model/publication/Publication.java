@@ -5,6 +5,7 @@ import model.city.City;
 import model.exceptions.BookingNotFoundException;
 import model.maps.GeographicZoneDescription;
 import model.user.User;
+import model.utils.Entity;
 import model.vehicle.Vehicle;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
@@ -13,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Publication {
+public class Publication extends Entity{
 
-    private Double pricePerHour;
+	private Double pricePerHour;
     private Integer phone;
     private User user;
     private DateTime fromDate;
@@ -111,6 +112,47 @@ public class Publication {
 		return requests;
 	}
 	
+
+    public List<BookingRequest> getRequests() {
+		return requests;
+	}
+
+	public void setRequests(List<BookingRequest> requests) {
+		this.requests = requests;
+	}
+
+	public void setPricePerHour(Double pricePerHour) {
+		this.pricePerHour = pricePerHour;
+	}
+
+	public void setPhone(Integer phone) {
+		this.phone = phone;
+	}
+
+	public void setFromDate(DateTime fromDate) {
+		this.fromDate = fromDate;
+	}
+
+	public void setToDate(DateTime toDate) {
+		this.toDate = toDate;
+	}
+
+	public void setPublishedVehicle(Vehicle publishedVehicle) {
+		this.publishedVehicle = publishedVehicle;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public void setPickUpZone(GeographicZoneDescription pickUpZone) {
+		this.pickUpZone = pickUpZone;
+	}
+
+	public void setDropZone(GeographicZoneDescription dropZone) {
+		this.dropZone = dropZone;
+	}
+	
 	public List<BookingRequest> approvedRequestsForDate(DateTime date){
 		
 		// Delegar esto a la base de datos.
@@ -119,7 +161,7 @@ public class Publication {
 						.filter(request -> 
 						request.isApproved()
 						&& 
-										   (request.getDateTimeOfReservation().isBefore(date) 
+										   (request.getReservationDateTime().isBefore(date) 
 												   && request.endOfReservation().isAfter(date))
 						)
 						.collect(Collectors.toList());
@@ -142,5 +184,9 @@ public class Publication {
 	public void setUser(User anUser) {
 		user = anUser;
 		
+	}
+	
+	public static City fromCode(String name) {
+		return new City(name);
 	}
 }

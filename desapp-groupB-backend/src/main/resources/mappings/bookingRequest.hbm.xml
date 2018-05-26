@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="save-update">
+	<class name="model.booking.BookingRequest" table="PUBLICATIONS">
+
+		<id column="id" name="id" type="java.lang.Long">
+			<generator class="increment" />
+		</id>
+
+		<many-to-one name="state" column="STATE_ID"
+			outer-join="false" lazy="false" not-found="ignore"
+			class="model.bookingstate.BookingState">
+		</many-to-one>
+
+		<one-to-one name="requester" class="model.user.User" />
+
+		<property name="totalHours" type="int" />
+
+		<property name="reservationDateTime"
+			type="org.jadira.usertype.dateandtime.joda.PersistentDateTime">
+			<column name="RESERVATION_DATETIME" />
+		</property>
+
+
+		<property name="hoursOfTheReservation" type="int" />
+
+	</class>
+</hibernate-mapping>

@@ -84,11 +84,11 @@ public class PublicationTest {
 		when(bookingRequest2.isApproved()).thenReturn(true);
 		when(bookingRequest.isApproved()).thenReturn(false);
 		
-		when(bookingRequest2.getDateTimeOfReservation()).thenReturn(new DateTime(2018, 2, 10, 12, 0, 0, 0));
+		when(bookingRequest2.getReservationDateTime()).thenReturn(new DateTime(2018, 2, 10, 12, 0, 0, 0));
 		when(bookingRequest2.endOfReservation()).thenReturn(new DateTime(2018, 4, 10, 12, 0, 0, 0));
 		
 		when(bookingRequest.endOfReservation()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
-		when(bookingRequest.getDateTimeOfReservation()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
+		when(bookingRequest.getReservationDateTime()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
 		
 		assertEquals(publication.approvedRequestsForDate(someDate).get(0), bookingRequest2);
 	}
@@ -108,11 +108,11 @@ public class PublicationTest {
 		when(bookingRequest2.isApproved()).thenReturn(true);
 		when(bookingRequest.isApproved()).thenReturn(false);
 		
-		when(bookingRequest2.getDateTimeOfReservation()).thenReturn(new DateTime(2018, 2, 10, 12, 0, 0, 0));
+		when(bookingRequest2.getReservationDateTime()).thenReturn(new DateTime(2018, 2, 10, 12, 0, 0, 0));
 		when(bookingRequest2.endOfReservation()).thenReturn(new DateTime(2018, 4, 10, 12, 0, 0, 0));
 		
 		when(bookingRequest.endOfReservation()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
-		when(bookingRequest.getDateTimeOfReservation()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
+		when(bookingRequest.getReservationDateTime()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
 		
 		assertFalse(publication.isAvailableFor(someDate));
 	}
@@ -146,7 +146,7 @@ public class PublicationTest {
 		
 		when(bookingRequest2.isApproved()).thenReturn(true);
 			
-		when(bookingRequest2.getDateTimeOfReservation()).thenReturn(DateTime.now().minusDays(3));
+		when(bookingRequest2.getReservationDateTime()).thenReturn(DateTime.now().minusDays(3));
 		when(bookingRequest2.endOfReservation()).thenReturn(DateTime.now().plusDays(1));
 			
 		assertEquals(publication.currentAprovedRequest(), bookingRequest2);
@@ -163,7 +163,7 @@ public class PublicationTest {
 		when(bookingRequest2.isApproved()).thenReturn(true);
 			
 		when(bookingRequest2.endOfReservation()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
-		when(bookingRequest2.getDateTimeOfReservation()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
+		when(bookingRequest2.getReservationDateTime()).thenReturn(new DateTime(2016, 4, 10, 12, 0, 0, 0));
 			
 		publication.currentAprovedRequest();
 	}
@@ -190,7 +190,7 @@ public class PublicationTest {
 		
 		when(bookingRequest2.isApproved()).thenReturn(true);
 			
-		when(bookingRequest2.getDateTimeOfReservation()).thenReturn(DateTime.now().minusDays(3));
+		when(bookingRequest2.getReservationDateTime()).thenReturn(DateTime.now().minusDays(3));
 		when(bookingRequest2.endOfReservation()).thenReturn(DateTime.now().minusDays(1));
 				
 		assertEquals(anotherPublication.remainingTime(), new Integer(0));

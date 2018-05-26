@@ -314,7 +314,7 @@ public class UserTest {
                 .build();
 
         when(anyPublicationMock.getUser()).thenReturn(anyUser);
-        when(anyBookingRequestMock.getDateTimeOfReservation()).thenReturn(DateTime.now().minusHours(5));
+        when(anyBookingRequestMock.getReservationDateTime()).thenReturn(DateTime.now().minusHours(5));
         this.prepareTestConfirmReturn(true);
 
         anyUser.confirmVehicleReturnBuyer(anyBookingRequestMock, anyVehicleScoreMock, anySellerScoreMock);

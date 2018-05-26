@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="model.bookingstate.BookingState"
+		table="BOOKING_STATES" polymorphism="implicit">
+
+		<id name="id" column="id">
+			<generator class="identity" />
+		</id>
+		<discriminator insert="false" column="DESCRIPTION" />
+		<property name="description" column="DESCRIPTION" />
+		<subclass name="model.bookingstate.Approved"
+			discriminator-value="APP" />
+		<subclass name="model.bookingstate.Rejected"
+			discriminator-value="REJ" />
+		<subclass name="model.bookingstate.AwaitingApproval"
+			discriminator-value="AWA" />
+	</class>
+</hibernate-mapping>

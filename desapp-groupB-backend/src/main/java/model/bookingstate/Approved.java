@@ -12,6 +12,7 @@ public class Approved extends BookingState {
         this.confirmRetreatBuyer = false;
         this.confirmReturnBuyer = false;
         this.confirmReturnSeller = false;
+        this.description = "APR";
     }
 
     @Override

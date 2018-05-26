@@ -17,5 +17,10 @@
 		<property name="repository" ref="usersRepository" />
 	</bean>
 
+	<bean id="publicationsService" class="service.publication.PublicationService">
+		<property name="repository" ref="publicationsRepository" />
+	</bean>
+
+
 </beans>
 

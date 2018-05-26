@@ -10,14 +10,11 @@ public class CityTest extends TestCase {
     @Before
 	public void setUp() throws Exception {
         super.setUp();
-        this.city = new City();
+        this.city = new City("Quilmes");
 	}
 
     public void testFilterAndOrder(){
-        City city2 = new City();
-            city2.setName("Bernal");
-
-        city.setName("Quilmes");
+        City city2 = new City("Bernal");
 
         assertFalse(city.isSame(city2));
     }

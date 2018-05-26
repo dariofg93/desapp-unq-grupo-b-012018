@@ -1,19 +1,35 @@
 package model.city;
 
-public class City {
+import java.io.Serializable;
 
-    private String name;
 
-    public Boolean isSame(City anyCity) {
-        return this.name.equals(anyCity.getName());
-    }
+public class City implements Serializable {
 
-    /** Setters and Getters **/
+	private String name;
 
-    public String getName() {
-        return this.name;
-    }
-    public void setName(String name){
-        this.name = name;
-    }
+	public City(String name) {
+		this.name = name;
+	}
+
+	public Boolean isSame(City anyCity) {
+		return this.name.equals(anyCity.getName());
+	}
+
+	/** Setters and Getters **/
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/*
+	 * Construct object from data base
+	 */
+
+	public static City fromCode(String name) {
+		return new City(name);
+	}
 }
