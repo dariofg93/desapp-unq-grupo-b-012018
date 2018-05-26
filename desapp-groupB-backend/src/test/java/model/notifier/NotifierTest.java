@@ -43,7 +43,7 @@ public class NotifierTest extends TestCase {
         when(requesterMock.getFirstName()).thenReturn("Papa");
         when(requesterMock.getLastName()).thenReturn("Noel");
 
-        when(userEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(userEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(userMock.getEmail()).thenReturn(userEmailMock);
 
         notifier.notifyRequestByMail(userMock,anyRequestMock);
@@ -58,7 +58,7 @@ public class NotifierTest extends TestCase {
 
         when(userMock.getFirstName()).thenReturn("Hada");
         when(userMock.getLastName()).thenReturn("Madrina");
-        when(userEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(userEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(userMock.getEmail()).thenReturn(userEmailMock);
 
         notifier.notifyAceptByMail(userMock,anyRequestMock);
@@ -74,7 +74,7 @@ public class NotifierTest extends TestCase {
 
         when(userMock.getFirstName()).thenReturn("Pepe");
         when(userMock.getLastName()).thenReturn("Grillo");
-        when(userEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(userEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(userMock.getEmail()).thenReturn(userEmailMock);
 
         notifier.notifyRejectByMail(userMock,anyRequestMock);
@@ -87,7 +87,7 @@ public class NotifierTest extends TestCase {
         when(anyRequestMock.getTotalHours()).thenReturn(10);
 
         when(userMock.getFirstName()).thenReturn("Dario");
-        when(userEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(userEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(userMock.getEmail()).thenReturn(userEmailMock);
 
         notifier.notifyRetreatBuyerByMail(userMock,anyRequestMock);
@@ -100,7 +100,7 @@ public class NotifierTest extends TestCase {
         when(anyRequestMock.getTotalHours()).thenReturn(16);
 
         when(requesterMock.getFirstName()).thenReturn("Dario");
-        when(requesterEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(requesterEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(requesterMock.getEmail()).thenReturn(requesterEmailMock);
 
         notifier.notifyRetreatSellerByMail(anyRequestMock);
@@ -110,7 +110,7 @@ public class NotifierTest extends TestCase {
 
     public void testNotifyReturnBuyerByMail(){
         when(anyRequestMock.getTotalHours()).thenReturn(6);
-        when(userEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(userEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(userMock.getEmail()).thenReturn(userEmailMock);
 
         notifier.notifyReturnBuyerByMail(userMock,anyRequestMock);
@@ -122,7 +122,7 @@ public class NotifierTest extends TestCase {
         when(anyRequestMock.getRequester()).thenReturn(requesterMock);
         when(anyRequestMock.getTotalHours()).thenReturn(1);
 
-        when(requesterEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(requesterEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(requesterMock.getEmail()).thenReturn(requesterEmailMock);
 
         notifier.notifyReturnSellerByMail(anyRequestMock);
@@ -137,14 +137,14 @@ public class NotifierTest extends TestCase {
             users.add(userMock);
             users.add(requesterMock);
 
-        when(userEmailMock.getAccount()).thenReturn("dariofg93@gmail.com");
+        when(userEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(userMock.getEmail()).thenReturn(userEmailMock);
-        when(movements.getHistory()).thenReturn("Pocos movimientos\n\t en el mes");
+        when(movements.getAllHistory()).thenReturn("Pocos movimientos\n\t en el mes");
         when(userMock.getMovementsOfMonth()).thenReturn(movements);
 
-        when(requesterEmailMock.getAccount()).thenReturn("fabri1108@gmail.com");
+        when(requesterEmailMock.getAccountName()).thenReturn("fabri1108@gmail.com");
         when(requesterMock.getEmail()).thenReturn(requesterEmailMock);
-        when(movements.getHistory()).thenReturn("Se envian\n\t los mails\n\t de carpnd!");
+        when(movements.getAllHistory()).thenReturn("Se envian\n\t los mails\n\t de carpnd!");
         when(requesterMock.getMovementsOfMonth()).thenReturn(movements);
 
         notifier.sendMovementsOfTheMonthToUsers(users);

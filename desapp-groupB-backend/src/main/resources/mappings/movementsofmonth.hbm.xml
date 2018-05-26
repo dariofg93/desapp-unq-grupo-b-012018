@@ -2,19 +2,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-cascade="save-update">
-	<class name="model.score.ScoreManager" table="SCORE_MANAGERS">
+	<class name="model.movements.MovementsOfMonth"
+		table="MOVEMENTS_OF_MONTH">
 
-		<id column="id_sm" name="id" type="java.lang.Long">
+		<id column="id_movement_month" name="id" type="java.lang.Long">
 			<generator class="increment" />
 		</id>
-		
-		<list name="scores" table="SCORES" inverse="false" cascade="all" lazy = "false">
+
+		<list name="history" table="HISTORY_RECORD" inverse="false" cascade="all" lazy = "false">
 			<key >
-				<column name="id_sm" />
+				<column name="id_HR" />
 			</key>
 			  <list-index column = "indx"/>
-			<one-to-many class="model.score.Score" />
-			
-		</list> 
+			<one-to-many class="model.movements.HistoryRecord" />
+		</list>
+		
 	</class>
 </hibernate-mapping>

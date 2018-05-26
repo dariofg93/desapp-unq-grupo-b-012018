@@ -128,16 +128,16 @@
 		<property name="service" ref="vehiclesService" />
 	</bean>
 
-<!-- 	<bean id="usersDummy" class="dummies.UsersDummy">
+ 	<bean id="usersDummy" class="dummies.UsersDummy">
 		<property name="service" ref="usersService" />
 	</bean>
- -->
+ 
 	<bean id="dataRepository" class="dummies.DataRepository"
 		init-method="instantiateDataMock">
 		<property name="dummies">
 			<list value-type="dummies.DummyData">
 				<ref bean="vehiclesDummy" />
-				<!-- <ref bean="usersDummy" /> -->
+				<ref bean="usersDummy" />
 			</list>
 		</property>
 	</bean>

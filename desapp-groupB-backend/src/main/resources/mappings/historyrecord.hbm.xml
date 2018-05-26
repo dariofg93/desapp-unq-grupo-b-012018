@@ -2,18 +2,14 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-cascade="save-update">
-	<class name="model.score.Score" table="SCORES">
+	<class name="model.movements.HistoryRecord"
+		table="HISTORY_RECORDS">
 
-		<id column="id" name="id" type="java.lang.Long">
-			<generator class="identity" />
+		<id column="id_movement_month" name="id" type="java.lang.Long">
+			<generator class="increment" />
 		</id>
-
-		<property name="value" type="double" column="VALUE" />
-
-		<property name="scoreType" lazy="false">
-			<column name="TYPE" />
-			<type name="model.score.Score" />
-		</property>
+		
+		<property name="description" type="string" column="DESCRIPTION" />
 
 		
 	</class>

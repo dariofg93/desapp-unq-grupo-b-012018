@@ -31,6 +31,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<jaxrs:server id="vehicle" address="/">
 		<jaxrs:serviceBeans>
 			<ref bean="vehiclesRest" />
+			<ref bean="usersRest" />
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json" />

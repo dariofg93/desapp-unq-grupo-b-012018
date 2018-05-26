@@ -5,8 +5,10 @@ import java.util.List;
 import model.utils.Entity;
 
 public class ScoreManager extends Entity {
+	
+	private static final long serialVersionUID = 532916824793782845L;
 
-    private List<Score> scores;
+	private List<Score> scores;
 
 	public ScoreManager(List<Score> someList) {
 		super();

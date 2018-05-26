@@ -20,7 +20,7 @@ public class Notifier {
         String fullName = requester.getFirstName() + " " + requester.getLastName();
         String subject = "Reservation request of " + fullName;
 
-        mailSender.send(notifier.getEmail().getAccount(),
+        mailSender.send(notifier.getEmail().getAccountName(),
             subject,
             "You have a new booking request for " + anyRequest.getTotalHours() + " hours");
         this.prepareMailCarpndWithSubject(anyRequest,subject);
@@ -34,7 +34,7 @@ public class Notifier {
         String fullName = acceptor.getFirstName() + " " + acceptor.getLastName();
         String subject = fullName + " have accepted your reservation!";
 
-        mailSender.send(acceptor.getEmail().getAccount(),
+        mailSender.send(acceptor.getEmail().getAccountName(),
             subject,
             "You reservation for " + anyRequest.getTotalHours() + " hours has been accepted");
         this.prepareMailCarpndWithSubject(anyRequest,subject);
@@ -47,7 +47,7 @@ public class Notifier {
         String fullName = rejector.getFirstName() + " " + rejector.getLastName();
         String subject = fullName + " have rejected your reservation!";
 
-        mailSender.send(rejector.getEmail().getAccount(),
+        mailSender.send(rejector.getEmail().getAccountName(),
             subject,
             "You reservation for " + anyRequest.getTotalHours() + " hours has been rejected");
         this.prepareMailCarpndWithSubject(anyRequest, subject);
@@ -59,7 +59,7 @@ public class Notifier {
         String endSubject = "! the retreat for " + anyRequest.getTotalHours() + " hours was confirmed!";
         String subject = "Congratulations " + seller.getFirstName() + endSubject;
 
-        mailSender.send(seller.getEmail().getAccount(),
+        mailSender.send(seller.getEmail().getAccountName(),
                 subject,
                 "The buyer has confirmed the retreat of the vehicle, you can see the details on the site!");
         this.prepareMailCarpndWithSubject(anyRequest,subject);
@@ -72,7 +72,7 @@ public class Notifier {
         String endSubject = "! the retreat for " + anyRequest.getTotalHours() + " hours was confirmed!";
         String subject = "Congratulations " + buyer.getFirstName() + endSubject;
 
-        mailSender.send(buyer.getEmail().getAccount(),
+        mailSender.send(buyer.getEmail().getAccountName(),
             subject,
             "The seller has confirmed the retreat of the vehicle, you can see the details on the site!");
         this.prepareMailCarpndWithSubject(anyRequest,subject);
@@ -83,7 +83,7 @@ public class Notifier {
     public void notifyReturnBuyerByMail(User seller, BookingRequest anyRequest) {
         String subject = "Reservation completed for " + anyRequest.getTotalHours() + " hours confirmed by the buyer!";
 
-        mailSender.send(seller.getEmail().getAccount(),
+        mailSender.send(seller.getEmail().getAccountName(),
             subject,
             "The buyer has confirmed the return of the vehicle, you can see the details on the site!");
         this.prepareMailCarpndWithSubject(anyRequest,subject);
@@ -95,7 +95,7 @@ public class Notifier {
         User buyer = anyRequest.getRequester();
         String subject = "Reservation completed for " + anyRequest.getTotalHours() + " hours confirmed by the seller!";
 
-        mailSender.send(buyer.getEmail().getAccount(),
+        mailSender.send(buyer.getEmail().getAccountName(),
             subject,
             "The seller has confirmed the return of the vehicle, you can see the details on the site!");
         this.prepareMailCarpndWithSubject(anyRequest,subject);
@@ -109,7 +109,7 @@ public class Notifier {
         for(User user: manyUsers){
             subject = "Movements of the month of " + DateTime.now().monthOfYear().getAsText();
 
-            mailSender.send(user.getEmail().getAccount(),subject,user.getMovementsOfMonth().getHistory());
+            mailSender.send(user.getEmail().getAccountName(),subject,user.getMovementsOfMonth().getAllHistory());
             this.prepareMailCarpndWithSubject(user.getMovementsOfMonth(),subject);
 
             user.getEmail().addMailCarpnd(this.mailBuilded);

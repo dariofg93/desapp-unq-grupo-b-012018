@@ -4,20 +4,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import model.utils.Entity;
 
 public class Score extends Entity{
 
     private Double value;
+    @JsonIgnore
     private ScoreType scoreType;
     
     
     public Score() {
 		super();
-	}
-
-	public ScoreType getScoreType() {
-		return scoreType;
 	}
 
 	public Score(ScoreType aScoreType) {
@@ -31,7 +30,11 @@ public class Score extends Entity{
     public Double getValue() {
         return value;
     }
-
+    
+	public ScoreType getScoreType() {
+		return scoreType;
+	}
+	
 	public void setScoreType(ScoreType scoreType) {
 		this.scoreType = scoreType;
 	}

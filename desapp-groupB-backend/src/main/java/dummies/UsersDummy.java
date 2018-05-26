@@ -25,16 +25,18 @@ public class UsersDummy implements DummyData{
         User user1 = builder.createUser()
                 .withWebSite(new WebSite())
                 .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
-                .withScoreManager(new ScoreManager(new ArrayList<Score>()))//Collections.singleton(new Score(new OwnerScoreType())))))
+                .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("dariofg93@gmail.com"))
                 .build();
+        user1.getMovementsOfMonth().addToHistory("Hoy alquile");
+        user1.getMovementsOfMonth().addToHistory("Hoy alquile otro auto");
         this.users.add(user1);
 
         User user2 = builder.createUser()
                 .withWebSite(new WebSite())
                 .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
-                .withScoreManager(new ScoreManager(new ArrayList<Score>()))//Collections.singleton(new Score(new OwnerScoreType())))))
+                .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("fabri1108@gmail.com"))
                 .build();

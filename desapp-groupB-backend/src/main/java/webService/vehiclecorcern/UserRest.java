@@ -7,6 +7,7 @@ import javax.ws.rs.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import model.user.User;
@@ -30,6 +31,7 @@ public class UserRest {
     @GET
     @Path("/")
     @Produces("application/json")
+    @Transactional
     public List<User> retriveAll() {
         return this.userService.retriveAll();
     }

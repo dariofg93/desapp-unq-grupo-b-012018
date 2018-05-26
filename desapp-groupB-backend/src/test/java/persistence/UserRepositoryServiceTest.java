@@ -64,10 +64,12 @@ public class UserRepositoryServiceTest {
 		User restoredUser = userService.searchById(anyUser.getId());
 		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
 		assertEquals(cuil, restoredUser.getCuil());
-		assertEquals(restoredUser.getEmail().getAccount(), "pepe-bueno@hotmail.com");
+		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
 		assertEquals(restoredUser.getFirstName(), "Pepe");
 		assertEquals(restoredUser.getLastName(), "Bueno");
-		assertTrue(restoredUser.getAddress().equalsTo(zone));
+		assertEquals(restoredUser.getMovementsOfMonth().getAllHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+	
+	
 	}
 	
 	/*
@@ -85,9 +87,6 @@ public class UserRepositoryServiceTest {
 
 		anyUser = new UserBuilder().createUser().withScoreManager(new ScoreManager(scoreList)).build();
 
-//		 anyUser = new UserBuilder().createUser().withScoreManager(new
-//		 ScoreManager(new ArrayList<Score>())).build();
-
 		anyUser.setAddress(zone);
 		anyUser.setCreditsAccount(account);
 		anyUser.depositCredits(creditAmount);
@@ -95,6 +94,8 @@ public class UserRepositoryServiceTest {
 		anyUser.setFirstName("Pepe");
 		anyUser.setLastName("Bueno");
 		anyUser.setEmail(new Email("pepe-bueno@hotmail.com"));
+		anyUser.getMovementsOfMonth().addToHistory("Hoy alquile");
+		anyUser.getMovementsOfMonth().addToHistory("Hoy alquile otro auto");
 	}
 
 	private void cleanDatabase() {

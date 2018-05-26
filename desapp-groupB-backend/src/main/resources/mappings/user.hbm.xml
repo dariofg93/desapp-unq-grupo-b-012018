@@ -14,18 +14,21 @@
 
 		<property name="cuil" type="string" column="CUIL" />
 
-		<many-to-one name="scoreManager"
-			class="model.score.ScoreManager" cascade="all" />
+	<!-- 	<many-to-one name="scoreManager"
+			class="model.score.ScoreManager" cascade="all" lazy= "false"/> -->
 
 		<one-to-one name="creditsAccount"
 			class="model.creditsaccount.CreditsAccount" cascade="all" />
 		
 		<one-to-one name="address"
-			class="model.maps.GeographicZoneDescription" cascade="all" />
-
+			class="model.maps.GeographicZoneDescription" cascade="all" lazy = "false"/>
+			
+		<many-to-one name="movementsOfMonth"
+			class="model.movements.MovementsOfMonth" cascade="all" lazy= "false"/>
+		
 		<property name="email">
 			<column name="EMIAL" />
-			<type name="model.user.User" />
+			<type name="model.email.Email" />
 		</property>
 
 
