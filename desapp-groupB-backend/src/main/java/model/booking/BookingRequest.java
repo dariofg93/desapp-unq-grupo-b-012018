@@ -4,15 +4,9 @@ import model.bookingstate.AwaitingApproval;
 import model.bookingstate.BookingState;
 import model.email.MailBody;
 import model.exceptions.NoAceptedException;
-import model.score.LesseeScoreType;
-import model.score.OwnerScoreType;
-import model.score.ScoreType;
-import model.score.VehicleScoreType;
 import model.user.User;
 import model.utils.Entity;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.joda.time.DateTime;
 

@@ -1,7 +1,6 @@
 package model.filter;
 
 import junit.framework.TestCase;
-import model.builders.FilterByCategoryBuilder;
 import model.order.Order;
 import model.publication.Publication;
 import model.vehicle.Vehicle;

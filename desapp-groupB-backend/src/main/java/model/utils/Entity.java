@@ -2,7 +2,6 @@ package model.utils;
 
 import java.io.Serializable;
 
-import model.user.User;
 
 @SuppressWarnings("serial")
 public abstract class Entity implements Serializable {

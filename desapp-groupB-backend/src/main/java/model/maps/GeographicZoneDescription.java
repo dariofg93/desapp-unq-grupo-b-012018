@@ -4,8 +4,8 @@ import model.utils.Entity;
 
 public class GeographicZoneDescription extends Entity {
 	
-	Double latitud;
-	Double longitud;
+	private Double latitud;
+	private Double longitud;
 
 	public GeographicZoneDescription(Double aLatitud, Double aLongitud) {
 		latitud = aLatitud;

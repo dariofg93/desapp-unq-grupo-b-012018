@@ -7,10 +7,10 @@ import org.junit.Test;
 
 public class ScoreTest {
 	
-	Score score;
-	VehicleScoreType vehicleScoreType;
-	LesseeScoreType lesseeScoreType;
-	OwnerScoreType ownerScoreType;
+	private Score score;
+	private VehicleScoreType vehicleScoreType;
+	private LesseeScoreType lesseeScoreType;
+	private OwnerScoreType ownerScoreType;
 
 
 	@Test

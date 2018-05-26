@@ -1,15 +1,12 @@
 package model.maps;
 
 import static org.junit.Assert.*;
-
-import java.math.BigDecimal;
-
 import org.junit.Before;
 import org.junit.Test;
 
 public class GeographicZoneDescriptionTest {
 	
-	GeographicZoneDescription zone;
+	private GeographicZoneDescription zone;
 
 	 @Before
 		public void setUp() throws Exception {
