@@ -3,11 +3,11 @@ import { ViewChild } from '@angular/core';
 import { } from '@types/googlemaps';
 
 @Component({
-  selector: 'app-google-map',
-  templateUrl: './google-map.component.html',
-  styleUrls: ['./google-map.component.css']
+  selector: 'app-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.css']
 })
-export class GoogleMapComponent implements OnInit {
+export class MapComponent implements OnInit {
 
   @ViewChild('gmap') gmapElement: any;
 

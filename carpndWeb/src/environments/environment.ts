@@ -6,3 +6,6 @@
 export const environment = {
   production: false
 };
+
+export const PATHFRONTEND = 'http://localhost:4200';
+export const PATHBACKEND = 'http://localhost:8080';

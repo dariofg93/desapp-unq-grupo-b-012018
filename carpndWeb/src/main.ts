@@ -1,12 +1,22 @@
-import { enableProdMode } from '@angular/core';
+import { enableProdMode,TRANSLATIONS,TRANSLATIONS_FORMAT } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { VARIABLES } from './app/configs/variables';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+// use the require method provided by webpack
+declare const require;
+// we use the webpack raw-loader to return the content as a string
+const translations = require(`raw-loader!./app/locale/${VARIABLES.getI18n()}.xlf`);
+
+platformBrowserDynamic().bootstrapModule(AppModule,{
+	providers: [
+    {provide: TRANSLATIONS, useValue: translations},
+    {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'}
+  ]
+});
