@@ -15,8 +15,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import model.booking.BookingRequest;
-import model.bookingstate.Approved;
-import model.builders.BookingRequestBuilder;
 import model.builders.UserBuilder;
 import model.city.City;
 import model.maps.GeographicZoneDescription;

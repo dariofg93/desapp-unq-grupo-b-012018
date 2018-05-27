@@ -1,13 +1,11 @@
 package model.bookingState;
 
-import junit.framework.TestCase;
+
 import model.bookingstate.*;
-import model.exceptions.BookingNotFoundException;
 import model.exceptions.NoAceptedException;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
 
 public class BookingStateTest {
 

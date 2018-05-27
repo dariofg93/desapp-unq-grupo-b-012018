@@ -33,13 +33,13 @@ public class UserRepositoryServiceTest {
 	@Autowired(required = true)
 	UserService userService;
 
-	Double creditAmount;
-	CreditsAccount account;
-	GeographicZoneDescription zone;
-	String cuil;
-	Score score;
-	List<Score> scoreList;
-	User anyUser;
+	private Double creditAmount;
+	private CreditsAccount account;
+	private GeographicZoneDescription zone;
+	private String cuil;
+	private Score score;
+	private List<Score> scoreList;
+	private User anyUser;
 
 	@Before
 	public void setUp() {

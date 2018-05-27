@@ -4,7 +4,7 @@ import model.utils.Entity;
 
 public class HistoryRecord extends Entity{
 	
-	String description;
+	private String description;
 	public HistoryRecord() {
 		
 	}
