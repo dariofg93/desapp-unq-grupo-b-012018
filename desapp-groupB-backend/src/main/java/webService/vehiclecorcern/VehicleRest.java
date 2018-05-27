@@ -28,15 +28,15 @@ public class VehicleRest{
     @GET
     @Path("/")
     @Produces("application/json")
-    public List<Vehicle> retriveAll() {
-        return this.vehicleService.retriveAll();
+    public ResponseEntity retriveAll() {
+        return new ResponseEntity<List<Vehicle>>(this.vehicleService.retriveAll(),HttpStatus.OK);
     }
 
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Vehicle seachById(@PathParam("id") final Long id) {
-    	return vehicleService.searchById(id);
+    public ResponseEntity seachById(@PathParam("id") final Long id) {
+        return new ResponseEntity<Vehicle>(vehicleService.searchById(id),HttpStatus.OK);
     }
     
     @POST

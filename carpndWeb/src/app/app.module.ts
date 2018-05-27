@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule,LOCALE_ID } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { VARIABLES } from './configs/variables';
 import { AppComponent } from './app.component';
@@ -64,6 +65,7 @@ const appRoutes: Routes = [
     FooterComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,

@@ -8,15 +8,29 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  languages;
+  selectedItem;
+  i18nValue: string;
+
   constructor(
   	private router: Router
   ) { }
 
   ngOnInit() {
+    this.languages = [
+      {i18n: 'en-US', name: 'English'},
+      {i18n: 'es-AR', name: 'Spanish'}
+    ]
   }
 
-  setLanguage(i18nValue: string): void{
-  	this.router.navigateByUrl(`${window.location.pathname}?language=${i18nValue}`);
-  	location.reload();
+  changeLanguage(): void{
+    if(this.i18nValue != undefined){
+    	this.router.navigateByUrl(`${window.location.pathname}?language=${this.i18nValue}`);
+    	location.reload();
+    }
+  }
+
+  setSelectedItem(newItem) {
+    this.selectedItem = newItem;
   }
 }

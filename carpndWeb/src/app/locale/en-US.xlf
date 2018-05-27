@@ -2,12 +2,68 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="VehiclesTitle" datatype="html">
-        <source>vehicles-list works!</source>
-        <target>vehicles-list works!</target>
+      <trans-unit id="vehiclesTitle" datatype="html">
+        <source>vehiclesTitle</source>
+        <target>published vehicles list</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/pages/vehicles-list/vehicles-list.component.ts</context>
           <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="usersList" datatype="html">
+        <source>usersList</source>
+        <target>Users list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="vehiclesList" datatype="html">
+        <source>vehiclesList</source>
+        <target>Vehicles list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="publications" datatype="html">
+        <source>publications</source>
+        <target>Publications</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="requests" datatype="html">
+        <source>requests</source>
+        <target>Requests</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="selectLanguage" datatype="html">
+        <source>selectLanguage</source>
+        <target>Select a language</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="translate" datatype="html">
+        <source>translate</source>
+        <target>Translate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footerText" datatype="html">
+        <source>footerText</source>
+        <target>©2018, Rights reserved to the kids who encoded Carpnd</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/footer/footer.component.ts</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
     </body>

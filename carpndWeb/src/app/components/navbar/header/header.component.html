@@ -1,22 +1,32 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	<a class="navbar-brand" href="#">
-    <img src="assets/carpnd-logo.png" alt="Carpnd"/>
-  </a>
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="users">Lista de usuarios</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link" href="vehicles">Lista de vehiculos</a>
-    </li> 
-    <li class="nav-item">
-    	<a class="nav-link" href="#">Publicaciones</a>
-    </li>
-    <li class="nav-item">
-    	<a class="nav-link" href="#">Solicitudes</a>
-    </li>
-  </ul>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  	<a class="navbar-brand" routerLink="#">
+      <img src="assets/carpnd-logo.png" alt="Carpnd"/>
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item" [ngClass]="{'active': selectedItem == 1}" (click)="setSelectedItem(1)">
+        <a class="nav-link" routerLink="users" i18n="@@usersList">usersList</a>
+      </li> 
+      <li class="nav-item" [ngClass]="{'active': selectedItem == 2}" (click)="setSelectedItem(2)">
+        <a class="nav-link" routerLink="vehicles" i18n="@@vehiclesList">vehiclesList</a>
+      </li> 
+      <li class="nav-item" [ngClass]="{'active': selectedItem == 3}" (click)="setSelectedItem(3)">
+      	<a class="nav-link" routerLink="#" i18n="@@publications">publications</a>
+      </li>
+      <li class="nav-item" [ngClass]="{'active': selectedItem == 4}" (click)="setSelectedItem(4)">
+      	<a class="nav-link" routerLink="#" i18n="@@requests">requests</a>
+      </li>
+    </ul>
 
-  <button class="btn btn-default" (click)="setLanguage('en-US')">Cambiar a ingles</button>
-  <button class="btn btn-default" (click)="setLanguage('es-AR')">Cambiar a Español</button>
-</nav>
+    <div class="d-flex">
+      <select class="col-xs-offset-right-6" [(ngModel)]="i18nValue">
+        <option [ngValue]="undefined" disabled  selected i18n="@@selectLanguage">selectLanguage</option>
+        <option *ngFor="let l of languages" [value]="l.i18n">
+          {{l.name}}
+        </option>
+      </select>
+
+      <button class="btn btn-secondary" (click)="changeLanguage()" i18n="@@translate">translate</button>
+    </div>
+  </nav>
+</div>
