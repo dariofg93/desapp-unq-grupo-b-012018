@@ -18,6 +18,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclesListComponent implements OnInit {
   vehicles: Array<Vehicle>;
+  currentP = 1;
 
   constructor(
     private vehiclesService: GenericRestService<Vehicle>, 

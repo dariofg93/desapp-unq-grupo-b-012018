@@ -1,0 +1,22 @@
+<div class="row align-items-center justify-content-center">
+	<div class="clear">
+		<img src="assets/login_app_image.png" alt="Carpnd image">
+	</div>
+
+	<br>
+
+	<div class="clear">
+		<h3 i18n="@@loginText">Bienvenido! Necesitas estar logueado para ingresar a esta aplicacion</h3>
+	</div>
+
+	<br><br>
+
+	<div class="clear">
+		<button
+		  class="btn btn-primary btn-margin"
+		  *ngIf="!auth.isAuthenticated()"
+		  (click)="auth.login()" i18n="loginButton">
+		    loginButton
+		</button>
+	</div>
+</div>

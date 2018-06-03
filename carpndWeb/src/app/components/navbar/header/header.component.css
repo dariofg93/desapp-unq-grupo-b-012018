@@ -17,3 +17,21 @@
 .navbar {
   padding: 0rem 0rem;
 }
+
+.rounded-circle {
+  border-radius: 50%!important;
+}
+
+.user-avatar {
+  float: right;
+  margin-top: 4px;
+  width: 45px;
+}
+
+.nav-item {
+  white-space: nowrap;
+}
+
+.navbar-brand {
+  margin-left: 1rem;
+}

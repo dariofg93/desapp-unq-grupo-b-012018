@@ -17,6 +17,9 @@ import { MapComponent } from './components/google/map/map.component';
 import { HeaderComponent } from './components/navbar/header/header.component';
 import { FooterComponent } from './components/navbar/footer/footer.component';
 import { GenericRestService } from './services/generic/generic-rest.service';
+import { AuthService } from './services/auth/auth.service';
+import { CallbackComponent } from './components/callback/callback.component';
+import { LoginComponent } from './pages/login/login.component';
 
 // Routes Constants:
 const appRoutes: Routes = [
@@ -41,11 +44,6 @@ const appRoutes: Routes = [
     component: VehiclesEditComponent
   },
   { 
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  },
-  { 
     path: '**', 
     component: PageNotFoundComponent 
   }
@@ -62,7 +60,9 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     MapComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CallbackComponent,
+    LoginComponent
   ],
   imports: [
     NgxPaginationModule,
@@ -76,6 +76,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     GenericRestService,
+    AuthService,
     { provide: LOCALE_ID, useValue: VARIABLES.getI18n() }
   ],
   bootstrap: [AppComponent]

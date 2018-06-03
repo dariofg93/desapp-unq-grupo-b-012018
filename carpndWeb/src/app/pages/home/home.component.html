@@ -1,3 +1,14 @@
-<p>
-  home works!
-</p>
+<button
+  class="btn btn-primary btn-margin"
+  *ngIf="auth.isAuthenticated()"
+  (click)="auth.logout()">
+    Log Out
+</button>
+
+<hr>
+
+<hr>
+
+{{profile?.nickname}}
+
+ <img class="user-avatar rounded-circle" src="{{profile?.picture}}" alt="User Avatar">

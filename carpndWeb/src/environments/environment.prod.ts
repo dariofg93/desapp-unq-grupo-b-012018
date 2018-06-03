@@ -4,3 +4,5 @@ export const environment = {
 
 export const PATHFRONTEND = 'https://frontend-carpnd.herokuapp.com';
 export const PATHBACKEND = 'https://backend-carpnd.herokuapp.com';
+
+export const AUTHCALLBACKURL = 'https://frontend-carpnd.herokuapp.com/';

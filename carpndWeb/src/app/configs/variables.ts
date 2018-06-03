@@ -1,11 +1,10 @@
 class Language{
-	private i18nValue: string;
+  private i18nValue: string;
 
-	constructor() {
-  	var search = window.location.search
-    this.i18nValue = search.indexOf('language=') !== -1? 
-    	search.substring(search.indexOf("language=")+9, search.indexOf("language=") +14): 
-    	'es-AR';
+  constructor() {
+    this.i18nValue = localStorage.getItem('language')? 
+      localStorage.getItem('language'): 
+      'en-US';
   }
 
   public getI18nValue(): string{
@@ -17,6 +16,6 @@ export var VARIABLES = {
   i18n: new Language(),
 
   getI18n(): string{
-  	return this.i18n.getI18nValue();
+    return this.i18n.getI18nValue();
   }
 };
