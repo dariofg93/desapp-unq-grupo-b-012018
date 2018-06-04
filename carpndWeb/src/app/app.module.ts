@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import {NgxPaginationModule} from 'ngx-pagination';
 
-import { VARIABLES } from './configs/variables';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersEditComponent } from './pages/users-edit/users-edit.component';
@@ -77,7 +76,9 @@ const appRoutes: Routes = [
   providers: [
     GenericRestService,
     AuthService,
-    { provide: LOCALE_ID, useValue: VARIABLES.getI18n() }
+    { provide: LOCALE_ID, useValue: localStorage.getItem('language')? 
+                                      localStorage.getItem('language'): 
+                                      'en-US' }
   ],
   bootstrap: [AppComponent]
 })
