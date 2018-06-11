@@ -5,7 +5,7 @@
     </a>
     <ul class="navbar-nav">
       <li class="nav-item" [ngClass]="{'active': selectedItem() == 1}" (click)="setSelectedItem(1)">
-        <a class="nav-link" routerLink="vehicles" i18n="@@searchVehicles">searchVehicles</a>
+        <a class="nav-link" routerLink="searchVehicle" i18n="@@searchVehicle">searchVehicle</a>
       </li> 
       <li class="nav-item" [ngClass]="{'active': selectedItem() == 2}" (click)="setSelectedItem(2)">
         <a class="nav-link" routerLink="#" i18n="@@publications">publications</a>
@@ -32,8 +32,8 @@
           <a
             href="users/{{id_user()}}"
             class="btn btn-light btn-margin"
-            i18n="@@seeProfile">
-              seeProfile
+            i18n="@@profile">
+              profile
           </a>
 
           <button

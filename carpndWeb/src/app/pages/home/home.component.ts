@@ -4,6 +4,7 @@ import { ASSETS } from './../../variables/variables'
 import { User } from './../../models/user'
 import { Vehicle } from './../../models/vehicle'
 import { UserService } from './../../services/user/user.service';
+import { GenericRestService } from './../../services/generic/generic-rest.service';
 
 @Component({
   selector: 'app-home',
@@ -67,7 +68,8 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor(
-    private usersService: UserService
+    private usersService: UserService,
+    private vehiclesService: GenericRestService<Vehicle>
   ) {}
 
   ngOnInit() {
@@ -82,5 +84,11 @@ export class HomeComponent implements OnInit {
 
   pathImage(vehicle: Vehicle): string {
     return ASSETS + vehicle.pictures[0];
+  }
+
+  deleteVehicle(id: number): void {
+    this.vehiclesService.delete(id).subscribe(
+      data => console.log(data.body)
+    );
   }
 }

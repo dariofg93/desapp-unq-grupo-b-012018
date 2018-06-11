@@ -16,8 +16,8 @@ export class UserService extends GenericRestService<User>{
     super(http,PATHBACKEND,'users')
   }
 
-  public readByEmail(email: string): Observable<ResponseEntity<User>> {
+  public selectByEmail(email: string): Observable<ResponseEntity<User>> {
     return this.http
-      .get<ResponseEntity<User>>(`${this.url}/${this.endpoint}/readByEmail/${email}`);
+      .get<ResponseEntity<User>>(`${this.url}/${this.endpoint}/selectByEmail/${email}`);
   }
 }

@@ -1,0 +1,24 @@
+<h1 i18n="@@vehiclesTitle">vehiclesTitle</h1>
+
+<div class="table-responsive-sm">
+	<table class="table table-bordered table-hover">
+		<thead class="thead-dark">
+			<tr>
+		    <th i18n="@@vehicleId">vehicleId</th>
+		    <th i18n="@@vehicleDescription">vehicleDescription</th> 
+		    <th i18n="@@vehicleCapacity">vehicleCapacity</th>
+		  </tr>
+		</thead>
+		<tbody class="table table-striped">
+		  <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: 10, currentPage: currentP }"> 
+		  	<td>{{ vehicle.id }}</td>
+		  	<td>{{ vehicle.description }}</td>
+		  	<td>{{ vehicle.passengerCapacity }}</td>
+		  </tr>
+		</tbody>
+	</table>
+
+	<div class="justify-content-center">
+		<pagination-controls (pageChange)="currentP = $event"></pagination-controls>
+	</div>
+</div>
