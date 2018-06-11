@@ -25,6 +25,7 @@ import service.vehicle.VehicleService;
 @ContextConfiguration({ "/META-INF/spring-persistence-context.xml", "/META-INF/spring-services-context.xml", "/META-INF/spring-application-context.xml"})
 public class VehicleRepositoryTest {
 	
+
     @Autowired
     private VehicleService vehicleService;
 	@Autowired

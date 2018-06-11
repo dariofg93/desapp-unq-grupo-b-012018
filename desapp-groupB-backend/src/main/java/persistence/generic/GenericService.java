@@ -50,5 +50,10 @@ public class GenericService<T> implements Serializable {
 	public List<T> selectByFunction(Function<T, Boolean> function) {
 	    	return this.retriveAll().stream().filter((object) -> function.apply(object)).collect(Collectors.toList());
 	    }
+	
+	@Transactional(readOnly = true)
+	public List<T> execute(String queryString) {
+	    	return this.getRepository().execute(queryString);
+	    }
 
 }

@@ -66,30 +66,4 @@ public class GeographicZoneDescriptionTest {
 		assertTrue(zone.equalsTo(new GeographicZoneDescription(latitud, longitud)));
 	}
 
-	@Test
-	public void testGetingAddressString() {
-
-		/*
-		 * Direccion: Av. las Flores 1600, Wilde, Buenos Aires, Argentina
-		 */
-		Double longitud = -58.302840100000026;
-		Double latitud = -34.6907607;
-
-		zone.setLatitud(latitud);
-		zone.setLongitud(longitud);
-
-		assertEquals(zone.getAddressDescription(), "Av. las Flores 1600, Wilde, Buenos Aires, Argentina");
-		
-
-		/*
-		 * Direccion: La UNQ
-		 */
-
-		zone.setLatitud(new Double(-34.706189));
-		zone.setLongitud(new Double(-58.277137));
-
-		assertEquals(zone.getAddressDescription(), "Roque Sáenz Peña 352, Bernal, Buenos Aires, Argentina");
-
-	}
-
 }

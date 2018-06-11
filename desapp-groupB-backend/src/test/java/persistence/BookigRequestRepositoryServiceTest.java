@@ -73,31 +73,6 @@ public class BookigRequestRepositoryServiceTest {
 	}
 
 	@Test
-	public void testSaveAndRestore() {
-
-		DateTime date = DateTime.parse("2018-04-01");
-
-		BookingRequest bookingRequest = new BookingRequest();
-
-		bookingRequest.setMyPublication(publication);
-		bookingRequest.setRequester(user);
-		bookingRequest.setAcepted();
-		bookingRequest.setHoursOfTheReservation(30);
-		bookingRequest.setReservationDateTime(date);
-		bookingRequest.setTotalHours(45);
-
-		bookingRequestService.save(bookingRequest);
-		BookingRequest restoredBookingRequest = bookingRequestService.searchById(bookingRequest.getId());
-		
-		assertEquals(restoredBookingRequest.getRequester().getId(), user.getId());
-		assertEquals(restoredBookingRequest.getMyPublication().getId(), publication.getId());
-		assertTrue(restoredBookingRequest.isApproved());
-		assertEquals(restoredBookingRequest.getTotalHours(), 45, 0);
-		assertEquals(restoredBookingRequest.getHoursOfTheReservation(), 30, 0);
-		assertEquals(date, restoredBookingRequest.getReservationDateTime());
-	}
-	
-	@Test
 	public void testSaveAndRestoreAlotOfBookingRequestForSamePublication() {
 
 		DateTime date = DateTime.parse("2018-04-01");
@@ -173,6 +148,45 @@ public class BookigRequestRepositoryServiceTest {
 		assertEquals(restoredAnotherBookingRequest.getMyPublication().getId(), anotherPublication.getId());
 	}
 
+
+	@Test
+	public void testSaveAndRestorBookingFormDifferentsUserForSamePublication() {
+
+		DateTime date = DateTime.parse("2018-04-01");
+
+		BookingRequest bookingRequest = new BookingRequest();
+
+		bookingRequest.setMyPublication(publication);
+		bookingRequest.setRequester(user);
+		bookingRequest.setAcepted();
+		bookingRequest.setHoursOfTheReservation(30);
+		bookingRequest.setReservationDateTime(date);
+		bookingRequest.setTotalHours(45);
+
+		BookingRequest anotherBookingRequest = new BookingRequest();
+		User other = new User();
+		userService.save(other);
+		
+		anotherBookingRequest.setMyPublication(publication);
+		anotherBookingRequest.setRequester(other);
+		anotherBookingRequest.setAcepted();
+		anotherBookingRequest.setHoursOfTheReservation(30);
+		anotherBookingRequest.setReservationDateTime(DateTime.parse("2015-04-01"));
+		anotherBookingRequest.setTotalHours(15);
+		
+		bookingRequestService.save(bookingRequest);
+		bookingRequestService.save(anotherBookingRequest);
+		
+		BookingRequest restoredBookingRequest = bookingRequestService.searchById(bookingRequest.getId());
+		BookingRequest restoredAnotherBookingRequest = bookingRequestService.searchById(anotherBookingRequest.getId());
+		
+		assertEquals(restoredBookingRequest.getRequester().getId(), user.getId());
+		assertEquals(restoredBookingRequest.getMyPublication().getId(), publication.getId());
+		
+		assertEquals(restoredAnotherBookingRequest.getRequester().getId(), other.getId());
+		assertEquals(restoredAnotherBookingRequest.getMyPublication().getId(), publication.getId());
+	}
+	
 	private void initializeContext() {
 		user = new User();
 		userService.save(user);

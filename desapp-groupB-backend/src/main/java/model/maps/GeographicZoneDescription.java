@@ -11,7 +11,6 @@ public class GeographicZoneDescription extends Entity {
 
 	private Double latitud;
 	private Double longitud;
-	private String addressDescription;
 
 	public GeographicZoneDescription(Double aLatitud, Double aLongitud) {
 		latitud = aLatitud;
@@ -35,15 +34,6 @@ public class GeographicZoneDescription extends Entity {
 
 	public void setLongitud(Double longitud) {
 		this.longitud = longitud;
-	}
-
-	public String getAddressDescription() {
-		addressDescription = getAddressByGpsCoordinates(longitud.toString(), latitud.toString());
-		return addressDescription;
-	}
-
-	public void setAddressDescription(String addressDescription) {
-		this.addressDescription = addressDescription;
 	}
 
 	public Boolean equalsTo(GeographicZoneDescription geographicZoneDescription) {

@@ -64,8 +64,14 @@ public class VehicleRest{
 	@DELETE
     @Path("/delete/{id}")
     @Produces("application/json")
-    public void deleteById(@PathParam("id") final Long id) {
-    	vehicleService.delete(vehicleService.searchById(id));
+    public ResponseEntity deleteById(@PathParam("id") final Long id) {
+		try {
+			vehicleService.delete(vehicleService.searchById(id));
+			return new ResponseEntity<>("{\"success\" : \"OK\"}", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+			
     }
 
 

@@ -3,6 +3,7 @@ package dummies;
 import model.builders.UserBuilder;
 import model.creditsaccount.CreditsAccount;
 import model.email.Email;
+import model.publication.Publication;
 import model.score.OwnerScoreType;
 import model.score.Score;
 import model.score.ScoreManager;
