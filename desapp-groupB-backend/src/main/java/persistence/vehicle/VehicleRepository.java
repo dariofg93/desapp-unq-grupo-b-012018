@@ -1,5 +1,7 @@
 package persistence.vehicle;
 
+import java.util.List;
+
 import org.hibernate.Query;
 
 import model.vehicle.Vehicle;
@@ -16,7 +18,7 @@ public class VehicleRepository extends HibernateGenericDAO<Vehicle> implements G
     }
 
 	@Override
-	public Vehicle execute(String query) {
+	public List<Vehicle> execute(String query) {
 		// TODO Auto-generated method stub
 		return null;
 	}

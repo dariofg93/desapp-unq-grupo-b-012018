@@ -6,6 +6,7 @@ import model.bookingstate.AwaitingApproval;
 import model.builders.BookingRequestBuilder;
 import org.joda.time.DateTime;
 import persistence.generic.GenericService;
+import service.bookingrequest.BookingRequestService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class RequestsDummy implements DummyData{
 
     private List<BookingRequest> bookings = new ArrayList<>();
     private BookingRequestBuilder builder = new BookingRequestBuilder();
-    private GenericService<BookingRequest> service;
+    private BookingRequestService service;
 
     public RequestsDummy(){
         BookingRequest booking1 = builder.createBookingRequest()
@@ -42,10 +43,10 @@ public class RequestsDummy implements DummyData{
     public void setBookingRequests(List<BookingRequest> bookings) { this.bookings = bookings; }
     public List<BookingRequest> getBookingRequests() { return this.bookings; }
 
-    public void setService(GenericService<BookingRequest> service) {
+    public void setService(BookingRequestService service) {
         this.service = service;
     }
-    public GenericService<BookingRequest> getService() {
+    public BookingRequestService getService() {
         return this.service;
     }
 

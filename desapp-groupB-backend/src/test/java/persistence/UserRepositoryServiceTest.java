@@ -13,16 +13,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javassist.expr.NewArray;
 import model.builders.UserBuilder;
 import model.creditsaccount.CreditsAccount;
 import model.email.Email;
+import model.exceptions.BookingNotFoundException;
 import model.maps.GeographicZoneDescription;
 import model.score.OwnerScoreType;
 import model.score.Score;
 import model.score.ScoreManager;
 import model.user.User;
-
+import persistence.generic.GenericService;
+import service.bookingrequest.BookingRequestService;
+import service.publication.PublicationService;
 import service.user.UserService;
+import service.vehicle.VehicleService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "/META-INF/spring-persistence-context.xml", "/META-INF/spring-services-context.xml",
@@ -32,6 +37,12 @@ public class UserRepositoryServiceTest {
 
 	@Autowired(required = true)
 	UserService userService;
+    @Autowired
+    private VehicleService vehicleService;
+	@Autowired
+	private PublicationService publicationService;
+	@Autowired
+	private BookingRequestService bookingRequestService;
 	
 
 	private Double creditAmount;
@@ -74,15 +85,15 @@ public class UserRepositoryServiceTest {
 	@Test
 	public void testGetUserForEmailName() {
 		userService.save(anyUser);
-		User restoredUser = userService.searchUserByEmailNamed("pepe-bueno@hotmail.com");
+		
+		User restoredUser = userService.searchUserByEmailNamed("pepe-bueno@hotmail.com").get(0);
+		
 		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
 		assertEquals(cuil, restoredUser.getCuil());
 		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
 		assertEquals(restoredUser.getFirstName(), "Pepe");
 		assertEquals(restoredUser.getLastName(), "Bueno");
 		assertEquals(restoredUser.getMovementsOfMonth().getAllHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
-	
-	
 	}
 
 	
@@ -113,6 +124,16 @@ public class UserRepositoryServiceTest {
 	}
 
 	private void cleanDatabase() {
-		userService.retriveAll().stream().forEach(user -> userService.delete(user));
+//		List<GenericService<?>> list = new ArrayList<GenericService<?>>();
+//		list.add(publicationService);
+//		list.add(vehicleService);
+//		list.add(bookingRequestService);
+//		list.add(userService);
+//		
+//		list.forEach((service) -> service.retriveAll().stream().forEach((T object) -> service.delete(object)));
+		publicationService.retriveAll().stream().forEach(a -> publicationService.delete(a));
+		bookingRequestService.retriveAll().stream().forEach(a -> bookingRequestService.delete(a));
+		vehicleService.retriveAll().stream().forEach(a -> vehicleService.delete(a));
+		userService.retriveAll().stream().forEach(a -> userService.delete(a));
 	}
 }

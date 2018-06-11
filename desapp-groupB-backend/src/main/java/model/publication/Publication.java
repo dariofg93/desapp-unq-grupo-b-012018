@@ -13,6 +13,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -86,10 +88,11 @@ public class Publication extends Entity{
     public User getUser() {
         return this.user;
     }
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public DateTime getFromDate() {
         return this.fromDate;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public DateTime getToDate() {
         return this.toDate;
     }

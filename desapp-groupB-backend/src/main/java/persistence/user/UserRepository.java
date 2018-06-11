@@ -1,9 +1,13 @@
 package persistence.user;
 
 import model.user.User;
+
+import java.util.List;
+
 import org.hibernate.Query;
 import persistence.generic.GenericRepository;
 import persistence.generic.HibernateGenericDAO;
+
 
 public class UserRepository extends HibernateGenericDAO<User> implements GenericRepository<User> {
 
@@ -14,9 +18,8 @@ public class UserRepository extends HibernateGenericDAO<User> implements Generic
         return User.class;
     }
 	@Override
-	public User execute(String queryString) {
-		Query query = this.getSessionFactory().getCurrentSession().createQuery(queryString);
-		return (User) query.uniqueResult();
+	public List<User> execute(String queryString) {
+		return super.execute(queryString);
 	}
 
 

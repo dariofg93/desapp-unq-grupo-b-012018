@@ -1,6 +1,8 @@
 package persistence.bookingrequest;
 
 
+import java.util.List;
+
 import model.booking.BookingRequest;
 import persistence.generic.GenericRepository;
 import persistence.generic.HibernateGenericDAO;
@@ -14,7 +16,7 @@ public class BookingRequestRepository extends HibernateGenericDAO<BookingRequest
         return BookingRequest.class;
     }
 	@Override
-	public BookingRequest execute(String stringQuery) {
+	public List<BookingRequest> execute(String stringQuery) {
 		return null;
 	}
 

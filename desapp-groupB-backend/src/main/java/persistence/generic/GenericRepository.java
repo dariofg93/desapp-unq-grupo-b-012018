@@ -27,11 +27,9 @@ public interface GenericRepository<T> {
 
 	List<T> findByExample(T exampleObject);
 	
-	T execute(String query);
-
 	void saveOrUpdate(T object);
 	
-	
+	List<T> execute(String queryString);
 
 	   
 }

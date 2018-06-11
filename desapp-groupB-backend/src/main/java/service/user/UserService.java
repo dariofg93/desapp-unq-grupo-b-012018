@@ -1,5 +1,8 @@
 package service.user;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import model.user.User;
 import persistence.generic.GenericService;
 
@@ -16,9 +19,10 @@ public class UserService extends GenericService<User>{
 		updatedUser.setId(id);
 		this.getRepository().update(updatedUser);
 	}
-	
-	public User searchUserByEmailNamed(String emailName) {
-		return this.getRepository().execute("SELECT + FROM USERS WHERE EMAIL = ' + emailName");
+	 
+	public List<User> searchUserByEmailNamed(String emailName) {
+		//return this.getRepository().execute("from tableName where email = " + new String("\'"+ emailName +"\'"));
+		return this.retriveAll().stream().filter((user) -> user.getEmail().getAccountName().equals(emailName)).collect(Collectors.toList());
 	}
 	
 }

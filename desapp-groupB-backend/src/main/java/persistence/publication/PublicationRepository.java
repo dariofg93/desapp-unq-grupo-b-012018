@@ -13,10 +13,5 @@ public class PublicationRepository extends HibernateGenericDAO<Publication> impl
 	    protected Class<Publication> getDomainClass() {
 	        return Publication.class;
 	    }
-		@Override
-		public Publication execute(String stringQuery) {
-			return null;
-		}
-
 
 }
