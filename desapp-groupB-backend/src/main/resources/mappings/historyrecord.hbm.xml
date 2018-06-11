@@ -10,7 +10,11 @@
 		</id>
 		
 		<property name="description" type="string" column="DESCRIPTION" />
-
 		
+		<property name="date"
+			type="org.jadira.usertype.dateandtime.joda.PersistentDateTime">
+			<column name="DATE" />
+		</property>
+	
 	</class>
 </hibernate-mapping>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.joda.time.DateTime;
 
 import model.email.MailBody;
 import model.utils.Entity;
@@ -17,7 +18,7 @@ public class MovementsOfMonth extends Entity implements MailBody {
 	}
 
 	public void addToHistory(String historyFragment) {
-		this.history.add(new HistoryRecord(historyFragment + "\n"));
+		this.history.add(new HistoryRecord(historyFragment + "\n", DateTime.now()));
 	}
 
 	public void cleanHistory() {
