@@ -57,15 +57,15 @@ export class AuthService {
 
     this.getProfile((err, profile) => {
       this.usersService.selectByEmail(profile.name).subscribe(
-        data => this.profile = data.body,
+        data => localStorage.setItem('id', JSON.stringify(data.body.id)),
         () => this.usersService.create(new User(profile.name)).subscribe(
                 createdUser => this.profile = createdUser.body
               )
       );
     });
 
-    const id_user = JSON.stringify(this.profile.id_user);
-    localStorage.setItem('id_user', id_user);
+    //const id = JSON.stringify(this.profile.id);
+    //localStorage.setItem('id', id);
   }
 
   public logout(): void {
@@ -74,7 +74,7 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('navbar_item');
-    localStorage.removeItem('id_user');
+    localStorage.removeItem('id');
     // Go back to the home route
     this.router.navigate(['login']);
   }

@@ -1,16 +1,25 @@
 import { Vehicle } from './../models/vehicle'
+import { Publication } from './../models/publication';
+import { GeographicZoneDescription } from './../models/geographic-zone-description';
+import { MovementsOfMonth } from './../models/movements-of-month';
+import { CreditsAccount } from './../models/credits-account';
+import { Email } from './../models/email';
 
 export class User {
-	id_user: number;
+	id: number;
+  address: GeographicZoneDescription;
+  email: Email;
+  creditsAccount: CreditsAccount;
+  myPublications: Publication[];
+  movementsOfMonth: MovementsOfMonth;
+  //scoreManager: ScoreManager;
+  cuil: number;
   first_name: string;
   last_name: string;
-  cuil: number;
-  movementsOfMonth: string;
-  email: string;
   myVehicles: Vehicle[]
 
   constructor( email: string){
-  	this.email = email;
+  	this.email = new Email(email);
   }
 
   public addVehicle(vehicle: Vehicle){

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       "id_request": 1,
       "state": "Awaiting approbal",
       "requester": {
-        "id_user": 1,
+        "id": 1,
         "first_name": "Dario",
         "last_name": "Gutierrez",
         "cuil": 20379538860,
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
       "id_request": 2,
       "state": "Approved",
       "requester": {
-        "id_user": 2,
+        "id": 2,
         "first_name": "Fabri",
         "last_name": "Britez",
         "cuil": 561516516,
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.usersService.read(JSON.parse(localStorage.getItem('id_user'))).subscribe(
+    this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
       data => this.profile = data.body
     );
   }

@@ -21,7 +21,7 @@ export class UsersEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.usersService.read(JSON.parse(localStorage.getItem('id_user'))).subscribe(
+    this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
       data => this.profile = data.body
     );
   }
@@ -31,7 +31,7 @@ export class UsersEditComponent implements OnInit {
   }
 
   saveProfile(form) {
-    this.usersService.update(this.profile.id_user,this.profile);
+    this.usersService.update(this.profile.id,this.profile);
     this.router.navigate(['']);
   }
 }

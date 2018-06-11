@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
     return JSON.parse(localStorage.getItem('navbar_item'));
   }
 
-  id_user(): number{
-    return JSON.parse(localStorage.getItem('id_user'));
+  id(): number{
+    return JSON.parse(localStorage.getItem('id'));
   }
 }
