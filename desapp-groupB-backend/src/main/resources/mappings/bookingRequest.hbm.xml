@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-cascade="save-update">
-	<class name="model.booking.BookingRequest" table="PUBLICATIONS">
+	<class name="model.booking.BookingRequest" table="BOOKING_REQUESTS">
 
 		<id column="id" name="id" type="java.lang.Long">
 			<generator class="increment" />
@@ -13,9 +13,9 @@
 			class="model.bookingstate.BookingState">
 		</many-to-one>
 
-		<one-to-one name="requester" class="model.user.User" />
-		
-		<one-to-one name="myPublication" class="model.publication.Publication" />
+		<many-to-one name="requester" class="model.user.User" column="id_user" lazy="false"/>
+	
+		<many-to-one name="myPublication" class="model.publication.Publication" column="id_pb" lazy="false"/>
 
 		<property name="totalHours" type="int" />
 

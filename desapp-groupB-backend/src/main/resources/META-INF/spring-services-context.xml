@@ -20,6 +20,10 @@
 	<bean id="publicationsService" class="service.publication.PublicationService">
 		<property name="repository" ref="publicationsRepository" />
 	</bean>
+	
+	<bean id="bookingRequestsService" class="service.bookingrequest.BookingRequestService">
+		<property name="repository" ref="bookingRequestsRepository" />
+	</bean>
 
 
 </beans>
