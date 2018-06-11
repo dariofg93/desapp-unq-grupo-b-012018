@@ -1,7 +1,6 @@
 package dummies;
 
 import model.builders.VehicleBuilder;
-import model.user.User;
 import model.vehicle.Vehicle;
 import model.vehicletype.Car;
 import model.vehicletype.Scooter;
@@ -19,9 +18,7 @@ public class VehiclesDummy implements DummyData{
     private VehicleService service;
     private UserService userService;
 
-    public VehiclesDummy(){
-    
-    }
+
 
     public void setVehicleBuilder(VehicleBuilder vehicleBuilder) { this.builder= vehicleBuilder; }
     public VehicleBuilder getVehicleBuilder() { return this.builder; }

@@ -1,7 +1,6 @@
 package webService.vehiclecorcern;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.ws.rs.*;
 
@@ -15,7 +14,7 @@ import persistence.user.UserRepository;
 import service.publication.PublicationService;
 import service.user.UserService;
 import service.vehicle.VehicleService;
-import webService.utils.JsonReturn;
+
 
 @Path("/users")
 public class UserRest {
@@ -23,12 +22,11 @@ public class UserRest {
 	private UserService userService;	
 	private PublicationService publicationService;
 	private VehicleService vehicleService;
-	private JsonReturn<User> jsonReturn;
+
 
 	public UserRest() {
 		this.userService = new UserService();
 		this.userService.setRepository(new UserRepository());
-		this.jsonReturn = new JsonReturn<>();
 	}
 
 	@GET
@@ -100,10 +98,6 @@ public class UserRest {
 	
 	public void setUserService(UserService userService) {
 		this.userService = userService;
-	}
-
-	public void setJsonReturn(JsonReturn<User> jsonReturn) {
-		this.jsonReturn = jsonReturn;
 	}
 
 	/*

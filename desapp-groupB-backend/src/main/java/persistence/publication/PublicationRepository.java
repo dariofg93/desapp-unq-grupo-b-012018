@@ -1,6 +1,5 @@
 package persistence.publication;
 
-import org.hibernate.Query;
 
 import model.publication.Publication;
 import persistence.generic.GenericRepository;

@@ -21,8 +21,6 @@ public class PublicationsDummy implements DummyData {
 	private VehicleService vehicleService;
 	private UserService userService;
 
-	public PublicationsDummy() {
-	}
 
 	public void instantiateDataMock() {
 		

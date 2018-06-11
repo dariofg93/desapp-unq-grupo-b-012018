@@ -2,8 +2,6 @@ package persistence;
 
 import static org.junit.Assert.assertEquals;
 
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,8 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import model.booking.BookingRequest;
-import model.vehicle.Vehicle;
-import model.vehicletype.Category;
 import service.bookingrequest.BookingRequestService;
 
 

@@ -3,7 +3,6 @@ package persistence.generic;
 import java.io.Serializable;
 import java.util.List;
 
-import model.user.User;
 
 /**
  * Interface for generic DAO

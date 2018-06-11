@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import model.publication.Publication;
 import service.publication.PublicationService;
-import webService.utils.JsonReturn;
+
 
 @Path("/publications")
 public class PublicationRest {
 
     private PublicationService publicationService;
-    private JsonReturn<Publication> jsonReturn;
 
 
     @GET
@@ -74,8 +73,6 @@ public class PublicationRest {
         this.publicationService = aService;
     }
 
-    public void setJsonReturn(final JsonReturn jsonReturn) {
-        this.jsonReturn = jsonReturn;
-    }
+
 }
 
