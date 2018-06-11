@@ -13,7 +13,12 @@ import java.util.List;
 public class Notifier {
 
     private MailCarpnd mailBuilded;
-    private MailSender mailSender = new MailSender();
+    private MailSender mailSender;
+    
+    public Notifier() {
+    	mailSender = new MailSender();
+    	
+    }
 
     public void notifyRequestByMail(User notifier, BookingRequest anyRequest) {
         User requester = anyRequest.getRequester();

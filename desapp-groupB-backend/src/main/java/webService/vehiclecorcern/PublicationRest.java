@@ -17,62 +17,60 @@ import org.springframework.web.bind.annotation.RequestBody;
 import model.publication.Publication;
 import service.publication.PublicationService;
 
-
 @Path("/publications")
 public class PublicationRest {
 
-    private PublicationService publicationService;
+	private PublicationService publicationService;
 
+	@GET
+	@Path("/")
+	@Produces("application/json")
+	public ResponseEntity retriveAll() {
+		return new ResponseEntity<List<Publication>>(this.publicationService.retriveAll(), HttpStatus.OK);
+	}
 
-    @GET
-    @Path("/")
-    @Produces("application/json")
-    public ResponseEntity retriveAll() {
-        return new ResponseEntity<List<Publication>>(this.publicationService.retriveAll(),HttpStatus.OK);
-    }
+	@GET
+	@Path("/{id}")
+	@Produces("application/json")
+	public ResponseEntity seachById(@PathParam("id") final Long id) {
+		return new ResponseEntity<Publication>(publicationService.searchById(id), HttpStatus.OK);
+	}
 
-    @GET
-    @Path("/{id}")
-    @Produces("application/json")
-    public ResponseEntity seachById(@PathParam("id") final Long id) {
-        return new ResponseEntity<Publication>(publicationService.searchById(id),HttpStatus.OK);
-    }
-    
-    @POST
-    @Path("/newPublication")
-    @Produces("application/json")
-    public ResponseEntity newVehicle(@RequestBody Publication post) {
-    	
-    	publicationService.save(post);
-
-		return new ResponseEntity<Publication>(post, HttpStatus.OK);
-    }
-    
-    @PUT
-    @Path("/publication/{id}")
-    @Produces("application/json")
-    public ResponseEntity<?> updateVehicleById(@PathParam("id") final Long id, @RequestBody Publication post) {
+	@POST
+	@Path("/new")
+	@Produces("application/json")
+	public ResponseEntity newPublication(@RequestBody Publication post) {
 		try {
-			publicationService.updateById(id,post);
+			publicationService.save(post);
+			return new ResponseEntity<Publication>(post, HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<String>(e.toString(), HttpStatus.OK);
+		}
+
+	}
+
+	@PUT
+	@Path("/publication/{id}")
+	@Produces("application/json")
+	public ResponseEntity<?> updateVehicleById(@PathParam("id") final Long id, @RequestBody Publication post) {
+		try {
+			publicationService.updateById(id, post);
 			return new ResponseEntity<Publication>(post, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-    
 
 	@DELETE
-    @Path("/delete/{id}")
-    @Produces("application/json")
-    public void deleteById(@PathParam("id") final Long id) {
-    	publicationService.delete(publicationService.searchById(id));
-    }
+	@Path("/delete/{id}")
+	@Produces("application/json")
+	public void deleteById(@PathParam("id") final Long id) {
+		publicationService.delete(publicationService.searchById(id));
+	}
 
-
-    public void setPublicationService(final PublicationService aService) {
-        this.publicationService = aService;
-    }
-
+	public void setPublicationService(final PublicationService aService) {
+		this.publicationService = aService;
+	}
 
 }
-

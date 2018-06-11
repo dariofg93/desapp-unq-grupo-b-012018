@@ -4,8 +4,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class Email implements Serializable {
 
+	@JsonIgnore
 	private List<MailCarpnd> received;
 	private String accountName;
 

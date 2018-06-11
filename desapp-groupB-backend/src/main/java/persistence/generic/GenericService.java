@@ -41,7 +41,7 @@ public class GenericService<T> implements Serializable {
         this.getRepository().update(object);
     }
     
-	@Transactional(readOnly = true)
+	@Transactional(readOnly = false)
 	public void saveOrUpdate(final T object) {
 	    	this.getRepository().saveOrUpdate(object);
 	    }

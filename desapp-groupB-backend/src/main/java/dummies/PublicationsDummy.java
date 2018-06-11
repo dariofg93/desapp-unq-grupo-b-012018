@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
+import model.booking.BookingRequest;
+import model.builders.BookingRequestBuilder;
 import model.builders.PublicationBuilder;
 
 import model.city.City;
@@ -34,20 +36,18 @@ public class PublicationsDummy implements DummyData {
 	private void initializeContext() {
 
 		publications = new ArrayList<Publication>();
+		BookingRequestBuilder requestBuilder = new BookingRequestBuilder();
+		
 		builder = new PublicationBuilder();
-//		
-//		builder.createBookingRequest()
-//        .withRequester(new UsersDummy().getUsers().get(2))
-//        .withTotalHours(20)
-//        .withDateTimeOfReservation(new DateTime(2018,2,15,0,0))
-//        .withHoursOfTheReservation(21)
-//        
-//        .build();
-//
-//		Publication publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
-//				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9));
-//		publication.addBookingRequest();
-//		publications.add(publication);
+		
+		BookingRequest b = createBookingUsing(requestBuilder);
+		b.setAcepted();
+
+		Publication publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
+				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9));
+		publication.addBookingRequest(b);
+		publication.addBookingRequest(createBookingRequestUsing(requestBuilder));
+		publications.add(publication);
 
 		publications.add(builder.createPublicationForUserAndVehicle(
 				userService.retriveAll().get(userService.retriveAll().size() - 1),
@@ -57,6 +57,24 @@ public class PublicationsDummy implements DummyData {
 		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
 				vehicleService.retriveAll().get(0), new City("La Plata"), "2017-12-01", "2018-12-03", new Double(8.6)));
 
+	}
+
+	private BookingRequest createBookingRequestUsing(BookingRequestBuilder requestBuilder) {
+		return requestBuilder.createBookingRequest()
+		        .withRequester(new UsersDummy().getUsers().get(1))
+		        .withTotalHours(20)
+		        .withDateTimeOfReservation(new DateTime(2017,2,15,0,0))
+		        .withHoursOfTheReservation(81)
+		        .build();
+	}
+
+	private BookingRequest createBookingUsing(BookingRequestBuilder requestBuilder) {
+		return requestBuilder.createBookingRequest()
+        .withRequester(new UsersDummy().getUsers().get(2))
+        .withTotalHours(20)
+        .withDateTimeOfReservation(new DateTime(2018,2,15,0,0))
+        .withHoursOfTheReservation(21)
+        .build();
 	}
 
 	public List<Publication> getPublications() {

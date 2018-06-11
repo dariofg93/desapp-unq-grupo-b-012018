@@ -44,8 +44,4 @@ public class BookingRequestBuilder {
         return this;
     }
 
-	public BookingRequestBuilder withPublication(Publication publication) {
-		 this.buildBookingRequest.setMyPublication(publication);
-		return this;
-	}
 }

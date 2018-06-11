@@ -20,10 +20,4 @@ public class PublicationService extends GenericService<Publication> {
 		this.getRepository().update(updatedPublication);
 	}
 	
-   @Override
-   @Transactional(readOnly = true)
-    public List<Publication> retriveAll() {
-        return this.getRepository().findAll();
-    }
-	
 }

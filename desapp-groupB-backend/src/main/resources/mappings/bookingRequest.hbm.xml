@@ -14,9 +14,7 @@
 		</many-to-one>
 
 		<many-to-one name="requester" class="model.user.User" column="id_user" unique="false" lazy="false"/>
-	
-		<many-to-one name="myPublication" class="model.publication.Publication" column="id_pb" lazy="false"/>
-
+		
 		<property name="totalHours" type="int" />
 
 		<property name="reservationDateTime"
