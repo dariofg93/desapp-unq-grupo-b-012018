@@ -22,7 +22,10 @@ public class UserService extends GenericService<User>{
 	 
 	public List<User> searchUserByEmailNamed(String emailName) {
 		//return this.getRepository().execute("from tableName where email = " + new String("\'"+ emailName +"\'"));
-		return this.retriveAll().stream().filter((user) -> user.getEmail().getAccountName().equals(emailName)).collect(Collectors.toList());
+
+		System.out.println(emailName);
+		System.out.println("-----------------------------------------------");
+		return this.retriveAll().stream().filter((user) -> user.getEmail().getAccountName().contains(emailName)).collect(Collectors.toList());
 	}
 	
 }
