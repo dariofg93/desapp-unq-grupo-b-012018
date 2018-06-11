@@ -53,13 +53,10 @@ public class UserRest {
 	}
 
 	@POST
-	@Path("/newUser")
+	@Path("/new")
 	@Produces("application/json")
 	public ResponseEntity newUser(@RequestBody User user) {
-
-		userService.save(user);
-
-		return new ResponseEntity<User>(user, HttpStatus.OK);
+		return new ResponseEntity<User>(userService.saveUser(user), HttpStatus.OK);
 	}
 
 	@PUT

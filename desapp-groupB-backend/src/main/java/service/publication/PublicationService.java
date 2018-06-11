@@ -1,5 +1,9 @@
 package service.publication;
 
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import model.publication.Publication;
 import persistence.generic.GenericService;
 
@@ -15,5 +19,11 @@ public class PublicationService extends GenericService<Publication> {
 		updatedPublication.setId(id);
 		this.getRepository().update(updatedPublication);
 	}
+	
+   @Override
+   @Transactional(readOnly = true)
+    public List<Publication> retriveAll() {
+        return this.getRepository().findAll();
+    }
 	
 }

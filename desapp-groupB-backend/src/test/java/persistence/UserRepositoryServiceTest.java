@@ -77,7 +77,7 @@ public class UserRepositoryServiceTest {
 		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
 		assertEquals(restoredUser.getFirstName(), "Pepe");
 		assertEquals(restoredUser.getLastName(), "Bueno");
-		assertEquals(restoredUser.getMovementsOfMonth().getAllHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
 	
 	
 	}
@@ -93,7 +93,7 @@ public class UserRepositoryServiceTest {
 		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
 		assertEquals(restoredUser.getFirstName(), "Pepe");
 		assertEquals(restoredUser.getLastName(), "Bueno");
-		assertEquals(restoredUser.getMovementsOfMonth().getAllHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
 	}
 
 	

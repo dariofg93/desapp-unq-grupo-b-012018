@@ -109,7 +109,7 @@ public class Notifier {
         for(User user: manyUsers){
             subject = "Movements of the month of " + DateTime.now().monthOfYear().getAsText();
 
-            mailSender.send(user.getEmail().getAccountName(),subject,user.getMovementsOfMonth().getAllHistory());
+            mailSender.send(user.getEmail().getAccountName(),subject,user.getMovementsOfMonth().allHistory());
             this.prepareMailCarpndWithSubject(user.getMovementsOfMonth(),subject);
 
             user.getEmail().addMailCarpnd(this.mailBuilded);

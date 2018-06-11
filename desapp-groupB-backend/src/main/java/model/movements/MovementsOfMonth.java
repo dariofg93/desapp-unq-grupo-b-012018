@@ -3,6 +3,8 @@ package model.movements;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import model.email.MailBody;
 import model.utils.Entity;
 
@@ -23,9 +25,9 @@ public class MovementsOfMonth extends Entity implements MailBody {
 	}
 
 	/** Setters and Getters **/
+	@JsonIgnore
+	public String allHistory() {
 
-	public String getAllHistory() {
-		;
 		return this.history.stream().map((HistoryRecord record) -> record.getDescription()).reduce("",
 				(String result, String description) -> result + description);
 	}

@@ -27,7 +27,7 @@
 			<column name="TO_DATE" />
 		</property>
 
-		<list name="requests" table="BOOKING_REQUESTS" inverse="false" lazy="false">
+		<list name="requests" table="BOOKING_REQUESTS" inverse="false" lazy="false" cascade="all" >
 			<key>
 				<column name="id_p" />
 			</key>

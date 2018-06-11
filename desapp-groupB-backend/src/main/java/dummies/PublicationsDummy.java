@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import org.joda.time.DateTime;
+
 import model.builders.PublicationBuilder;
 
 import model.city.City;
@@ -33,9 +35,19 @@ public class PublicationsDummy implements DummyData {
 
 		publications = new ArrayList<Publication>();
 		builder = new PublicationBuilder();
-
-		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
-				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9)));
+//		
+//		builder.createBookingRequest()
+//        .withRequester(new UsersDummy().getUsers().get(2))
+//        .withTotalHours(20)
+//        .withDateTimeOfReservation(new DateTime(2018,2,15,0,0))
+//        .withHoursOfTheReservation(21)
+//        
+//        .build();
+//
+//		Publication publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
+//				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9));
+//		publication.addBookingRequest();
+//		publications.add(publication);
 
 		publications.add(builder.createPublicationForUserAndVehicle(
 				userService.retriveAll().get(userService.retriveAll().size() - 1),
