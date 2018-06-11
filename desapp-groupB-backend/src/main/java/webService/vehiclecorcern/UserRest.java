@@ -42,10 +42,11 @@ public class UserRest {
 	@GET
 	@Path("/selectByEmail/{emailName}")
 	@Produces("application/json")
-	public ResponseEntity seachById(@PathParam("email") final String emailName) {
+	public ResponseEntity seachByEmail(@PathParam("emailName") final String emailName) {
 		try {
 			return new ResponseEntity<User>((userService.searchUserByEmailNamed(emailName)).get(0), HttpStatus.OK);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
