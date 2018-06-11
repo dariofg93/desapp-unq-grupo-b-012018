@@ -121,28 +121,46 @@
 			ref="persistence.sessionFactory" />
 	</bean>
 
-	<bean id="publicationsRepository" class="persistence.publication.PublicationRepository">
+	<bean id="publicationsRepository"
+		class="persistence.publication.PublicationRepository">
 		<property name="sessionFactory"
 			ref="persistence.sessionFactory" />
 	</bean>
+	
+	<bean id="bookingRequestsRepository"
+		class="persistence.bookingrequest.BookingRequestRepository">
+		<property name="sessionFactory"
+			ref="persistence.sessionFactory" />
+	</bean>
+	
 
 
 	<!-- DUMMIES -->
 
 	<bean id="vehiclesDummy" class="dummies.VehiclesDummy">
 		<property name="service" ref="vehiclesService" />
+		<property name="userService" ref="usersService" />
 	</bean>
 
 	<bean id="usersDummy" class="dummies.UsersDummy">
 		<property name="service" ref="usersService" />
 	</bean>
 
+	<bean id="publicationsDummy" class="dummies.PublicationsDummy">
+		<property name="service" ref="publicationsService" />
+		<property name="userService" ref="usersService" />
+		<property name="vehicleService" ref="vehiclesService" />
+	</bean>
+
+
+
 	<bean id="dataRepository" class="dummies.DataRepository"
 		init-method="instantiateDataMock">
 		<property name="dummies">
 			<list value-type="dummies.DummyData">
-				<ref bean="vehiclesDummy" />
 				<ref bean="usersDummy" />
+				<ref bean="vehiclesDummy" />
+				<ref bean="publicationsDummy" />
 			</list>
 		</property>
 	</bean>

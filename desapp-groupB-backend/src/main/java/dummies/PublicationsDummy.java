@@ -1,77 +1,95 @@
 package dummies;
 
-import model.booking.BookingRequest;
-import model.builders.PublicationBuilder;
-import model.city.City;
-import model.maps.GeographicZoneDescription;
-import model.publication.Publication;
-import model.user.User;
-import model.vehicle.Vehicle;
-import org.joda.time.DateTime;
-import service.publication.PublicationService;
-
 import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
 
-public class PublicationsDummy implements DummyData{
+import model.builders.PublicationBuilder;
 
-    private List<Publication> publications = new ArrayList<>();
-    private PublicationBuilder builder = new PublicationBuilder();
-    private PublicationService service;
+import model.city.City;
+import model.publication.Publication;
 
-    public PublicationsDummy(){
-        List<User> users = new UsersDummy().getUsers();
-        List<BookingRequest> requests = new RequestsDummy().getBookingRequests();
-        List<Vehicle> vehicles = new VehiclesDummy().getVehicles();
-        List<City> cities = new CitiesDummy().getCities();
-        List<GeographicZoneDescription> zones = new GeographicZoneDescriptionsDummy().getZones();
+import service.publication.PublicationService;
+import service.user.UserService;
+import service.vehicle.VehicleService;
 
-        Publication publication1 = builder.createPublication()
-                .withPricePerHour(60.0)
-                .withPhone(1234567890)
-                .withUser(users.get(0))
-                .withFromDate(new DateTime(2018,1,1,0,0))
-                .withToDate(new DateTime(2018,6,15,0,0))
-                .withRequests(new ArrayList<>(Collections.singleton(requests.get(0))))
-                .withVehicle(vehicles.get(5))
-                .withCity(cities.get(0))
-                .withPickUpZone(zones.get(0))
-                .withDropZone(zones.get(1))
-                .build();
-        this.publications.add(publication1);
+public class PublicationsDummy implements DummyData {
 
-        Publication publication2 = builder.createPublication()
-                .withPricePerHour(50.0)
-                .withPhone(1234567890)
-                .withUser(users.get(0))
-                .withFromDate(new DateTime(2018,3,5,0,0))
-                .withToDate(new DateTime(2018,7,15,0,0))
-                .withRequests(new ArrayList<>())
-                .withVehicle(vehicles.get(10))
-                .withCity(cities.get(0))
-                .withPickUpZone(zones.get(2))
-                .withDropZone(zones.get(3))
-                .build();
-        this.publications.add(publication2);
-    }
+	private List<Publication> publications;
+	private PublicationBuilder builder;
+	private PublicationService service;
+	private VehicleService vehicleService;
+	private UserService userService;
 
-    public void setPublicationBuilder(PublicationBuilder publicationBuilder) { this.builder= publicationBuilder; }
-    public PublicationBuilder getPublicationBuilder() { return this.builder; }
 
-    public void setPublications(List<Publication> publications) { this.publications = publications; }
-    public List<Publication> getPublications() { return this.publications; }
+	public void instantiateDataMock() {
+		
+		this.initializeContext();
+		
+		try {
+			this.publications.forEach((publication) -> this.service.save(publication));
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+		}
+	}
 
-    public void setService(PublicationService service) {
-        this.service = service;
-    }
-    public PublicationService getService() {
-        return this.service;
-    }
+	private void initializeContext() {
 
-    public void instantiateDataMock(){
-        this.publications.forEach(
-                (Publication publication) -> this.service.save(publication)
-        );
-    }
+			publications = new ArrayList<Publication>();
+			builder = new PublicationBuilder();
+
+			publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
+					vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03",
+					new Double(8.9)));
+			
+			publications.add(builder.createPublicationForUserAndVehicle(
+					userService.retriveAll().get(userService.retriveAll().size()-1),
+					vehicleService.retriveAll().get(vehicleService.retriveAll().size()-1), new City("Bernal"),
+					"2017-04-01", "2017-04-03", new Double(8.6)));
+			
+			publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
+					vehicleService.retriveAll().get(0), new City("La Plata"), "2017-12-01", "2018-12-03",
+					new Double(8.6)));
+		
+	}
+
+	public List<Publication> getPublications() {
+		return publications;
+	}
+
+	public void setPublications(List<Publication> publications) {
+		this.publications = publications;
+	}
+
+	public PublicationBuilder getBuilder() {
+		return builder;
+	}
+
+	public void setBuilder(PublicationBuilder builder) {
+		this.builder = builder;
+	}
+
+	public PublicationService getService() {
+		return service;
+	}
+
+	public void setService(PublicationService service) {
+		this.service = service;
+	}
+
+	public VehicleService getVehicleService() {
+		return vehicleService;
+	}
+
+	public void setVehicleService(VehicleService vehicleService) {
+		this.vehicleService = vehicleService;
+	}
+
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 }

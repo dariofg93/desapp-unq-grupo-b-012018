@@ -32,6 +32,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 		<jaxrs:serviceBeans>
 			<ref bean="vehiclesRest" />
 			<ref bean="usersRest" />
+			<ref bean="publicationRest" />
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json" />
@@ -51,13 +52,22 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<bean id="vehiclesRest"
 		class="webService.vehiclecorcern.VehicleRest">
 		<property name="vehicleService" ref="vehiclesService" />
-		<property name="jsonReturn" ref="json" />
 	</bean>
 
-	<bean id="usersRest"
-		class="webService.vehiclecorcern.UserRest">
-		<property name="userService" ref="usersService" />
-		<property name="jsonReturn" ref="json" />
+	<bean id="publicationRest"
+		class="webService.vehiclecorcern.PublicationRest">
+		<property name="publicationService" ref="publicationsService" />
+
+
+
 	</bean>
+
+	<bean id="usersRest" class="webService.vehiclecorcern.UserRest">
+		<property name="userService" ref="usersService" />
+		<property name="vehicleService" ref="vehiclesService" />
+		<property name="publicationService" ref="publicationsService" />
+
+	</bean>
+
 
 </beans>

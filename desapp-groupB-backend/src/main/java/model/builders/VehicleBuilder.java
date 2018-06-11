@@ -1,5 +1,6 @@
 package model.builders;
 
+import model.user.User;
 import model.vehicle.Vehicle;
 import model.vehicletype.Category;
 
@@ -36,6 +37,10 @@ public class VehicleBuilder {
 
     public VehicleBuilder withCategory(Category anyCategory) {
         buildVehicle.setCategory(anyCategory);
+        return this;
+    }
+    public VehicleBuilder withOwner(User anUser) {
+        buildVehicle.setOwner(anUser);
         return this;
     }
 }

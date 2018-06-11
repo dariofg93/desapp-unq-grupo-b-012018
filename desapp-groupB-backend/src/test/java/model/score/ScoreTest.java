@@ -7,16 +7,11 @@ import org.junit.Test;
 
 public class ScoreTest {
 	
-	private Score score;
-	private VehicleScoreType vehicleScoreType;
-	private LesseeScoreType lesseeScoreType;
-	private OwnerScoreType ownerScoreType;
-
 
 	@Test
 	public void testCreation() {
-		ownerScoreType = new OwnerScoreType();
-		score = new Score(ownerScoreType);
+		OwnerScoreType ownerScoreType = new OwnerScoreType();
+		Score score = new Score(ownerScoreType);
 	
 		assertEquals(score.getValue(), new Double(5.0));
 		assertEquals(score.description(), ownerScoreType.description());
@@ -25,8 +20,8 @@ public class ScoreTest {
 	
 	@Test
 	public void testSetValue() {
-		ownerScoreType = new OwnerScoreType();
-		score = new Score(ownerScoreType);
+		OwnerScoreType ownerScoreType = new OwnerScoreType();
+		Score score = new Score(ownerScoreType);
 		
 		score.setValue(new Double(4));
 		
@@ -36,9 +31,9 @@ public class ScoreTest {
 
 	@Test
 	public void testScoreTypeDescriptions() {
-		ownerScoreType = new OwnerScoreType();
-		lesseeScoreType = new LesseeScoreType();
-		vehicleScoreType = new VehicleScoreType();
+		OwnerScoreType ownerScoreType = new OwnerScoreType();
+		LesseeScoreType lesseeScoreType = new LesseeScoreType();
+		VehicleScoreType vehicleScoreType = new VehicleScoreType();
 		
 		
 		assertEquals(ownerScoreType.description(),"Owner Score");

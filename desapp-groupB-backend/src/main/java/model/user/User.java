@@ -24,7 +24,6 @@ public class User extends Entity {
 
 	private List<Publication> myPublications;
 	private ScoreManager scoreManager;
-
 	private WebSite webSite;
 	private CreditsAccount creditsAccount;
 	private Email email;
@@ -338,6 +337,14 @@ public class User extends Entity {
 
 	public void setAddress(GeographicZoneDescription address) {
 		this.address = address;
+	}
+
+	public List<Vehicle> getMyVehicles() {
+		return myVehicles;
+	}
+
+	public void setMyVehicles(List<Vehicle> myVehicles) {
+		this.myVehicles = myVehicles;
 	}
 
 }

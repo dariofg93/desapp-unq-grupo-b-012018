@@ -2,6 +2,8 @@ package persistence.generic;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,6 +44,11 @@ public class GenericService<T> implements Serializable {
 	@Transactional(readOnly = true)
 	public void saveOrUpdate(final T object) {
 	    	this.getRepository().saveOrUpdate(object);
+	    }
+	
+	@Transactional(readOnly = true)
+	public List<T> selectByFunction(Function<T, Boolean> function) {
+	    	return this.retriveAll().stream().filter((object) -> function.apply(object)).collect(Collectors.toList());
 	    }
 
 }

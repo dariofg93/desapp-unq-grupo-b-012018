@@ -1,75 +1,53 @@
 package model.builders;
 
+import java.util.List;
+
+import org.joda.time.DateTime;
+
 import model.booking.BookingRequest;
 import model.city.City;
 import model.maps.GeographicZoneDescription;
 import model.publication.Publication;
 import model.user.User;
 import model.vehicle.Vehicle;
-import org.joda.time.DateTime;
-
-import java.util.ArrayList;
 
 public class PublicationBuilder {
 
-    private Publication buildPublication;
+	private Publication buildPublication;
 
-    public Publication build() {
-        return this.buildPublication;
-    }
+	public Publication build() {
+		return this.buildPublication;
+	}
 
-    public PublicationBuilder createPublication() {
-        this.buildPublication = new Publication();
-        return this;
-    }
+	public PublicationBuilder createPublication() {
+		this.buildPublication = new Publication();
+		return this;
+	}
 
-    public PublicationBuilder withPricePerHour(Double pricePerHour) {
-        this.buildPublication.setPricePerHour(pricePerHour);
-        return this;
-    }
+	public Publication createPublicationForUserAndVehicle(User anUser, Vehicle aVehicle, City city, String stringDateFrom, String stringDateTo, Double price) {
+		/*
+		 * Esto es una cosa muy fea. SI queda tiempo se refectoriza. No es parte de lo importante de la app.
+		 */
+		User someUser;
+		if(anUser == null) {
+			someUser = new User();
+		}else {
+			someUser = anUser;
+		}
+		/*
+		 * Esto es una cosa muy fea. SI queda tiempo se refectoriza. No es parte de lo importante de la app.
+		 */
+		
+		DateTime fromDate;
+		DateTime toDate;
+		GeographicZoneDescription pickUpZone;
+		GeographicZoneDescription dropZone;
 
-    public PublicationBuilder withPhone(Integer phone) {
-        this.buildPublication.setPhone(phone);
-        return this;
-    }
+		fromDate = DateTime.parse(stringDateFrom);
+		toDate = DateTime.parse(stringDateTo);
+		pickUpZone = new GeographicZoneDescription(-58.302840100000026, -34.6907607);
+		dropZone = new GeographicZoneDescription(-58.302840100000026, -34.6907607);
+		return new Publication(aVehicle, fromDate, toDate,someUser, city, pickUpZone, dropZone, price, 13454344);
+	}
 
-    public PublicationBuilder withUser(User user) {
-        this.buildPublication.setUser(user);
-        return this;
-    }
-
-    public PublicationBuilder withFromDate(DateTime fromDate) {
-        this.buildPublication.setFromDate(fromDate);
-        return this;
-    }
-
-    public PublicationBuilder withToDate(DateTime toDate) {
-        this.buildPublication.setToDate(toDate);
-        return this;
-    }
-
-    public PublicationBuilder withRequests(ArrayList<BookingRequest> bookingRequests) {
-        this.buildPublication.setRequests(bookingRequests);
-        return this;
-    }
-
-    public PublicationBuilder withVehicle(Vehicle vehicle) {
-        this.buildPublication.setPublishedVehicle(vehicle);
-        return this;
-    }
-
-    public PublicationBuilder withCity(City city) {
-        this.buildPublication.setCity(city);
-        return this;
-    }
-
-    public PublicationBuilder withPickUpZone(GeographicZoneDescription pickUpZone) {
-        this.buildPublication.setPickUpZone(pickUpZone);
-        return this;
-    }
-
-    public PublicationBuilder withDropZone(GeographicZoneDescription dropZone) {
-        this.buildPublication.setDropZone(dropZone);
-        return this;
-    }
 }

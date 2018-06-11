@@ -15,8 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import model.user.User;
 import model.vehicle.Vehicle;
 import model.vehicletype.Category;
+import service.user.UserService;
 import service.vehicle.VehicleService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,6 +27,8 @@ public class VehicleRepositoryTest {
 	
     @Autowired
     private VehicleService vehicleService;
+	@Autowired
+	private UserService userService;
     
     @Before
     public void setUp(){
@@ -42,8 +46,10 @@ public class VehicleRepositoryTest {
     
     @Test
     public void testSave() {
-
-    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5);
+    	User user =  new User();
+    	userService.save(user);
+    	
+    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5, user);
 
     	vehicleService.save(vehicle);
         assertEquals(1, vehicleService.retriveAll().size());
@@ -52,7 +58,9 @@ public class VehicleRepositoryTest {
 
     @Test
     public void testRestoreFromDataBaseVehicle() {
-    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5);
+    	User user =  new User();
+    	userService.save(user);
+    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5, user);
     	
     	vehicleService.save(vehicle);
     	
@@ -66,7 +74,9 @@ public class VehicleRepositoryTest {
     
     @Test
     public void testUpdateVehicle() {
-    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5);
+    	User user =  new User();
+    	userService.save(user);
+    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5, user);
     	
     	vehicleService.save(vehicle);
     	
@@ -88,7 +98,9 @@ public class VehicleRepositoryTest {
     
     @Test
     public void testUpdateVehicleWhenNotHaveId() {
-    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5);
+    	User user =  new User();
+    	userService.save(user);
+    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5, user);
     	Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo" , new ArrayList<BufferedImage>(), 2);
     	
     	vehicleService.save(vehicle);
@@ -107,7 +119,10 @@ public class VehicleRepositoryTest {
     
     @Test
     public void testUpdateVehicleById() {
-    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5);
+    	User user =  new User();
+    	userService.save(user); 
+    	
+    	Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , new ArrayList<BufferedImage>(), 5, user);
     	Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo" , new ArrayList<BufferedImage>(), 2);
     	
     	vehicleService.save(vehicle);

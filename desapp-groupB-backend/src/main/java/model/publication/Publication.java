@@ -7,6 +7,9 @@ import model.maps.GeographicZoneDescription;
 import model.user.User;
 import model.utils.Entity;
 import model.vehicle.Vehicle;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 
@@ -44,7 +47,7 @@ public class Publication extends Entity{
 	}
 
 	public Publication() {
-		// Do nothing.
+		this.requests = new ArrayList<BookingRequest>();
 	}
 
 	public void addBookingRequest(BookingRequest anyRequest) {
@@ -79,11 +82,10 @@ public class Publication extends Entity{
     public Vehicle getPublishedVehicle() {
         return publishedVehicle;
     }
-
+	@JsonIgnore
     public User getUser() {
         return this.user;
     }
-
     public DateTime getFromDate() {
         return this.fromDate;
     }
@@ -180,7 +182,7 @@ public class Publication extends Entity{
  		}
 		return maybeResult.get(0);
 	}
-	
+	@JsonProperty
 	public void setUser(User anUser) {
 		user = anUser;
 		

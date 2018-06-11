@@ -9,7 +9,6 @@ import javax.ws.rs.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
-import webService.utils.JsonReturn;
 
 import java.util.List;
 
@@ -17,12 +16,12 @@ import java.util.List;
 public class VehicleRest{
 
     private VehicleService vehicleService;
-    private JsonReturn<Vehicle> jsonReturn;
+
 
     public VehicleRest(){
         this.vehicleService = new VehicleService();
         this.vehicleService.setRepository(new VehicleRepository());
-        this.jsonReturn = new JsonReturn<>();
+
     }
 
     @GET
@@ -74,7 +73,9 @@ public class VehicleRest{
         this.vehicleService = vehicleService;
     }
 
-    public void setJsonReturn(final JsonReturn jsonReturn) {
-        this.jsonReturn = jsonReturn;
-    }
+
+    
+    /*
+     *  Dar todos los vehiculos de un determinado usuario
+     */
 }

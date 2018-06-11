@@ -32,13 +32,12 @@ public class UserRepositoryServiceTest {
 
 	@Autowired(required = true)
 	UserService userService;
+	
 
 	private Double creditAmount;
 	private CreditsAccount account;
-	private GeographicZoneDescription zone;
 	private String cuil;
-	private Score score;
-	private List<Score> scoreList;
+
 	private User anyUser;
 
 	@Before
@@ -71,6 +70,21 @@ public class UserRepositoryServiceTest {
 	
 	
 	}
+
+	@Test
+	public void testGetUserForEmailName() {
+		userService.save(anyUser);
+		User restoredUser = userService.searchUserByEmailNamed("pepe-bueno@hotmail.com");
+		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
+		assertEquals(cuil, restoredUser.getCuil());
+		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
+		assertEquals(restoredUser.getFirstName(), "Pepe");
+		assertEquals(restoredUser.getLastName(), "Bueno");
+		assertEquals(restoredUser.getMovementsOfMonth().getAllHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+	
+	
+	}
+
 	
 	/*
 	 * 		SUPPORT
@@ -79,10 +93,10 @@ public class UserRepositoryServiceTest {
 	private void createUser() {
 		creditAmount = 3000.0;
 		account = new CreditsAccount();
-		zone = new GeographicZoneDescription(-58.302840100000026, -34.6907607);
+		GeographicZoneDescription zone = new GeographicZoneDescription(-58.302840100000026, -34.6907607);
 		cuil = "20-35317288-7";
-		score = new Score(new OwnerScoreType());
-		scoreList = new ArrayList<Score>();
+		Score score = new Score(new OwnerScoreType());
+		List<Score>  scoreList = new ArrayList<Score>();
 		scoreList.add(score);
 
 		anyUser = new UserBuilder().createUser().withScoreManager(new ScoreManager(scoreList)).build();

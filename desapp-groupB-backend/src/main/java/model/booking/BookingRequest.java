@@ -4,6 +4,7 @@ import model.bookingstate.AwaitingApproval;
 import model.bookingstate.BookingState;
 import model.email.MailBody;
 import model.exceptions.NoAceptedException;
+import model.publication.Publication;
 import model.user.User;
 import model.utils.Entity;
 
@@ -14,6 +15,7 @@ public class BookingRequest extends Entity implements MailBody {
 
     private BookingState state;
     private User requester;
+    private Publication myPublication;
 	private Integer totalHours;
     private DateTime reservationDateTime;
 	private Integer hoursOfTheReservation;
@@ -101,6 +103,14 @@ public class BookingRequest extends Entity implements MailBody {
   	public void setReservationDateTime(DateTime reservationDateTime) {
   		this.reservationDateTime = reservationDateTime;
   	}
+  	
+  	public Publication getMyPublication() {
+		return myPublication;
+	}
+
+	public void setMyPublication(Publication myPublication) {
+		this.myPublication = myPublication;
+	}
 
     
 }

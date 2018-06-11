@@ -14,9 +14,9 @@ public class UserRepository extends HibernateGenericDAO<User> implements Generic
         return User.class;
     }
 	@Override
-	public void execute(String stringQuery) {
-		Query query = this.getSessionFactory().getCurrentSession().createQuery(stringQuery);
-		query.executeUpdate();
+	public User execute(String queryString) {
+		Query query = this.getSessionFactory().getCurrentSession().createQuery(queryString);
+		return (User) query.uniqueResult();
 	}
 
 

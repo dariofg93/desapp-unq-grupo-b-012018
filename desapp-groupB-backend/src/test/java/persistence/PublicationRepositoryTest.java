@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import model.booking.BookingRequest;
 import model.builders.UserBuilder;
 import model.city.City;
 import model.maps.GeographicZoneDescription;
@@ -92,21 +91,25 @@ public class PublicationRepositoryTest {
 
 	}
 	
-
 	@Test
-	public void testSavePublicationWithOneBookingRequest() {
-		BookingRequest request = new BookingRequest();
-		request.setAcepted();
+	public void testSaveAndRestorePublicationForSomeSpecificUSer() {
 		
-		publication.addBookingRequest(request);
 		publicationService.save(publication);
-		Publication restoredPublication = publicationService.searchById(publication.getId());
+		Publication restoredPublication = publicationService.selectByFunction((publication) -> publication.getUser().getId() == user.getId()).get(0);
 
-		
-		assertFalse(restoredPublication.allBookingRequest().isEmpty());
-		assertTrue(restoredPublication.allBookingRequest().get(0).isApproved());
+		assertEquals(restoredPublication.getUser().getId(), user.getId());
+		assertEquals(restoredPublication.getCity().getName(), city.getName());
+		assertEquals(restoredPublication.getFromDate(), fromDate);
+		assertEquals(restoredPublication.getToDate(), toDate);
+		assertEquals(restoredPublication.getPublishedVehicle().getId(), vehicle.getId());
+		assertEquals(restoredPublication.getPhone(), 13454344, 0);
+		assertEquals(restoredPublication.getPricePerHour(), new Double(8.5));
+		assertTrue(restoredPublication.getDropZone().equalsTo(dropZone));
+		assertTrue(restoredPublication.getPickUpZone().equalsTo(pickUpZone));
+		assertTrue(restoredPublication.allBookingRequest().isEmpty());
 
 	}
+	
 
 	private Publication createPublication() {
 
@@ -122,5 +125,7 @@ public class PublicationRepositoryTest {
 		return new Publication(vehicle, fromDate, toDate, user, city, pickUpZone, dropZone, new Double(8.5), 13454344);
 
 	}
+	
+	
 
 }

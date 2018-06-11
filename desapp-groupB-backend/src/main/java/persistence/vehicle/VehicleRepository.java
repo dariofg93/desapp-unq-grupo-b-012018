@@ -16,10 +16,9 @@ public class VehicleRepository extends HibernateGenericDAO<Vehicle> implements G
     }
 
 	@Override
-	public void execute(String stringQuery) {
-		Query query = this.getSessionFactory().getCurrentSession().createQuery(stringQuery);
-		query.executeUpdate();
+	public Vehicle execute(String query) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-
 
 }
