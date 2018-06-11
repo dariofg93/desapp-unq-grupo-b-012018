@@ -1,16 +1,23 @@
 import { ResponseEntity } from './../../models/response-entity';
 import { Optional,Injectable,Inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
+/*@Component({
+  providers: [
+    GenericRestService,
+    { provide: 'url', useValue: PATHBACKEND },
+    { provide: 'endpoint', useValue: 'users' }
+  ]
+})*/
 export class GenericRestService<T> {
-constructor(
-    private http: HttpClient,
-    @Inject('url') @Optional() public url?: string,
-    @Inject('endpoint') @Optional() public endpoint?: string
-) {}
+
+  constructor(
+      protected http: HttpClient,
+      @Inject('url') @Optional() protected url?: string,
+      @Inject('endpoint') @Optional() protected endpoint?: string
+  ) {}
 
   public create(item: T): Observable<ResponseEntity<T>> {
     return this.http
@@ -22,17 +29,17 @@ constructor(
       .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`,item);
   }
 
-	read(primaryKey: any): Observable<ResponseEntity<T>> {
+	public read(primaryKey: any): Observable<ResponseEntity<T>> {
     return this.http
       .get<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`);
   }
 
-  list(): Observable<ResponseEntity<T[]>> {
+  public list(): Observable<ResponseEntity<T[]>> {
     return this.http
       .get<ResponseEntity<T[]>>(`${this.url}/${this.endpoint}/`);
   }
 
-  delete(id: number) {
+  public delete(id: number) {
     return this.http
       .delete(`${this.url}/${this.endpoint}/${id}`);
   }

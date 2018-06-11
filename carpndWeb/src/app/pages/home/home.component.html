@@ -1,14 +1,82 @@
-<button
-  class="btn btn-primary btn-margin"
-  *ngIf="auth.isAuthenticated()"
-  (click)="auth.logout()">
-    Log Out
-</button>
+<div class="col-md row">
 
-<hr>
+    <div class="col-md-4">
+      <div class="row justify-content-md-center">
+        <h3 class="sectionTitle" i18n="@@MyVehicles">MyVehicles</h3>
+      </div>
 
-<hr>
+      <div class="table-responsive-md">
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th class="text-center" i18n="@@image">image</th>
+              <th class="text-center" i18n="@@vehicleDescription">description</th>
+              <th class="text-right" i18n="@@vehicleCapacity">capacity</th>
+              <th></th><th></th>
+            </tr>
+          </thead>
+          <tbody class="table table-striped">
+            <tr *ngFor="let vehicle of myVehicles | paginate: { itemsPerPage: 5, currentPage: currentP }"> 
+              <td align="center">
+                <img *ngIf="hasImages(vehicle)" src="{{pathImage(vehicle)}}" class="vehicleHome">
+                <div *ngIf="!hasImages(vehicle)"><i class="fa fa-car fa-3x"></i></div>
+              </td>
+              <td align="left">{{ vehicle.description }}</td>
+              <td align="right">{{ vehicle.passengerCapacity }}</td>
+              <td align="center">
+                <a href="vehicles/{{vehicle.id}}"><i class="fa fa-edit fa-2x"></i></a>
+              </td>
+              <td align="center">
+                <a routerLink onclick="deleteVehicle(vehicle.id)"><i class="fa fa-trash fa-2x"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-{{profile?.nickname}}
+        <div class="row justify-content-md-center">
+          <pagination-controls (pageChange)="currentP = $event"></pagination-controls>
+        </div>
+      </div>
 
- <img class="user-avatar rounded-circle" src="{{profile?.picture}}" alt="User Avatar">
+      <div class="row justify-content-md-center">
+        <a href="vehicles/new" 
+          class="btn btn-primary btn-margin"
+          i18n="@@addVehicle">
+            addVehicle
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="float-md-left leftLine"></div>
+      <div class="float-md-right rightLine"></div>
+
+      <p class="text-center">Aca poner notificaciones y escribir mucho para saber cuanto mideeee</p>
+    </div>
+
+    <div class="col-md-4">
+      <div class="row justify-content-md-center">
+        <h3 class="sectionTitle" i18n="@@PublicationRequests">PublicationRequests</h3>
+      </div>
+
+      <ul>
+        <li *ngFor="let request of requests">
+          <a class="row col-md shadow p-2 mb-3 bg-white" href="requests/{{request.id_request}}">
+            <div class="col-md-2">
+              <i class="fa fa-child fa-3x"></i>
+            </div>
+
+            <div class="col-md-7 align-self-center">
+              <p class="mb-1"><span>{{request.requester.first_name}}</span> <span>{{request.requester.last_name}}</span></p>
+              <p class="mb-1" i18n="@state">state: <span>{{request.state}}</span></p>
+            </div>
+
+            <div class="col-md-3">
+              <p i18n="@hours"><span>{{request.totalHours}}</span> hours</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+</div>

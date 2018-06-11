@@ -1,4 +1,6 @@
 import { AUTHCALLBACKURL } from './../../../environments/environment';
+import { UserService } from './../../services/user/user.service';
+import { User } from './../../models/user'
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,6 +11,8 @@ import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {
+
+  profile: User
 
   auth0 = new auth0.WebAuth({
     clientID: 'JZ5acUq2z40GWlsUFckSq8QL9U1UUfpl',
@@ -21,7 +25,10 @@ export class AuthService {
 
   userProfile: any;
 
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    private usersService: UserService
+  ) {}
 
   public login(): void {
     this.auth0.authorize();
@@ -34,9 +41,9 @@ export class AuthService {
         this.setSession(authResult);
         this.router.navigate(['/']);
       } else if (err) {
-        this.router.navigate(['/']);
-        console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
+        //this.router.navigate(['/']);
+        //console.log(err);
+        //alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
   }
@@ -47,6 +54,18 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+
+    this.getProfile((err, profile) => {
+      this.usersService.readByEmail(profile.name).subscribe(
+        data => this.profile = data.body,
+        () => this.usersService.create(new User(profile.name)).subscribe(
+                createdUser => this.profile = createdUser.body
+              )
+      );
+    });
+
+    const id_user = JSON.stringify(this.profile.id_user);
+    localStorage.setItem('id_user', id_user);
   }
 
   public logout(): void {
@@ -54,6 +73,8 @@ export class AuthService {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('navbar_item');
+    localStorage.removeItem('id_user');
     // Go back to the home route
     this.router.navigate(['login']);
   }
@@ -73,7 +94,7 @@ export class AuthService {
 
     this.auth0.client.userInfo(accessToken, (err, profile) => {
       if (profile) {
-        this.userProfile = profile;
+        this.profile = profile;
       }
       cb(err, profile);
     });

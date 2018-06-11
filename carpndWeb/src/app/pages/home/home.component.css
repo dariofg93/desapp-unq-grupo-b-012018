@@ -1,0 +1,18 @@
+.leftLine {
+  border-left: 1px solid grey;
+  height: 100%;
+}
+
+.rightLine {
+  border-right: 1px solid grey;
+  height: 100%;
+}
+
+.vehicleHome{
+	max-height: 40px;
+	max-width: 65px;
+}
+
+a {
+	color: black;
+}

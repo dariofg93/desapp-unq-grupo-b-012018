@@ -10,3 +10,22 @@
 .btn {
   border-radius: 0;
 }
+
+.sectionTitle{
+	font-family: "Times New Roman", Times, serif;
+	color: grey;
+}
+
+.pageTitle{
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+	color: grey;
+}
+
+.fa{
+	color: grey;
+}
+
+.form-control {
+  border-radius: 0px;
+}

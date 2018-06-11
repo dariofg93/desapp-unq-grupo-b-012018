@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { AuthService } from './../../../services/auth/auth.service';
 
@@ -11,12 +10,10 @@ import { AuthService } from './../../../services/auth/auth.service';
 export class HeaderComponent implements OnInit {
 
   languages;
-  selectedItem;
   i18nValue: string;
   profile: any;
 
   constructor(
-    private router: Router,
     private auth: AuthService
   ) { }
   
@@ -38,6 +35,14 @@ export class HeaderComponent implements OnInit {
   }
 
   setSelectedItem(newItem) {
-    this.selectedItem = newItem;
+    localStorage.setItem('navbar_item', newItem);
+  }
+
+  selectedItem(): number {
+    return JSON.parse(localStorage.getItem('navbar_item'));
+  }
+
+  id_user(): number{
+    return JSON.parse(localStorage.getItem('id_user'));
   }
 }

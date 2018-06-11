@@ -8,7 +8,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersEditComponent } from './pages/users-edit/users-edit.component';
-import { UsersListComponent } from './pages/users-list/users-list.component';
 import { VehiclesEditComponent } from './pages/vehicles-edit/vehicles-edit.component';
 import { VehiclesListComponent } from './pages/vehicles-list/vehicles-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -17,8 +16,10 @@ import { HeaderComponent } from './components/navbar/header/header.component';
 import { FooterComponent } from './components/navbar/footer/footer.component';
 import { GenericRestService } from './services/generic/generic-rest.service';
 import { AuthService } from './services/auth/auth.service';
+import { UserService } from './services/user/user.service';
 import { CallbackComponent } from './components/callback/callback.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NewVehicleComponent } from './pages/new-vehicle/new-vehicle.component';
 
 // Routes Constants:
 const appRoutes: Routes = [
@@ -27,16 +28,16 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'users',
-    component: UsersListComponent
-  },
-  {
     path: 'users/:id',
     component: UsersEditComponent
   },
   {
     path: 'vehicles',
     component: VehiclesListComponent
+  },
+  {
+    path: 'vehicles/new',
+    component: NewVehicleComponent
   },
   {
     path: 'vehicles/:id',
@@ -52,7 +53,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    UsersListComponent,
     UsersEditComponent,
     VehiclesListComponent,
     VehiclesEditComponent,
@@ -61,7 +61,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     CallbackComponent,
-    LoginComponent
+    LoginComponent,
+    NewVehicleComponent
   ],
   imports: [
     NgxPaginationModule,
@@ -76,6 +77,7 @@ const appRoutes: Routes = [
   providers: [
     GenericRestService,
     AuthService,
+    UserService,
     { provide: LOCALE_ID, useValue: localStorage.getItem('language')? 
                                       localStorage.getItem('language'): 
                                       'en-US' }

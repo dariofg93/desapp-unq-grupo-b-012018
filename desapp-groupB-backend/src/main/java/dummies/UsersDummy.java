@@ -22,10 +22,17 @@ public class UsersDummy implements DummyData{
     private UserService service;
 
     public UsersDummy(){
+        List<Score> scores = new ScoresDummy().getScores();
+        List<Publication> publications = new PublicationsDummy().getPublications();
+
+        List<Score> user1scores = new ArrayList<Score>();
+        scores.add(scores.get(0));
+        scores.add(scores.get(1));
+
         User user1 = builder.createUser()
                 .withWebSite(new WebSite())
-                .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
-                .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
+                .withPublications(new ArrayList<>(Collections.singleton(publications.get(0))))
+                .withScoreManager(new ScoreManager(user1scores))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("dariofg93@gmail.com"))
                 .build();
@@ -35,12 +42,21 @@ public class UsersDummy implements DummyData{
 
         User user2 = builder.createUser()
                 .withWebSite(new WebSite())
-                .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
-                .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
+                .withPublications(new ArrayList<>(Collections.singleton(publications.get(1))))
+                .withScoreManager(new ScoreManager(new ArrayList<>()))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("fabri1108@gmail.com"))
                 .build();
         this.users.add(user2);
+
+        User user3 = builder.createUser()
+                .withWebSite(new WebSite())
+                .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
+                .withScoreManager(new ScoreManager(new ArrayList<>()))
+                .withCreditsAccount(new CreditsAccount())
+                .withEmail(new Email("user3@gmail.com"))
+                .build();
+        this.users.add(user3);
     }
 
     public void setUserBuilder(UserBuilder userBuilder) { this.builder= userBuilder; }

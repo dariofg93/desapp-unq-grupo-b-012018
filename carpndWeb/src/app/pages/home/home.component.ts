@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ASSETS } from './../../variables/variables'
 
-import { AuthService } from './../../services/auth/auth.service';
+import { User } from './../../models/user'
+import { Vehicle } from './../../models/vehicle'
+import { UserService } from './../../services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +14,73 @@ export class HomeComponent implements OnInit {
 
   profile: any;
 
-  constructor(public auth: AuthService) {}
+  requests = [
+    {
+      "id_request": 1,
+      "state": "Awaiting approbal",
+      "requester": {
+        "id_user": 1,
+        "first_name": "Dario",
+        "last_name": "Gutierrez",
+        "cuil": 20379538860,
+        "movementsOfMonth": "",
+        "email": "dariofg93@gmail.com"
+      },
+      "totalHours": 15,
+      "dateTimeOfReservation": null,
+      "hoursOfTheReservation": null
+    },
+    {
+      "id_request": 2,
+      "state": "Approved",
+      "requester": {
+        "id_user": 2,
+        "first_name": "Fabri",
+        "last_name": "Britez",
+        "cuil": 561516516,
+        "movementsOfMonth": "Muchos",
+        "email": "fabri011@gmail.com"
+      },
+      "totalHours": 100,
+      "dateTimeOfReservation": null,
+      "hoursOfTheReservation": null
+    }
+  ]
+
+  myVehicles = [
+    {
+      "id": 1,
+      "description": "Un auto muy veloz!",
+      "passengerCapacity": 4,
+      "category": "Car",
+      "pictures": [
+        "maclaren_hermoso.png"
+      ]
+    },
+    {
+      "id": 2,
+      "description": "La moto definitiva, con esta podes ir desde La Plata hasta Bariloche en un dia!",
+      "passengerCapacity": 2,
+      "category": "Scooter",
+      "pictures": []
+    }
+  ]
+
+  constructor(
+    private usersService: UserService
+  ) {}
 
   ngOnInit() {
-    this.auth.getProfile((err, profile) => {
-      this.profile = profile;
-    });
+    this.usersService.read(JSON.parse(localStorage.getItem('id_user'))).subscribe(
+      data => this.profile = data.body
+    );
+  }
+
+  hasImages(vehicle: Vehicle): boolean {
+    return vehicle.pictures.length > 0;
+  }
+
+  pathImage(vehicle: Vehicle): string {
+    return ASSETS + vehicle.pictures[0];
   }
 }
