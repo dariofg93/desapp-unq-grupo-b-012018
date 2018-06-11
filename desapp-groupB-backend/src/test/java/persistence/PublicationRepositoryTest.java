@@ -103,7 +103,7 @@ public class PublicationRepositoryTest {
 				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
 				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
 
-		request2.setAcepted();
+		request2.acept();
 
 		publication.addBookingRequest(request);
 		publication.addBookingRequest(request2);

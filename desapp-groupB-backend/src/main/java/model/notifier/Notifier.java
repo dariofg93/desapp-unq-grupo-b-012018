@@ -35,7 +35,7 @@ public class Notifier {
     
 
     public void notifyAceptByMail(User acceptor, BookingRequest anyRequest) {
-        anyRequest.setAcepted();
+        anyRequest.acept();
         String fullName = acceptor.getFirstName() + " " + acceptor.getLastName();
         String subject = fullName + " have accepted your reservation!";
 
@@ -48,7 +48,7 @@ public class Notifier {
     }
 
     public void notifyRejectByMail(User rejector, BookingRequest anyRequest) {
-        anyRequest.setRejected();
+        anyRequest.reject();
         String fullName = rejector.getFirstName() + " " + rejector.getLastName();
         String subject = fullName + " have rejected your reservation!";
 

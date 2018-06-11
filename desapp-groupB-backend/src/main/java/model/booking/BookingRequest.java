@@ -8,7 +8,7 @@ import model.publication.Publication;
 import model.user.User;
 import model.utils.Entity;
 
-
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.joda.time.DateTime;
 
 public class BookingRequest extends Entity implements MailBody {
@@ -27,12 +27,13 @@ public class BookingRequest extends Entity implements MailBody {
     public boolean equals(Object request) {
     	return (this.getId() == ((Entity) request).getId());
     }
-    public void setAcepted() {
-        this.state = this.state.setAcepted();
+    @JsonIgnore
+    public void acept() {
+        this.state = this.state.acept();
     }
-
-    public void setRejected() {
-        this.state = this.state.setRejected();
+    @JsonIgnore
+    public void reject() {
+        this.state = this.state.reject();
     }
 
     public void setStateOfVehicleRetreatBuyer(Boolean state) throws NoAceptedException {
@@ -54,9 +55,8 @@ public class BookingRequest extends Entity implements MailBody {
     public DateTime endOfReservation() {
         return this.reservationDateTime.plusHours(this.totalHours);
     }
-
+    @JsonIgnore
     public boolean isApproved() {
-
         return state.isApproved();
     }
 

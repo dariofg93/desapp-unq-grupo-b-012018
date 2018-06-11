@@ -1,18 +1,23 @@
 package model.bookingstate;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AwaitingApproval extends BookingState {
 
 	public AwaitingApproval() {
 		this.description = "AWA";
 	}
-
+	
+	@JsonIgnore
 	@Override
-	public BookingState setAcepted() {
+	public BookingState acept() {
 		return new Approved();
 	}
-
+	@JsonIgnore
 	@Override
-	public BookingState setRejected() {
+	public BookingState reject() {
 		return new Rejected();
 	}
 

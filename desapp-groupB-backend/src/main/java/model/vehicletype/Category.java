@@ -2,6 +2,20 @@ package model.vehicletype;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonSubTypes;
+import org.codehaus.jackson.annotate.JsonTypeInfo;
+
+import model.bookingstate.Approved;
+import model.bookingstate.AwaitingApproval;
+import model.bookingstate.Rejected;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Car.class, name = "Car"),
+
+    @JsonSubTypes.Type(value = Scooter.class, name = "Scooter")}
+)
+
 public abstract class Category implements Serializable {
 	
 	public static Category scooter() {

@@ -64,7 +64,7 @@ public class NotifierTest extends TestCase {
         notifier.notifyAceptByMail(userMock,anyRequestMock);
 
         verify(requesterEmailMock).addMailCarpnd(notifier.getMailBuilded());
-        verify(anyRequestMock).setAcepted();
+        verify(anyRequestMock).acept();
     }
 
     public void testNotifyRejectByMail(){
@@ -80,7 +80,7 @@ public class NotifierTest extends TestCase {
         notifier.notifyRejectByMail(userMock,anyRequestMock);
 
         verify(requesterEmailMock).addMailCarpnd(notifier.getMailBuilded());
-        verify(anyRequestMock).setRejected();
+        verify(anyRequestMock).reject();
     }
 
     public void testNotifyRetreatBuyerByMail(){

@@ -16,11 +16,11 @@ public class AwaitingApprobalTest extends TestCase {
 	}
 
     public void testSetAcepted(){
-        assertTrue(anyAwaitingApprobal.setAcepted() instanceof Approved);
+        assertTrue(anyAwaitingApprobal.acept() instanceof Approved);
     }
 
     public void testSetRejected(){
-        assertTrue(anyAwaitingApprobal.setRejected() instanceof Rejected);
+        assertTrue(anyAwaitingApprobal.reject() instanceof Rejected);
     }
     
     public void testIsApproved(){

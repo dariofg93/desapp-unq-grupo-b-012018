@@ -37,7 +37,7 @@ public class RequestsDummy implements DummyData{
                 .withHoursOfTheReservation(21)
                 
                 .build();
-        booking2.setAcepted();
+        booking2.acept();
         this.bookings.add(booking2);
     }
 
