@@ -30,7 +30,7 @@ public class UserRest {
 	}
 
 	@GET
-	@Path("/users/")
+	@Path("/")
 	@Produces("application/json")
 	@Transactional
 	public List<User> retriveAll() {

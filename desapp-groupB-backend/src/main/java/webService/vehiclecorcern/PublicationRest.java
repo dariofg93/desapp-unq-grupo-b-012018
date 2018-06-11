@@ -41,20 +41,20 @@ public class PublicationRest {
     @POST
     @Path("/newPublication")
     @Produces("application/json")
-    public ResponseEntity newVehicle(@RequestBody Publication vehicle) {
+    public ResponseEntity newVehicle(@RequestBody Publication post) {
     	
-    	publicationService.save(vehicle);
+    	publicationService.save(post);
 
-		return new ResponseEntity<Publication>(vehicle, HttpStatus.OK);
+		return new ResponseEntity<Publication>(post, HttpStatus.OK);
     }
     
     @PUT
     @Path("/publication/{id}")
     @Produces("application/json")
-    public ResponseEntity<?> updateVehicleById(@PathParam("id") final Long id, @RequestBody Publication vehicle) {
+    public ResponseEntity<?> updateVehicleById(@PathParam("id") final Long id, @RequestBody Publication post) {
 		try {
-			publicationService.updateById(id,vehicle);
-			return new ResponseEntity<Publication>(vehicle, HttpStatus.OK);
+			publicationService.updateById(id,post);
+			return new ResponseEntity<Publication>(post, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
