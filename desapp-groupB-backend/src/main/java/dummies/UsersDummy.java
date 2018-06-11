@@ -24,7 +24,7 @@ public class UsersDummy implements DummyData{
     public UsersDummy(){
         User user1 = builder.createUser()
                 .withWebSite(new WebSite())
-                .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
+                .withPublications(new ArrayList<>())
                 .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("dariofg93@gmail.com"))
@@ -35,12 +35,24 @@ public class UsersDummy implements DummyData{
 
         User user2 = builder.createUser()
                 .withWebSite(new WebSite())
-                .withPublications(new ArrayList<>(Collections.singleton(new Publication())))
+                .withPublications(new ArrayList<>())
                 .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("fabri1108@gmail.com"))
                 .build();
         this.users.add(user2);
+        CreditsAccount account = new CreditsAccount();
+        account.addCredits(1000.0);
+        User user3 = builder.createUser()
+                .withWebSite(new WebSite())
+                .withPublications(new ArrayList<>())
+                .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
+                .withCreditsAccount(account)
+                .withEmail(new Email("otroUsuarioQueNoExiste@gmail.com"))
+                .build();
+        user1.getMovementsOfMonth().addToHistory("Hoy alquile pero era muy feo");
+        user1.getMovementsOfMonth().addToHistory("Hoy alquile otro auto y era mas feo q el anterior");
+        this.users.add(user3);
     }
 
     public void setUserBuilder(UserBuilder userBuilder) { this.builder= userBuilder; }

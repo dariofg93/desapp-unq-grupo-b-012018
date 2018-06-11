@@ -77,4 +77,8 @@ public class VehicleRest{
     public void setJsonReturn(final JsonReturn jsonReturn) {
         this.jsonReturn = jsonReturn;
     }
+    
+    /*
+     *  Dar todos los vehiculos de un determinado usuario
+     */
 }

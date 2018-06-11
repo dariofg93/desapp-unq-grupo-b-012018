@@ -15,9 +15,8 @@ public class PublicationRepository extends HibernateGenericDAO<Publication> impl
 	        return Publication.class;
 	    }
 		@Override
-		public void execute(String stringQuery) {
-			Query query = this.getSessionFactory().getCurrentSession().createQuery(stringQuery);
-			query.executeUpdate();
+		public Publication execute(String stringQuery) {
+			return null;
 		}
 
 

@@ -7,7 +7,10 @@
 		<id column="id_vehicle" name="id" type="java.lang.Long">
 			<generator class="increment" />
 		</id>
-
+		
+		<many-to-one name="owner" column="id_user" not-null = "false"
+			class="model.user.User" unique="false" lazy="false" />
+		
 		<property name="description" type="string" column="DESCRIPTION" />
 			
 		<property name="passengerCapacity" type="integer" column="PASSAGER_CAPACITY" />

@@ -15,5 +15,5 @@ public class PublicationService extends GenericService<Publication> {
 		updatedPublication.setId(id);
 		this.getRepository().update(updatedPublication);
 	}
-
+	
 }

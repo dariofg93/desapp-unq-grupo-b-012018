@@ -15,7 +15,7 @@
 		<property name="phone" type="int" column="PHONE" />
 
 		<many-to-one name="user" column="id_user"
-			class="model.user.User" unique="false" lazy="false" />
+			class="model.user.User" unique="false" lazy="false"  />
 
 		<property name="fromDate"
 			type="org.jadira.usertype.dateandtime.joda.PersistentDateTime">
@@ -27,7 +27,7 @@
 			<column name="TO_DATE" />
 		</property>
 
-		<list name="requests" table="BOOKING_REQUESTS" inverse="false"
+		<!-- <list name="requests" table="BOOKING_REQUESTS" inverse="false"
 			cascade="all" lazy="false">
 			<key>
 				<column name="id_p" />
@@ -35,7 +35,7 @@
 			<list-index column="indx" />
 			<one-to-many class="model.booking.BookingRequest" />
 		</list>
-
+ -->
 		<many-to-one name="publishedVehicle" column="id_vehicle"
 			class="model.vehicle.Vehicle" unique="false" lazy="false" />
 

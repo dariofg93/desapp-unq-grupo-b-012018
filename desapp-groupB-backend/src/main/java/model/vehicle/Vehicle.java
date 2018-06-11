@@ -1,26 +1,38 @@
 package model.vehicle;
 
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+
+import model.user.User;
 import model.utils.Entity;
 import model.vehicletype.Car;
 import model.vehicletype.Category;
 import model.vehicletype.Scooter;
 
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Vehicle extends Entity{
 	
 	private static final long serialVersionUID = -7816019452762349441L;
-
+	
 	private Category category;
-    private String description;
+	private String description;
     private List<BufferedImage> pictures; 
     private Integer passengerCapacity;
+	private User owner;
     
     // Por ahora modelamos las imaganes con BufferedImage. Si despues hay uqe cambiar la clase vemos.
 
+    public Vehicle(Category aCategory , String aDescription, List<BufferedImage> somePictures, Integer aNumberOfPassenger, User anOwner) {
+		this.category = aCategory;
+		this.description = aDescription;
+		this.pictures = somePictures;
+		this.passengerCapacity = aNumberOfPassenger;
+		this.owner = anOwner;
+    }
     public Vehicle(Category aCategory , String aDescription, List<BufferedImage> somePictures, Integer aNumberOfPassenger) {
 		this.category = aCategory;
 		this.description = aDescription;
@@ -65,6 +77,14 @@ public class Vehicle extends Entity{
 	}
 	public void setPassengerCapacity(Integer passengerCapacity) {
 		this.passengerCapacity = passengerCapacity;
+	}
+	@JsonIgnore
+    public User getOwner() {
+		return owner;
+	}
+	@JsonProperty
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 
 	 

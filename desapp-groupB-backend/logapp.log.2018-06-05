@@ -1,0 +1,822 @@
+2018-06-05 17:38:33,381 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 17:38:33,457 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@61f8bee4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b49cea0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@887af79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7fac631b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b87ed94]
+2018-06-05 17:39:06,901 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 17:39:06,955 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@61f8bee4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b49cea0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@887af79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7fac631b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b87ed94]
+2018-06-05 17:39:45,976 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 17:39:46,017 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eec5a4a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b2948e2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6ddf90b0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@57536d79, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b0143d3]
+2018-06-05 17:39:46,241 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 17:39:46,503 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 17:39:46,533 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 17:39:46,590 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 17:39:46,608 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 17:39:46,636 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 17:39:46,943 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3b088d51: startup date [Tue Jun 05 17:39:46 ART 2018]; root of context hierarchy
+2018-06-05 17:39:47,149 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 17:39:47,150 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 17:39:47,490 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 17:39:47,500 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 17:39:47,504 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 17:39:47,506 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 17:39:47,597 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,658 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,677 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,687 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,699 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,709 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,730 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,741 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,749 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,758 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:47,778 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:39:48,336 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-06-05 17:39:48,433 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-06-05 17:39:48,440 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-06-05 17:39:48,999 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:343) - HHH000227: Running hbm2ddl schema export
+2018-06-05 17:39:49,004 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table HISTORY_RECORDS drop constraint FK_nnor3rwg7na29875vm2r2iro
+2018-06-05 17:39:49,004 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.HISTORY_RECORDS
+2018-06-05 17:39:49,004 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_20t8qs6sayt99pdhbfbff2iro
+2018-06-05 17:39:49,005 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:39:49,005 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_64q46yf3j0wmqkooe2xdpa9xu
+2018-06-05 17:39:49,005 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:39:49,005 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_j58l0iihgq5xd8tnbx86q11un
+2018-06-05 17:39:49,006 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:39:49,006 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_2er9s4obk78ygwtxc7y9kn5aa
+2018-06-05 17:39:49,006 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:39:49,006 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table SCORES drop constraint FK_hwotf5svy9euft9kou6vxdscv
+2018-06-05 17:39:49,007 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.SCORES
+2018-06-05 17:39:49,007 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table USERS drop constraint FK_5hgwwi4cbj9frl75dl8dol467
+2018-06-05 17:39:49,007 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USERS
+2018-06-05 17:39:49,018 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:405) - HHH000230: Schema export complete
+2018-06-05 17:39:49,061 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@3e598df9] of Hibernate SessionFactory for HibernateTransactionManager
+2018-06-05 17:39:49,077 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-06-05 17:39:49,125 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-06-05 17:39:50,393 INFO  org.apache.cxf.endpoint.ServerImpl (ServerImpl.java:84) - Setting the server's publish address to be /
+2018-06-05 17:39:50,466 WARN  org.apache.cxf.bus.spring.OldSpringSupport (OldSpringSupport.java:55) - Import of META-INF/cxf/cxf-extension-soap.xml has been deprecated and is unnecessary.
+2018-06-05 17:39:51,029 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@3b088d51: startup date [Tue Jun 05 17:39:46 ART 2018]; root of context hierarchy
+2018-06-05 17:40:03,517 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 17:40:03,563 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@61f8bee4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b49cea0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@887af79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7fac631b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b87ed94]
+2018-06-05 17:40:55,362 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 17:40:55,412 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eec5a4a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b2948e2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6ddf90b0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@57536d79, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b0143d3]
+2018-06-05 17:40:55,635 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 17:40:55,877 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 17:40:55,901 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 17:40:55,942 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 17:40:55,962 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 17:40:55,981 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 17:40:56,286 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3b088d51: startup date [Tue Jun 05 17:40:56 ART 2018]; root of context hierarchy
+2018-06-05 17:40:56,496 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 17:40:56,496 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 17:40:56,766 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 17:40:56,777 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 17:40:56,780 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 17:40:56,781 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 17:40:56,844 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:56,895 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:56,925 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:56,937 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:56,947 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:56,957 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:56,981 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:56,995 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:57,006 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:57,024 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:57,076 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:40:57,546 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-06-05 17:40:57,636 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-06-05 17:40:57,642 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-06-05 17:40:58,137 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:343) - HHH000227: Running hbm2ddl schema export
+2018-06-05 17:40:58,141 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table HISTORY_RECORDS drop constraint FK_nnor3rwg7na29875vm2r2iro
+2018-06-05 17:40:58,142 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.HISTORY_RECORDS
+2018-06-05 17:40:58,142 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_20t8qs6sayt99pdhbfbff2iro
+2018-06-05 17:40:58,142 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:40:58,143 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_64q46yf3j0wmqkooe2xdpa9xu
+2018-06-05 17:40:58,143 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:40:58,143 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_j58l0iihgq5xd8tnbx86q11un
+2018-06-05 17:40:58,143 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:40:58,144 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_2er9s4obk78ygwtxc7y9kn5aa
+2018-06-05 17:40:58,144 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:40:58,144 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table SCORES drop constraint FK_hwotf5svy9euft9kou6vxdscv
+2018-06-05 17:40:58,144 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.SCORES
+2018-06-05 17:40:58,145 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table USERS drop constraint FK_5hgwwi4cbj9frl75dl8dol467
+2018-06-05 17:40:58,145 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USERS
+2018-06-05 17:40:58,155 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:405) - HHH000230: Schema export complete
+2018-06-05 17:40:58,200 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@3e598df9] of Hibernate SessionFactory for HibernateTransactionManager
+2018-06-05 17:40:58,216 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-06-05 17:40:58,269 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-06-05 17:40:59,502 INFO  org.apache.cxf.endpoint.ServerImpl (ServerImpl.java:84) - Setting the server's publish address to be /
+2018-06-05 17:40:59,546 WARN  org.apache.cxf.bus.spring.OldSpringSupport (OldSpringSupport.java:55) - Import of META-INF/cxf/cxf-extension-soap.xml has been deprecated and is unnecessary.
+2018-06-05 17:40:59,949 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@3b088d51: startup date [Tue Jun 05 17:40:56 ART 2018]; root of context hierarchy
+2018-06-05 17:42:20,205 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 17:42:20,244 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@61f8bee4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b49cea0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@887af79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7fac631b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b87ed94]
+2018-06-05 17:42:20,485 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 17:42:20,701 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 17:42:20,723 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 17:42:20,766 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 17:42:20,782 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 17:42:20,800 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 17:42:21,084 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@76f2b07d: startup date [Tue Jun 05 17:42:21 ART 2018]; root of context hierarchy
+2018-06-05 17:42:21,258 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 17:42:21,258 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 17:42:21,537 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 17:42:21,544 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 17:42:21,547 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 17:42:21,549 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 17:42:21,613 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,657 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,690 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,702 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,714 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,724 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,746 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,761 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,769 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,780 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:21,793 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:22,294 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-06-05 17:42:22,384 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-06-05 17:42:22,390 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-06-05 17:42:22,947 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:343) - HHH000227: Running hbm2ddl schema export
+2018-06-05 17:42:22,953 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table HISTORY_RECORDS drop constraint FK_nnor3rwg7na29875vm2r2iro
+2018-06-05 17:42:22,953 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.HISTORY_RECORDS
+2018-06-05 17:42:22,953 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_20t8qs6sayt99pdhbfbff2iro
+2018-06-05 17:42:22,954 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:22,954 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_64q46yf3j0wmqkooe2xdpa9xu
+2018-06-05 17:42:22,954 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:22,955 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_j58l0iihgq5xd8tnbx86q11un
+2018-06-05 17:42:22,955 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:22,955 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_2er9s4obk78ygwtxc7y9kn5aa
+2018-06-05 17:42:22,955 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:22,956 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table SCORES drop constraint FK_hwotf5svy9euft9kou6vxdscv
+2018-06-05 17:42:22,956 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.SCORES
+2018-06-05 17:42:22,956 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table USERS drop constraint FK_5hgwwi4cbj9frl75dl8dol467
+2018-06-05 17:42:22,957 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USERS
+2018-06-05 17:42:22,973 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:405) - HHH000230: Schema export complete
+2018-06-05 17:42:23,030 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@99a65d3] of Hibernate SessionFactory for HibernateTransactionManager
+2018-06-05 17:42:23,045 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-06-05 17:42:23,105 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-06-05 17:42:23,957 INFO  org.apache.cxf.endpoint.ServerImpl (ServerImpl.java:84) - Setting the server's publish address to be /
+2018-06-05 17:42:24,033 WARN  org.apache.cxf.bus.spring.OldSpringSupport (OldSpringSupport.java:55) - Import of META-INF/cxf/cxf-extension-soap.xml has been deprecated and is unnecessary.
+2018-06-05 17:42:24,465 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@76f2b07d: startup date [Tue Jun 05 17:42:21 ART 2018]; root of context hierarchy
+2018-06-05 17:42:47,688 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 17:42:47,719 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@61f8bee4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b49cea0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@887af79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7fac631b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b87ed94]
+2018-06-05 17:42:47,934 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 17:42:48,172 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 17:42:48,205 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 17:42:48,247 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 17:42:48,263 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 17:42:48,282 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 17:42:48,541 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@76f2b07d: startup date [Tue Jun 05 17:42:48 ART 2018]; root of context hierarchy
+2018-06-05 17:42:48,744 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 17:42:48,745 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 17:42:49,015 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 17:42:49,023 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 17:42:49,027 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 17:42:49,029 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 17:42:49,106 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,168 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,184 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,195 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,206 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,217 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,251 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,261 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,269 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,278 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:49,288 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 17:42:50,037 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-06-05 17:42:50,173 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-06-05 17:42:50,178 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-06-05 17:42:51,011 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:343) - HHH000227: Running hbm2ddl schema export
+2018-06-05 17:42:51,018 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table HISTORY_RECORDS drop constraint FK_nnor3rwg7na29875vm2r2iro
+2018-06-05 17:42:51,019 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.HISTORY_RECORDS
+2018-06-05 17:42:51,019 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_20t8qs6sayt99pdhbfbff2iro
+2018-06-05 17:42:51,019 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:51,020 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_64q46yf3j0wmqkooe2xdpa9xu
+2018-06-05 17:42:51,020 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:51,020 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_j58l0iihgq5xd8tnbx86q11un
+2018-06-05 17:42:51,021 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:51,021 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_2er9s4obk78ygwtxc7y9kn5aa
+2018-06-05 17:42:51,021 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 17:42:51,021 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table SCORES drop constraint FK_hwotf5svy9euft9kou6vxdscv
+2018-06-05 17:42:51,022 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.SCORES
+2018-06-05 17:42:51,022 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table USERS drop constraint FK_5hgwwi4cbj9frl75dl8dol467
+2018-06-05 17:42:51,022 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USERS
+2018-06-05 17:42:51,035 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:405) - HHH000230: Schema export complete
+2018-06-05 17:42:51,088 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@99a65d3] of Hibernate SessionFactory for HibernateTransactionManager
+2018-06-05 17:42:51,108 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-06-05 17:42:51,157 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-06-05 17:42:51,936 INFO  org.apache.cxf.endpoint.ServerImpl (ServerImpl.java:84) - Setting the server's publish address to be /
+2018-06-05 17:42:51,988 WARN  org.apache.cxf.bus.spring.OldSpringSupport (OldSpringSupport.java:55) - Import of META-INF/cxf/cxf-extension-soap.xml has been deprecated and is unnecessary.
+2018-06-05 17:42:52,269 WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:144) - SQL Error: -104, SQLState: 23505
+2018-06-05 17:42:52,270 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper (SqlExceptionHelper.java:146) - violación del restricción de integridad: violación de índice o clave única; SYS_PK_10042 table: PUBLICATIONS
+2018-06-05 17:42:52,271 INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl (AbstractBatchImpl.java:208) - HHH000010: On release of batch it still contained JDBC statements
+2018-06-05 17:42:52,284 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@76f2b07d: startup date [Tue Jun 05 17:42:48 ART 2018]; root of context hierarchy
+2018-06-05 18:01:00,298 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 18:01:00,338 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6325a3ee, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1d16f93d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@67b92f0a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2b9627bc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@65e2dbf3]
+2018-06-05 18:01:00,543 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 18:01:00,770 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 18:01:00,797 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 18:01:00,841 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 18:01:00,859 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 18:01:00,879 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 18:01:01,174 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@1b68ddbd: startup date [Tue Jun 05 18:01:01 ART 2018]; root of context hierarchy
+2018-06-05 18:01:01,446 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 18:01:01,449 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 18:01:01,893 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 18:01:01,901 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 18:01:01,904 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 18:01:01,906 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 18:01:01,977 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,027 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,072 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,126 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,144 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,158 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,180 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,190 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,198 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,208 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,218 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 18:01:02,809 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-06-05 18:01:02,893 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-06-05 18:01:02,897 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-06-05 18:01:03,476 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:343) - HHH000227: Running hbm2ddl schema export
+2018-06-05 18:01:03,482 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table HISTORY_RECORDS drop constraint FK_nnor3rwg7na29875vm2r2iro
+2018-06-05 18:01:03,482 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.HISTORY_RECORDS
+2018-06-05 18:01:03,483 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_20t8qs6sayt99pdhbfbff2iro
+2018-06-05 18:01:03,483 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 18:01:03,483 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_64q46yf3j0wmqkooe2xdpa9xu
+2018-06-05 18:01:03,484 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 18:01:03,484 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_j58l0iihgq5xd8tnbx86q11un
+2018-06-05 18:01:03,484 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 18:01:03,484 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_2er9s4obk78ygwtxc7y9kn5aa
+2018-06-05 18:01:03,485 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 18:01:03,485 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table SCORES drop constraint FK_hwotf5svy9euft9kou6vxdscv
+2018-06-05 18:01:03,485 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.SCORES
+2018-06-05 18:01:03,486 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table USERS drop constraint FK_5hgwwi4cbj9frl75dl8dol467
+2018-06-05 18:01:03,486 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USERS
+2018-06-05 18:01:03,500 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:405) - HHH000230: Schema export complete
+2018-06-05 18:01:03,560 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@7f9e1534] of Hibernate SessionFactory for HibernateTransactionManager
+2018-06-05 18:01:03,576 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-06-05 18:01:03,629 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-06-05 18:01:04,413 INFO  org.apache.cxf.endpoint.ServerImpl (ServerImpl.java:84) - Setting the server's publish address to be /
+2018-06-05 18:01:04,478 WARN  org.apache.cxf.bus.spring.OldSpringSupport (OldSpringSupport.java:55) - Import of META-INF/cxf/cxf-extension-soap.xml has been deprecated and is unnecessary.
+2018-06-05 18:01:04,943 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:862) - Closing org.springframework.context.support.GenericApplicationContext@1b68ddbd: startup date [Tue Jun 05 18:01:01 ART 2018]; root of context hierarchy
+2018-06-05 19:10:58,401 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 19:10:58,453 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@61f8bee4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b49cea0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@887af79, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7fac631b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b87ed94]
+2018-06-05 19:10:58,711 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 19:10:59,030 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 19:10:59,064 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 19:10:59,135 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 19:10:59,159 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 19:10:59,180 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 19:10:59,546 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@76f2b07d: startup date [Tue Jun 05 19:10:59 ART 2018]; root of context hierarchy
+2018-06-05 19:10:59,821 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 19:10:59,822 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 19:11:00,185 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 19:11:00,195 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 19:11:00,200 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 19:11:00,203 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 19:11:00,292 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,345 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,360 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,374 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,388 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,405 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,419 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,433 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,441 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,451 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,489 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,496 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "name" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,497 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "column" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,498 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "unique" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,499 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "lazy" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,500 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El contenido del tipo de elemento "class" debe coincidir con "(meta*,subselect?,cache?,synchronize*,comment?,tuplizer*,(id|composite-id),discriminator?,natural-id?,(version|timestamp)?,(property|many-to-one|one-to-one|component|dynamic-component|properties|any|map|set|list|bag|idbag|array|primitive-array)*,((join*,subclass*)|joined-subclass*|union-subclass*),loader?,sql-insert?,sql-update?,sql-delete?,filter*,fetch-profile*,resultset*,(query|sql-query)*)".
+2018-06-05 19:11:00,501 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:11:00,510 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "name" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,511 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "column" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,512 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "unique" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,512 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El atributo "lazy" se debe haber declarado para el tipo de elemento "one-to-many".
+2018-06-05 19:11:00,513 ERROR org.hibernate.internal.util.xml.ErrorLogger (ErrorLogger.java:96) - HHH000196: Error parsing XML (3) : El contenido del tipo de elemento "class" debe coincidir con "(meta*,subselect?,cache?,synchronize*,comment?,tuplizer*,(id|composite-id),discriminator?,natural-id?,(version|timestamp)?,(property|many-to-one|one-to-one|component|dynamic-component|properties|any|map|set|list|bag|idbag|array|primitive-array)*,((join*,subclass*)|joined-subclass*|union-subclass*),loader?,sql-insert?,sql-update?,sql-delete?,filter*,fetch-profile*,resultset*,(query|sql-query)*)".
+2018-06-05 19:11:00,520 WARN  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:487) - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'persistence.sessionFactory' defined in class path resource [META-INF/spring-persistence-context.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Unable to read XML
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:743)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:363)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 40 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 35; columnNumber: 64; El atributo "name" se debe haber declarado para el tipo de elemento "one-to-many".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.addDTDDefaultAttrsAndValidate(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleStartElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.emptyElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 48 more
+2018-06-05 19:11:00,543 ERROR org.springframework.test.context.TestContextManager (TestContextManager.java:215) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7b49cea0] to prepare test instance [persistence.PublicationRepositoryTest@5117dd67]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:94)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'persistence.sessionFactory' defined in class path resource [META-INF/spring-persistence-context.xml]: Invocation of init method failed; nested exception is org.hibernate.InvalidMappingException: Unable to read XML
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1566)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:743)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	... 25 more
+Caused by: org.hibernate.InvalidMappingException: Unable to read XML
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:375)
+	at org.hibernate.internal.util.xml.MappingReader.readMappingDocument(MappingReader.java:304)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:516)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:512)
+	at org.hibernate.cfg.Configuration.add(Configuration.java:686)
+	at org.hibernate.cfg.Configuration.addInputStream(Configuration.java:724)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:363)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1562)
+	... 40 more
+Caused by: org.xml.sax.SAXParseException; lineNumber: 35; columnNumber: 64; El atributo "name" se debe haber declarado para el tipo de elemento "one-to-many".
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.addDTDDefaultAttrsAndValidate(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.handleStartElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator.emptyElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:465)
+	at org.hibernate.internal.util.xml.MappingReader.legacyReadMappingDocument(MappingReader.java:325)
+	... 48 more
+2018-06-05 19:58:16,006 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 19:58:16,048 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eec5a4a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b2948e2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6ddf90b0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@57536d79, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b0143d3]
+2018-06-05 19:58:16,283 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 19:58:16,580 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 19:58:16,612 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 19:58:16,666 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 19:58:16,687 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 19:58:16,715 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 19:58:17,039 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3b088d51: startup date [Tue Jun 05 19:58:17 ART 2018]; root of context hierarchy
+2018-06-05 19:58:17,265 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 19:58:17,266 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 19:58:17,587 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 19:58:17,596 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 19:58:17,601 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 19:58:17,604 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 19:58:17,694 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,752 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,773 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,789 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,799 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,812 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,843 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,858 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,866 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,880 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:17,896 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 19:58:18,428 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-06-05 19:58:18,525 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-06-05 19:58:18,531 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-06-05 19:58:19,191 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:343) - HHH000227: Running hbm2ddl schema export
+2018-06-05 19:58:19,196 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table HISTORY_RECORDS drop constraint FK_nnor3rwg7na29875vm2r2iro
+2018-06-05 19:58:19,197 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.HISTORY_RECORDS
+2018-06-05 19:58:19,197 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_20t8qs6sayt99pdhbfbff2iro
+2018-06-05 19:58:19,198 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 19:58:19,198 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_64q46yf3j0wmqkooe2xdpa9xu
+2018-06-05 19:58:19,198 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 19:58:19,199 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_j58l0iihgq5xd8tnbx86q11un
+2018-06-05 19:58:19,199 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 19:58:19,199 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table SCORES drop constraint FK_hwotf5svy9euft9kou6vxdscv
+2018-06-05 19:58:19,199 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.SCORES
+2018-06-05 19:58:19,199 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table USERS drop constraint FK_5hgwwi4cbj9frl75dl8dol467
+2018-06-05 19:58:19,200 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USERS
+2018-06-05 19:58:19,211 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:405) - HHH000230: Schema export complete
+2018-06-05 19:58:19,268 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@31611954] of Hibernate SessionFactory for HibernateTransactionManager
+2018-06-05 19:58:19,291 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-06-05 19:58:19,353 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-06-05 19:58:20,083 WARN  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:487) - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'vehicle': Cannot resolve reference to bean 'publicationRest' while setting bean property 'serviceBeans' with key [2]; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Cannot resolve reference to bean 'publicationService' while setting bean property 'userService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'publicationService' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:382)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:157)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1469)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:762)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Cannot resolve reference to bean 'publicationService' while setting bean property 'userService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'publicationService' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1469)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 45 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'publicationService' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:694)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1157)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:280)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 55 more
+2018-06-05 19:58:20,097 ERROR org.springframework.test.context.TestContextManager (TestContextManager.java:215) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b2948e2] to prepare test instance [persistence.UserRepositoryServiceTest@6ea04618]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:94)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'vehicle': Cannot resolve reference to bean 'publicationRest' while setting bean property 'serviceBeans' with key [2]; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Cannot resolve reference to bean 'publicationService' while setting bean property 'userService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'publicationService' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:382)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:157)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1469)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:762)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	... 25 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Cannot resolve reference to bean 'publicationService' while setting bean property 'userService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'publicationService' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1469)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 45 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'publicationService' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:694)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1157)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:280)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 55 more
+2018-06-05 20:03:02,248 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:256) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-05 20:03:02,289 INFO  org.springframework.test.context.support.AbstractTestContextBootstrapper (AbstractTestContextBootstrapper.java:182) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@eec5a4a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b2948e2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6ddf90b0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@57536d79, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b0143d3]
+2018-06-05 20:03:02,510 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-persistence-context.xml]
+2018-06-05 20:03:02,745 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-services-context.xml]
+2018-06-05 20:03:02,777 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/spring-application-context.xml]
+2018-06-05 20:03:02,824 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2018-06-05 20:03:02,841 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2018-06-05 20:03:02,870 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-servlet.xml]
+2018-06-05 20:03:03,171 INFO  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:510) - Refreshing org.springframework.context.support.GenericApplicationContext@3b088d51: startup date [Tue Jun 05 20:03:03 ART 2018]; root of context hierarchy
+2018-06-05 20:03:03,375 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/hibernate.properties]
+2018-06-05 20:03:03,375 INFO  org.springframework.core.io.support.PropertiesLoaderSupport (PropertiesLoaderSupport.java:172) - Loading properties file from URL [file:/C:/Users/fabrizio/Documents/GitHub/desapp-unq-grupo-b-012018/desapp-groupB-backend/target/classes/META-INF/jdbc.properties]
+2018-06-05 20:03:03,677 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager (JavaReflectionManager.java:66) - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-06-05 20:03:03,687 INFO  org.hibernate.Version (Version.java:54) - HHH000412: Hibernate Core {4.3.6.Final}
+2018-06-05 20:03:03,691 INFO  org.hibernate.cfg.Environment (Environment.java:239) - HHH000206: hibernate.properties not found
+2018-06-05 20:03:03,695 INFO  org.hibernate.cfg.Environment (Environment.java:346) - HHH000021: Bytecode provider name : javassist
+2018-06-05 20:03:03,768 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,816 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,831 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,844 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,861 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,878 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,895 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,907 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,916 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,924 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:03,931 WARN  org.hibernate.internal.util.xml.DTDEntityResolver (DTDEntityResolver.java:75) - HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+2018-06-05 20:03:04,417 INFO  org.hibernate.dialect.Dialect (Dialect.java:145) - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2018-06-05 20:03:04,502 INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator (TransactionFactoryInitiator.java:62) - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-06-05 20:03:04,507 INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory (ASTQueryTranslatorFactory.java:47) - HHH000397: Using ASTQueryTranslatorFactory
+2018-06-05 20:03:05,093 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:343) - HHH000227: Running hbm2ddl schema export
+2018-06-05 20:03:05,098 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table HISTORY_RECORDS drop constraint FK_nnor3rwg7na29875vm2r2iro
+2018-06-05 20:03:05,099 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.HISTORY_RECORDS
+2018-06-05 20:03:05,100 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_20t8qs6sayt99pdhbfbff2iro
+2018-06-05 20:03:05,100 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 20:03:05,100 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_64q46yf3j0wmqkooe2xdpa9xu
+2018-06-05 20:03:05,101 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 20:03:05,101 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table PUBLICATIONS drop constraint FK_j58l0iihgq5xd8tnbx86q11un
+2018-06-05 20:03:05,101 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.PUBLICATIONS
+2018-06-05 20:03:05,102 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table SCORES drop constraint FK_hwotf5svy9euft9kou6vxdscv
+2018-06-05 20:03:05,102 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.SCORES
+2018-06-05 20:03:05,102 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:425) - HHH000389: Unsuccessful: alter table USERS drop constraint FK_5hgwwi4cbj9frl75dl8dol467
+2018-06-05 20:03:05,102 ERROR org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:426) - usuario no tiene privilegios suficientes o objeto no encontrado: PUBLIC.USERS
+2018-06-05 20:03:05,113 INFO  org.hibernate.tool.hbm2ddl.SchemaExport (SchemaExport.java:405) - HHH000230: Schema export complete
+2018-06-05 20:03:05,178 INFO  org.springframework.orm.hibernate4.HibernateTransactionManager (HibernateTransactionManager.java:360) - Using DataSource [org.apache.commons.dbcp.BasicDataSource@31611954] of Hibernate SessionFactory for HibernateTransactionManager
+2018-06-05 20:03:05,197 INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-06-05 20:03:05,244 INFO  org.springframework.jdbc.support.SQLErrorCodesFactory (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-06-05 20:03:06,361 WARN  org.springframework.context.support.AbstractApplicationContext (AbstractApplicationContext.java:487) - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'vehicle': Cannot resolve reference to bean 'publicationRest' while setting bean property 'serviceBeans' with key [2]; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Error setting property values; nested exception is org.springframework.beans.NotWritablePropertyException: Invalid property 'userService' of bean class [webService.vehiclecorcern.PublicationRest]: Bean property 'userService' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:382)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:157)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1469)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:762)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Error setting property values; nested exception is org.springframework.beans.NotWritablePropertyException: Invalid property 'userService' of bean class [webService.vehiclecorcern.PublicationRest]: Bean property 'userService' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1506)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 45 more
+Caused by: org.springframework.beans.NotWritablePropertyException: Invalid property 'userService' of bean class [webService.vehiclecorcern.PublicationRest]: Bean property 'userService' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?
+	at org.springframework.beans.BeanWrapperImpl.setPropertyValue(BeanWrapperImpl.java:1067)
+	at org.springframework.beans.BeanWrapperImpl.setPropertyValue(BeanWrapperImpl.java:926)
+	at org.springframework.beans.AbstractPropertyAccessor.setPropertyValues(AbstractPropertyAccessor.java:95)
+	at org.springframework.beans.AbstractPropertyAccessor.setPropertyValues(AbstractPropertyAccessor.java:75)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1502)
+	... 53 more
+2018-06-05 20:03:06,381 ERROR org.springframework.test.context.TestContextManager (TestContextManager.java:215) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b2948e2] to prepare test instance [persistence.UserRepositoryServiceTest@56078cea]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:94)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'vehicle': Cannot resolve reference to bean 'publicationRest' while setting bean property 'serviceBeans' with key [2]; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Error setting property values; nested exception is org.springframework.beans.NotWritablePropertyException: Invalid property 'userService' of bean class [webService.vehiclecorcern.PublicationRest]: Bean property 'userService' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:382)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:157)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1469)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:762)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	... 25 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'publicationRest' defined in class path resource [META-INF/spring-application-context.xml]: Error setting property values; nested exception is org.springframework.beans.NotWritablePropertyException: Invalid property 'userService' of bean class [webService.vehiclecorcern.PublicationRest]: Bean property 'userService' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1506)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 45 more
+Caused by: org.springframework.beans.NotWritablePropertyException: Invalid property 'userService' of bean class [webService.vehiclecorcern.PublicationRest]: Bean property 'userService' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?
+	at org.springframework.beans.BeanWrapperImpl.setPropertyValue(BeanWrapperImpl.java:1067)
+	at org.springframework.beans.BeanWrapperImpl.setPropertyValue(BeanWrapperImpl.java:926)
+	at org.springframework.beans.AbstractPropertyAccessor.setPropertyValues(AbstractPropertyAccessor.java:95)
+	at org.springframework.beans.AbstractPropertyAccessor.setPropertyValues(AbstractPropertyAccessor.java:75)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1502)
+	... 53 more

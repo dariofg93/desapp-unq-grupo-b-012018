@@ -17,5 +17,9 @@ public class UserService extends GenericService<User>{
 		this.getRepository().update(updatedUser);
 	}
 	
+	public User searchUserByEmailNamed(String emailName) {
+		return this.getRepository().execute("SELECT + FROM USERS WHERE EMAIL = ' + emailName");
+	}
+	
 }
 

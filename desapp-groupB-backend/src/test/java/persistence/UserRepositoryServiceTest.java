@@ -32,6 +32,7 @@ public class UserRepositoryServiceTest {
 
 	@Autowired(required = true)
 	UserService userService;
+	
 
 	private Double creditAmount;
 	private CreditsAccount account;
@@ -71,6 +72,21 @@ public class UserRepositoryServiceTest {
 	
 	
 	}
+
+	@Test
+	public void testGetUserForEmailName() {
+		userService.save(anyUser);
+		User restoredUser = userService.searchUserByEmailNamed("pepe-bueno@hotmail.com");
+		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
+		assertEquals(cuil, restoredUser.getCuil());
+		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
+		assertEquals(restoredUser.getFirstName(), "Pepe");
+		assertEquals(restoredUser.getLastName(), "Bueno");
+		assertEquals(restoredUser.getMovementsOfMonth().getAllHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+	
+	
+	}
+
 	
 	/*
 	 * 		SUPPORT

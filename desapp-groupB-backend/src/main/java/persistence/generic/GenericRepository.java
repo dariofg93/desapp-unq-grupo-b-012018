@@ -3,6 +3,8 @@ package persistence.generic;
 import java.io.Serializable;
 import java.util.List;
 
+import model.user.User;
+
 /**
  * Interface for generic DAO
  * 
@@ -26,7 +28,7 @@ public interface GenericRepository<T> {
 
 	List<T> findByExample(T exampleObject);
 	
-	void execute(String query);
+	T execute(String query);
 
 	void saveOrUpdate(T object);
 	
