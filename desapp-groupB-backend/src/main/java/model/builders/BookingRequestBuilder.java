@@ -2,6 +2,7 @@ package model.builders;
 
 import model.booking.BookingRequest;
 import model.bookingstate.BookingState;
+import model.publication.Publication;
 import model.user.User;
 import org.joda.time.DateTime;
 
@@ -42,4 +43,5 @@ public class BookingRequestBuilder {
         this.buildBookingRequest.setHoursOfTheReservation(anyHoursOfTheReservation);
         return this;
     }
+
 }

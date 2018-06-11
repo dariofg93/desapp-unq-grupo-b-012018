@@ -15,7 +15,6 @@ public class BookingRequest extends Entity implements MailBody {
 
     private BookingState state;
     private User requester;
-    private Publication myPublication;
 	private Integer totalHours;
     private DateTime reservationDateTime;
 	private Integer hoursOfTheReservation;
@@ -24,7 +23,10 @@ public class BookingRequest extends Entity implements MailBody {
         this.state = new AwaitingApproval();
         this.reservationDateTime = DateTime.now();
     }
-
+    @Override
+    public boolean equals(Object request) {
+    	return (this.getId() == ((Entity) request).getId());
+    }
     public void setAcepted() {
         this.state = this.state.setAcepted();
     }
@@ -103,14 +105,5 @@ public class BookingRequest extends Entity implements MailBody {
   	public void setReservationDateTime(DateTime reservationDateTime) {
   		this.reservationDateTime = reservationDateTime;
   	}
-  	
-  	public Publication getMyPublication() {
-		return myPublication;
-	}
-
-	public void setMyPublication(Publication myPublication) {
-		this.myPublication = myPublication;
-	}
-
-    
+  	    
 }

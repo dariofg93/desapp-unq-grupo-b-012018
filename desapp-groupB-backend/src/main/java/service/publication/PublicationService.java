@@ -1,5 +1,9 @@
 package service.publication;
 
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import model.publication.Publication;
 import persistence.generic.GenericService;
 

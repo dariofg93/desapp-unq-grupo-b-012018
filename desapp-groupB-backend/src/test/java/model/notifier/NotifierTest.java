@@ -139,12 +139,12 @@ public class NotifierTest extends TestCase {
 
         when(userEmailMock.getAccountName()).thenReturn("dariofg93@gmail.com");
         when(userMock.getEmail()).thenReturn(userEmailMock);
-        when(movements.getAllHistory()).thenReturn("Pocos movimientos\n\t en el mes");
+        when(movements.allHistory()).thenReturn("Pocos movimientos\n\t en el mes");
         when(userMock.getMovementsOfMonth()).thenReturn(movements);
 
         when(requesterEmailMock.getAccountName()).thenReturn("fabri1108@gmail.com");
         when(requesterMock.getEmail()).thenReturn(requesterEmailMock);
-        when(movements.getAllHistory()).thenReturn("Se envian\n\t los mails\n\t de carpnd!");
+        when(movements.allHistory()).thenReturn("Se envian\n\t los mails\n\t de carpnd!");
         when(requesterMock.getMovementsOfMonth()).thenReturn(movements);
 
         notifier.sendMovementsOfTheMonthToUsers(users);

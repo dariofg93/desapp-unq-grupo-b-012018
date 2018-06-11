@@ -16,20 +16,20 @@ public class MovementsOfMonthTest extends TestCase {
     public void testFilterAndOrder(){
         movements.cleanHistory();
 
-        assertEquals(movements.getAllHistory(),"");
+        assertEquals(movements.allHistory(),"");
     }
     
     public void testAddHistoryRecord(){
         movements.cleanHistory();
         movements.addToHistory("un registro");
-        assertEquals(movements.getAllHistory(),"un registro\n");
+        assertEquals(movements.allHistory(),"un registro\n");
     }
     
     public void testAddSomeHistoryRecord(){
         movements.cleanHistory();
         movements.addToHistory("un registro");
         movements.addToHistory("otro registro");
-        assertEquals(movements.getAllHistory(),"un registro\n" + "otro registro\n");
+        assertEquals(movements.allHistory(),"un registro\n" + "otro registro\n");
     }
     
     public void testResetMovements(){
@@ -38,6 +38,6 @@ public class MovementsOfMonthTest extends TestCase {
         movements.addToHistory("otro registro");
         
         movements.cleanHistory();
-        assertEquals(movements.getAllHistory(),"");
+        assertEquals(movements.allHistory(),"");
     }
 }

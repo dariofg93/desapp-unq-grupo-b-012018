@@ -4,6 +4,8 @@ import model.booking.BookingRequest;
 import model.bookingstate.Approved;
 import model.bookingstate.AwaitingApproval;
 import model.builders.BookingRequestBuilder;
+import model.publication.Publication;
+
 import org.joda.time.DateTime;
 import persistence.generic.GenericService;
 import service.bookingrequest.BookingRequestService;
@@ -24,16 +26,18 @@ public class RequestsDummy implements DummyData{
                 .withTotalHours(5)
                 .withDateTimeOfReservation(null)
                 .withHoursOfTheReservation(null)
+            
                 .build();
         this.bookings.add(booking1);
 
         BookingRequest booking2 = builder.createBookingRequest()
-                .withState(new Approved())
                 .withRequester(new UsersDummy().getUsers().get(2))
                 .withTotalHours(20)
                 .withDateTimeOfReservation(new DateTime(2018,2,15,0,0))
                 .withHoursOfTheReservation(21)
+                
                 .build();
+        booking2.setAcepted();
         this.bookings.add(booking2);
     }
 

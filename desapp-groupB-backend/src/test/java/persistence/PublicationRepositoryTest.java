@@ -14,6 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import dummies.UsersDummy;
+import model.booking.BookingRequest;
+import model.bookingstate.AwaitingApproval;
+import model.builders.BookingRequestBuilder;
 import model.builders.UserBuilder;
 import model.city.City;
 import model.maps.GeographicZoneDescription;
@@ -24,8 +28,6 @@ import model.vehicletype.Category;
 import service.publication.PublicationService;
 import service.user.UserService;
 import service.vehicle.VehicleService;
-
-
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "/META-INF/spring-persistence-context.xml", "/META-INF/spring-services-context.xml",
@@ -38,11 +40,10 @@ public class PublicationRepositoryTest {
 	private UserService userService;
 	@Autowired
 	private VehicleService vehicleService;
-	
-	
+
 	private Publication publication;
 	private DateTime fromDate;
-	private DateTime toDate ;
+	private DateTime toDate;
 	private Vehicle vehicle;
 	private User user;
 	private City city;
@@ -65,16 +66,16 @@ public class PublicationRepositoryTest {
 	public void tearDown() {
 		this.cleanDatabase();
 	}
-	
-	 @Test
-	    public void testSave() {
-	    	publicationService.save(publication);
-	        assertEquals(1, publicationService.retriveAll().size());
-	    }
+
+	@Test
+	public void testSave() {
+		publicationService.save(publication);
+		assertEquals(1, publicationService.retriveAll().size());
+	}
 
 	@Test
 	public void testSaveAndRestorePublication() {
-		
+
 		publicationService.save(publication);
 		Publication restoredPublication = publicationService.searchById(publication.getId());
 
@@ -90,12 +91,68 @@ public class PublicationRepositoryTest {
 		assertTrue(restoredPublication.allBookingRequest().isEmpty());
 
 	}
+
+	@Test
+	public void testSaveAndRestorePublicationWithSomeBookingRequests() {
+		BookingRequestBuilder builder = new BookingRequestBuilder();
+
+		BookingRequest request = builder.createBookingRequest().withState(new AwaitingApproval())
+				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
+		BookingRequest request2 = builder.createBookingRequest().withState(new AwaitingApproval())
+				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
+
+		request2.setAcepted();
+
+		publication.addBookingRequest(request);
+		publication.addBookingRequest(request2);
+		publicationService.save(publication);
+		Publication restoredPublication = publicationService.searchById(publication.getId());
+		
+		assertTrue(restoredPublication.allBookingRequest().contains(request2));
+		assertTrue(restoredPublication.allBookingRequest().contains(request));
+
+	}
 	
 	@Test
-	public void testSaveAndRestorePublicationForSomeSpecificUSer() {
+	public void testUpdatePublicationWithSomeBookingRequests() {
 		
 		publicationService.save(publication);
-		Publication restoredPublication = publicationService.selectByFunction((publication) -> publication.getUser().getId() == user.getId()).get(0);
+		
+		assertTrue(publication.allBookingRequest().isEmpty());
+		
+		BookingRequestBuilder builder = new BookingRequestBuilder();
+
+		BookingRequest request = builder.createBookingRequest().withState(new AwaitingApproval())
+				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
+		BookingRequest request2 = builder.createBookingRequest().withState(new AwaitingApproval())
+				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
+
+
+		Publication restoredPublication = publicationService.searchById(publication.getId());
+				
+		restoredPublication.addBookingRequest(request);
+		restoredPublication.addBookingRequest(request2);
+		
+		publicationService.saveOrUpdate(restoredPublication);
+		
+		restoredPublication = publicationService.searchById(publication.getId());
+
+		assertEquals(restoredPublication.allBookingRequest().size(), 2);
+		assertTrue(restoredPublication.allBookingRequest().contains(request2));
+		assertTrue(restoredPublication.allBookingRequest().contains(request));
+
+	}
+
+	@Test
+	public void testSaveAndRestorePublicationForSomeSpecificUSer() {
+
+		publicationService.save(publication);
+		Publication restoredPublication = publicationService
+				.selectByFunction((publication) -> publication.getUser().getId() == user.getId()).get(0);
 
 		assertEquals(restoredPublication.getUser().getId(), user.getId());
 		assertEquals(restoredPublication.getCity().getName(), city.getName());
@@ -109,7 +166,6 @@ public class PublicationRepositoryTest {
 		assertTrue(restoredPublication.allBookingRequest().isEmpty());
 
 	}
-	
 
 	private Publication createPublication() {
 
@@ -125,7 +181,5 @@ public class PublicationRepositoryTest {
 		return new Publication(vehicle, fromDate, toDate, user, city, pickUpZone, dropZone, new Double(8.5), 13454344);
 
 	}
-	
-	
 
 }

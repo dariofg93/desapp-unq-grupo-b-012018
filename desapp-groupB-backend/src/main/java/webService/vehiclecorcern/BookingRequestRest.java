@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import model.booking.BookingRequest;
-
+import model.publication.Publication;
 import service.bookingrequest.BookingRequestService;
 
 
@@ -39,15 +39,6 @@ public class BookingRequestRest {
         return new ResponseEntity<BookingRequest>(bookingRequestService.searchById(id),HttpStatus.OK);
     }
     
-    @POST
-    @Path("/newRequest")
-    @Produces("application/json")
-    public ResponseEntity newVehicle(@RequestBody BookingRequest request) {
-    	
-    	bookingRequestService.save(request);
-
-		return new ResponseEntity<BookingRequest>(request, HttpStatus.OK);
-    }
     
     @PUT
     @Path("/request/{id}")
@@ -61,19 +52,7 @@ public class BookingRequestRest {
 		}
 	}
     
-
-	@DELETE
-    @Path("/delete/{id}")
-    @Produces("application/json")
-    public void deleteById(@PathParam("id") final Long id) {
-    	bookingRequestService.delete(bookingRequestService.searchById(id));
-    }
-
-
     public void setBookingRequestService(final BookingRequestService aService) {
         this.bookingRequestService = aService;
     }
-
-
-
 }
