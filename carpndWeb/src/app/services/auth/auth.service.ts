@@ -56,7 +56,7 @@ export class AuthService {
     localStorage.setItem('expires_at', expiresAt);
 
     this.getProfile((err, profile) => {
-      this.usersService.readByEmail(profile.name).subscribe(
+      this.usersService.selectByEmail(profile.name).subscribe(
         data => this.profile = data.body,
         () => this.usersService.create(new User(profile.name)).subscribe(
                 createdUser => this.profile = createdUser.body

@@ -39,8 +39,8 @@ export class GenericRestService<T> {
       .get<ResponseEntity<T[]>>(`${this.url}/${this.endpoint}/`);
   }
 
-  public delete(id: number) {
+  public delete(id: number): Observable<ResponseEntity<String>> {
     return this.http
-      .delete(`${this.url}/${this.endpoint}/${id}`);
+      .delete<ResponseEntity<String>>(`${this.url}/${this.endpoint}/${id}`);
   }
 }

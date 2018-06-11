@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersEditComponent } from './pages/users-edit/users-edit.component';
 import { VehiclesEditComponent } from './pages/vehicles-edit/vehicles-edit.component';
-import { VehiclesListComponent } from './pages/vehicles-list/vehicles-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MapComponent } from './components/google/map/map.component';
 import { HeaderComponent } from './components/navbar/header/header.component';
@@ -20,6 +19,8 @@ import { UserService } from './services/user/user.service';
 import { CallbackComponent } from './components/callback/callback.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NewVehicleComponent } from './pages/new-vehicle/new-vehicle.component';
+import { SeeRequestComponent } from './pages/see-request/see-request.component';
+import { SearchVehicleComponent } from './pages/search-vehicle/search-vehicle.component';
 
 // Routes Constants:
 const appRoutes: Routes = [
@@ -32,8 +33,8 @@ const appRoutes: Routes = [
     component: UsersEditComponent
   },
   {
-    path: 'vehicles',
-    component: VehiclesListComponent
+    path: 'searchVehicle',
+    component: SearchVehicleComponent
   },
   {
     path: 'vehicles/new',
@@ -42,6 +43,10 @@ const appRoutes: Routes = [
   {
     path: 'vehicles/:id',
     component: VehiclesEditComponent
+  },
+  {
+    path: 'requests/:id',
+    component: SeeRequestComponent
   },
   { 
     path: '**', 
@@ -54,7 +59,6 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     UsersEditComponent,
-    VehiclesListComponent,
     VehiclesEditComponent,
     PageNotFoundComponent,
     MapComponent,
@@ -62,7 +66,9 @@ const appRoutes: Routes = [
     FooterComponent,
     CallbackComponent,
     LoginComponent,
-    NewVehicleComponent
+    NewVehicleComponent,
+    SeeRequestComponent,
+    SearchVehicleComponent
   ],
   imports: [
     NgxPaginationModule,
