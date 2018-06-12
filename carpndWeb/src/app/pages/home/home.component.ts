@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked } from '@angular/core';
 import { ASSETS } from './../../variables/variables'
 
 import { User } from './../../models/user'
@@ -11,9 +11,9 @@ import { GenericRestService } from './../../services/generic/generic-rest.servic
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewChecked {
 
-  profile: any;
+  profile: any = null;
 
   requests = [
     {
@@ -72,18 +72,12 @@ export class HomeComponent implements OnInit {
     private vehiclesService: GenericRestService<Vehicle>
   ) {}
 
-  ngOnInit() {
-    console.log('init');
-    /*this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
-      data => this.profile = data.body
-    );*/
-  }
-
-  ngAfterViewInit(){
-    console.log('AfterView');
-    this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
-      data => this.profile = data.body
-    );
+  ngAfterViewChecked(){
+    if (JSON.parse(localStorage.getItem('id')) && this.profile == null) {
+      this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
+        data => this.profile = data.body
+      );
+    }
   }
 
   hasImages(vehicle: Vehicle): boolean {
