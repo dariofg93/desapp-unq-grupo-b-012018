@@ -3,14 +3,14 @@ package webService.vehiclecorcern;
 import model.vehicle.Vehicle;
 import persistence.vehicle.VehicleRepository;
 import service.vehicle.VehicleService;
+import webService.utils.JsonReturn;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Path("/vehicles")
 public class VehicleRest extends AbstractRest{
@@ -27,51 +27,38 @@ public class VehicleRest extends AbstractRest{
     @GET
     @Path("/")
     @Produces("application/json")
-    public ResponseEntity retriveAll() {
-        return new ResponseEntity<List<Vehicle>>(this.vehicleService.retriveAll(),HttpStatus.OK);
+    public Response retriveAll() {
+        return response(this.vehicleService.retriveAll(),HttpStatus.OK);
     }
 
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public ResponseEntity seachById(@PathParam("id") final Long id) {
-        return new ResponseEntity<Vehicle>(vehicleService.searchById(id),HttpStatus.OK);
+    public Response seachById(@PathParam("id") final Long id) {
+        return response(vehicleService.searchById(id),HttpStatus.OK);
     }
     
     @POST
     @Path("/newVehicle")
     @Produces("application/json")
-    public ResponseEntity newVehicle(@RequestBody Vehicle vehicle) {
-    	
+    public Response newVehicle(@RequestBody Vehicle vehicle) {
     	vehicleService.save(vehicle);
-
-		return new ResponseEntity<Vehicle>(vehicle, HttpStatus.OK);
+    	return response(vehicle, HttpStatus.OK);
     }
     
     @PUT
     @Path("/vehicle/{id}")
     @Produces("application/json")
-    public ResponseEntity<?> updateVehicleById(@PathParam("id") final Long id, @RequestBody Vehicle vehicle) {
-		try {
-			vehicleService.updateById(id,vehicle);
-			return new ResponseEntity<Vehicle>(vehicle, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+    public Response updateVehicleById(@PathParam("id") final Long id, @RequestBody Vehicle vehicle) {
+		return responseHandlingErrorsExecuting(() -> { vehicleService.updateById(id,vehicle); return vehicle;},  JsonReturn.notFoundError("No se pudo modificar el vehiculo seleccionado"), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
     
 
 	@DELETE
     @Path("/delete/{id}")
     @Produces("application/json")
-    public ResponseEntity deleteById(@PathParam("id") final Long id) {
-		try {
-			vehicleService.delete(vehicleService.searchById(id));
-			return new ResponseEntity<>("{\"success\" : \"OK\"}", HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-			
+    public Response deleteById(@PathParam("id") final Long id) {
+		return responseHandlingErrorsExecuting(() -> {vehicleService.delete(vehicleService.searchById(id)); return JsonReturn.success("OK");}, JsonReturn.notFoundError("No se pudo eliminar el vehiculo seleccionado "), HttpStatus.INTERNAL_SERVER_ERROR);	
     }
 
 
