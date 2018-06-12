@@ -25,11 +25,11 @@ public abstract class BookingState extends Entity{
     public abstract BookingState reject();
 
     /** Setters and Getters **/
-    @JsonIgnore
+
     public String getDescription() {
 		return description;
 	}
-    @JsonIgnore
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -66,6 +66,6 @@ public abstract class BookingState extends Entity{
     public void setConfirmReturnSeller(Boolean confirmReturnSeller) throws NoAceptedException {
         throw new NoAceptedException();
     }
-
+    @JsonIgnore
 	public abstract boolean isApproved();
 }

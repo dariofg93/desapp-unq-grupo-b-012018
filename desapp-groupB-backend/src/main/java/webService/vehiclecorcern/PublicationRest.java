@@ -18,7 +18,7 @@ import model.publication.Publication;
 import service.publication.PublicationService;
 
 @Path("/publications")
-public class PublicationRest {
+public class PublicationRest extends AbstractRest{
 
 	private PublicationService publicationService;
 
@@ -45,7 +45,7 @@ public class PublicationRest {
 			return new ResponseEntity<Publication>(post, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ResponseEntity<String>(e.toString(), HttpStatus.OK);
+			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
 	}

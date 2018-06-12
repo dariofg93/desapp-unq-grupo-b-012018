@@ -2,6 +2,7 @@ package model.vehicletype;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 
@@ -30,7 +31,7 @@ public abstract class Category implements Serializable {
     public Boolean isSame(Category anyCategory) {
         return this.getName().equals(anyCategory.getName());
     }
-
+    @JsonIgnore
 	public abstract String getName();
 	   
 }

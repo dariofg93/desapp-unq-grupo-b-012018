@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Path("/vehicles")
-public class VehicleRest{
+public class VehicleRest extends AbstractRest{
 
     private VehicleService vehicleService;
 

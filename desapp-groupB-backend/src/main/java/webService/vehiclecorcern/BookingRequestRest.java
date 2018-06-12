@@ -21,7 +21,7 @@ import service.bookingrequest.BookingRequestService;
 
 
 @Path("/bookingRequest")
-public class BookingRequestRest {
+public class BookingRequestRest extends AbstractRest{
 	
 	private BookingRequestService bookingRequestService;
 

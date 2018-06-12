@@ -5,7 +5,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 public class Rejected extends BookingState {
 
 	public Rejected() {
-		this.description = "REJ";
+		this.description = "Rejected";
 	}
 	@JsonIgnore
     @Override
