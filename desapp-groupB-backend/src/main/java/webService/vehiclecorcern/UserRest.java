@@ -3,6 +3,7 @@ package webService.vehiclecorcern;
 import java.util.List;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import persistence.user.UserRepository;
 import service.publication.PublicationService;
 import service.user.UserService;
 import service.vehicle.VehicleService;
-
+import webService.utils.JsonReturn;
 
 @Path("/users")
 public class UserRest {
@@ -42,22 +43,46 @@ public class UserRest {
 	@GET
 	@Path("/selectByEmail/{emailName}")
 	@Produces("application/json")
-	public ResponseEntity seachByEmail(@PathParam("emailName") final String emailName) throws Exception {
-		try {
-			return new ResponseEntity<User>((userService.searchUserByEmailNamed(emailName)).get(0), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new Exception("fjahslfadhfljahl");
-			//return new ResponseEntity<String>(e.toString(), HttpStatus.NOT_FOUND);
-		}
-
+	public Response seachByEmail(@PathParam("emailName") final String emailName){
+		List<User> response = userService.searchUserByEmailNamed(emailName);
+		if(response.size() > 0)
+			return Response.ok() //200
+				.entity(new ResponseEntity<User>(response.get(0), HttpStatus.OK))
+				.header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+				.allow("OPTIONS").build();
+		else
+			return Response.ok() //200
+				.entity(new ResponseEntity<String>(JsonReturn.notFoundError(
+					"No se encontro usuario registrado con el mail ingresado"
+				), HttpStatus.BAD_REQUEST))
+				.header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+				.allow("OPTIONS").build();
 	}
 
 	@POST
 	@Path("/new")
 	@Produces("application/json")
-	public ResponseEntity newUser(@RequestBody User user) {
-		return new ResponseEntity<User>(userService.saveUser(user), HttpStatus.OK);
+	public Response newUser(@RequestBody User user) {
+		User response = userService.saveUser(user);
+		return Response.ok() //200
+				.entity(new ResponseEntity<User>(response, HttpStatus.OK))
+				.header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+				.allow("OPTIONS").build();
+	}
+
+	@GET
+	@Path("/{id}")
+	@Produces("application/json")
+	public Response getById(@PathParam("id") final Long id) {
+		User response = userService.searchById(id);
+		return Response.ok() //200
+				.entity(new ResponseEntity<User>(response, HttpStatus.OK))
+				.header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
+				.allow("OPTIONS").build();
 	}
 
 	@PUT
@@ -68,7 +93,7 @@ public class UserRest {
 			userService.updateById(id, user);
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<String>(JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);
 		}
 	}
 

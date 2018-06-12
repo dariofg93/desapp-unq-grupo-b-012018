@@ -1,8 +1,8 @@
 package webService.utils;
 
-public class JsonReturn<T> {
+public class JsonReturn {
 
-    public T notFoundError(String msj){
-        return (T) ("{Error: " + msj + " }");
+    public static String notFoundError(String msj){
+        return "{\"error\": \"" + msj + "\" }";
     }
 }

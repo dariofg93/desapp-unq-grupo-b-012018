@@ -73,6 +73,14 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('init');
+    /*this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
+      data => this.profile = data.body
+    );*/
+  }
+
+  ngAfterViewInit(){
+    console.log('AfterView');
     this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
       data => this.profile = data.body
     );

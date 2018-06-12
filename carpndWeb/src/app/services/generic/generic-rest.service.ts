@@ -14,14 +14,6 @@ import {RequestOptions, Request, RequestMethod} from '@angular/http';
 })*/
 export class GenericRestService<T> {
 
-  fileChange(event) {
-      const headers = new HttpHeaders({'Content-Type': 'text/uri-list'});
-      var asd=new Headers();
-      asd.append("Content-Type","multipart/form-data");
-      asd.append("Accept","application/json");
-      asd.append("Access-Control-Allow-Origin","true");
-  }
-
   constructor(
       protected http: HttpClient,
       @Inject('url') @Optional() protected url?: string,
@@ -29,32 +21,27 @@ export class GenericRestService<T> {
   ) {}
 
   public create(item: T): Observable<ResponseEntity<T>> {
-    const headers = new HttpHeaders({"Content-Type":"multipart/form-data","Accept":"application/json","Access-Control-Allow-Origin":"true"});
     return this.http
-      .post<ResponseEntity<T>>(`${this.url}/${this.endpoint}`, item, {headers:headers});
+      .post<ResponseEntity<T>>(`${this.url}/${this.endpoint}/new`, item);
   }
 
   public update(primaryKey: any, item: T): Observable<ResponseEntity<T>> {
-    const headers = new HttpHeaders({"Content-Type":"multipart/form-data","Accept":"application/json","Access-Control-Allow-Origin":"true"});
     return this.http
-      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`,item, {headers:headers});
+      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`,item);
   }
 
 	public read(primaryKey: any): Observable<ResponseEntity<T>> {
-    const headers = new HttpHeaders({"Content-Type":"multipart/form-data","Accept":"application/json","Access-Control-Allow-Origin":"true"});
     return this.http
-      .get<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`, {headers:headers});
+      .get<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`);
   }
 
   public list(): Observable<ResponseEntity<T[]>> {
-    const headers = new HttpHeaders({"Content-Type":"multipart/form-data","Accept":"application/json","Access-Control-Allow-Origin":"true"});
     return this.http
-      .get<ResponseEntity<T[]>>(`${this.url}/${this.endpoint}/`, {headers:headers});
+      .get<ResponseEntity<T[]>>(`${this.url}/${this.endpoint}/`);
   }
 
   public delete(id: number): Observable<ResponseEntity<String>> {
-    const headers = new HttpHeaders({"Content-Type":"multipart/form-data","Accept":"application/json","Access-Control-Allow-Origin":"true"});
     return this.http
-      .delete<ResponseEntity<String>>(`${this.url}/${this.endpoint}/${id}`, {headers:headers});
+      .delete<ResponseEntity<String>>(`${this.url}/${this.endpoint}/${id}`);
   }
 }

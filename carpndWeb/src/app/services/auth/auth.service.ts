@@ -56,11 +56,13 @@ export class AuthService {
     localStorage.setItem('expires_at', expiresAt);
 
     this.getProfile((err, profile) => {
-      this.usersService.selectByEmail(profile.name).subscribe(
-        data => localStorage.setItem('id', JSON.stringify(data.body.id)),
-        error => console.log(profile)/*this.usersService.create(new User(profile.name)).subscribe(
-                createdUser => localStorage.setItem('id', JSON.stringify(createdUser.body.id))
-              )*/
+      this.usersService.selectByEmail(profile.nickname + "@gmail.com").subscribe(
+        data => data.statusCode == "OK"? 
+                  localStorage.setItem('id', JSON.stringify(data.body.id)):
+                  this.usersService.create(new User(profile.nickname + "@gmail.com")).subscribe(
+                    createdUser => localStorage.setItem('id', JSON.stringify(createdUser.body.id))
+                  ),
+        error => console.log(error)
       );
     });
 
