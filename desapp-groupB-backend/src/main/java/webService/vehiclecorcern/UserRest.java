@@ -45,7 +45,7 @@ public class UserRest extends AbstractRest {
 		List<User> response = userService.searchUserByEmailNamed(emailName);
 
 		if (response.size() > 0)
-			return response(response, HttpStatus.OK);
+			return response(response.get(0), HttpStatus.OK);
 		else
 			return response((JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado")),
 					HttpStatus.BAD_REQUEST);
@@ -63,7 +63,7 @@ public class UserRest extends AbstractRest {
 	@Path("/{id}")
 	@Produces("application/json")
 	public Response getById(@PathParam("id") final Long id) {
-		return response(userService.searchById(id), HttpStatus.OK);
+		return response(completeUser(userService.searchById(id)), HttpStatus.OK);
 	}
 
 	@PUT

@@ -23,9 +23,7 @@ public class UsersDummy implements DummyData{
 
     public UsersDummy(){
         List<Score> scores = new ScoresDummy().getScores();
-        List<Publication> publications = new PublicationsDummy().getPublications();
 
-        List<Score> user1scores = new ArrayList<Score>();
         scores.add(scores.get(0));
         scores.add(scores.get(1));
 
