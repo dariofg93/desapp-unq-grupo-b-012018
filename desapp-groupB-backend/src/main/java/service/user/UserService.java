@@ -25,9 +25,8 @@ public class UserService extends GenericService<User> {
 		// return this.getRepository().execute("from tableName where email = " + new
 		// String("\'"+ emailName +"\'"));
 
-		System.out.println(emailName);
-		System.out.println("-----------------------------------------------");
-		return this.retriveAll().stream().filter((user) -> user.getEmail().getAccountName().contains(emailName))
+
+		return this.retriveAll().stream().filter((user) -> user.getEmail().getAccountName().equals(emailName))
 				.collect(Collectors.toList());
 	}
 

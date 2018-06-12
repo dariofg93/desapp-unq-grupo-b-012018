@@ -1,21 +1,13 @@
 package webService.vehiclecorcern;
 
-import java.util.List;
-
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import model.publication.Publication;
 import service.publication.PublicationService;
+import webService.utils.JsonReturn;
 
 @Path("/publications")
 public class PublicationRest extends AbstractRest{
@@ -25,48 +17,39 @@ public class PublicationRest extends AbstractRest{
 	@GET
 	@Path("/")
 	@Produces("application/json")
-	public ResponseEntity retriveAll() {
-		return new ResponseEntity<List<Publication>>(this.publicationService.retriveAll(), HttpStatus.OK);
+	public Response retriveAll() {
+		return response(this.publicationService.retriveAll(), HttpStatus.OK);
 	}
 
 	@GET
 	@Path("/{id}")
 	@Produces("application/json")
-	public ResponseEntity seachById(@PathParam("id") final Long id) {
-		return new ResponseEntity<Publication>(publicationService.searchById(id), HttpStatus.OK);
+	public Response seachById(@PathParam("id") final Long id) {
+		return response(publicationService.searchById(id), HttpStatus.OK);
 	}
 
 	@POST
 	@Path("/new")
 	@Produces("application/json")
-	public ResponseEntity newPublication(@RequestBody Publication post) {
-		try {
-			publicationService.save(post);
-			return new ResponseEntity<Publication>(post, HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-
+	public Response newPublication(@RequestBody Publication post) {
+		return responseHandlingErrorsExecuting(
+				() -> {publicationService.save(post); return post;}, 
+				JsonReturn.notFoundError("No se pudo agregar la publicaión"), 
+				HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@PUT
 	@Path("/publication/{id}")
 	@Produces("application/json")
-	public ResponseEntity<?> updateVehicleById(@PathParam("id") final Long id, @RequestBody Publication post) {
-		try {
-			publicationService.updateById(id, post);
-			return new ResponseEntity<Publication>(post, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<String>(e.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+	public Response updateVehicleById(@PathParam("id") final Long id, @RequestBody Publication post) {
+		return responseHandlingErrorsExecuting(()-> {publicationService.updateById(id, post); return post;}, JsonReturn.notFoundError("No se pudo modificar la publicaión"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@DELETE
 	@Path("/delete/{id}")
 	@Produces("application/json")
-	public void deleteById(@PathParam("id") final Long id) {
-		publicationService.delete(publicationService.searchById(id));
+	public Response deleteById(@PathParam("id") final Long id) {
+		return responseHandlingErrorsExecuting(()-> {publicationService.delete(publicationService.searchById(id)); return JsonReturn.success("OK");}, JsonReturn.notFoundError("No se encontro usuario con ese ID"), HttpStatus.BAD_REQUEST);
 	}
 
 	public void setPublicationService(final PublicationService aService) {

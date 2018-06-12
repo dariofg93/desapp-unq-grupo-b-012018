@@ -7,7 +7,6 @@ import javax.ws.rs.core.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import webService.utils.JsonReturn;
 
 public class AbstractRest {
 

@@ -1,13 +1,11 @@
 package webService.vehiclecorcern;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -75,8 +73,6 @@ public class UserRest extends AbstractRest {
 		return responseHandlingErrorsExecuting((() -> {userService.updateById(id, user); return user;}),  JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);		
 	}
 
-
-
 	@DELETE
 	@Path("/{id}")
 	@Produces("application/json")
@@ -122,7 +118,6 @@ public class UserRest extends AbstractRest {
 	}
 
 	private void completePublications(User anUser) {
-
 		anUser.setMyPublications(
 				publicationService.selectByFunction((publication) -> publication.getUser().getId() == anUser.getId()));
 
