@@ -16,7 +16,7 @@
             </tr>
           </thead>
           <tbody class="table table-striped">
-            <tr *ngFor="let vehicle of myVehicles | paginate: { itemsPerPage: 5, currentPage: currentP }"> 
+            <tr *ngFor="let vehicle of profile?.myVehicles | paginate: { itemsPerPage: 5, currentPage: currentP }"> 
               <td align="center">
                 <img *ngIf="hasImages(vehicle)" src="{{pathImage(vehicle)}}" class="vehicleHome">
                 <div *ngIf="!hasImages(vehicle)"><i class="fa fa-car fa-3x"></i></div>
@@ -61,22 +61,25 @@
       </div>
 
       <ul>
-        <li *ngFor="let request of requests">
-          <a class="row col-md shadow p-2 mb-3 bg-white" href="requests/{{request.id_request}}">
-            <div class="col-md-2">
-              <i class="fa fa-child fa-3x"></i>
-            </div>
 
-            <div class="col-md-7 align-self-center">
-              <p class="mb-1"><span>{{request.requester.first_name}}</span> <span>{{request.requester.last_name}}</span></p>
-              <p class="mb-1" i18n="@state">state: <span>{{request.state}}</span></p>
-            </div>
+        <div *ngIf="hasProfile()">
+          <li *ngFor="let request of requests">
+            <a class="row col-md shadow p-2 mb-3 bg-white" href="requests/{{request.id_request}}">
+              <div class="col-md-2">
+                <i class="fa fa-child fa-3x"></i>
+              </div>
 
-            <div class="col-md-3">
-              <p i18n="@hours"><span>{{request.totalHours}}</span> hours</p>
-            </div>
-          </a>
-        </li>
+              <div class="col-md-7 align-self-center">
+                <p class="mb-1"><span>{{request.requester.first_name}}</span> <span>{{request.requester.last_name}}</span></p>
+                <p class="mb-1" i18n="@state">state: <span>{{request.state}}</span></p>
+              </div>
+
+              <div class="col-md-3">
+                <p i18n="@hours"><span>{{request.totalHours}}</span> hours</p>
+              </div>
+            </a>
+          </li>
+        </div>
       </ul>
     </div>
 

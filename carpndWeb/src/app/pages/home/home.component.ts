@@ -15,58 +15,6 @@ export class HomeComponent implements AfterViewChecked {
 
   profile: any = null;
 
-  requests = [
-    {
-      "id_request": 1,
-      "state": "Awaiting approbal",
-      "requester": {
-        "id": 1,
-        "first_name": "Dario",
-        "last_name": "Gutierrez",
-        "cuil": 20379538860,
-        "movementsOfMonth": "",
-        "email": "dariofg93@gmail.com"
-      },
-      "totalHours": 15,
-      "dateTimeOfReservation": null,
-      "hoursOfTheReservation": null
-    },
-    {
-      "id_request": 2,
-      "state": "Approved",
-      "requester": {
-        "id": 2,
-        "first_name": "Fabri",
-        "last_name": "Britez",
-        "cuil": 561516516,
-        "movementsOfMonth": "Muchos",
-        "email": "fabri011@gmail.com"
-      },
-      "totalHours": 100,
-      "dateTimeOfReservation": null,
-      "hoursOfTheReservation": null
-    }
-  ]
-
-  myVehicles = [
-    {
-      "id": 1,
-      "description": "Un auto muy veloz!",
-      "passengerCapacity": 4,
-      "category": "Car",
-      "pictures": [
-        "maclaren_hermoso.png"
-      ]
-    },
-    {
-      "id": 2,
-      "description": "La moto definitiva, con esta podes ir desde La Plata hasta Bariloche en un dia!",
-      "passengerCapacity": 2,
-      "category": "Scooter",
-      "pictures": []
-    }
-  ]
-
   constructor(
     private usersService: UserService,
     private vehiclesService: GenericRestService<Vehicle>
@@ -82,6 +30,10 @@ export class HomeComponent implements AfterViewChecked {
 
   hasImages(vehicle: Vehicle): boolean {
     return vehicle.pictures.length > 0;
+  }
+
+  hasProfile(): boolean {
+    return this.profile;
   }
 
   pathImage(vehicle: Vehicle): string {

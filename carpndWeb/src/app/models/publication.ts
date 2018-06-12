@@ -9,7 +9,7 @@ export class Publication {
   phone: number; 
   fromDate: Date;
   toDate: Date;
-  requests: BookingRequest;
+  requests: BookingRequest[];
   publishedVehicle: Vehicle;
   city: City;
   pickUpZone: GeographicZoneDescription;
