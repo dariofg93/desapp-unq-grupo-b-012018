@@ -1,17 +1,20 @@
 package model.bookingstate;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class Rejected extends BookingState {
 
 	public Rejected() {
 		this.description = "REJ";
 	}
+	@JsonIgnore
     @Override
-    public BookingState setAcepted() {
+    public BookingState acept() {
         return new Approved();
     }
-
+	@JsonIgnore
     @Override
-    public BookingState setRejected() {
+    public BookingState reject() {
         return this;
     }
     

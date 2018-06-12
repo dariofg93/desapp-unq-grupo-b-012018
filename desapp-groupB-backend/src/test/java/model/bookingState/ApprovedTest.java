@@ -16,11 +16,11 @@ public class ApprovedTest extends TestCase {
 	}
 
     public void testSetAcepted(){
-        assertTrue(anyApproved.setAcepted() instanceof Approved);
+        assertTrue(anyApproved.acept() instanceof Approved);
     }
 
     public void testSetRejected(){
-        assertTrue(anyApproved.setRejected() instanceof Rejected);
+        assertTrue(anyApproved.reject() instanceof Rejected);
     }
 
     public void testSetAndGetConfirmRetreatBuyer(){

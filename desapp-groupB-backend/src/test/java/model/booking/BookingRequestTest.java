@@ -30,9 +30,9 @@ public class BookingRequestTest extends TestCase {
                 .withState(anyStateMock)
                 .build();
 
-        anyBookingRequest.setAcepted();
+        anyBookingRequest.acept();
 
-        verify(anyStateMock).setAcepted();
+        verify(anyStateMock).acept();
     }
 
     public void testSetRejected(){
@@ -40,9 +40,9 @@ public class BookingRequestTest extends TestCase {
                 .withState(anyStateMock)
                 .build();
 
-        anyBookingRequest.setRejected();
+        anyBookingRequest.reject();
 
-        verify(anyStateMock).setRejected();
+        verify(anyStateMock).reject();
     }
 
     public void testSetStateOfVehicleRetreatBuyer() throws NoAceptedException {

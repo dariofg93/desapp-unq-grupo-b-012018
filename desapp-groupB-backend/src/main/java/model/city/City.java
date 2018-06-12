@@ -10,6 +10,10 @@ public class City implements Serializable {
 	public City(String name) {
 		this.name = name;
 	}
+	
+	public City() {
+		this.name = "";
+	}
 
 	public Boolean isSame(City anyCity) {
 		return this.name.equals(anyCity.getName());

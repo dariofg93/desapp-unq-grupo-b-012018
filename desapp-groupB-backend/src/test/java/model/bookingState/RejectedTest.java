@@ -16,11 +16,11 @@ public class RejectedTest extends TestCase {
 	}
 
     public void testSetAcepted(){
-        assertTrue(anyRejected.setAcepted() instanceof Approved);
+        assertTrue(anyRejected.acept() instanceof Approved);
     }
 
     public void testSetRejected(){
-        assertTrue(anyRejected.setRejected() instanceof Rejected);
+        assertTrue(anyRejected.reject() instanceof Rejected);
     }
     
     public void testIsApproved(){
