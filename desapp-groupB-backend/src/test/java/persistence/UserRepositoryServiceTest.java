@@ -13,17 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javassist.expr.NewArray;
+
 import model.builders.UserBuilder;
 import model.creditsaccount.CreditsAccount;
 import model.email.Email;
-import model.exceptions.BookingNotFoundException;
 import model.maps.GeographicZoneDescription;
 import model.score.OwnerScoreType;
 import model.score.Score;
 import model.score.ScoreManager;
 import model.user.User;
-import persistence.generic.GenericService;
+
 import service.bookingrequest.BookingRequestService;
 import service.publication.PublicationService;
 import service.user.UserService;

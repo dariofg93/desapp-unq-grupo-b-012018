@@ -7,7 +7,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class AwaitingApproval extends BookingState {
 
 	public AwaitingApproval() {
-		this.description = "AWA";
+		this.description = "AwaitingApproval";
 	}
 	
 	@JsonIgnore

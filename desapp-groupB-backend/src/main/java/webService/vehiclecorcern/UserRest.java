@@ -1,6 +1,7 @@
 package webService.vehiclecorcern;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -18,12 +19,11 @@ import service.vehicle.VehicleService;
 import webService.utils.JsonReturn;
 
 @Path("/users")
-public class UserRest {
+public class UserRest extends AbstractRest {
 
-	private UserService userService;	
+	private UserService userService;
 	private PublicationService publicationService;
 	private VehicleService vehicleService;
-
 
 	public UserRest() {
 		this.userService = new UserService();
@@ -34,31 +34,23 @@ public class UserRest {
 	@Path("/")
 	@Produces("application/json")
 	@Transactional
-	public List<User> retriveAll() {
-		List<User> resultList = this.userService.retriveAll();
-		resultList.forEach((user) -> this.completeUser(user));
-		return resultList;
+	public Response retriveAll() {
+		List<User> response = userService.retriveAll();
+		response.forEach((user) -> this.completeUser(user));
+		return response(response, HttpStatus.OK);
 	}
 
 	@GET
 	@Path("/selectByEmail/{emailName}")
 	@Produces("application/json")
-	public Response seachByEmail(@PathParam("emailName") final String emailName){
+	public Response seachByEmail(@PathParam("emailName") final String emailName) {
 		List<User> response = userService.searchUserByEmailNamed(emailName);
-		if(response.size() > 0)
-			return Response.ok() //200
-				.entity(new ResponseEntity<User>(response.get(0), HttpStatus.OK))
-				.header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-				.allow("OPTIONS").build();
+
+		if (response.size() > 0)
+			return response(response, HttpStatus.OK);
 		else
-			return Response.ok() //200
-				.entity(new ResponseEntity<String>(JsonReturn.notFoundError(
-					"No se encontro usuario registrado con el mail ingresado"
-				), HttpStatus.BAD_REQUEST))
-				.header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-				.allow("OPTIONS").build();
+			return response((JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado")),
+					HttpStatus.BAD_REQUEST);
 	}
 
 	@POST
@@ -66,43 +58,33 @@ public class UserRest {
 	@Produces("application/json")
 	public Response newUser(@RequestBody User user) {
 		User response = userService.saveUser(user);
-		return Response.ok() //200
-				.entity(new ResponseEntity<User>(response, HttpStatus.OK))
-				.header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-				.allow("OPTIONS").build();
+		return response(response, HttpStatus.OK);
 	}
 
 	@GET
 	@Path("/{id}")
 	@Produces("application/json")
 	public Response getById(@PathParam("id") final Long id) {
-		User response = userService.searchById(id);
-		return Response.ok() //200
-				.entity(new ResponseEntity<User>(response, HttpStatus.OK))
-				.header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-				.allow("OPTIONS").build();
+		return response(userService.searchById(id), HttpStatus.OK);
 	}
 
 	@PUT
 	@Path("/{id}")
 	@Produces("application/json")
-	public ResponseEntity<?> updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
-		try {
-			userService.updateById(id, user);
-			return new ResponseEntity<User>(user, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<String>(JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);
-		}
+	public Response updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
+		return responseHandlingErrorsExecuting((() -> {userService.updateById(id, user); return user;}),  JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);		
 	}
+
+
 
 	@DELETE
 	@Path("/{id}")
 	@Produces("application/json")
-	public void deleteById(@PathParam("id") final Long id) {
-		userService.delete(userService.searchById(id));
+	public Response deleteById(@PathParam("id") final Long id) {		
+		return responseHandlingErrorsExecuting((() -> {userService.delete(userService.searchById(id)); return JsonReturn.success("OK");}),  JsonReturn.notFoundError("No se encontro usuario con ese ID"), HttpStatus.BAD_REQUEST);		
+
 	}
+
 	public PublicationService getPublicationService() {
 		return publicationService;
 	}
@@ -119,7 +101,6 @@ public class UserRest {
 		this.vehicleService = vehicleService;
 	}
 
-	
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
@@ -131,17 +112,19 @@ public class UserRest {
 	private User completeUser(User anUser) {
 		completePublications(anUser);
 		completeVehicles(anUser);
-		
+
 		return anUser;
 	}
 
 	private void completeVehicles(User anUser) {
-		anUser.setMyVehicles(vehicleService.selectByFunction((vehicle) -> vehicle.getOwner().getId() == anUser.getId()));
+		anUser.setMyVehicles(
+				vehicleService.selectByFunction((vehicle) -> vehicle.getOwner().getId() == anUser.getId()));
 	}
 
 	private void completePublications(User anUser) {
 
-		anUser.setMyPublications(publicationService.selectByFunction((publication) -> publication.getUser().getId() == anUser.getId())); 
-		
+		anUser.setMyPublications(
+				publicationService.selectByFunction((publication) -> publication.getUser().getId() == anUser.getId()));
+
 	}
 }
