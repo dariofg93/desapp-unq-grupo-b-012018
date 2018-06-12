@@ -58,9 +58,9 @@ export class AuthService {
     this.getProfile((err, profile) => {
       this.usersService.selectByEmail(profile.name).subscribe(
         data => localStorage.setItem('id', JSON.stringify(data.body.id)),
-        () => this.usersService.create(new User(profile.name)).subscribe(
-                createdUser => this.profile = createdUser.body
-              )
+        error => console.log(profile)/*this.usersService.create(new User(profile.name)).subscribe(
+                createdUser => localStorage.setItem('id', JSON.stringify(createdUser.body.id))
+              )*/
       );
     });
 
