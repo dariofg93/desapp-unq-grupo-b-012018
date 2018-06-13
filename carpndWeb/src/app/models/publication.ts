@@ -14,4 +14,8 @@ export class Publication {
   city: City;
   pickUpZone: GeographicZoneDescription;
   dropZone: GeographicZoneDescription;
+
+  constructor(){
+    this.requests = [];
+  }
 }

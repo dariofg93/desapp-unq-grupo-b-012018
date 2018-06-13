@@ -26,8 +26,9 @@ export class GenericRestService<T> {
   }
 
   public update(primaryKey: any, item: T): Observable<ResponseEntity<T>> {
+    console.log('user',item);
     return this.http
-      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`,item);
+      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/update/${primaryKey}`,item);
   }
 
 	public read(primaryKey: any): Observable<ResponseEntity<T>> {

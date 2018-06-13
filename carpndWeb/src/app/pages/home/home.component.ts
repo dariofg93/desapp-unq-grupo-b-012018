@@ -3,6 +3,8 @@ import { ASSETS } from './../../variables/variables'
 
 import { User } from './../../models/user'
 import { Vehicle } from './../../models/vehicle'
+import { Publication } from './../../models/publication';
+import { BookingRequest } from './../../models/booking-request';
 import { UserService } from './../../services/user/user.service';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
 
@@ -13,7 +15,59 @@ import { GenericRestService } from './../../services/generic/generic-rest.servic
 })
 export class HomeComponent implements AfterViewChecked {
 
-  profile: any = null;
+  profile: User = null;
+
+  requests = [
+    {
+      "id_request": 1,
+      "state": "Awaiting approbal",
+      "requester": {
+        "id": 1,
+        "first_name": "Dario",
+        "last_name": "Gutierrez",
+        "cuil": 20379538860,
+        "movementsOfMonth": "",
+        "email": "dariofg93@gmail.com"
+      },
+      "totalHours": 15,
+      "dateTimeOfReservation": null,
+      "hoursOfTheReservation": null
+    },
+    {
+      "id_request": 2,
+      "state": "Approved",
+      "requester": {
+        "id": 2,
+        "first_name": "Fabri",
+        "last_name": "Britez",
+        "cuil": 561516516,
+        "movementsOfMonth": "Muchos",
+        "email": "fabri011@gmail.com"
+      },
+      "totalHours": 100,
+      "dateTimeOfReservation": null,
+      "hoursOfTheReservation": null
+    }
+  ]
+
+  myVehicles = [
+    {
+      "id": 1,
+      "description": "Un auto muy veloz!",
+      "passengerCapacity": 4,
+      "category": "Car",
+      "pictures": [
+        "maclaren_hermoso.png"
+      ]
+    },
+    {
+      "id": 2,
+      "description": "La moto definitiva, con esta podes ir desde La Plata hasta Bariloche en un dia!",
+      "passengerCapacity": 2,
+      "category": "Scooter",
+      "pictures": []
+    }
+  ]
 
   constructor(
     private usersService: UserService,
@@ -33,7 +87,7 @@ export class HomeComponent implements AfterViewChecked {
   }
 
   hasProfile(): boolean {
-    return this.profile;
+    return this.profile != null;
   }
 
   pathImage(vehicle: Vehicle): string {
@@ -44,5 +98,14 @@ export class HomeComponent implements AfterViewChecked {
     this.vehiclesService.delete(id).subscribe(
       data => console.log(data.body)
     );
+  }
+
+  requestOfPublications(): BookingRequest[]{
+    var publications: Publication[] = this.profile.myPublications;
+      return publications? publications.map(function(p){ return p.requests })
+        .reduce(function(a,b) {
+          return a.concat(b);
+        }): 
+        null;
   }
 }

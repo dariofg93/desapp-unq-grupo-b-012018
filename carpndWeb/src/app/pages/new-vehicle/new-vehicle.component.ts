@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from "@angular/router";
 
-import { User } from './../../models/user'
-import { Vehicle } from './../../models/vehicle'
+import { User } from './../../models/user';
+import { Vehicle } from './../../models/vehicle';
+import { Car,Scooter } from './../../models/categories';
 import { UserService } from './../../services/user/user.service';
 
 @Component({
@@ -17,9 +18,8 @@ export class NewVehicleComponent implements OnInit {
 	profile: User;
 
 	categories = [
-		"Car",
-		"Scooter",
-		"Van"
+		new Car(),
+		new Scooter()
 	];
 
   constructor(
@@ -39,7 +39,11 @@ export class NewVehicleComponent implements OnInit {
   }
 
   saveVehicle(form) {
-    this.profile.addVehicle(this.vehicle);
+    if (this.profile.myVehicles) {
+      this.profile.myVehicles.push(this.vehicle);
+    }else{
+      this.profile.myVehicles = [this.vehicle];
+    }
     this.usersService.update(this.profile.id,this.profile);
     this.router.navigate(['']);
   }

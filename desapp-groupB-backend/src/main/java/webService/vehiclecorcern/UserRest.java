@@ -63,13 +63,15 @@ public class UserRest extends AbstractRest {
 	@Path("/{id}")
 	@Produces("application/json")
 	public Response getById(@PathParam("id") final Long id) {
+		System.out.print("ENTRO AL GETBYID");
 		return response(userService.searchById(id), HttpStatus.OK);
 	}
 
 	@PUT
-	@Path("/{id}")
+	@Path("/update/{id}")
 	@Produces("application/json")
 	public Response updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
+		System.out.print("ENTRO AL UPDATEUSERID");
 		return responseHandlingErrorsExecuting((() -> {userService.updateById(id, user); return user;}),  JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);		
 	}
 

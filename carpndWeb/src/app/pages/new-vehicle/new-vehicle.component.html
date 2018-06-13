@@ -33,7 +33,7 @@
 	                [(ngModel)]="vehicle.category"
 	                #category="ngModel">
 	          <option [ngValue]="undefined" disabled selected i18n="@@selectCategory">selectCategory</option>
-	          <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+	          <option *ngFor="let category of categories" [value]="category">{{category.getName()}}</option>
 	        </select>
 	      </div>
 	 
