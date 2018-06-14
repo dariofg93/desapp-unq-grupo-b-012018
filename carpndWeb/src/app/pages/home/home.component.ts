@@ -1,5 +1,6 @@
 import { Component, AfterViewChecked } from '@angular/core';
 import { ASSETS } from './../../variables/variables'
+import { DatePipe } from '@angular/common'
 
 import { User } from './../../models/user'
 import { Vehicle } from './../../models/vehicle'
@@ -11,7 +12,10 @@ import { GenericRestService } from './../../services/generic/generic-rest.servic
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [
+    DatePipe
+  ]
 })
 export class HomeComponent implements AfterViewChecked {
 
@@ -71,7 +75,8 @@ export class HomeComponent implements AfterViewChecked {
 
   constructor(
     private usersService: UserService,
-    private vehiclesService: GenericRestService<Vehicle>
+    private vehiclesService: GenericRestService<Vehicle>,
+    private datepipe: DatePipe
   ) {}
 
   ngAfterViewChecked(){
@@ -100,12 +105,21 @@ export class HomeComponent implements AfterViewChecked {
     );
   }
 
+  showDate(date: number): string{
+    return this.datepipe.transform(new Date(date), 'd-MMM-y HH:m:s');
+  }
+
   requestOfPublications(): BookingRequest[]{
-    var publications: Publication[] = this.profile.myPublications;
-      return publications? publications.map(function(p){ return p.requests })
-        .reduce(function(a,b) {
+    var requests: BookingRequest[][] = this.profile.myPublications? 
+      this.profile.myPublications.map(function(p){ return p.requests }): 
+      null;
+
+    return !requests? 
+      null: 
+      requests.length > 1?
+        requests.reduce(function(a,b) {
           return a.concat(b);
         }): 
-        null;
+        requests[0];
   }
 }

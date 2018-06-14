@@ -51,8 +51,20 @@
       <div class="float-md-left leftLine"></div>
       <div class="float-md-right rightLine"></div>
 
-      <p class="text-center">Aca poner notificaciones y escribir mucho para saber cuanto mideeee</p>
-      <p class="text-center">{{profile?.first_name}}</p>
+      <div class="row col-md-11">
+        <div class="row col-md-12 justify-content-md-center">
+          <h3 class="sectionTitle" i18n="@@Movements">Movements</h3>
+        </div>
+
+        <div *ngIf="hasProfile()" class="row col-md-12 justify-content-md-center">
+          <div class="shadow p-4 mb-3 bg-white">
+            <li *ngFor="let movement of profile.movementsOfMonth.history">
+              <span>[{{showDate(movement.date)}}]: <br>{{movement.description}}</span>
+              <br><br>
+            </li>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="col-md-4">
