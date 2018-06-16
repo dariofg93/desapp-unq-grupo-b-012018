@@ -45,7 +45,7 @@ public class UserRest extends AbstractRest {
 		List<User> response = userService.searchUserByEmailNamed(emailName);
 
 		if (response.size() > 0)
-			return response(response.get(0), HttpStatus.OK);
+			return response(this.completeUser(response.get(0)), HttpStatus.OK);
 		else
 			return response((JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado")),
 					HttpStatus.BAD_REQUEST);

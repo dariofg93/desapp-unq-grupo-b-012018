@@ -57,7 +57,7 @@ public class VehiclesDummy implements DummyData{
                 .withPassengerCapacity(2)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
-                .withOwner(userService.retriveAll().get(1))
+                .withOwner(userService.retriveAll().get(0))
                 .build();
         this.vehicles.add(vehicle1);
 
@@ -111,7 +111,7 @@ public class VehiclesDummy implements DummyData{
                 .withPassengerCapacity(2)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
-                .withOwner(userService.retriveAll().get(1))
+                .withOwner(userService.retriveAll().get(0))
                 .build();
         this.vehicles.add(vehicle7);
 
@@ -129,7 +129,7 @@ public class VehiclesDummy implements DummyData{
                 .withPassengerCapacity(4)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
-                .withOwner(userService.retriveAll().get(1))
+                .withOwner(userService.retriveAll().get(0))
                 .build();
         this.vehicles.add(vehicle9);
 
@@ -147,7 +147,7 @@ public class VehiclesDummy implements DummyData{
                 .withPassengerCapacity(1)
                 .withCategory(new Scooter())
                 .withPictures(new ArrayList<>())
-                .withOwner(userService.retriveAll().get(1))
+                .withOwner(userService.retriveAll().get(0))
                 .build();
         this.vehicles.add(vehicle11);
 

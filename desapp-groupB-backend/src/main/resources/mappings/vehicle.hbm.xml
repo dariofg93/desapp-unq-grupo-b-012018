@@ -9,7 +9,7 @@
 		</id>
 		
 		<many-to-one name="owner" column="id_user" not-null = "false"
-			class="model.user.User" unique="false" lazy="false" />
+			class="model.user.User" unique="false" lazy="false" cascade="none"/>
 		
 		<property name="description" type="string" column="DESCRIPTION" />
 			
