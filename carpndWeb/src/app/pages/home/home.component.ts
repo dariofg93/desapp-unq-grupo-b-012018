@@ -1,6 +1,7 @@
-import { Component, AfterViewChecked } from '@angular/core';
+import { Inject, Component, AfterViewChecked, LOCALE_ID } from '@angular/core';
 import { ASSETS } from './../../variables/variables'
-import { DatePipe } from '@angular/common'
+import { DatePipe,registerLocaleData } from '@angular/common'
+import localeEs from '@angular/common/locales/es';
 
 import { User } from './../../models/user'
 import { Vehicle } from './../../models/vehicle'
@@ -8,6 +9,8 @@ import { Publication } from './../../models/publication';
 import { BookingRequest } from './../../models/booking-request';
 import { UserService } from './../../services/user/user.service';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
+
+registerLocaleData(localeEs, 'es-AR');
 
 @Component({
   selector: 'app-home',
@@ -21,66 +24,16 @@ export class HomeComponent implements AfterViewChecked {
 
   profile: User = null;
 
-  requests = [
-    {
-      "id_request": 1,
-      "state": "Awaiting approbal",
-      "requester": {
-        "id": 1,
-        "first_name": "Dario",
-        "last_name": "Gutierrez",
-        "cuil": 20379538860,
-        "movementsOfMonth": "",
-        "email": "dariofg93@gmail.com"
-      },
-      "totalHours": 15,
-      "dateTimeOfReservation": null,
-      "hoursOfTheReservation": null
-    },
-    {
-      "id_request": 2,
-      "state": "Approved",
-      "requester": {
-        "id": 2,
-        "first_name": "Fabri",
-        "last_name": "Britez",
-        "cuil": 561516516,
-        "movementsOfMonth": "Muchos",
-        "email": "fabri011@gmail.com"
-      },
-      "totalHours": 100,
-      "dateTimeOfReservation": null,
-      "hoursOfTheReservation": null
-    }
-  ]
-
-  myVehicles = [
-    {
-      "id": 1,
-      "description": "Un auto muy veloz!",
-      "passengerCapacity": 4,
-      "category": "Car",
-      "pictures": [
-        "maclaren_hermoso.png"
-      ]
-    },
-    {
-      "id": 2,
-      "description": "La moto definitiva, con esta podes ir desde La Plata hasta Bariloche en un dia!",
-      "passengerCapacity": 2,
-      "category": "Scooter",
-      "pictures": []
-    }
-  ]
-
   constructor(
     private usersService: UserService,
     private vehiclesService: GenericRestService<Vehicle>,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+    @Inject(LOCALE_ID) private _locale: string
   ) {}
 
   ngAfterViewChecked(){
     if (JSON.parse(localStorage.getItem('id')) && this.profile == null) {
+
       this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
         data => this.profile = data.body
       );
@@ -105,8 +58,12 @@ export class HomeComponent implements AfterViewChecked {
     );
   }
 
-  showDate(date: number): string{
-    return this.datepipe.transform(new Date(date), 'd-MMM-y HH:m:s');
+  getLocale_id(){
+    return this._locale;
+  }
+
+  showDate(date: number): Date{
+    return new Date(date);
   }
 
   requestOfPublications(): BookingRequest[]{
