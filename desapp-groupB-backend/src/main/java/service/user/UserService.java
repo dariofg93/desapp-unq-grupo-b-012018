@@ -15,10 +15,10 @@ public class UserService extends GenericService<User> {
 	public User searchById(Long id) {
 		return this.getRepository().findById(id);
 	}
-
+	@Transactional
 	public void updateById(Long id, User updatedUser) {
 		updatedUser.setId(id);
-		this.getRepository().update(updatedUser);
+		this.update(updatedUser);
 	}
 
 	public List<User> searchUserByEmailNamed(String emailName) {

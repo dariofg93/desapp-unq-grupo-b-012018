@@ -126,13 +126,13 @@
 		<property name="sessionFactory"
 			ref="persistence.sessionFactory" />
 	</bean>
-	
+
 	<bean id="bookingRequestsRepository"
 		class="persistence.bookingrequest.BookingRequestRepository">
 		<property name="sessionFactory"
 			ref="persistence.sessionFactory" />
 	</bean>
-	
+
 
 
 	<!-- DUMMIES -->
@@ -152,7 +152,12 @@
 		<property name="vehicleService" ref="vehiclesService" />
 	</bean>
 
-
+	<bean id="bookingRequestsDummy"
+		class="dummies.RequestsDummy">
+		<property name="service" ref="bookingRequestsService" />
+	
+	</bean>
+	
 
 	<bean id="dataRepository" class="dummies.DataRepository"
 		init-method="instantiateDataMock">
@@ -161,6 +166,7 @@
 				<ref bean="usersDummy" />
 				<ref bean="vehiclesDummy" />
 				<ref bean="publicationsDummy" />
+				<ref bean="bookingRequestsDummy" />
 			</list>
 		</property>
 	</bean>
