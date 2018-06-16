@@ -1,19 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked } from '@angular/core';
 import { ASSETS } from './../../variables/variables'
+import { DatePipe } from '@angular/common'
 
 import { User } from './../../models/user'
 import { Vehicle } from './../../models/vehicle'
+import { Publication } from './../../models/publication';
+import { BookingRequest } from './../../models/booking-request';
 import { UserService } from './../../services/user/user.service';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [
+    DatePipe
+  ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewChecked {
 
-  profile: any;
+  profile: User = null;
 
   requests = [
     {
@@ -69,25 +75,24 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private usersService: UserService,
-    private vehiclesService: GenericRestService<Vehicle>
+    private vehiclesService: GenericRestService<Vehicle>,
+    private datepipe: DatePipe
   ) {}
 
-  ngOnInit() {
-    console.log('init');
-    /*this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
-      data => this.profile = data.body
-    );*/
-  }
-
-  ngAfterViewInit(){
-    console.log('AfterView');
-    this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
-      data => this.profile = data.body
-    );
+  ngAfterViewChecked(){
+    if (JSON.parse(localStorage.getItem('id')) && this.profile == null) {
+      this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
+        data => this.profile = data.body
+      );
+    }
   }
 
   hasImages(vehicle: Vehicle): boolean {
     return vehicle.pictures.length > 0;
+  }
+
+  hasProfile(): boolean {
+    return this.profile != null;
   }
 
   pathImage(vehicle: Vehicle): string {
@@ -98,5 +103,23 @@ export class HomeComponent implements OnInit {
     this.vehiclesService.delete(id).subscribe(
       data => console.log(data.body)
     );
+  }
+
+  showDate(date: number): string{
+    return this.datepipe.transform(new Date(date), 'd-MMM-y HH:m:s');
+  }
+
+  requestOfPublications(): BookingRequest[]{
+    var requests: BookingRequest[][] = this.profile.myPublications? 
+      this.profile.myPublications.map(function(p){ return p.requests }): 
+      null;
+
+    return !requests? 
+      null: 
+      requests.length > 1?
+        requests.reduce(function(a,b) {
+          return a.concat(b);
+        }): 
+        requests[0];
   }
 }

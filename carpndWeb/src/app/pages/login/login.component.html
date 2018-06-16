@@ -5,18 +5,22 @@
 
 	<br>
 
-	<div class="clear">
-		<h3 i18n="@@loginRequired">loginRequired</h3>
+	<div class="row col-md-12 align-items-center justify-content-center">
+		<div class="clear">
+			<h3 i18n="@@loginRequired">loginRequired</h3>
+		</div>
 	</div>
 
 	<br><br>
 
-	<div class="clear">
-		<button
-		  class="btn btn-primary btn-margin"
-		  *ngIf="!auth.isAuthenticated()"
-		  (click)="auth.login()" i18n="loginButton">
-		    loginButton
-		</button>
+	<div class="row col-md-12 align-items-center justify-content-center">
+		<div class="clear">
+			<button
+			  class="btn btn-primary btn-margin"
+			  *ngIf="!auth.isAuthenticated()"
+			  (click)="auth.login()" i18n="loginButton">
+			    loginButton
+			</button>
+		</div>
 	</div>
 </div>

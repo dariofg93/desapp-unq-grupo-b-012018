@@ -20,12 +20,6 @@ export class User {
 
   constructor( email: string){
   	this.email = new Email(email);
-  }
-
-  public addVehicle(vehicle: Vehicle){
-  	if (this.myVehicles == null) 
-  		this.myVehicles = [vehicle];
-  	else
-  		this.myVehicles.push(vehicle);
+    this.myPublications = [];
   }
 }

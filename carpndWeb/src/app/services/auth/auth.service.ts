@@ -65,9 +65,6 @@ export class AuthService {
         error => console.log(error)
       );
     });
-
-    //const id = JSON.stringify(this.profile.id);
-    //localStorage.setItem('id', id);
   }
 
   public logout(): void {
