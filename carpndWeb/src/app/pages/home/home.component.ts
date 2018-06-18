@@ -42,7 +42,7 @@ export class HomeComponent implements AfterViewChecked {
   }
 
   hasImages(vehicle: Vehicle): boolean {
-    return vehicle.pictures.length > 0;
+    return vehicle.pictures? vehicle.pictures.length > 0: false;
   }
 
   hasProfile(): boolean {
@@ -54,6 +54,7 @@ export class HomeComponent implements AfterViewChecked {
   }
 
   deleteVehicle(id: number): void {
+    console.log(this.profile);
     this.vehiclesService.delete(id).subscribe(
       data => console.log(data.body)
     );
