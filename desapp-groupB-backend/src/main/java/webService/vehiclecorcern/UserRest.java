@@ -3,6 +3,7 @@ package webService.vehiclecorcern;
 import java.util.List;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.springframework.http.HttpStatus;
@@ -51,7 +52,7 @@ public class UserRest extends AbstractRest {
 					HttpStatus.BAD_REQUEST);
 	}
 
-	@POST
+	@GET
 	@Path("/new")
 	@Produces("application/json")
 	public Response newUser(@RequestBody User user) {
@@ -67,10 +68,16 @@ public class UserRest extends AbstractRest {
 	}
 
 	@PUT
-	@Path("/{id}")
+	@Path("/{id}/")
 	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
-		return responseHandlingErrorsExecuting((() -> {userService.updateById(id, user); return user;}),  JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);		
+		System.out.println(user);
+		System.out.println("ZZZZ");
+		return responseHandlingErrorsExecuting((() -> {
+			userService.updateById(id, user);
+			user.getMyVehicles().forEach((v) -> vehicleService.saveOrUpdate(v));
+			; return user;}),  JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);		
 	}
 
 	@DELETE

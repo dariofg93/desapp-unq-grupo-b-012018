@@ -31,8 +31,7 @@ public class BookingRequestRest extends AbstractRest{
     public ResponseEntity seachById(@PathParam("id") final Long id) {
         return new ResponseEntity<BookingRequest>(bookingRequestService.searchById(id),HttpStatus.OK);
     }
-    
-    
+       
     @PUT
     @Path("/request/{id}")
     @Produces("application/json")

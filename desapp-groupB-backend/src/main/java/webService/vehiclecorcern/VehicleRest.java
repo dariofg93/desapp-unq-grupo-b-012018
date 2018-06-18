@@ -39,7 +39,7 @@ public class VehicleRest extends AbstractRest{
     }
     
     @POST
-    @Path("/newVehicle")
+    @Path("/new")
     @Produces("application/json")
     public Response newVehicle(@RequestBody Vehicle vehicle) {
     	vehicleService.save(vehicle);
@@ -47,7 +47,7 @@ public class VehicleRest extends AbstractRest{
     }
     
     @PUT
-    @Path("/vehicle/{id}")
+    @Path("/{id}")
     @Produces("application/json")
     public Response updateVehicleById(@PathParam("id") final Long id, @RequestBody Vehicle vehicle) {
 		return responseHandlingErrorsExecuting(() -> { vehicleService.updateById(id,vehicle); return vehicle;},  JsonReturn.notFoundError("No se pudo modificar el vehiculo seleccionado"), HttpStatus.INTERNAL_SERVER_ERROR);

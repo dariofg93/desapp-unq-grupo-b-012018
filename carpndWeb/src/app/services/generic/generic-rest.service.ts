@@ -22,12 +22,13 @@ export class GenericRestService<T> {
 
   public create(item: T): Observable<ResponseEntity<T>> {
     return this.http
-      .post<ResponseEntity<T>>(`${this.url}/${this.endpoint}/new`, item);
+      .get<ResponseEntity<T>>(`${this.url}/${this.endpoint}/new`, item);
   }
 
   public update(primaryKey: any, item: T): Observable<ResponseEntity<T>> {
+    console.log(`${this.url}/${this.endpoint}/update/${primaryKey}`)
     return this.http
-      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`,item);
+      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`,JSON.stringify(item));
   }
 
 	public read(primaryKey: any): Observable<ResponseEntity<T>> {
