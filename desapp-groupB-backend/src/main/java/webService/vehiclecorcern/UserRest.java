@@ -2,6 +2,7 @@ package webService.vehiclecorcern;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -64,14 +65,15 @@ public class UserRest extends AbstractRest {
 	@Path("/{id}")
 	@Produces("application/json")
 	public Response getById(@PathParam("id") final Long id) {
-		return response(completeUser(userService.searchById(id)), HttpStatus.OK);
+		return seachByEmail(userService.searchById(id).getEmail().getAccountName());
+
 	}
 
 	@PUT
 	@Path("/{id}/")
 	@Produces("application/json")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
+	public Response updateUserId(HttpServletRequest request, @PathParam("id") final Long id, @RequestBody User user) {
 		System.out.println(user);
 		System.out.println("ZZZZ");
 		return responseHandlingErrorsExecuting((() -> {
