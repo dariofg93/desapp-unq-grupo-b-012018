@@ -53,7 +53,7 @@ public class UserRest extends AbstractRest {
 					HttpStatus.BAD_REQUEST);
 	}
 
-	@GET
+	@POST
 	@Path("/new")
 	@Produces("application/json")
 	public Response newUser(@RequestBody User user) {
@@ -70,10 +70,10 @@ public class UserRest extends AbstractRest {
 	}
 
 	@PUT
-	@Path("/{id}/")
+	@Path("/{id}")
 	@Produces("application/json")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateUserId(HttpServletRequest request, @PathParam("id") final Long id, @RequestBody User user) {
+	public Response updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
 		System.out.println(user);
 		System.out.println("ZZZZ");
 		return responseHandlingErrorsExecuting((() -> {

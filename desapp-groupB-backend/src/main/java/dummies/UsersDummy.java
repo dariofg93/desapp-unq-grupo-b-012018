@@ -33,6 +33,9 @@ public class UsersDummy implements DummyData{
                 .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("dariofg93@gmail.com"))
+                .withFirstName("Dario")
+                .withFirstName("Gutierrez")
+                .withCuil("1234567890")
                 .build();
         user1.getMovementsOfMonth().addToHistory("Hoy alquile");
         user1.getMovementsOfMonth().addToHistory("Hoy alquile otro auto");
@@ -44,6 +47,9 @@ public class UsersDummy implements DummyData{
                 .withScoreManager(new ScoreManager(new ArrayList<Score>(Collections.singleton(new Score(new OwnerScoreType())))))
                 .withCreditsAccount(new CreditsAccount())
                 .withEmail(new Email("fabri1108@gmail.com"))
+                .withFirstName("Fabricio")
+                .withFirstName("Britez")
+                .withCuil("0987654321")
                 .build();
         this.users.add(user2);
         CreditsAccount account = new CreditsAccount();

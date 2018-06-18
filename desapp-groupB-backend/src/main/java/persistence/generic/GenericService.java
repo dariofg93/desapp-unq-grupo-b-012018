@@ -21,7 +21,7 @@ public class GenericService<T> implements Serializable {
         this.repository = repository;
     }
 
-    
+    @Transactional
     public void delete(final T object) {
         this.getRepository().delete(object);
     }

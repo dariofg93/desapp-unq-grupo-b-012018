@@ -13,9 +13,9 @@ export class User {
   myPublications: Publication[];
   movementsOfMonth: MovementsOfMonth;
   //scoreManager: ScoreManager;
-  cuil: number;
-  first_name: string;
-  last_name: string;
+  cuil: string;
+  firstName: string;
+  lastName: string;
   myVehicles: Vehicle[]
 
   constructor( email: string){

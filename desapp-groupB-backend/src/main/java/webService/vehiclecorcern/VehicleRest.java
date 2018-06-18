@@ -55,7 +55,7 @@ public class VehicleRest extends AbstractRest{
     
 
 	@DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @Produces("application/json")
     public Response deleteById(@PathParam("id") final Long id) {
 		return responseHandlingErrorsExecuting(() -> {vehicleService.delete(vehicleService.searchById(id)); return JsonReturn.success("OK");}, JsonReturn.notFoundError("No se pudo eliminar el vehiculo seleccionado "), HttpStatus.INTERNAL_SERVER_ERROR);	

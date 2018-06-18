@@ -49,5 +49,20 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder withFirstName(String anyFirstName) {
+        buildUser.setFirstName(anyFirstName);
+        return this;
+    }
+
+    public UserBuilder withLastName(String anyLastName) {
+        buildUser.setLastName(anyLastName);
+        return this;
+    }
+
+    public UserBuilder withCuil(String anyCuil) {
+        buildUser.setCuil(anyCuil);
+        return this;
+    }
+
 
 }
