@@ -12,7 +12,7 @@ import { UserService } from './../../services/user/user.service';
 })
 export class UsersEditComponent implements OnInit {
 
-	profile: User;
+	profile: User = null;
 
   constructor(
   	private usersService: UserService,
@@ -22,16 +22,20 @@ export class UsersEditComponent implements OnInit {
 
   ngOnInit() {
     this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
-      data => this.profile = data.body
-    );
+        data => this.profile = data.body
+      );
   }
 
   return() {
     this.location.back();
   }
 
+  Filledprofile() {
+    return this.profile != null;
+  }
+
   saveProfile(form) {
-    this.usersService.update(this.profile.id,this.profile);
+    this.usersService.update(this.profile.id,this.profile).subscribe();
     this.router.navigate(['']);
   }
 }

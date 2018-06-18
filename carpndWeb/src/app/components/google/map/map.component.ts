@@ -10,6 +10,7 @@ import { } from '@types/googlemaps';
 export class MapComponent implements OnInit {
 
   @ViewChild('gmap') gmapElement: any;
+  @Input() points: GeographicZoneDescription[];
 
   ngOnInit() {
     /*------------------------ Init Map -----------------------------------*/
@@ -27,7 +28,7 @@ export class MapComponent implements OnInit {
     /*------------------------ -------- -----------------------------------*/
 
     map.addListener('click', function(ev) {
-      this.placeMarker(ev.latLng, map);
+      placeMarker(ev.latLng, map);
     });
 
     function placeMarker(latLng, mapChanged) {

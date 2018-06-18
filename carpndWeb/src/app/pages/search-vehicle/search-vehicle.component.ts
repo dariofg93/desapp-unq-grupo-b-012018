@@ -4,7 +4,8 @@ import { ActivatedRoute,Router } from "@angular/router";
 
 import { GenericRestService } from './../../services/generic/generic-rest.service';
 import { PATHBACKEND } from './../../../environments/environment';
-import { Vehicle } from './../../models/vehicle'
+import { Publication } from './../../models/publication';
+import { GeographicZoneDescription } from './../../models/geographic-zone-description';
 
 
 @Component({
@@ -14,27 +15,29 @@ import { Vehicle } from './../../models/vehicle'
   providers: [
     GenericRestService,
     { provide: 'url', useValue: PATHBACKEND },
-    { provide: 'endpoint', useValue: 'vehicles' }
+    { provide: 'endpoint', useValue: 'publications' }
   ]
 })
 export class SearchVehicleComponent implements OnInit {
-	vehicles: Array<Vehicle>;
+	publications: Publication[];
   currentP = 1;
 
   constructor(
-    private vehiclesService: GenericRestService<Vehicle>, 
+    private publicationsService: GenericRestService<Publication>, 
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.getVehicles();
+    this.publicationsService.list()
+      .subscribe(
+        data => this.publications = data.body
+      );
   }
 
-  getVehicles(): void {
-	  this.vehiclesService.list()
-      .subscribe(
-        data => this.vehicles = data.body
-      );
-	}
+  pickUpZones(): GeographicZoneDescription[]{
+    return this.publications?
+      this.publications.map(function(p) { return p.pickUpZone }):
+      []
+  }
 }

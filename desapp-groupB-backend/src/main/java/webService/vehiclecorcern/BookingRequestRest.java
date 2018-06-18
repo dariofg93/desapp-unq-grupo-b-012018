@@ -34,7 +34,7 @@ public class BookingRequestRest extends AbstractRest{
     
     
     @PUT
-    @Path("/request/{id}")
+    @Path("/{id}")
     @Produces("application/json")
     public ResponseEntity<?> updateVehicleById(@PathParam("id") final Long id, @RequestBody BookingRequest request) {
 		try {

@@ -2,7 +2,7 @@ import { ResponseEntity } from './../../models/response-entity';
 import { Optional,Injectable,Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import {RequestOptions, Request, RequestMethod} from '@angular/http';
+import { RequestOptions } from '@angular/http';
 
 @Injectable()
 /*@Component({
@@ -14,11 +14,16 @@ import {RequestOptions, Request, RequestMethod} from '@angular/http';
 })*/
 export class GenericRestService<T> {
 
+  headers: HttpHeaders;
+
   constructor(
       protected http: HttpClient,
       @Inject('url') @Optional() protected url?: string,
       @Inject('endpoint') @Optional() protected endpoint?: string
-  ) {}
+  ) {
+    this.headers = new HttpHeaders();
+    this.headers.append('Content-Type', 'application/json');
+  }
 
   public create(item: T): Observable<ResponseEntity<T>> {
     return this.http
@@ -27,7 +32,7 @@ export class GenericRestService<T> {
 
   public update(primaryKey: any, item: T): Observable<ResponseEntity<T>> {
     return this.http
-      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`,item);
+      .put<ResponseEntity<T>>(`${this.url}/${this.endpoint}/${primaryKey}`, item);
   }
 
 	public read(primaryKey: any): Observable<ResponseEntity<T>> {

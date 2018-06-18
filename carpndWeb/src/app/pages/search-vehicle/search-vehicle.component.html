@@ -1,24 +1,41 @@
-<h1 i18n="@@vehiclesTitle">vehiclesTitle</h1>
+<div class="col-md row">
 
-<div class="table-responsive-sm">
-	<table class="table table-bordered table-hover">
-		<thead class="thead-dark">
-			<tr>
-		    <th i18n="@@vehicleId">vehicleId</th>
-		    <th i18n="@@vehicleDescription">vehicleDescription</th> 
-		    <th i18n="@@vehicleCapacity">vehicleCapacity</th>
-		  </tr>
-		</thead>
-		<tbody class="table table-striped">
-		  <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: 10, currentPage: currentP }"> 
-		  	<td>{{ vehicle.id }}</td>
-		  	<td>{{ vehicle.description }}</td>
-		  	<td>{{ vehicle.passengerCapacity }}</td>
-		  </tr>
-		</tbody>
-	</table>
+	<div class="col-md-12">
+		<div class="row justify-content-md-center">
+			<h1 class="pageTitle" i18n="@@searchVehicleTitle">searchVehicleTitle</h1>
+		</div>
+	</div>
 
-	<div class="justify-content-center">
-		<pagination-controls (pageChange)="currentP = $event"></pagination-controls>
+	<br><br><br>
+
+	<div class="col-md-6">
+		<div class="row justify-content-md-center">
+			<div class="table-responsive-sm">
+				<table class="table table-hover">
+					<thead class="thead-dark">
+						<tr>
+					    <th i18n="@@publicationId">publicationId</th>
+					    <th i18n="@@publicationPricePerHour">publicationPricePerHour</th> 
+					    <th i18n="@@publicationPhone">publicationPhone</th>
+					  </tr>
+					</thead>
+					<tbody class="table table-striped">
+					  <tr *ngFor="let publication of publications | paginate: { itemsPerPage: 10, currentPage: currentP }"> 
+					  	<td>{{ publication.id }}</td>
+					  	<td>{{ publication.pricePerHour }}</td>
+					  	<td>{{ publication.phone }}</td>
+					  </tr>
+					</tbody>
+				</table>
+
+				<div class="justify-content-center">
+					<pagination-controls (pageChange)="currentP = $event"></pagination-controls>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<app-map [points]="pickUpZones()"></app-map>
 	</div>
 </div>

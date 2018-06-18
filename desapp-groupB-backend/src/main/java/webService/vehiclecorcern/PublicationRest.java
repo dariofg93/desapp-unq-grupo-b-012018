@@ -39,14 +39,14 @@ public class PublicationRest extends AbstractRest{
 	}
 
 	@PUT
-	@Path("/publication/{id}")
+	@Path("/{id}")
 	@Produces("application/json")
 	public Response updateVehicleById(@PathParam("id") final Long id, @RequestBody Publication post) {
 		return responseHandlingErrorsExecuting(()-> {publicationService.updateById(id, post); return post;}, JsonReturn.notFoundError("No se pudo modificar la publicaión"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@DELETE
-	@Path("/delete/{id}")
+	@Path("/{id}")
 	@Produces("application/json")
 	public Response deleteById(@PathParam("id") final Long id) {
 		return responseHandlingErrorsExecuting(()-> {publicationService.delete(publicationService.searchById(id)); return JsonReturn.success("OK");}, JsonReturn.notFoundError("No se encontro usuario con ese ID"), HttpStatus.BAD_REQUEST);
