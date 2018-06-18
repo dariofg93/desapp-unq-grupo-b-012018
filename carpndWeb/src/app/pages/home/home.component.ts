@@ -23,6 +23,7 @@ registerLocaleData(localeEs, 'es-AR');
 export class HomeComponent implements AfterViewChecked {
 
   profile: User = null;
+  currentP = 1;
 
   constructor(
     private usersService: UserService,

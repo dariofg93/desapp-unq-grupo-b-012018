@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   profile: any;
 
   constructor(
-    private auth: AuthService
+    public auth: AuthService
   ) { }
   
   ngOnInit() {

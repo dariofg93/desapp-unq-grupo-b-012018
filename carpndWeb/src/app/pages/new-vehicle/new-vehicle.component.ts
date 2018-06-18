@@ -44,9 +44,7 @@ export class NewVehicleComponent implements OnInit {
     }else{
       this.profile.myVehicles = [this.vehicle];
     }
-    this.usersService.update(this.profile.id,this.profile).subscribe(
-      data => console.log(data)
-    );
+    this.usersService.update(this.profile.id,this.profile).subscribe();
     this.router.navigate(['']);
   }
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { } from '@types/googlemaps';
+
+import { GeographicZoneDescription } from './../../../models/geographic-zone-description';
 
 @Component({
   selector: 'app-map',

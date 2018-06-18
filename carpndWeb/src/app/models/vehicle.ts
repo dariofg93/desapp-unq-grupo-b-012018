@@ -1,4 +1,5 @@
 import { Category } from './../models/categories';
+import { User } from './user';
 
 export class Vehicle {
 	id: number;
@@ -6,6 +7,7 @@ export class Vehicle {
   passengerCapacity: number;
   category: Category;
   pictures: string[];
+  owner: User;
 
   constructor(){
   	this.pictures = [];

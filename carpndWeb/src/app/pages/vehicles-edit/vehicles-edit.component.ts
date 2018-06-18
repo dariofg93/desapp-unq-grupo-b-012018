@@ -5,6 +5,8 @@ import { Router,ActivatedRoute } from "@angular/router";
 import { PATHBACKEND } from './../../../environments/environment';
 import { Vehicle } from './../../models/vehicle'
 import { GenericRestService } from './../../services/generic/generic-rest.service';
+import { Car,Scooter } from './../../models/categories';
+
 
 @Component({
   selector: 'app-vehicles-edit',
@@ -18,7 +20,13 @@ import { GenericRestService } from './../../services/generic/generic-rest.servic
 })
 export class VehiclesEditComponent implements OnInit {
 
-	vehicle: Vehicle;
+  vehicle: Vehicle;
+  categories = [
+		new Car(),
+		new Scooter()
+	];
+
+  return;
 
   constructor(
   	private vehiclesService: GenericRestService<Vehicle>,
@@ -31,5 +39,9 @@ export class VehiclesEditComponent implements OnInit {
   	this.vehiclesService.read(this.activatedRoute.snapshot.params.id).subscribe(
       data => this.vehicle = data.body
     );
+  }
+  saveVehicle(form):void {
+    this.vehiclesService.update(this.vehicle.id, this.vehicle);
+    this.router.navigate(['']);
   }
 }
