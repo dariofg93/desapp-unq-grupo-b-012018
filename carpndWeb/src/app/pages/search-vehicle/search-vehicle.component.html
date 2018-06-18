@@ -6,25 +6,34 @@
 		</div>
 	</div>
 
-	<br><br><br>
+	<br>
+	<br>
+	<br>
 
 	<div class="col-md-6">
 		<div class="row justify-content-md-center">
 			<div class="table-responsive-sm">
+				<div class="row justify-content-sm-left">
+					<a href="publications/new" class="btn btn-primary btn-margin" i18n="@@addPublications">
+						addPublications
+					</a>
+				</div>
+				<br>
 				<table class="table table-hover">
+
 					<thead class="thead-dark">
 						<tr>
-					    <th i18n="@@publicationId">publicationId</th>
-					    <th i18n="@@publicationPricePerHour">publicationPricePerHour</th> 
-					    <th i18n="@@publicationPhone">publicationPhone</th>
-					  </tr>
+							<th i18n="@@publicationId">publicationId</th>
+							<th i18n="@@publicationPricePerHour">publicationPricePerHour</th>
+							<th i18n="@@publicationPhone">publicationPhone</th>
+						</tr>
 					</thead>
 					<tbody class="table table-striped">
-					  <tr *ngFor="let publication of publications | paginate: { itemsPerPage: 10, currentPage: currentP }"> 
-					  	<td>{{ publication.id }}</td>
-					  	<td>{{ publication.pricePerHour }}</td>
-					  	<td>{{ publication.phone }}</td>
-					  </tr>
+						<tr *ngFor="let publication of publications | paginate: { itemsPerPage: 10, currentPage: currentP }">
+							<td>{{ publication.id }}</td>
+							<td>{{ publication.pricePerHour }}</td>
+							<td>{{ publication.phone }}</td>
+						</tr>
 					</tbody>
 				</table>
 

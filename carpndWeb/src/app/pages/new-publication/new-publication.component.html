@@ -1,0 +1,52 @@
+<div class="row justify-content-md-center">
+
+  <div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
+    <div class="row col-md-12 justify-content-md-center">
+      <h1 class="pageTitle" i18n="@@createpublication">createpublication</h1>
+    </div>
+
+    <form (ngSubmit)="savePublication(publicationForm)" #publicationForm="ngForm" class="col-md-12 justify-content-md-center">
+      <div class="form-group row col-md justify-content-sm-center">
+        <div>
+          <label class="col-md-4" for="city" i18n="@@city">city</label>
+          <select class="form-control col-md-4" id="city" name="city" [(ngModel)]="publication.city" #city="ngModel" required>
+            <option [ngValue]="undefined" disabled selected i18n="@@selectCity">selectCity</option>
+            <option *ngFor="let city of cities" [value]="city">{{city.getName()}}</option>
+          </select>
+
+          <label class="col-md-4" for="vehicle" i18n="@@vehicle">vehicle</label>
+
+          <select class="form-control col-md-4" id="vehicle" name="vehicle" [(ngModel)]="publication.publishedVehicle" #publishedVehicle="ngModel" required>
+            <option [ngValue]="undefined" disabled selected i18n="@@selectVehicle">selectAvailableVehicle</option>
+            <option *ngFor="let vehicle of profile.myVehicles" [value]="vehicle">{{vehicle.description}}</option>
+          </select>
+
+          
+          <label class="col-md-4" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
+          <input type="number" min="0" step=".01" class="form-control col-md-4" id="pricePerHour" placeholder="" ng-model="publication.pricePerHour" required>
+             
+          <label class="col-md-4" for="phone" i18n="@@phone">phone</label>
+          <input type="number" min="0" step="1" class="form-control col-md-4" id="phone" placeholder="" ng-model="publication.phone" required>
+
+          <label class="col-md-4" for="formDate" i18n="@@formDate">formDate</label>
+          <input type="date" value="today()" class="form-control col-md-4" id="formDate" placeholder="" ng-model="publication.formDate" required>
+             
+          <label class="col-md-4" for="toDate" i18n="@@toDate">toDate</label>
+          <input type="date" value="today()" class="form-control col-md-4" id="toDate" placeholder="" ng-model="publication.toDate" required>
+
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="form-group row col-md justify-content-md-center">
+        <button type="submit" class="btn btn-primary" [disabled]="!publicationForm.form.valid" i18n="@@save">save</button>
+        <button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+      </div>
+    </form>
+  </div>
+
+</div>
