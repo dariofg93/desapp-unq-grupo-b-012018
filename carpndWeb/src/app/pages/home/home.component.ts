@@ -24,6 +24,7 @@ export class HomeComponent implements AfterViewChecked {
 
   profile: User = null;
   currentP = 1;
+  setted = false;
 
   constructor(
     private usersService: UserService,
@@ -33,11 +34,13 @@ export class HomeComponent implements AfterViewChecked {
   ) {}
 
   ngAfterViewChecked(){
-    if (JSON.parse(localStorage.getItem('id')) && this.profile == null) {
+    if (JSON.parse(localStorage.getItem('id')) && this.profile == null && !this.setted) {
 
       this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
         data => this.profile = data.body
       );
+
+      this.setted = true;
     }
   }
 
@@ -47,6 +50,12 @@ export class HomeComponent implements AfterViewChecked {
 
   hasProfile(): boolean {
     return this.profile != null;
+  }
+
+  hasMovements(): boolean {
+    return  this.profile.movementsOfMonth != null && 
+            this.profile.movementsOfMonth.history != null &&
+            this.profile.movementsOfMonth.history.length > 0;
   }
 
   pathImage(vehicle: Vehicle): string {

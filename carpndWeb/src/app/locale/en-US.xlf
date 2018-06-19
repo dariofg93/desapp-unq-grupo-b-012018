@@ -2,28 +2,230 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="vehiclesTitle" datatype="html">
-        <source>vehiclesTitle</source>
-        <target>published vehicles list</target>
+      <trans-unit id="MyVehicles" datatype="html">
+        <source>MyVehicles</source>
+        <target>My vehicles</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/pages/vehicles-list/vehicles-list.component.ts</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="usersList" datatype="html">
-        <source>usersList</source>
-        <target>Users list</target>
+      <trans-unit id="image" datatype="html">
+        <source>image</source>
+        <target>Image</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="vehiclesList" datatype="html">
-        <source>vehiclesList</source>
-        <target>Vehicles list</target>
+      <trans-unit id="vehicleDescription" datatype="html">
+        <source>description</source>
+        <target>Description</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="vehicleCapacity" datatype="html">
+        <source>capacity</source>
+        <target>Capacity</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addVehicle" datatype="html">
+        <source>addVehicle</source>
+        <target>Add vehicle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Movements" datatype="html">
+        <source>Movements</source>
+        <target>Movements</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="PublicationRequests" datatype="html">
+        <source>PublicationRequests</source>
+        <target>Publication Requests</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="48a6299112fdcf827fb28e0e8a87b71304e0be1f" datatype="html">
+        <source>state: <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="INTERPOLATION" equiv-text="{{request.state.description}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>State: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <note priority="1" from="description">@state</note>
+      </trans-unit>
+      <trans-unit id="fe7e49835d322cde203f109a11ce60a8e28c8345" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="INTERPOLATION" equiv-text="{{request.totalHours}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> hours</source>
+        <target>hours</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/home/home.component.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <note priority="1" from="description">@hours</note>
+      </trans-unit>
+      <trans-unit id="editProfile" datatype="html">
+        <source>editProfile</source>
+        <target>Edit profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="firstName" datatype="html">
+        <source>firstName</source>
+        <target>First Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
           <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lastName" datatype="html">
+        <source>lastName</source>
+        <target>Last Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cuil" datatype="html">
+        <source>cuil</source>
+        <target>Cuil</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="creditsAccount" datatype="html">
+        <source>creditsAccount</source>
+        <target>Credits account</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>email</source>
+        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="save" datatype="html">
+        <source>save</source>
+        <target>Save</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/vehicles-edit/vehicles-edit.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-vehicle/new-vehicle.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="return" datatype="html">
+        <source>return</source>
+        <target>Return</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/users-edit/users-edit.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/vehicles-edit/vehicles-edit.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-vehicle/new-vehicle.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editVehicle" datatype="html">
+        <source>editVehicle</source>
+        <target>Edit vehicle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/vehicles-edit/vehicles-edit.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="description" datatype="html">
+        <source>description</source>
+        <target>Description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/vehicles-edit/vehicles-edit.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-vehicle/new-vehicle.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="passengerCapacity" datatype="html">
+        <source>passengerCapacity</source>
+        <target>Passenger capacity</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/vehicles-edit/vehicles-edit.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-vehicle/new-vehicle.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="category" datatype="html">
+        <source>category</source>
+        <target>Category</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/vehicles-edit/vehicles-edit.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-vehicle/new-vehicle.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="selectCategory" datatype="html">
+        <source>selectCategory</source>
+        <target>Select category</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/vehicles-edit/vehicles-edit.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-vehicle/new-vehicle.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="searchVehicle" datatype="html">
+        <source>searchVehicle</source>
+        <target>Search vehicle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="publications" datatype="html">
@@ -31,23 +233,15 @@
         <target>Publications</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="requests" datatype="html">
-        <source>requests</source>
-        <target>Requests</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="selectLanguage" datatype="html">
         <source>selectLanguage</source>
-        <target>Select a language</target>
+        <target>Select Language</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="translate" datatype="html">
@@ -55,15 +249,192 @@
         <target>Translate</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profile" datatype="html">
+        <source>profile</source>
+        <target>Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logOut" datatype="html">
+        <source>logOut</source>
+        <target>Log out</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navbar/header/header.component.ts</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footerText" datatype="html">
         <source>footerText</source>
-        <target>©2018, Rights reserved to the kids who encoded Carpnd</target>
+        <target>©2018, Rights reserved to the kids who elbowed Carpnd</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/navbar/footer/footer.component.ts</context>
           <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginRequired" datatype="html">
+        <source>loginRequired</source>
+        <target>You need to be logged in to access the application</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/login/login.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb0eb8b8e2a7c68a08c23c283c76b6b95334f61c" datatype="html">
+        <source>loginButton</source>
+        <target>Log in</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/login/login.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <note priority="1" from="description">loginButton</note>
+      </trans-unit>
+      <trans-unit id="createVehicle" datatype="html">
+        <source>createVehicle</source>
+        <target>Create vehicle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-vehicle/new-vehicle.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="searchVehicleTitle" datatype="html">
+        <source>searchVehicleTitle</source>
+        <target>Search ideal vehicle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/search-vehicle/search-vehicle.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addPublications" datatype="html">
+        <source>addPublications</source>
+        <target>Add publication</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/search-vehicle/search-vehicle.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="publicationVehicleDescription" datatype="html">
+        <source>description</source>
+        <target>Description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/search-vehicle/search-vehicle.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="publicationPricePerHour" datatype="html">
+        <source>publicationPricePerHour</source>
+        <target>Price Per Hour</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/search-vehicle/search-vehicle.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="publicationPhone" datatype="html">
+        <source>publicationPhone</source>
+        <target>Phone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/search-vehicle/search-vehicle.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="publicationPickUpZone" datatype="html">
+        <source>publicationPickUpZone</source>
+        <target>Pick up Zone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/search-vehicle/search-vehicle.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createpublication" datatype="html">
+        <source>createpublication</source>
+        <target>Create publication</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="city" datatype="html">
+        <source>city</source>
+        <target>City</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="selectCity" datatype="html">
+        <source>selectCity</source>
+        <target>Select city</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="vehicle" datatype="html">
+        <source>vehicle</source>
+        <target>Vehicle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="selectVehicle" datatype="html">
+        <source>selectAvailableVehicle</source>
+        <target>Select vehicle</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pricePerHour" datatype="html">
+        <source>pricePerHour</source>
+        <target>Price Per Hour</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="phone" datatype="html">
+        <source>phone</source>
+        <target>Phone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formDate" datatype="html">
+        <source>formDate</source>
+        <target>From date</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="toDate" datatype="html">
+        <source>toDate</source>
+        <target>To date</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pickUpZoneAddress" datatype="html">
+        <source>pickUpZoneAddress</source>
+        <target>Pick up Zone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dropZoneAddress" datatype="html">
+        <source>dropZoneAddress</source>
+        <target>Drop Zone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/pages/new-publication/new-publication.component.ts</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
     </body>

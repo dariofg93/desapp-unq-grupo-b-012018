@@ -41,7 +41,7 @@ export class VehiclesEditComponent implements OnInit {
     );
   }
   saveVehicle(form):void {
-    this.vehiclesService.update(this.vehicle.id, this.vehicle);
+    this.vehiclesService.update(this.vehicle.id, this.vehicle).subscribe();
     this.router.navigate(['']);
   }
 }
