@@ -18,7 +18,7 @@ public class GeographicZoneDescription extends Entity {
 		longitud = aLongitud;
 		
 		if(this.latitud != null && this.longitud != null && this.description ==null) {
-			this.description = this.getAddressByGpsCoordinates(this.longitud.toString(), this.latitud.toString());
+			this.description = this.getAddressByGpsCoordinates(this.latitud.toString(),this.longitud.toString() );
 		}
 	}
 
@@ -48,14 +48,16 @@ public class GeographicZoneDescription extends Entity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public Boolean equalsTo(GeographicZoneDescription geographicZoneDescription) {
+	
+	@Override
+	public boolean equals(Object object) {
+		GeographicZoneDescription geographicZoneDescription = (GeographicZoneDescription) object;
 		return (geographicZoneDescription.getLatitud().doubleValue() == this.getLatitud().doubleValue()
 				&& geographicZoneDescription.getLongitud().doubleValue() == this.getLongitud().doubleValue());
 
 	}
 
-	private String getAddressByGpsCoordinates(String lng, String lat) {
+	private String getAddressByGpsCoordinates(String lat, String lng ) {
 	    Geocoder geocoder = new Geocoder();
 	    LatLng location = new LatLng(lat,  lng);
 	    String addressResult = "unknown address";

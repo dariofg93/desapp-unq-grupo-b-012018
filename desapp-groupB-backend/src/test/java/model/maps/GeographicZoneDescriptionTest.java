@@ -61,9 +61,9 @@ public class GeographicZoneDescriptionTest {
 		zone.setLatitud(latitud);
 		zone.setLongitud(longitud);
 
-		assertFalse(zone.equalsTo(new GeographicZoneDescription(0.0, longitud)));
-		assertFalse(zone.equalsTo(new GeographicZoneDescription(latitud, 0.0)));
-		assertTrue(zone.equalsTo(new GeographicZoneDescription(latitud, longitud)));
+		assertFalse(zone.equals(new GeographicZoneDescription(0.0, longitud)));
+		assertFalse(zone.equals(new GeographicZoneDescription(latitud, 0.0)));
+		assertEquals(zone, (new GeographicZoneDescription(latitud, longitud)));
 	}
 
 }

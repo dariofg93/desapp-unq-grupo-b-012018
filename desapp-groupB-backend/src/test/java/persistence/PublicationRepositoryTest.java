@@ -86,8 +86,6 @@ public class PublicationRepositoryTest {
 		assertEquals(restoredPublication.getPublishedVehicle().getId(), vehicle.getId());
 		assertEquals(restoredPublication.getPhone(), 13454344, 0);
 		assertEquals(restoredPublication.getPricePerHour(), new Double(8.5));
-		assertTrue(restoredPublication.getDropZone().equalsTo(dropZone));
-		assertTrue(restoredPublication.getPickUpZone().equalsTo(pickUpZone));
 		assertTrue(restoredPublication.allBookingRequest().isEmpty());
 
 	}
@@ -161,8 +159,6 @@ public class PublicationRepositoryTest {
 		assertEquals(restoredPublication.getPublishedVehicle().getId(), vehicle.getId());
 		assertEquals(restoredPublication.getPhone(), 13454344, 0);
 		assertEquals(restoredPublication.getPricePerHour(), new Double(8.5));
-		assertTrue(restoredPublication.getDropZone().equalsTo(dropZone));
-		assertTrue(restoredPublication.getPickUpZone().equalsTo(pickUpZone));
 		assertTrue(restoredPublication.allBookingRequest().isEmpty());
 
 	}
