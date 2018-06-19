@@ -22,6 +22,7 @@ import { NewVehicleComponent } from './pages/new-vehicle/new-vehicle.component';
 import { SeeRequestComponent } from './pages/see-request/see-request.component';
 import { SearchVehicleComponent } from './pages/search-vehicle/search-vehicle.component';
 import { NewPublicationComponent } from './pages/new-publication/new-publication.component';
+import { PublicationListComponent } from './pages/publication-list/publication-list.component';
 
 // Routes Constants:
 const appRoutes: Routes = [
@@ -40,6 +41,10 @@ const appRoutes: Routes = [
   {
     path: 'vehicles/new',
     component: NewVehicleComponent
+  },
+  {
+    path: 'publications/',
+    component: PublicationListComponent
   },
   {
     path: 'publications/new',
@@ -74,7 +79,8 @@ const appRoutes: Routes = [
     NewVehicleComponent,
     SeeRequestComponent,
     SearchVehicleComponent,
-    NewPublicationComponent
+    NewPublicationComponent,
+    PublicationListComponent
   ],
   imports: [
     NgxPaginationModule,
