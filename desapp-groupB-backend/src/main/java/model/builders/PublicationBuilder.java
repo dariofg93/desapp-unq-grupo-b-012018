@@ -1,10 +1,8 @@
 package model.builders;
 
-import java.util.List;
 
 import org.joda.time.DateTime;
 
-import model.booking.BookingRequest;
 import model.city.City;
 import model.maps.GeographicZoneDescription;
 import model.publication.Publication;
@@ -24,20 +22,7 @@ public class PublicationBuilder {
 		return this;
 	}
 
-	public Publication createPublicationForUserAndVehicle(User anUser, Vehicle aVehicle, City city, String stringDateFrom, String stringDateTo, Double price) {
-//		/*
-//		 * Esto es una cosa muy fea. SI queda tiempo se refectoriza. No es parte de lo importante de la app.
-//		 */
-//		User someUser;
-//		if(anUser == null) {
-//			someUser = new User();
-//		}else {
-//			someUser = anUser;
-//		}
-//		/*
-//		 * Esto es una cosa muy fea. SI queda tiempo se refectoriza. No es parte de lo importante de la app.
-//		 */
-//		
+	public Publication createPublicationForUserAndVehicle(User anUser, Vehicle aVehicle, City city, String stringDateFrom, String stringDateTo, Double price) {		
 		DateTime fromDate;
 		DateTime toDate;
 		GeographicZoneDescription pickUpZone;

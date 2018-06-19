@@ -52,10 +52,41 @@ public class PublicationsDummy implements DummyData {
 		publications.add(builder.createPublicationForUserAndVehicle(
 				userService.retriveAll().get(userService.retriveAll().size() - 1),
 				vehicleService.retriveAll().get(vehicleService.retriveAll().size() - 1), new City("Bernal"),
-				"2017-04-01", "2017-04-03", new Double(8.6)));
-
+				"2018-04-01", "2018-04-03", new Double(8.6)));
 		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
-				vehicleService.retriveAll().get(0), new City("La Plata"), "2017-12-01", "2018-12-03", new Double(8.6)));
+				vehicleService.retriveAll().get(0), new City("La Plata"), "2018-12-01", "2018-12-03", new Double(8.6)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
+				vehicleService.retriveAll().get(2), new City("Bernal"), "2018-09-04", "2018-12-03", new Double(15.6)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(7),
+				vehicleService.retriveAll().get(0), new City("Bernal"), "2018-08-01", "2018-12-03", new Double(3.4)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(4),
+				vehicleService.retriveAll().get(1), new City("Bernal"), "2018-11-01", "2018-12-03", new Double(6.0)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(3),
+				vehicleService.retriveAll().get(2), new City("Bernal"), "2018-11-01", "2018-12-03", new Double(14.6)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
+				vehicleService.retriveAll().get(3), new City("Bernal"), "2018-07-14", "2018-12-03", new Double(10.6)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(6),
+				vehicleService.retriveAll().get(6), new City("Bernal"), "2018-09-01", "2018-12-03", new Double(7.3)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(7),
+				vehicleService.retriveAll().get(7), new City("Bernal"), "2018-10-01", "2018-12-03", new Double(11.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(3),
+				vehicleService.retriveAll().get(8), new City("Bernal"), "2018-09-01", "2018-12-03", new Double(1.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(1),
+				vehicleService.retriveAll().get(5), new City("Bernal"), "2018-11-05", "2018-12-03", new Double(21.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(4),
+				vehicleService.retriveAll().get(9), new City("Bernal"), "2018-07-05", "2018-12-03", new Double(11.45)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(3),
+				vehicleService.retriveAll().get(11), new City("Bernal"), "2018-03-05", "2018-12-03", new Double(5.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(5),
+				vehicleService.retriveAll().get(10), new City("Bernal"), "2018-09-24", "2018-12-03", new Double(12.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(4),
+				vehicleService.retriveAll().get(2), new City("Bernal"), "2018-01-24", "2018-12-03", new Double(14.56)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(8),
+				vehicleService.retriveAll().get(3), new City("Bernal"), "2018-07-04", "2018-12-03", new Double(6.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(7),
+				vehicleService.retriveAll().get(4), new City("Bernal"), "2018-01-14", "2018-12-03", new Double(52.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(4),
+				vehicleService.retriveAll().get(6), new City("Bernal"), "2018-02-15", "2018-12-03", new Double(15.5)));
 
 	}
 
@@ -63,7 +94,7 @@ public class PublicationsDummy implements DummyData {
 		return requestBuilder.createBookingRequest()
 		        .withRequester(new UsersDummy().getUsers().get(1))
 		        .withTotalHours(20)
-		        .withDateTimeOfReservation(new DateTime(2017,2,15,0,0))
+		        .withDateTimeOfReservation(new DateTime(2018,2,15,0,0))
 		        .withHoursOfTheReservation(81)
 		        .build();
 	}

@@ -53,7 +53,7 @@ public class VehiclesDummy implements DummyData{
 	private void initializeContext() {
 		
 	    Vehicle vehicle1 = builder.createVehicle()
-                .withDescription("Un auto muy veloz!")
+                .withDescription("Ford KA usadito")
                 .withPassengerCapacity(2)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
@@ -62,7 +62,7 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle1);
 
         Vehicle vehicle2 = builder.createVehicle()
-                .withDescription("Moto 150cc, segura y muy potente para el tamaño de su motor")
+                .withDescription("Kawasaki ninja")
                 .withPassengerCapacity(1)
                 .withCategory(new Scooter())
                 .withPictures(new ArrayList<>())
@@ -71,7 +71,7 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle2);
 
         Vehicle vehicle3 = builder.createVehicle()
-                .withDescription("Descripcion")
+                .withDescription("Renault 12")
                 .withPassengerCapacity(2)
                 .withCategory(new Scooter())
                 .withPictures(new ArrayList<>())
@@ -80,7 +80,7 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle3);
 
         Vehicle vehicle4 = builder.createVehicle()
-                .withDescription("Manejar con cuidado")
+                .withDescription("Mondial 150cc")
                 .withPassengerCapacity(1)
                 .withCategory(new Scooter())
                 .withPictures(new ArrayList<>())
@@ -89,7 +89,7 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle4);
 
         Vehicle vehicle5 = builder.createVehicle()
-                .withDescription("Cuatro ruedas para girafiarla toda")
+                .withDescription("Toyota Hilux 2009")
                 .withPassengerCapacity(1)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
@@ -98,16 +98,16 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle5);
 
         Vehicle vehicle6 = builder.createVehicle()
-                .withDescription("Sirve mucho para el trabajo")
+                .withDescription("Chevrolet Cruze")
                 .withPassengerCapacity(1)
-                .withCategory(new Scooter())
+                .withCategory(new Car())
                 .withPictures(new ArrayList<>())
-                .withOwner(userService.retriveAll().get(1))
+                .withOwner(userService.retriveAll().get(3))
                 .build();
         this.vehicles.add(vehicle6);
 
         Vehicle vehicle7 = builder.createVehicle()
-                .withDescription("Un auto muy veloz!")
+                .withDescription("Renault Sandero 2017")
                 .withPassengerCapacity(2)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
@@ -116,7 +116,7 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle7);
 
         Vehicle vehicle8 = builder.createVehicle()
-                .withDescription("Si le gusta la velocidad, comprelo YA!")
+                .withDescription("Yamaha FZ")
                 .withPassengerCapacity(1)
                 .withCategory(new Scooter())
                 .withPictures(new ArrayList<>())
@@ -125,7 +125,7 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle8);
 
         Vehicle vehicle9 = builder.createVehicle()
-                .withDescription("Otra Descripcion")
+                .withDescription("Ford Focus 2008")
                 .withPassengerCapacity(4)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
@@ -134,7 +134,7 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle9);
 
         Vehicle vehicle10 = builder.createVehicle()
-                .withDescription("Moto 150cc, segura y muy potente para el tamaño de su motor")
+                .withDescription("Gilera 250")
                 .withPassengerCapacity(1)
                 .withCategory(new Scooter())
                 .withPictures(new ArrayList<>())
@@ -143,20 +143,20 @@ public class VehiclesDummy implements DummyData{
         this.vehicles.add(vehicle10);
 
         Vehicle vehicle11 = builder.createVehicle()
-                .withDescription("No esta mal...")
+                .withDescription("Vespa 1998")
                 .withPassengerCapacity(1)
                 .withCategory(new Scooter())
                 .withPictures(new ArrayList<>())
-                .withOwner(userService.retriveAll().get(0))
+                .withOwner(userService.retriveAll().get(5))
                 .build();
         this.vehicles.add(vehicle11);
 
         Vehicle vehicle12 = builder.createVehicle()
-                .withDescription("Muy bueno para irte de vacaciones, se maneja solo...")
+                .withDescription("Vento 2.0")
                 .withPassengerCapacity(4)
                 .withCategory(new Car())
                 .withPictures(new ArrayList<>())
-                .withOwner(userService.retriveAll().get(1))
+                .withOwner(userService.retriveAll().get(7))
                 .build();
         this.vehicles.add(vehicle12);
 		
