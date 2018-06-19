@@ -13,7 +13,7 @@
 	<div class="col-md-6">
 		<div class="row justify-content-md-center">
 			<div class="table-responsive-sm">
-				<div>
+				<div >
 					<a href="publications/new" class="btn btn-primary btn" i18n="@@addPublications">
 						addPublications
 					</a>
@@ -23,16 +23,18 @@
 
 					<thead class="thead-dark">
 						<tr>
-							<th i18n="@@publicationId">publicationId</th>
+							<th i18n="@@publicationVehicleDescription">description</th>
 							<th i18n="@@publicationPricePerHour">publicationPricePerHour</th>
 							<th i18n="@@publicationPhone">publicationPhone</th>
+							<th i18n="@@publicationPickUpZone">publicationPickUpZone</th>
 						</tr>
 					</thead>
 					<tbody class="table table-striped">
 						<tr *ngFor="let publication of publications | paginate: { itemsPerPage: 10, currentPage: currentP }">
-							<td>{{ publication.id }}</td>
+							<td>{{ publication.publishedVehicle.description }}</td>
 							<td>{{ publication.pricePerHour }}</td>
 							<td>{{ publication.phone }}</td>
+							<td>{{ publication.pickUpZone.description }}</td>
 						</tr>
 					</tbody>
 				</table>

@@ -104,7 +104,7 @@ public class User extends Entity {
 	}
 
 	public void deleteExpiredPublications() {
-		this.myPublications = this.myPublications.stream().filter(publication -> !publication.isExpired())
+		this.myPublications = this.myPublications.stream().filter(publication -> !publication.expired())
 				.collect(Collectors.toList());
 
 		this.movementsOfMonth.addToHistory("You have deleted posts that have expired!");

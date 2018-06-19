@@ -11,10 +11,15 @@ public class GeographicZoneDescription extends Entity {
 
 	private Double latitud;
 	private Double longitud;
+	private String description;
 
 	public GeographicZoneDescription(Double aLatitud, Double aLongitud) {
 		latitud = aLatitud;
 		longitud = aLongitud;
+		
+		if(this.latitud != null && this.longitud != null && this.description ==null) {
+			this.description = this.getAddressByGpsCoordinates(this.longitud.toString(), this.latitud.toString());
+		}
 	}
 
 	public GeographicZoneDescription() {
@@ -36,6 +41,14 @@ public class GeographicZoneDescription extends Entity {
 		this.longitud = longitud;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Boolean equalsTo(GeographicZoneDescription geographicZoneDescription) {
 		return (geographicZoneDescription.getLatitud().doubleValue() == this.getLatitud().doubleValue()
 				&& geographicZoneDescription.getLongitud().doubleValue() == this.getLongitud().doubleValue());
@@ -54,6 +67,11 @@ public class GeographicZoneDescription extends Entity {
 	        GeocodeResponse response = geocoder.geocode(request);
 	        if (response.getStatus() == GeocoderStatus.OK) {
 	           addressResult = response.getResults().get(0).getFormattedAddress();
+	        }else {
+	        	System.out.println("-------------------------------------------");
+	        	System.out.println("Latitud: " + lat);
+	        	System.out.println("onguitud: " + lng);
+	        	System.out.println(response);
 	        }
 	    return addressResult;
 	}

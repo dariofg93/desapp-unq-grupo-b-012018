@@ -75,18 +75,35 @@ public class UserRest extends AbstractRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
 		System.out.println(user);
-		System.out.println("ZZZZ");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"----------------------------------------------------------------------------------------------------");
 		return responseHandlingErrorsExecuting((() -> {
 			userService.updateById(id, user);
-			user.getMyVehicles().forEach((v) -> vehicleService.saveOrUpdate(v));
-			; return user;}),  JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"), HttpStatus.BAD_REQUEST);		
+			updateRelatedObjectFrom(user);
+			;
+			return user;
+		}), JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"),
+				HttpStatus.BAD_REQUEST);
 	}
 
 	@DELETE
 	@Path("/{id}")
 	@Produces("application/json")
-	public Response deleteById(@PathParam("id") final Long id) {		
-		return responseHandlingErrorsExecuting((() -> {userService.delete(userService.searchById(id)); return JsonReturn.success("OK");}),  JsonReturn.notFoundError("No se encontro usuario con ese ID"), HttpStatus.BAD_REQUEST);		
+	public Response deleteById(@PathParam("id") final Long id) {
+		return responseHandlingErrorsExecuting((() -> {
+			userService.delete(userService.searchById(id));
+			return JsonReturn.success("OK");
+		}), JsonReturn.notFoundError("No se encontro usuario con ese ID"), HttpStatus.BAD_REQUEST);
 
 	}
 
@@ -130,5 +147,12 @@ public class UserRest extends AbstractRest {
 		anUser.setMyPublications(
 				publicationService.selectByFunction((publication) -> publication.getUser().getId() == anUser.getId()));
 
+	}
+
+	private void updateRelatedObjectFrom(User user) {
+		user.getMyVehicles().forEach((v) -> v.setOwner(user));
+		user.getMyVehicles().forEach((v) -> vehicleService.saveOrUpdate(v));
+		user.getMyPublications().forEach((p) -> p.setUser(user));
+		user.getMyPublications().forEach((p) -> publicationService.saveOrUpdate(p));
 	}
 }

@@ -24,8 +24,18 @@
 	        <label class="col-md-4" for="cuil" i18n="@@cuil">cuil</label>
 	        <input type="text" class="form-control col-md-4" id="cuil" name="cuil"
 	               [(ngModel)]="profile.cuil">
-	      </div>
-	 
+				</div>
+				
+	      <div class="form-group row col-md justify-content-md-center">
+						<label class="col-md-4" for="creditsAccount" i18n="@@creditsAccount">creditsAccount</label>
+						<input type="number" min="0" class="form-control col-md-4" id="creditsAccount" name="creditsAccount"
+									 [(ngModel)]="profile.creditsAccount.amount">
+					</div>
+					<div class="form-group row col-md justify-content-md-center">
+							<label class="col-md-4" for="creditsAccount" i18n="@@email">email</label>
+							<textarea readonly class="form-control col-md-4" id="email" name="email"
+									[(ngModel)]="profile.email.accountName"></textarea>
+						</div>
 	 			<div class="form-group row col-md justify-content-md-center">
 		      <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid" i18n="@@save">save</button>
 		      <button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>

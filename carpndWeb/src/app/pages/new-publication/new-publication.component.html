@@ -6,33 +6,46 @@
     </div>
 
     <form (ngSubmit)="savePublication(publicationForm)" #publicationForm="ngForm" class="col-md-12 justify-content-md-center">
-      <div class="form-group row col-md justify-content-sm-center">
+      <div class="form-group row col-md justify-content-sm">
         <div>
-          <label class="col-md-4" for="city" i18n="@@city">city</label>
-          <select class="form-control col-md-4" id="city" name="city" [(ngModel)]="publication.city" #city="ngModel" required>
+          <label class="col-md-12" for="city" i18n="@@city">city</label>
+          <select class="form-control col-md-12" id="city" name="city" [(ngModel)]="publication.city" #city="ngModel" required>
             <option [ngValue]="undefined" disabled selected i18n="@@selectCity">selectCity</option>
             <option *ngFor="let city of cities" [value]="city">{{city.getName()}}</option>
           </select>
 
-          <label class="col-md-4" for="vehicle" i18n="@@vehicle">vehicle</label>
+          <label class="col-md-12" for="vehicle" i18n="@@vehicle">vehicle</label>
 
-          <select class="form-control col-md-4" id="vehicle" name="vehicle" [(ngModel)]="publication.publishedVehicle" #publishedVehicle="ngModel" required>
+          <select class="form-control col-md-12" id="vehicle" name="vehicle" [(ngModel)]="publication.publishedVehicle" #publishedVehicle="ngModel"
+            required>
             <option [ngValue]="undefined" disabled selected i18n="@@selectVehicle">selectAvailableVehicle</option>
             <option *ngFor="let vehicle of profile.myVehicles" [value]="vehicle">{{vehicle.description}}</option>
           </select>
 
-          
-          <label class="col-md-4" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
-          <input type="number" min="0" step=".01" class="form-control col-md-4" id="pricePerHour" placeholder="" ng-model="publication.pricePerHour" required>
-             
-          <label class="col-md-4" for="phone" i18n="@@phone">phone</label>
-          <input type="number" min="0" step="1" class="form-control col-md-4" id="phone" placeholder="" ng-model="publication.phone" required>
 
-          <label class="col-md-4" for="formDate" i18n="@@formDate">formDate</label>
-          <input type="date" value="today()" class="form-control col-md-4" id="formDate" placeholder="" ng-model="publication.formDate" required>
-             
-          <label class="col-md-4" for="toDate" i18n="@@toDate">toDate</label>
-          <input type="date" value="today()" class="form-control col-md-4" id="toDate" placeholder="" ng-model="publication.toDate" required>
+          <label class="col-md-12" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
+          <input type="number" min="0" step=".01" class="form-control col-md-12" id="pricePerHour" placeholder="" ng-model="publication.pricePerHour"
+            required>
+
+          <label class="col-md-12" for="phone" i18n="@@phone">phone</label>
+          <input type="number" min="0" step="1" class="form-control col-md-12" id="phone" placeholder="" ng-model="publication.phone"
+            required>
+
+          <label class="col-md-12" for="formDate" i18n="@@formDate">formDate</label>
+          <input type="date" value="today()" class="form-control col-md-12" id="formDate" placeholder="" ng-model="publication.formDate"
+            required>
+
+          <label class="col-md-12" for="toDate" i18n="@@toDate">toDate</label>
+          <input type="date" value="today()" class="form-control col-md-12" id="toDate" placeholder="" ng-model="publication.toDate"
+            required>
+
+          <label class="col-md-12" for="pickUpZoneAddress" i18n="@@pickUpZoneAddress">pickUpZoneAddress</label>
+          <input type="text" class="form-control col-md-12" id="toDate" placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires" ng-model="pickUpZoneAddress"
+            required>
+
+          <label class="col-md-12" for="dropZoneAddress" i18n="@@dropZoneAddress">dropZoneAddress</label>
+          <input type="text" class="form-control col-md-12" id="dropZoneAddress" placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires"
+            ng-model=dropZoneAddress required>
 
 
 

@@ -71,7 +71,7 @@ public class Publication extends Entity{
     	return hours;
     }
 
-    public Boolean isExpired() {
+    public Boolean expired() {
         return this.toDate.minusHours(1).isAfter(DateTime.now());
     }
 

@@ -26,7 +26,10 @@ export class SearchVehicleComponent implements OnInit {
     private publicationsService: GenericRestService<Publication>, 
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+
+    this.publications = [] 
+  }
 
   ngOnInit() {
     this.publicationsService.list()
@@ -36,8 +39,7 @@ export class SearchVehicleComponent implements OnInit {
   }
 
   pickUpZones(): GeographicZoneDescription[]{
-    return this.publications?
-      this.publications.map(function(p) { return p.pickUpZone }):
-      []
+    return this.publications.map(function(p) { return p.pickUpZone })
   }
+
 }

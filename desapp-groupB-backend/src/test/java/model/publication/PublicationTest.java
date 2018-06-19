@@ -173,7 +173,7 @@ public class PublicationTest {
 
 		Publication anotherPublication = new Publication(vehicle, fromDate, DateTime.now().plusDays(9), user, city, pickUpZone , dropZone, new Double(8.5), 13454344);
 	
-		assertTrue(anotherPublication.isExpired());
+		assertTrue(anotherPublication.expired());
 	}
 	
 	

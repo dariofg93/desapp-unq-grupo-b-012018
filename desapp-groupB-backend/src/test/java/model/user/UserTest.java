@@ -217,9 +217,9 @@ public class UserTest {
                 .withPublications(manyPublications)
                 .build();
 
-        when(anyPublicationMock.isExpired()).thenReturn(true);
-        when(anyPublicationMock2.isExpired()).thenReturn(false);
-        when(anyPublicationMock3.isExpired()).thenReturn(false);
+        when(anyPublicationMock.expired()).thenReturn(true);
+        when(anyPublicationMock2.expired()).thenReturn(false);
+        when(anyPublicationMock3.expired()).thenReturn(false);
 
         anyUser.deleteExpiredPublications();
 

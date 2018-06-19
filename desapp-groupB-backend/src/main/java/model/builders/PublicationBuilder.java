@@ -30,9 +30,10 @@ public class PublicationBuilder {
 
 		fromDate = DateTime.parse(stringDateFrom);
 		toDate = DateTime.parse(stringDateTo);
-		pickUpZone = new GeographicZoneDescription(-58.302840100000026, -34.6907607);
-		dropZone = new GeographicZoneDescription(-58.302840100000026, -34.6907607);
+		pickUpZone = new GeographicZoneDescription( -34.706189, -58.277137);
+		dropZone =  new GeographicZoneDescription( -34.690761, -58.30284);
 		return new Publication(aVehicle, fromDate, toDate,anUser, city, pickUpZone, dropZone, price, 13454344);
 	}
+	
 
 }

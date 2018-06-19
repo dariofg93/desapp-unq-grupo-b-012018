@@ -21,5 +21,10 @@ export class User {
   constructor( email: string){
   	this.email = new Email(email);
     this.myPublications = [];
+    this.myVehicles = [];
+  }
+
+  name(){
+    return this.firstName+ ' ' + this.lastName;
   }
 }
