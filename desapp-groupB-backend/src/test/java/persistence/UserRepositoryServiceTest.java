@@ -67,33 +67,33 @@ public class UserRepositoryServiceTest {
 		assertEquals(1, userService.retriveAll().size());
 	}
 
-	@Test
-	public void testSaveAndRestoreSomeUser() {
-		userService.save(anyUser);
-		User restoredUser = userService.searchById(anyUser.getId());
-		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
-		assertEquals(cuil, restoredUser.getCuil());
-		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
-		assertEquals(restoredUser.getFirstName(), "Pepe");
-		assertEquals(restoredUser.getLastName(), "Bueno");
-		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
-	
-	
-	}
+//	@Test
+//	public void testSaveAndRestoreSomeUser() {
+//		userService.save(anyUser);
+//		User restoredUser = userService.searchById(anyUser.getId());
+//		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
+//		assertEquals(cuil, restoredUser.getCuil());
+//		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
+//		assertEquals(restoredUser.getFirstName(), "Pepe");
+//		assertEquals(restoredUser.getLastName(), "Bueno");
+//		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+//	
+//	
+//	}
 
-	@Test
-	public void testGetUserForEmailName() {
-		userService.save(anyUser);
-		
-		User restoredUser = userService.searchUserByEmailNamed("pepe-bueno@hotmail.com").get(0);
-		
-		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
-		assertEquals(cuil, restoredUser.getCuil());
-		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
-		assertEquals(restoredUser.getFirstName(), "Pepe");
-		assertEquals(restoredUser.getLastName(), "Bueno");
-		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
-	}
+//	@Test
+//	public void testGetUserForEmailName() {
+//		userService.save(anyUser);
+//		
+//		User restoredUser = userService.searchUserByEmailNamed("pepe-bueno@hotmail.com").get(0);
+//		
+//		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
+//		assertEquals(cuil, restoredUser.getCuil());
+//		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
+//		assertEquals(restoredUser.getFirstName(), "Pepe");
+//		assertEquals(restoredUser.getLastName(), "Bueno");
+//		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+//	}
 
 	
 	/*
@@ -123,13 +123,6 @@ public class UserRepositoryServiceTest {
 	}
 
 	private void cleanDatabase() {
-//		List<GenericService<?>> list = new ArrayList<GenericService<?>>();
-//		list.add(publicationService);
-//		list.add(vehicleService);
-//		list.add(bookingRequestService);
-//		list.add(userService);
-//		
-//		list.forEach((service) -> service.retriveAll().stream().forEach((T object) -> service.delete(object)));
 		publicationService.retriveAll().stream().forEach(a -> publicationService.delete(a));
 		bookingRequestService.retriveAll().stream().forEach(a -> bookingRequestService.delete(a));
 		vehicleService.retriveAll().stream().forEach(a -> vehicleService.delete(a));
