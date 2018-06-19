@@ -53,9 +53,16 @@ export class NewPublicationComponent implements OnInit {
     return this.profile.myPublications.map(function (p) { return p.pickUpZone })
   }
 
-  savePublication(a) {
-
-  }
+  savePublication(form) {
+      if (this.profile.myPublications) {
+        this.profile.myPublications.push(this.publication);
+      }else{
+        this.profile.myPublications = [this.publication];
+      }
+      this.usersService.update(this.profile.id,this.profile).subscribe();
+      this.router.navigate(['']);
+    }
+  
 
 }
 

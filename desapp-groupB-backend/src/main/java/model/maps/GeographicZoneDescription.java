@@ -67,12 +67,8 @@ public class GeographicZoneDescription extends Entity {
 	        GeocodeResponse response = geocoder.geocode(request);
 	        if (response.getStatus() == GeocoderStatus.OK) {
 	           addressResult = response.getResults().get(0).getFormattedAddress();
-	        }else {
-	        	System.out.println("-------------------------------------------");
-	        	System.out.println("Latitud: " + lat);
-	        	System.out.println("onguitud: " + lng);
-	        	System.out.println(response);
 	        }
+	        
 	    return addressResult;
 	}
 

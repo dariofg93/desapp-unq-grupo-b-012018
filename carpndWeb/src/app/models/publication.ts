@@ -17,5 +17,9 @@ export class Publication {
 
   constructor(){
     this.requests = [];
+    this.dropZone = new GeographicZoneDescription();
+    this.pickUpZone = new GeographicZoneDescription();
+    this.publishedVehicle = new Vehicle();
+    this.city = new City("");
   }
 }
