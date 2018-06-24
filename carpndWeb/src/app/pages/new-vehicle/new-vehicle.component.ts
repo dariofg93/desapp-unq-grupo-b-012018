@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 
 import { User } from './../../models/user';
 import { Vehicle } from './../../models/vehicle';
-import { Car,Scooter } from './../../models/categories';
+import { Category } from './../../models/categories';
 import { UserService } from './../../services/user/user.service';
 
 @Component({
@@ -18,8 +18,8 @@ export class NewVehicleComponent implements OnInit {
 	profile: User;
 
 	categories = [
-		new Car(),
-		new Scooter()
+		new Category("Car"),
+		new Category("Scooter")
 	];
 
   constructor(
@@ -39,6 +39,7 @@ export class NewVehicleComponent implements OnInit {
   }
 
   saveVehicle(form) {
+    this.vehicle.category = new Category(this.vehicle.category);
     if (this.profile.myVehicles) {
       this.profile.myVehicles.push(this.vehicle);
     }else{

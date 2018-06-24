@@ -32,6 +32,7 @@ public class PublicationRest extends AbstractRest{
 	@Path("/new")
 	@Produces("application/json")
 	public Response newPublication(@RequestBody Publication post) {
+		
 		return responseHandlingErrorsExecuting(
 				() -> {publicationService.save(post); return post;}, 
 				JsonReturn.notFoundError("No se pudo agregar la publicaión"), 

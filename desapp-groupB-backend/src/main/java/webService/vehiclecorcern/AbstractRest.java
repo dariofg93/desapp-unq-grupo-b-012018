@@ -21,6 +21,7 @@ public class AbstractRest {
 			T result = supplier.get();
 			return response(result, HttpStatus.OK);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return response(errorJsonString, errorStatus);
 		}
 	}

@@ -1,27 +1,9 @@
 
-export abstract class Category {
+export  class Category {
 
-	name : String;
-	public getName(){
-		return name;
-	}
-}
-
-export class Car extends Category {
+	concretType : String;
 	
-	constructor(){
-		super();
-		this.name = "Car";
+	constructor(name){
+		this.concretType = name;
 	}
-
-}
-
-export class Scooter extends Category {
-		
-	constructor(){
-		super();
-		this.name = "Scooter";
-	}
-	
-
 }

@@ -2,6 +2,7 @@ import { Vehicle } from './../models/vehicle'
 import { BookingRequest } from './../models/booking-request';
 import { City } from './../models/city';
 import { GeographicZoneDescription } from './../models/geographic-zone-description';
+import { User } from './user';
 
 export class Publication {
 	id: number;
@@ -14,6 +15,7 @@ export class Publication {
   city: City;
   pickUpZone: GeographicZoneDescription;
   dropZone: GeographicZoneDescription;
+  user: User;
 
   constructor(){
     this.requests = [];

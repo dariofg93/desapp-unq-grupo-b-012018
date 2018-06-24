@@ -5,13 +5,16 @@ import model.city.City;
 import model.exceptions.BookingNotFoundException;
 import model.maps.GeographicZoneDescription;
 import model.user.User;
+
 import model.utils.Entity;
 import model.vehicle.Vehicle;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -24,8 +27,10 @@ public class Publication extends Entity{
 	private Double pricePerHour;
     private Integer phone;
     private User user;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "YYYY-MM-dd")
     private DateTime fromDate;
-    private DateTime toDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "YYYY-MM-dd")
+    private DateTime toDate; 
     private List<BookingRequest> requests;
     private Vehicle publishedVehicle;
     private City city;
@@ -88,11 +93,9 @@ public class Publication extends Entity{
     public User getUser() {
         return this.user;
     }
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    public DateTime getFromDate() {
+	public DateTime getFromDate() {
         return this.fromDate;
     }
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     public DateTime getToDate() {
         return this.toDate;
     }
