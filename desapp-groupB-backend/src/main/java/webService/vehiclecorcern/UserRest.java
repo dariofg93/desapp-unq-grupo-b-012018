@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import model.publication.Publication;
 import model.user.User;
 import persistence.user.UserRepository;
 import service.publication.PublicationService;
@@ -74,25 +75,12 @@ public class UserRest extends AbstractRest {
 	@Produces("application/json")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateUserId(@PathParam("id") final Long id, @RequestBody User user) {
-		System.out.println(user);
-		System.out.println(
-				"----------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"----------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"----------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"----------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"----------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"----------------------------------------------------------------------------------------------------");
 		return responseHandlingErrorsExecuting((() -> {
 			userService.updateById(id, user);
 			updateRelatedObjectFrom(user);
 			;
 			return user;
-		}), JsonReturn.notFoundError("No se encontro usuario registrado con el mail ingresado"),
+		}), JsonReturn.notFoundError("No se pudo modificar el usuario."),
 				HttpStatus.BAD_REQUEST);
 	}
 
@@ -143,12 +131,11 @@ public class UserRest extends AbstractRest {
 				vehicleService.selectByFunction((vehicle) -> vehicle.getOwner().getId() == anUser.getId()));
 	}
 
-	private void completePublications(User anUser) {
+	private void completePublications(User anUser) {	
 		anUser.setMyPublications(
-				publicationService.selectByFunction((publication) -> publication.getUser().getId() == anUser.getId()));
+				publicationService.selectByFunction((publication) -> publication.getUser().getEmail().getAccountName()== anUser.getEmail().getAccountName()));
 
 	}
-
 	private void updateRelatedObjectFrom(User user) {
 		user.getMyVehicles().forEach((v) -> v.setOwner(user));
 		user.getMyVehicles().forEach((v) -> vehicleService.saveOrUpdate(v));

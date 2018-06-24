@@ -5,7 +5,7 @@ import { Router,ActivatedRoute } from "@angular/router";
 import { PATHBACKEND } from './../../../environments/environment';
 import { Vehicle } from './../../models/vehicle'
 import { GenericRestService } from './../../services/generic/generic-rest.service';
-import { Car,Scooter } from './../../models/categories';
+import { Category} from './../../models/categories';
 
 
 @Component({
@@ -22,8 +22,8 @@ export class VehiclesEditComponent implements OnInit {
 
   vehicle: Vehicle;
   categories = [
-		new Car(),
-		new Scooter()
+		new Category("Car"),
+		new Category("Scooter")
 	];
 
   return;

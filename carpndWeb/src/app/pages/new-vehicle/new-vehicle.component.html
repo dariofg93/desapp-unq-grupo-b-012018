@@ -32,11 +32,11 @@
 	        <select class="form-control col-md-4" id="category" name="category"
 	                [(ngModel)]="vehicle.category"
 	                #category="ngModel">
-	          <option [ngValue]="undefined" disabled selected i18n="@@selectCategory">selectCategory</option>
-	          <option *ngFor="let category of categories" [value]="category">{{category.getName()}}</option>
+	          <option [ngValue]="selectCategory" disabled selected i18n="@@selectCategory">selectCategory</option>
+	          <option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
 	        </select>
-	      </div>
-	 
+				</div>
+ 
 	 			<div class="form-group row col-md justify-content-md-center">
 		      <button type="submit" class="btn btn-primary" [disabled]="!vehicleForm.form.valid" i18n="@@save">save</button>
 		      <button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>

@@ -10,6 +10,6 @@
 
 		<property name="latitud" type="double" column="LATITUD" />
 		<property name="longitud" type="double" column="LONGITUD" />
-		<property name="description" type="string" column="DESCRIPTION" />
+		<property name="description" type="string" column="DESCRIPTION" unique="false"/>
 	</class>
 </hibernate-mapping>

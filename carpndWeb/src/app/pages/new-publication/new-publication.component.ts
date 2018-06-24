@@ -8,6 +8,7 @@ import { Vehicle } from '../../models/vehicle';
 import { User } from '../../models/user';
 import { City } from '../../models/city';
 import { GeographicZoneDescription } from '../../models/geographic-zone-description';
+import { PublicationService } from '../../services/publication/publication.service';
 
 @Component({
   selector: 'app-new-publication',
@@ -19,16 +20,9 @@ export class NewPublicationComponent implements OnInit {
   publication = new Publication();
   profile: User;
 
-  cities = [
-    new City("Wilde"),
-    new City("Bernal"),
-    new City("La Plata"),
-  ];
-
-
   constructor(
     private usersService: UserService,
-    private publicationsService: GenericRestService<Publication>,
+    private publicationsService: PublicationService,
     private vehiclesService: GenericRestService<Vehicle>,
     private router: Router,
     private location: Location,
@@ -38,10 +32,6 @@ export class NewPublicationComponent implements OnInit {
     this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
       data => this.profile = data.body
     );
-  }
-
-  today() {
-    return Date.now().toLocaleString;
   }
 
   return() {
@@ -54,15 +44,19 @@ export class NewPublicationComponent implements OnInit {
   }
 
   savePublication(form) {
-      if (this.profile.myPublications) {
-        this.profile.myPublications.push(this.publication);
-      }else{
-        this.profile.myPublications = [this.publication];
-      }
-      this.usersService.update(this.profile.id,this.profile).subscribe();
-      this.router.navigate(['']);
-    }
-  
+
+//    if (this.profile.myPublications) {
+//     this.profile.myPublications.push(this.publication);
+//    } else {
+//      this.profile.myPublications = [this.publication];
+//    }
+    this.publication.user = this.profile;
+    console.log(this.publication);
+    this.publicationsService.create(this.publication).subscribe();
+    //this.usersService.update(this.profile.id, this.profile).subscribe();
+    this.router.navigate(['/publications']);
+  }
+
 
 }
 

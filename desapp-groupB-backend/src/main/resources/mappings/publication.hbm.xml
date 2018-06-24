@@ -44,10 +44,10 @@
 		</property>
 
 		<one-to-one name="pickUpZone"
-			class="model.maps.GeographicZoneDescription" cascade="all" />
+			class="model.maps.GeographicZoneDescription" cascade="save-update" />
 
 		<one-to-one name="dropZone"
-			class="model.maps.GeographicZoneDescription" cascade="all" />
+			class="model.maps.GeographicZoneDescription" cascade="save-update" />
 
 
 	</class>

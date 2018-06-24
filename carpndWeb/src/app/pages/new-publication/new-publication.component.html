@@ -4,62 +4,48 @@
     <div class="row col-md-12 justify-content-md-center">
       <h1 class="pageTitle" i18n="@@createpublication">createpublication</h1>
     </div>
-
     <form (ngSubmit)="savePublication(publicationForm)" #publicationForm="ngForm" class="col-md-12 justify-content-md-center">
       <div class="form-group row col-md justify-content-sm">
-        <div>
-          <label class="col-md-12" for="city" i18n="@@city">city</label>
-          <select class="form-control col-md-12" id="city" name="city" [(ngModel)]="publication.city" #city="ngModel" required>
-            <option [ngValue]="undefined" disabled selected i18n="@@selectCity">selectCity</option>
-            <option *ngFor="let city of cities" [value]="city">{{city.getName()}}</option>
-          </select>
 
-          <label class="col-md-12" for="vehicle" i18n="@@vehicle">vehicle</label>
+        <label class="col-md-12" for="vehicle" i18n="@@vehicle">vehicle</label>
+        <select class="form-control col-md-12" id="publishedVehicle" name="publishedVehicle" [(ngModel)]="publication.publishedVehicle"
+          required
+          #publishedVehicle="ngModel">
+          <option  disabled selected i18n="@@selectVehicle">selectAvailableVehicle</option>
+          <option *ngFor="let vehicle of profile?.myVehicles" [ngValue]="vehicle">{{vehicle.description}}</option>
+        </select>
 
-          <select class="form-control col-md-12" id="vehicle" name="vehicle" [(ngModel)]="publication.publishedVehicle" #publishedVehicle="ngModel"
-            required>
-            <option [ngValue]="undefined" disabled selected i18n="@@selectVehicle">selectAvailableVehicle</option>
-            <option *ngFor="let vehicle of profile.myVehicles" [value]="vehicle">{{vehicle.description}}</option>
-          </select>
+        <label class="col-md-12" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
+        <input type="number" min="0" step=".01" class="form-control col-md-12" id="pricePerHour" name="pricePerHour" placeholder="" [(ngModel)]="publication.pricePerHour" required
+          
+      >
 
+        <label class="col-md-12" for="phone" i18n="@@phone">phone</label>
+        <input type="number" min="0" step="1" class="form-control col-md-12" id="phone" name="phone" placeholder="" [(ngModel)]="publication.phone"
+          required>
 
-          <label class="col-md-12" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
-          <input type="number" min="0" step=".01" class="form-control col-md-12" id="pricePerHour" placeholder="" ng-model="publication.pricePerHour"
-            required>
+        <label class="col-md-12" for="fromDate" i18n="@@fromDate">fromDate</label>
+        <input type="date" value="today()" class="form-control col-md-12" id="fromDate" name="fromDate" placeholder="" [(ngModel)]="publication.fromDate"
+          required>
 
-          <label class="col-md-12" for="phone" i18n="@@phone">phone</label>
-          <input type="number" min="0" step="1" class="form-control col-md-12" id="phone" placeholder="" ng-model="publication.phone"
-            required>
+        <label class="col-md-12" for="toDate" i18n="@@toDate">toDate</label>
+        <input type="date" value="today()" class="form-control col-md-12" id="toDate" name="toDate" placeholder="" [(ngModel)]="publication.toDate"
+          required>
 
-          <label class="col-md-12" for="formDate" i18n="@@formDate">formDate</label>
-          <input type="date" value="today()" class="form-control col-md-12" id="formDate" placeholder="" ng-model="publication.formDate"
-            required>
+        <label class="col-md-12" for="pickUpZoneAddress" i18n="@@pickUpZoneAddress">pickUpZoneAddress</label>
+        <input type="text" class="form-control col-md-12" id="pickUpZoneAddress" name="pickUpZoneAddress"  placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires"
+          [(ngModel)]="publication.pickUpZone.description" required>
 
-          <label class="col-md-12" for="toDate" i18n="@@toDate">toDate</label>
-          <input type="date" value="today()" class="form-control col-md-12" id="toDate" placeholder="" ng-model="publication.toDate"
-            required>
-
-          <label class="col-md-12" for="pickUpZoneAddress" i18n="@@pickUpZoneAddress">pickUpZoneAddress</label>
-          <input type="text" class="form-control col-md-12" id="toDate" placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires" ng-model="publication.pickUpZone.description"
-            required>
-
-          <label class="col-md-12" for="dropZoneAddress" i18n="@@dropZoneAddress">dropZoneAddress</label>
-          <input type="text" class="form-control col-md-12" id="dropZoneAddress" placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires"
-            ng-model="publication.dropZone.description" required>
-
-
-
-        </div>
-
+        <label class="col-md-12" for="dropZoneAddress" i18n="@@dropZoneAddress">dropZoneAddress</label>
+        <input type="text" class="form-control col-md-12" id="dropZoneAddress" name="dropZoneAddress" placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires"
+          [(ngModel)]="publication.dropZone.description" required>
       </div>
-
-
 
       <div class="form-group row col-md justify-content-md-center">
         <button type="submit" class="btn btn-primary" [disabled]="!publicationForm.form.valid" i18n="@@save">save</button>
         <button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
       </div>
+      
     </form>
   </div>
-
 </div>
