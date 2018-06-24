@@ -59,7 +59,7 @@
         <div *ngIf="hasProfile() && hasMovements()" class="row col-md-12 justify-content-md-center">
           <div class="shadow p-4 mb-3 bg-white">
             <li *ngFor="let movement of profile.movementsOfMonth.history">
-              <span>[{{ showDate(movement.date) | date:'fullDate':getLocale_id() }}, {{ showDate(movement.date) | date:'shortTime':getLocale_id() }}]: <br>{{movement.description}}</span>
+              <span>[{{ dateService.shortDate(movement.date) }}, {{ dateService.shortTime(movement.date) }}]: <br>{{movement.description}}</span>
               <br><br>
             </li>
           </div>

@@ -1,12 +1,14 @@
 import { Inject, Component, AfterViewChecked, LOCALE_ID } from '@angular/core';
 import { ASSETS } from './../../variables/variables'
-import { DatePipe,registerLocaleData } from '@angular/common'
+import { registerLocaleData } from '@angular/common'
 import localeEs from '@angular/common/locales/es';
 
+import { PATHBACKEND } from './../../../environments/environment';
 import { User } from './../../models/user'
 import { Vehicle } from './../../models/vehicle'
 import { Publication } from './../../models/publication';
 import { BookingRequest } from './../../models/booking-request';
+import { DateService } from './../../services/date/date.service';
 import { UserService } from './../../services/user/user.service';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
 
@@ -17,7 +19,10 @@ registerLocaleData(localeEs, 'es-AR');
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [
-    DatePipe
+    DateService,
+    GenericRestService,
+    { provide: 'url', useValue: PATHBACKEND },
+    { provide: 'endpoint', useValue: 'vehicles' }
   ]
 })
 export class HomeComponent implements AfterViewChecked {
@@ -29,8 +34,8 @@ export class HomeComponent implements AfterViewChecked {
   constructor(
     private usersService: UserService,
     private vehiclesService: GenericRestService<Vehicle>,
-    private datepipe: DatePipe,
-    @Inject(LOCALE_ID) private _locale: string
+    private dateService: DateService/*,
+    @Inject(LOCALE_ID) private _locale: string*/
   ) {}
 
   ngAfterViewChecked(){
@@ -67,14 +72,6 @@ export class HomeComponent implements AfterViewChecked {
     this.vehiclesService.delete(id).subscribe(
       data => console.log(data.body)
     );
-  }
-
-  getLocale_id(){
-    return this._locale;
-  }
-
-  showDate(date: number): Date{
-    return new Date(date);
   }
 
   requestOfPublications(): BookingRequest[]{

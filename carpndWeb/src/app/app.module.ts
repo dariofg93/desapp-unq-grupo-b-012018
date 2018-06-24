@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 import { NgModule,LOCALE_ID } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
     component: NewVehicleComponent
   },
   {
-    path: 'publications/',
+    path: 'publications',
     component: PublicationListComponent
   },
   {
@@ -93,6 +94,7 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
+    DatePipe,
     GenericRestService,
     AuthService,
     UserService,

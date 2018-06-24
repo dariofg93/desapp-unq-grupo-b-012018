@@ -36,6 +36,6 @@ export class UsersEditComponent implements OnInit {
 
   saveProfile(form) {
     this.usersService.update(this.profile.id,this.profile).subscribe();
-    this.router.navigate(['']);
+    this.location.back();
   }
 }
