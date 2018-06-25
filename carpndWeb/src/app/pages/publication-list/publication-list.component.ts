@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './../../models/user';
 import { Vehicle } from './../../models/vehicle'
 import { Publication } from './../../models/publication';
+import { DateService } from './../../services/date/date.service';
 import { UserService } from './../../services/user/user.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class PublicationListComponent implements OnInit {
   currentP = 1;
 
   constructor(
-    private usersService: UserService
+    private usersService: UserService,
+    private dateService: DateService
   ) {}
 
   ngOnInit() {

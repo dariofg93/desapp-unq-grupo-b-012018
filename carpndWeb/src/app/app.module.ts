@@ -17,6 +17,7 @@ import { FooterComponent } from './components/navbar/footer/footer.component';
 import { GenericRestService } from './services/generic/generic-rest.service';
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
+import { DateService } from './services/date/date.service';
 import { PublicationService } from './services/publication/publication.service';
 import { CallbackComponent } from './components/callback/callback.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -99,10 +100,13 @@ const appRoutes: Routes = [
     GenericRestService,
     AuthService,
     UserService,
-    { provide: LOCALE_ID, useValue: localStorage.getItem('language')? 
-                                      localStorage.getItem('language'): 
-                                      'en-US' },
+    DateService,
     PublicationService,
+    { 
+      provide: LOCALE_ID, useValue: localStorage.getItem('language')? 
+                                      localStorage.getItem('language'): 
+                                      'en-US' 
+    }
   ],
   bootstrap: [AppComponent]
 })

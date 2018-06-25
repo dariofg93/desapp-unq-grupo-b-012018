@@ -33,8 +33,8 @@
                 <div *ngIf="!hasImages(publication.publishedVehicle)"><i class="fa fa-car fa-2x"></i></div>
               </td>
 							<td>{{ publication.pricePerHour }}</td>
-							<td>{{ showDate(publication.fromDate) }}</td>
-							<td>{{ showDate(publication.toDate) }}</td>
+							<td>{{ dateService.showDate(publication.fromDate) }}, {{ dateService.showTime(publication.fromDate) }}</td>
+							<td>{{ dateService.showDate(publication.toDate) }}, {{ dateService.showTime(publication.toDate) }}</td>
 							<td>{{ publication.city.name }}</td>
               <td align="center">
                 <a routerLink (click)="seePublication(publication)"><i class="fa fa-eye fa-2x"></i></a>

@@ -19,8 +19,6 @@ registerLocaleData(localeEs, 'es-AR');
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [
-    DateService,
-    GenericRestService,
     { provide: 'url', useValue: PATHBACKEND },
     { provide: 'endpoint', useValue: 'vehicles' }
   ]
