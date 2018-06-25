@@ -19,6 +19,7 @@ registerLocaleData(localeEs, 'es-AR');
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [
+    GenericRestService,
     { provide: 'url', useValue: PATHBACKEND },
     { provide: 'endpoint', useValue: 'vehicles' }
   ]
