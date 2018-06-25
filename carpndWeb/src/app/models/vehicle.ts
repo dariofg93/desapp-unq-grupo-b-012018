@@ -8,7 +8,7 @@ export class Vehicle {
   category: Category;
   pictures: string[];
   owner: User;
-
+  
   constructor(){
   	this.pictures = [];
   }

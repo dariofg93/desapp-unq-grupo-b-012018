@@ -36,7 +36,7 @@
 		</list>
 
 		<many-to-one name="publishedVehicle" column="id_vehicle"
-			class="model.vehicle.Vehicle" unique="false" lazy="false" />
+			class="model.vehicle.Vehicle" unique="false" lazy="false" cascade="none"/>
 
 		<property name="city">
 			<column name="CITY" />
