@@ -66,12 +66,6 @@ public class UserRest extends AbstractRest {
 	@Produces("application/json")
 	public Response getById(@PathParam("id") final Long id) {
 		return this.seachByEmail(userService.searchById(id).getEmail().getAccountName());
-//		return responseHandlingErrorsExecuting((() -> {
-//			User user = userService.searchById(id);
-//			this.completeUser(user);
-//			return user;
-//		}), JsonReturn.notFoundError("No se pudo obtener el usuario con id " + id.toString()),
-//				HttpStatus.BAD_REQUEST);
 	}
 
 				
@@ -143,7 +137,5 @@ public class UserRest extends AbstractRest {
 	private void updateRelatedObjectFrom(User user) {
 		user.getMyVehicles().forEach((v) -> v.setOwner(user));
 		user.getMyVehicles().forEach((v) -> vehicleService.saveOrUpdate(v));
-		user.getMyPublications().forEach((p) -> p.setUser(user));
-		user.getMyPublications().forEach((p) -> publicationService.saveOrUpdate(p));
 	}
 }

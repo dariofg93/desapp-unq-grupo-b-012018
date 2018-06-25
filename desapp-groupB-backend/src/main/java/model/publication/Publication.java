@@ -89,7 +89,7 @@ public class Publication extends Entity{
     public Vehicle getPublishedVehicle() {
         return publishedVehicle;
     }
-	@JsonIgnore
+
     public User getUser() {
         return this.user;
     }
