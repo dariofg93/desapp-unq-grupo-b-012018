@@ -25,7 +25,7 @@
 						</tr>
 					</thead>
 					<tbody class="table table-striped">
-						<tr *ngFor="let publication of publications | paginate: { itemsPerPage: 10, currentPage: currentP }">
+						<tr *ngFor="let publication of publications | paginate: { itemsPerPage: 5, currentPage: currentP }">
 							<td>{{ publication.publishedVehicle.description }}</td>
 							<td>{{ publication.pricePerHour }}</td>
 							<td>{{ publication.phone }}</td>

@@ -27,7 +27,7 @@
 						</tr>
 					</thead>
 					<tbody class="table table-striped">
-						<tr *ngFor="let publication of profile?.myPublications | paginate: { itemsPerPage: 2, currentPage: currentP }">
+						<tr *ngFor="let publication of profile?.myPublications | paginate: { itemsPerPage: 4, currentPage: currentP }">
 							<td align="center">
                 <img *ngIf="hasImages(publication.publishedVehicle)" src="{{publication.publishedVehicle.pictures[0]}}" class="vehicleHome">
                 <div *ngIf="!hasImages(publication.publishedVehicle)"><i class="fa fa-car fa-2x"></i></div>
@@ -52,7 +52,7 @@
 
 	<div class="col-md-12">
 		<div class="row justify-content-center">
-			<a routerLink="publications/new" class="btn btn-primary btn" i18n="@@addPublications">
+			<a routerLink="new" class="btn btn-primary btn" i18n="@@addPublications">
 				addPublications
 			</a>
 		</div>

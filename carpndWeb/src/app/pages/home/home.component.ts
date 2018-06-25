@@ -4,8 +4,8 @@ import { registerLocaleData } from '@angular/common'
 import localeEs from '@angular/common/locales/es';
 
 import { PATHBACKEND } from './../../../environments/environment';
-import { User } from './../../models/user'
-import { Vehicle } from './../../models/vehicle'
+import { User } from './../../models/user';
+import { Vehicle } from './../../models/vehicle';
 import { Publication } from './../../models/publication';
 import { BookingRequest } from './../../models/booking-request';
 import { DateService } from './../../services/date/date.service';
@@ -68,6 +68,7 @@ export class HomeComponent implements AfterViewChecked {
 
   deleteVehicle(id: number): void {
     console.log(this.profile);
+    alert("No se puede borrar el vehiculo porque esta asociada a una publicacion");
     this.vehiclesService.delete(id).subscribe(
       data => console.log(data.body)
     );
