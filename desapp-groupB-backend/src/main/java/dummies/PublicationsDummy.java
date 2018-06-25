@@ -49,14 +49,18 @@ public class PublicationsDummy implements DummyData {
 		publication.addBookingRequest(createBookingRequestUsing(requestBuilder));
 		publications.add(publication);
 
-		publications.add(builder.createPublicationForUserAndVehicle(
-				userService.retriveAll().get(userService.retriveAll().size() - 1),
-				vehicleService.retriveAll().get(vehicleService.retriveAll().size() - 1), new City("Bernal"),
-				"2018-04-01", "2018-04-03", new Double(8.6)));
-		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
-				vehicleService.retriveAll().get(0), new City("La Plata"), "2018-12-01", "2018-12-03", new Double(8.6)));
-		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
-				vehicleService.retriveAll().get(2), new City("Bernal"), "2018-09-04", "2018-12-03", new Double(15.6)));
+		
+		
+		publication = builder.createPublicationForUserAndVehicle(userService.searchById((long) 2),
+				vehicleService.retriveAll().get(0), new City("La Plata"), "2018-12-01", "2018-12-03", new Double(8.6));
+		publication.addBookingRequest(createBookingRequestUsing(requestBuilder));
+		publications.add(publication);
+				
+		publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
+				vehicleService.retriveAll().get(2), new City("Bernal"), "2018-09-04", "2018-12-03", new Double(15.6));
+		publication.addBookingRequest(createBookingUsing(requestBuilder));
+		
+		publications.add(publication);
 		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(7),
 				vehicleService.retriveAll().get(0), new City("Bernal"), "2018-08-01", "2018-12-03", new Double(3.4)));
 		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(4),
@@ -87,6 +91,10 @@ public class PublicationsDummy implements DummyData {
 				vehicleService.retriveAll().get(4), new City("Bernal"), "2018-01-14", "2018-12-03", new Double(52.5)));
 		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(4),
 				vehicleService.retriveAll().get(6), new City("Bernal"), "2018-02-15", "2018-12-03", new Double(15.5)));
+		publications.add(builder.createPublicationForUserAndVehicle(
+				userService.retriveAll().get(userService.retriveAll().size() - 1),
+				vehicleService.retriveAll().get(vehicleService.retriveAll().size() - 1), new City("Bernal"),
+				"2018-04-01", "2018-04-03", new Double(8.6)));
 
 	}
 
@@ -101,7 +109,7 @@ public class PublicationsDummy implements DummyData {
 
 	private BookingRequest createBookingUsing(BookingRequestBuilder requestBuilder) {
 		return requestBuilder.createBookingRequest()
-        .withRequester(new UsersDummy().getUsers().get(2))
+        .withRequester(new UsersDummy().getUsers().get(0))
         .withTotalHours(20)
         .withDateTimeOfReservation(new DateTime(2018,2,15,0,0))
         .withHoursOfTheReservation(21)

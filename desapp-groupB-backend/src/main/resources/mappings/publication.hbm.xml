@@ -15,7 +15,7 @@
 		<property name="phone" type="int" column="PHONE" />
 
 		<many-to-one name="user" column="id_user"
-			class="model.user.User" unique="false" lazy="false" />
+			class="model.user.User" unique="false" lazy="false" cascade="none"/>
 
 		<property name="fromDate"
 			type="org.jadira.usertype.dateandtime.joda.PersistentDateTime">

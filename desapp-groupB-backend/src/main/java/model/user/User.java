@@ -346,5 +346,13 @@ public class User extends Entity {
 	public void setMyVehicles(List<Vehicle> myVehicles) {
 		this.myVehicles = myVehicles;
 	}
+	
+	@Override
+	public boolean equals(Object object) {
+		User user = (User) object;
+		
+		return (object.getClass().equals(User.class) && user.getEmail().getAccountName() == this.getEmail().getAccountName());
+	}
+	
 
 }
