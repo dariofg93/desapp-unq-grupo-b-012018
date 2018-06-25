@@ -39,8 +39,4 @@ export class PublicationListComponent implements OnInit {
   public hasImages(vehicle: Vehicle): boolean {
     return vehicle.pictures? vehicle.pictures.length > 0: false;
   }
-
-  public showDate(date: number): Date{
-    return new Date(date);
-  }
 }
