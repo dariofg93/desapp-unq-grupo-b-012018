@@ -2,7 +2,6 @@ package webService.vehiclecorcern;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -11,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import model.publication.Publication;
+
 import model.user.User;
 import persistence.user.UserRepository;
 import service.publication.PublicationService;
@@ -66,10 +65,16 @@ public class UserRest extends AbstractRest {
 	@Path("/{id}")
 	@Produces("application/json")
 	public Response getById(@PathParam("id") final Long id) {
-		return seachByEmail(userService.searchById(id).getEmail().getAccountName());
-
+		return this.seachByEmail(userService.searchById(id).getEmail().getAccountName());
+//		return responseHandlingErrorsExecuting((() -> {
+//			User user = userService.searchById(id);
+//			this.completeUser(user);
+//			return user;
+//		}), JsonReturn.notFoundError("No se pudo obtener el usuario con id " + id.toString()),
+//				HttpStatus.BAD_REQUEST);
 	}
 
+				
 	@PUT
 	@Path("/{id}")
 	@Produces("application/json")
@@ -78,7 +83,6 @@ public class UserRest extends AbstractRest {
 		return responseHandlingErrorsExecuting((() -> {
 			userService.updateById(id, user);
 			updateRelatedObjectFrom(user);
-			;
 			return user;
 		}), JsonReturn.notFoundError("No se pudo modificar el usuario."),
 				HttpStatus.BAD_REQUEST);
@@ -91,7 +95,7 @@ public class UserRest extends AbstractRest {
 		return responseHandlingErrorsExecuting((() -> {
 			userService.delete(userService.searchById(id));
 			return JsonReturn.success("OK");
-		}), JsonReturn.notFoundError("No se encontro usuario con ese ID"), HttpStatus.BAD_REQUEST);
+		}), JsonReturn.notFoundError("No se encontro usuario con id " + id.toString()), HttpStatus.BAD_REQUEST);
 
 	}
 
@@ -133,7 +137,7 @@ public class UserRest extends AbstractRest {
 
 	private void completePublications(User anUser) {	
 		anUser.setMyPublications(
-				publicationService.selectByFunction((publication) -> publication.getUser().getEmail().getAccountName()== anUser.getEmail().getAccountName()));
+				publicationService.selectByFunction((publication) -> publication.getUser().getId() == anUser.getId()));
 
 	}
 	private void updateRelatedObjectFrom(User user) {

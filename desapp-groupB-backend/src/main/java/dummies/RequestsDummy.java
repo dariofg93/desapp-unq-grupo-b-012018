@@ -1,13 +1,11 @@
 package dummies;
 
 import model.booking.BookingRequest;
-import model.bookingstate.Approved;
 import model.bookingstate.AwaitingApproval;
 import model.builders.BookingRequestBuilder;
-import model.publication.Publication;
 
 import org.joda.time.DateTime;
-import persistence.generic.GenericService;
+
 import service.bookingrequest.BookingRequestService;
 
 import java.util.ArrayList;
