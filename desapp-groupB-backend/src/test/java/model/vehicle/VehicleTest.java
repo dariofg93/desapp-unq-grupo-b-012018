@@ -37,9 +37,10 @@ public class VehicleTest {
 	
 	@Test
 	public void testAddPicture() {
-		String img = mock(String.class);
-		vehicle.addPicture(img);
-		verify(collectionOfPictures).add(any(String.class));
+		vehicle.addPicture("aPathPicture");
+		
+		assertEquals(vehicle.getPictures().size(), 1);
+		assertTrue(vehicle.getPictures().contains("aPathPicture"));
 
 	}
 
