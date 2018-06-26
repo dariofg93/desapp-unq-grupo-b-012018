@@ -5,7 +5,6 @@
         <h3 class="sectionTitle" i18n="@@MyVehicles">MyVehicles</h3>
       </div>
 
-<<<<<<< HEAD
       <div class="table-responsive-md">
         <table class="table table-hover">
           <thead class="thead-dark">
@@ -33,35 +32,6 @@
             </tr>
           </tbody>
         </table>
-=======
-    <div class="table-responsive-md">
-      <table class="table table-hover">
-        <thead class="thead-dark">
-          <tr>
-            <th class="text-center" i18n="@@image">image</th>
-            <th class="text-center" i18n="@@vehicleDescription">description</th>
-            <th class="text-right" i18n="@@vehicleCapacity">capacity</th>
-            <th></th><th></th>
-          </tr>
-        </thead>
-        <tbody class="table table-striped">
-          <tr *ngFor="let vehicle of profile?.myVehicles | paginate: { itemsPerPage: 5, currentPage: currentP }"> 
-            <td align="center">
-              <img *ngIf="hasImages(vehicle)" src="{{pathImage(vehicle)}}" class="vehicleHome">
-              <div *ngIf="!hasImages(vehicle)"><i class="fa fa-car fa-3x"></i></div>
-            </td>
-            <td align="left">{{ vehicle.description }}</td>
-            <td align="right">{{ vehicle.passengerCapacity }}</td>
-            <td align="center">
-              <a routerLink="vehicles/{{vehicle.id}}"><i class="fa fa-edit fa-2x"></i></a>
-            </td>
-            <td align="center">
-              <a routerLink (click)="deleteVehicle(vehicle.id)"><i class="fa fa-trash fa-2x"></i></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
->>>>>>> 52df2fd81c132946243b62e72b943d72466d8426
 
         <div class="row justify-content-md-center">
           <pagination-controls (pageChange)="currentP = $event"></pagination-controls>
@@ -105,21 +75,12 @@
 
       <ul>
 
-<<<<<<< HEAD
-        <div *ngIf="hasProfile()">
-          <li *ngFor="let request of requestOfPublications()">
-            <a class="row col-md shadow p-2 mb-3 bg-white" href="requests/{{request.id_request}}">
-              <div class="col-md-2">
-                <i class="fa fa-child fa-3x"></i>
-              </div>
-=======
       <div *ngIf="hasProfile()">
         <li *ngFor="let request of requestOfPublications()">
           <a class="row col-md shadow p-2 mb-3 bg-white" routerLink="requests/{{request.id}}">
             <div class="col-md-2">
               <i class="fa fa-child fa-3x"></i>
             </div>
->>>>>>> 52df2fd81c132946243b62e72b943d72466d8426
 
               <div class="col-md-7 align-self-center">
                 <p class="mb-1"><span>{{request.requester.firstName}}</span> <span>{{request.requester.lastName}}</span></p>

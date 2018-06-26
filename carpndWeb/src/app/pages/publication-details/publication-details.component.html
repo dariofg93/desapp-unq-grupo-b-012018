@@ -11,7 +11,7 @@
 				<label class="col-md-6 label" i18n="@@publishedVehicle:">publishedVehicle:</label>
 				<label class="col-md-6">{{ publication.publishedVehicle.description }}</label>
 				<br>
-<!--	
+				<!--	
 				<div>
 					<div id="col-md-6">
 						<div ng2-carouselamos class="slides-wrapper" [items]="publication.publishedVehicle.pictures" [width]="100" [$prev]="prev" [$next]="next" [$item]="picture">
@@ -52,70 +52,61 @@
 					</a>
 				</div>
 -->
-					<label class="col-md-6 label" i18n="@@pricePerHour:">pricePerHour:</label>
-					<label class="col-md-6">{{ publication.pricePerHour }}</label>
-					<br>
+				<label class="col-md-6 label" i18n="@@pricePerHour:">pricePerHour:</label>
+				<label class="col-md-6">{{ publication.pricePerHour }}</label>
+				<br>
 
-					<label class="col-md-6 label" i18n="@@phone:">phone:</label>
-					<label class="col-md-6">{{ publication.phone }}</label>
-					<br>
+				<label class="col-md-6 label" i18n="@@phone:">phone:</label>
+				<label class="col-md-6">{{ publication.phone }}</label>
+				<br>
 
-					<label class="col-md-6 label" i18n="@@fromDate:">fromDate:</label>
-					<label class="col-md-6">{{ dateService.shortDate(publication.fromDate) }}, {{ dateService.shortTime(publication.fromDate) }}</label>
-					<br>
+				<label class="col-md-6 label" i18n="@@fromDate:">fromDate:</label>
+				<label class="col-md-6">{{ dateService.shortDate(publication.fromDate) }}, {{ dateService.shortTime(publication.fromDate) }}</label>
+				<br>
 
-					<label class="col-md-6 label" i18n="@@toDate:">toDate:</label>
-					<label class="col-md-6">{{ dateService.shortDate(publication.toDate) }}, {{ dateService.shortTime(publication.toDate) }}</label>
-					<br>
+				<label class="col-md-6 label" i18n="@@toDate:">toDate:</label>
+				<label class="col-md-6">{{ dateService.shortDate(publication.toDate) }}, {{ dateService.shortTime(publication.toDate) }}</label>
+				<br>
 
-					<label class="col-md-6 label" i18n="@@pickUpZoneAddress:">pickUpZoneAddress:</label>
-					<label class="col-md-6">{{ publication.pickUpZone.description }}</label>
-					<br>
+				<label class="col-md-6 label" i18n="@@pickUpZoneAddress:">pickUpZoneAddress:</label>
+				<label class="col-md-6">{{ publication.pickUpZone.description }}</label>
+				<br>
 
-					<label class="col-md-6 label" i18n="@@dropZoneAddress:">dropZoneAddress:</label>
-					<label class="col-md-6">{{ publication.dropZone.description }}</label>
-				</div>
-
-				<div class="col-md-6">
-					<app-map></app-map>
-				</div>
-
-<<<<<<< HEAD
-				<div class="row"></div>
-
-				<div class="row col-md-12 justify-content-md-center">
-					<button class="btn btn-primary" (click)="request()" i18n="@@request">request</button>
-					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-				</div>
+				<label class="col-md-6 label" i18n="@@dropZoneAddress:">dropZoneAddress:</label>
+				<label class="col-md-6">{{ publication.dropZone.description }}</label>
 			</div>
-=======
-      <div class="row col-md-12 justify-content-md-center">
-	      <form *ngIf="!isMyPublication()" (ngSubmit)="request(requestForm)" #requestForm="ngForm" class="col-md-12 justify-content-md-center">
 
-	      	<hr>
-	      	<div class="row col-md-12 justify-content-md-center">
-			      <h3 class="sectionTitle" i18n="@@bookingRequest">bookingRequest</h3>
-			    </div>
-		 
-		      <div class="form-group row col-md justify-content-md-center">
-		        <label class="col-md-4" for="totalHours" i18n="@@totalHours">totalHours</label>
-		        <input type="number" min="1" max="120" class="form-control col-md-4" id="totalHours" name="totalHours"
-		               [(ngModel)]="request.totalHours" required>
-		        <!--<div class="col-md-4" [hidden]="totalHours.valid || totalHours.pristine" 
+			<div class="col-md-6">
+				<app-map></app-map>
+			</div>
+
+
+			<div class="row col-md-12 justify-content-md-center">
+				<form *ngIf="!isMyPublication()" (ngSubmit)="request(requestForm)" #requestForm="ngForm" class="col-md-12 justify-content-md-center">
+
+					<hr>
+					<div class="row col-md-12 justify-content-md-center">
+						<h3 class="sectionTitle" i18n="@@bookingRequest">bookingRequest</h3>
+					</div>
+
+					<div class="form-group row col-md justify-content-md-center">
+						<label class="col-md-4" for="totalHours" i18n="@@totalHours">totalHours</label>
+						<input type="number" min="1" max="120" class="form-control col-md-4" id="totalHours" name="totalHours" [(ngModel)]="request.totalHours"
+						 required>
+						<!--<div class="col-md-4" [hidden]="totalHours.valid || totalHours.pristine" 
 		        		 class="alert alert-danger" i18n="@@totalHours">
 		          CapacityRequired
 		        </div>-->
-		      </div>
-	 
-		 			<div class="form-group row col-md justify-content-md-center">
-			      <button type="submit" class="btn btn-primary" [disabled]="!requestForm.form.valid" i18n="@@request">request</button>
-			    </div>
-		    </form>
+					</div>
 
-        <button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
-      </div>    
-    </div>
->>>>>>> 52df2fd81c132946243b62e72b943d72466d8426
+					<div class="form-group row col-md justify-content-md-center">
+						<button type="submit" class="btn btn-primary" [disabled]="!requestForm.form.valid" i18n="@@request">request</button>
+					</div>
+				</form>
 
+				<button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
+			</div>
 		</div>
+
 	</div>
+</div>
