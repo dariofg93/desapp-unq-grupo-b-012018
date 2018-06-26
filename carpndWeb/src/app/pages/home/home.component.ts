@@ -67,7 +67,7 @@ export class HomeComponent implements AfterViewChecked {
   }
 
   deleteVehicle(id: number): void {
-    console.log(this.profile);
+    console.log(this.requestOfPublications());
     alert("No se puede borrar el vehiculo porque esta asociada a una publicacion");
     this.vehiclesService.delete(id).subscribe(
       data => console.log(data.body)

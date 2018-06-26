@@ -26,8 +26,6 @@ export class VehiclesEditComponent implements OnInit {
 		new Category("Scooter")
 	];
 
-  return;
-
   constructor(
   	private vehiclesService: GenericRestService<Vehicle>,
   	private router: Router,
@@ -43,5 +41,9 @@ export class VehiclesEditComponent implements OnInit {
   saveVehicle(form):void {
     this.vehiclesService.update(this.vehicle.id, this.vehicle).subscribe();
     this.router.navigate(['']);
+  }
+
+  return() {
+    this.location.back();
   }
 }

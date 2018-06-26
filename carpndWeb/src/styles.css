@@ -30,3 +30,7 @@
 .form-control {
   border-radius: 0px;
 }
+
+.label{
+	font-weight: bold;
+}

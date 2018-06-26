@@ -1,9 +1,6 @@
 import { Injectable,Component } from '@angular/core';
 
 @Injectable()
-@Component({
-  selector: 'app-alert'
-})
 export class AlertService {
 
   alert = { 

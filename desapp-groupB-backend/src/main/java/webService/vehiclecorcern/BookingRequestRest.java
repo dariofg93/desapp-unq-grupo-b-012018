@@ -13,7 +13,7 @@ import service.bookingrequest.BookingRequestService;
 
 
 
-@Path("/bookingRequest")
+@Path("/requests")
 public class BookingRequestRest extends AbstractRest{
 	
 	private BookingRequestService bookingRequestService;

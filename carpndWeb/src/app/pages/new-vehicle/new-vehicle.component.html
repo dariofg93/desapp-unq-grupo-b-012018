@@ -32,7 +32,7 @@
 	        <select class="form-control col-md-4" id="category" name="category"
 	                [(ngModel)]="vehicle.category"
 	                #category="ngModel">
-	          <option [ngValue]="selectCategory" disabled selected i18n="@@selectCategory">selectCategory</option>
+	          <option [ngValue]="undefined" disabled selected i18n="@@selectCategory">selectCategory</option>
 	          <option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
 	        </select>
 				</div>
