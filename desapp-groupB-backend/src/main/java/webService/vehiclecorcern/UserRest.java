@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
+import model.booking.BookingRequest;
+import model.exceptions.BannedException;
+import model.publication.Publication;
 import model.user.User;
 import persistence.user.UserRepository;
 import service.publication.PublicationService;
@@ -77,6 +79,25 @@ public class UserRest extends AbstractRest {
 		return responseHandlingErrorsExecuting((() -> {
 			userService.updateById(id, user);
 			updateRelatedObjectFrom(user);
+			return user;
+		}), JsonReturn.notFoundError("No se pudo modificar el usuario."),
+				HttpStatus.BAD_REQUEST);
+	}
+	
+	@PUT
+	@Path("/rentVehicle")
+	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response rentVehicle (@RequestBody Publication publication , @RequestBody BookingRequest request) {
+		return responseHandlingErrorsExecuting((() -> {
+			User user = publication.getUser();
+			try {
+				user.rentVehicle(publication, request);
+			} catch (BannedException e) {
+				
+			}
+			publicationService.updateById(publication.getId(), publication);
+			userService.updateById(user.getId(), user);
 			return user;
 		}), JsonReturn.notFoundError("No se pudo modificar el usuario."),
 				HttpStatus.BAD_REQUEST);

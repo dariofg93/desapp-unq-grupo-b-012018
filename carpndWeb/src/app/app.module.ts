@@ -5,7 +5,6 @@ import { NgModule,LOCALE_ID } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { NgxPaginationModule } from 'ngx-pagination';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersEditComponent } from './pages/users-edit/users-edit.component';
@@ -15,8 +14,6 @@ import { MapComponent } from './components/google/map/map.component';
 import { HeaderComponent } from './components/navbar/header/header.component';
 import { FooterComponent } from './components/navbar/footer/footer.component';
 import { GenericRestService } from './services/generic/generic-rest.service';
-import { Ng2CarouselamosModule } from 'ng2-carouselamos';
-
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { DateService } from './services/date/date.service';
@@ -99,7 +96,6 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    Ng2CarouselamosModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
