@@ -4,7 +4,6 @@ import model.user.User;
 import model.vehicle.Vehicle;
 import model.vehicletype.Category;
 
-import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class VehicleBuilder {
@@ -30,7 +29,7 @@ public class VehicleBuilder {
         return this;
     }
 
-    public VehicleBuilder withPictures(List<BufferedImage> anyPictures) {
+    public VehicleBuilder withPictures(List<String> anyPictures) {
         buildVehicle.setPictures(anyPictures);
         return this;
     }

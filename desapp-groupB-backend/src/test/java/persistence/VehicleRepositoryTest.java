@@ -2,8 +2,8 @@ package persistence;
 
 import static org.junit.Assert.*;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.After;
 
@@ -60,8 +60,8 @@ public class VehicleRepositoryTest {
 		User user = new User();
 		userService.save(user);
 
-		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.",
-				new ArrayList<BufferedImage>(), 5, user);
+		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.", new ArrayList<String>(), 5,
+				user);
 
 		vehicleService.save(vehicle);
 		assertEquals(1, vehicleService.retriveAll().size());
@@ -71,8 +71,8 @@ public class VehicleRepositoryTest {
 	public void testRestoreFromDataBaseVehicle() {
 		User user = new User();
 		userService.save(user);
-		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.",
-				new ArrayList<BufferedImage>(), 5, user);
+		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.", new ArrayList<String>(), 5,
+				user);
 
 		vehicleService.save(vehicle);
 
@@ -87,9 +87,12 @@ public class VehicleRepositoryTest {
 	@Test
 	public void testUpdateVehicle() {
 		User user = new User();
+		List<String> pictures = new ArrayList<String>();
+		pictures.add("aPathPicture");
+		pictures.add("anOtherPathPicture");
+		
 		userService.save(user);
-		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.",
-				new ArrayList<BufferedImage>(), 5, user);
+		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.", pictures, 5, user);
 
 		vehicleService.save(vehicle);
 
@@ -105,6 +108,7 @@ public class VehicleRepositoryTest {
 
 		assertEquals(restoredVehicle.getPassengerCapacity(), vehicle.getPassengerCapacity());
 		assertEquals(restoredVehicle.getDescription(), newDescription);
+		assertEquals(restoredVehicle.getPictures().size(), 2);
 		assertEquals(restoredVehicle.getCategory().getName(), vehicle.getCategory().getName());
 
 	}
@@ -113,9 +117,9 @@ public class VehicleRepositoryTest {
 	public void testUpdateVehicleWhenNotHaveId() {
 		User user = new User();
 		userService.save(user);
-		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.",
-				new ArrayList<BufferedImage>(), 5, user);
-		Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo", new ArrayList<BufferedImage>(), 2);
+		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.", new ArrayList<String>(), 5,
+				user);
+		Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo", new ArrayList<String>(), 2);
 
 		vehicleService.save(vehicle);
 
@@ -136,9 +140,9 @@ public class VehicleRepositoryTest {
 		User user = new User();
 		userService.save(user);
 
-		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.",
-				new ArrayList<BufferedImage>(), 5, user);
-		Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo", new ArrayList<BufferedImage>(), 2);
+		Vehicle vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.", new ArrayList<String>(), 5,
+				user);
+		Vehicle anotherVehicle = new Vehicle(Category.car(), "Deportivo", new ArrayList<String>(), 2);
 
 		vehicleService.save(vehicle);
 

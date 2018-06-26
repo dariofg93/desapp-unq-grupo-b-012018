@@ -58,7 +58,7 @@ public class VehicleRest extends AbstractRest{
     @Path("/{id}")
     @Produces("application/json")
     public Response deleteById(@PathParam("id") final Long id) {
-		return responseHandlingErrorsExecuting(() -> {vehicleService.delete(vehicleService.searchById(id)); return JsonReturn.success("OK");}, JsonReturn.notFoundError("No se pudo eliminar el vehiculo seleccionado "), HttpStatus.INTERNAL_SERVER_ERROR);	
+		return responseHandlingErrorsExecuting(() -> {vehicleService.delete(vehicleService.searchById(id)); return JsonReturn.success("OK");}, JsonReturn.notFoundError("No se pudo eliminar el vehiculo seleccionado. Existen Publicaciones asociadas a este vehiculo. "), HttpStatus.INTERNAL_SERVER_ERROR);	
     }
 
 

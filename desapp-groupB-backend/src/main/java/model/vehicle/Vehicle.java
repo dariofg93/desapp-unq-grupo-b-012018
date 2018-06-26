@@ -1,6 +1,6 @@
 package model.vehicle;
 
-import java.awt.image.BufferedImage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,20 +20,18 @@ public class Vehicle extends Entity{
 	
 	private Category category;
 	private String description;
-    private List<BufferedImage> pictures; 
+    private List<String> pictures; 
     private Integer passengerCapacity;
 	private User owner;
-    
-    // Por ahora modelamos las imaganes con BufferedImage. Si despues hay uqe cambiar la clase vemos.
 
-    public Vehicle(Category aCategory , String aDescription, List<BufferedImage> somePictures, Integer aNumberOfPassenger, User anOwner) {
+    public Vehicle(Category aCategory , String aDescription, List<String> somePictures, Integer aNumberOfPassenger, User anOwner) {
 		this.category = aCategory;
 		this.description = aDescription;
 		this.pictures = somePictures;
 		this.passengerCapacity = aNumberOfPassenger;
 		this.owner = anOwner;
     }
-    public Vehicle(Category aCategory , String aDescription, List<BufferedImage> somePictures, Integer aNumberOfPassenger) {
+    public Vehicle(Category aCategory , String aDescription, List<String> somePictures, Integer aNumberOfPassenger) {
 		this.category = aCategory;
 		this.description = aDescription;
 		this.pictures = somePictures;
@@ -46,8 +44,8 @@ public class Vehicle extends Entity{
         return this.category.isSame(anyCategory);
     }
 
-	public void addPicture(BufferedImage img) {
-		pictures.add(img);
+	public void addPicture(String imgPath) {
+		pictures.add(imgPath);
 	}
 
 	/** Setters and Getters **/
@@ -65,10 +63,10 @@ public class Vehicle extends Entity{
 		this.description = description;
 	}
 
-	public List<BufferedImage> getPictures() {
+	public List<String> getPictures() {
 		return this.pictures;
 	}
-	public void setPictures(List<BufferedImage> pictures) {
+	public void setPictures(List<String> pictures) {
 		this.pictures = pictures;
 	}
 

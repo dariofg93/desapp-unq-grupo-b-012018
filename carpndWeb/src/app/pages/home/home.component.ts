@@ -11,6 +11,7 @@ import { BookingRequest } from './../../models/booking-request';
 import { DateService } from './../../services/date/date.service';
 import { UserService } from './../../services/user/user.service';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
+import { Router } from '@angular/router';
 
 registerLocaleData(localeEs, 'es-AR');
 
@@ -29,11 +30,13 @@ export class HomeComponent implements AfterViewChecked {
   profile: User = null;
   currentP = 1;
   setted = false;
+  errors;
 
   constructor(
     private usersService: UserService,
     private vehiclesService: GenericRestService<Vehicle>,
-    private dateService: DateService/*,
+    private dateService: DateService,
+    private router: Router/*,
     @Inject(LOCALE_ID) private _locale: string*/
   ) {}
 
@@ -63,14 +66,25 @@ export class HomeComponent implements AfterViewChecked {
   }
 
   pathImage(vehicle: Vehicle): string {
-    return ASSETS + vehicle.pictures[0];
+    return vehicle.pictures[0];
   }
 
   deleteVehicle(id: number): void {
     console.log(this.profile);
-    alert("No se puede borrar el vehiculo porque esta asociada a una publicacion");
     this.vehiclesService.delete(id).subscribe(
-      data => console.log(data.body)
+      data => this.errors = (data.body),
+      error => {
+        this.errors = error;
+      },
+        () => {
+          this.errors =  JSON.parse( this.errors);
+          if(this.errors.error){
+            alert(this.errors.error)
+          }else{
+            window.location.reload();
+          } 
+      }
+      
     );
   }
 

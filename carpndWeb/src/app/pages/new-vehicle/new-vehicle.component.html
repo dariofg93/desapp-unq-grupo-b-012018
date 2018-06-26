@@ -5,43 +5,67 @@
 			<h1 class="pageTitle" i18n="@@createVehicle">createVehicle</h1>
 		</div>
 
-			<form (ngSubmit)="saveVehicle(vehicleForm)" #vehicleForm="ngForm" class="col-md-12 justify-content-md-center">
-	      <div class="form-group row col-md justify-content-md-center">
-	        <label class="col-md-4" for="description" i18n="@@description">description</label>
-	        <input type="text" class="form-control col-md-4" name="description" id="description"
-	               [(ngModel)]="vehicle.description" required
-	               #description="ngModel">
-	        <!--<div class="col-md-4" [hidden]="description.valid || description.pristine"
+		<form (ngSubmit)="saveVehicle(vehicleForm)" #vehicleForm="ngForm" class="col-md-12 justify-content-md-center">
+			<div class="form-group row col-md justify-content-md-center">
+				<label class="col-md-4" for="description" i18n="@@description">description</label>
+				<input type="text" class="form-control col-md-5" name="description" id="description" [(ngModel)]="vehicle.description" required
+				 #description="ngModel">
+				<!--<div class="col-md-4" [hidden]="description.valid || description.pristine"
 	             class="alert alert-danger" i18n="@@descriptionRequired">
 	          descriptionRequired
 	        </div>-->
-	      </div>
-	 
-	      <div class="form-group row col-md justify-content-md-center">
-	        <label class="col-md-4" for="passengerCapacity" i18n="@@passengerCapacity">passengerCapacity</label>
-	        <input type="number" min="1" max="5" class="form-control col-md-4" id="passengerCapacity" name="passengerCapacity"
-	               [(ngModel)]="vehicle.passengerCapacity" required>
-	        <!--<div class="col-md-4" [hidden]="passengerCapacity.valid || passengerCapacity.pristine" 
+			</div>
+
+			<div class="form-group row col-md justify-content-md-center">
+				<label class="col-md-4" for="passengerCapacity" i18n="@@passengerCapacity">passengerCapacity</label>
+				<input type="number" min="1" max="5" class="form-control col-md-5" id="passengerCapacity" name="passengerCapacity" [(ngModel)]="vehicle.passengerCapacity"
+				 required>
+				<!--<div class="col-md-4" [hidden]="passengerCapacity.valid || passengerCapacity.pristine" 
 	        		 class="alert alert-danger" i18n="@@passengerCapacity">
 	          CapacityRequired
 	        </div>-->
-	      </div>
-	 
-	      <div class="form-group row col-md justify-content-md-center">
-	        <label class="col-md-4" for="category" i18n="@@category">category</label>
-	        <select class="form-control col-md-4" id="category" name="category"
-	                [(ngModel)]="vehicle.category"
-	                #category="ngModel">
-	          <option [ngValue]="selectCategory" disabled selected i18n="@@selectCategory">selectCategory</option>
-	          <option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
-	        </select>
+			</div>
+
+			<div class="form-group row col-md justify-content-md-center">
+				<label class="col-md-4" for="category" i18n="@@category">category</label>
+				<select class="form-control col-md-5" id="category" name="category" [(ngModel)]="vehicle.category" #category="ngModel">
+					<option [ngValue]="selectCategory" disabled selected i18n="@@selectCategory">selectCategory</option>
+					<option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
+				</select>
+			</div>
+
+			<form (ngSubmit)="addPicture(imageForm)" #imageForm="ngForm" class="form-group row col-md justify-content-md-center">
+				<label class="col-md-4" for="newPicturePath" i18n="@@newImage">newImage</label>
+				<input type="text" class="form-control col-md-4" id="newPicturePath" name="newPicturePath" [(ngModel)]="newPicturePath" required>
+				<button type="reset" class="btn btn-primary" (click)="addPicture(newPicturePath)" i18n="@@plus">+</button>
+			</form>
+
+			<div class="form-group row col-md justify-content-md-center">
+				<div *ngFor="let picture of this.vehicle.pictures">
+					<div class="pull-center">
+						<button type="button" (click)="revomePicture(picture)" class="close" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<img src="{{picture}}" class="vehiclePicture">
+						<br>
+						<br>
+					</div>
 				</div>
- 
-	 			<div class="form-group row col-md justify-content-md-center">
-		      <button type="submit" class="btn btn-primary" [disabled]="!vehicleForm.form.valid" i18n="@@save">save</button>
-		      <button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-		    </div>
-	    </form>
+			</div>
+
+
+			<div class="form-group row col-md justify-content-md-center">
+				<button type="submit" class="btn btn-primary" [disabled]="!vehicleForm.form.valid" i18n="@@save">save</button>
+				<button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+			</div>
+		</form>
 	</div>
 
 </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	$("#btnLimpiar").click(function (event) {
+		$("#formEjemplo")[0].reset();
+	});
+</script>

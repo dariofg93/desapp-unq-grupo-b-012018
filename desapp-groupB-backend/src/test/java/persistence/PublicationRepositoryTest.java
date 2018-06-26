@@ -1,8 +1,6 @@
 package persistence;
 
 import static org.junit.Assert.*;
-
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
@@ -167,7 +165,7 @@ public class PublicationRepositoryTest {
 
 		fromDate = DateTime.parse("2018-04-01");
 		toDate = DateTime.parse("2018-05-01");
-		vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.", new ArrayList<BufferedImage>(), 5);
+		vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0.", new ArrayList<String>(), 5);
 		vehicleService.save(vehicle);
 		user = new UserBuilder().createUser().build();
 		userService.save(user);

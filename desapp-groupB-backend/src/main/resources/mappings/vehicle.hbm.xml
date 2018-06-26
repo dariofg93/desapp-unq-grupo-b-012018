@@ -7,19 +7,27 @@
 		<id column="id_vehicle" name="id" type="java.lang.Long">
 			<generator class="increment" />
 		</id>
-		
-		<many-to-one name="owner" column="id_user" not-null = "false"
-			class="model.user.User" unique="false" lazy="false" cascade="none"/>
-		
-		<property name="description" type="string" column="DESCRIPTION" />
-			
-		<property name="passengerCapacity" type="integer" column="PASSAGER_CAPACITY" />
-		
+
+		<many-to-one name="owner" column="id_user"
+			not-null="false" class="model.user.User" unique="false" lazy="false"
+			cascade="none" />
+
+		<property name="description" type="string"
+			column="DESCRIPTION" />
+
+		<property name="passengerCapacity" type="integer"
+			column="PASSAGER_CAPACITY" />
+
 		<property name="category" lazy="false">
 			<column name="CATEGORY" />
 			<type name="model.vehicle.Vehicle" />
 		</property>
-		
+
+		<list name="pictures" table="names" lazy="false">
+			<key column="picture"></key>
+			<index column="seq"></index>
+			<element column="pictures" type="string"></element>
+		</list>
 
 	</class>
 </hibernate-mapping>

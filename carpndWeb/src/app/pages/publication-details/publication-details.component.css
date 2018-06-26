@@ -1,3 +1,8 @@
 .label{
 	font-weight: bold;
 }
+
+.vehiclePicture{
+	max-height: 125px;
+    max-width: 150px;
+}

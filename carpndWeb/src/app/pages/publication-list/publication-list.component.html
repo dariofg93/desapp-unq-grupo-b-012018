@@ -29,7 +29,7 @@
 					<tbody class="table table-striped">
 						<tr *ngFor="let publication of profile?.myPublications | paginate: { itemsPerPage: 4, currentPage: currentP }">
 							<td align="center">
-                <img *ngIf="hasImages(publication.publishedVehicle)" src="{{publication.publishedVehicle.pictures[0]}}" class="vehicleHome">
+                <img *ngIf="hasImages(publication.publishedVehicle)" src="{{publication.publishedVehicle.pictures[0]}}" class="vehiclePicture">
                 <div *ngIf="!hasImages(publication.publishedVehicle)"><i class="fa fa-car fa-2x"></i></div>
               </td>
 							<td>{{ publication.pricePerHour }}</td>

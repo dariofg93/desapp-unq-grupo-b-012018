@@ -1,56 +1,92 @@
 <div *ngIf="hasPublication()" class="row justify-content-md-center">
-  <div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
+	<div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
 
-    <div class="row col-md-12 justify-content-md-center">
-      <h1 class="pageTitle" i18n="@@publicationDetails">publicationDetails</h1>
-    </div>
+		<div class="row col-md-12 justify-content-md-center">
+			<h1 class="pageTitle" i18n="@@publicationDetails">publicationDetails</h1>
+		</div>
 
-    <div class="row col-md-12 justify-content-md-center">
+		<div class="row col-md-12 justify-content-md-center">
 
-	    <div class="row justify-content-sm col-md-6">
-	      <label class="col-md-6 label" i18n="@@publishedVehicle:">publishedVehicle:</label>
-	      <label class="col-md-6">{{ publication.publishedVehicle.description }}</label>
-	      <br>
+			<div class="row justify-content-sm col-md-6">
+				<label class="col-md-6 label" i18n="@@publishedVehicle:">publishedVehicle:</label>
+				<label class="col-md-6">{{ publication.publishedVehicle.description }}</label>
+				<br>
+<!--	
+				<div>
+					<div id="col-md-6">
+						<div ng2-carouselamos class="slides-wrapper" [items]="publication.publishedVehicle.pictures" [width]="100" [$prev]="prev" [$next]="next" [$item]="picture">
+						</div>
 
-	      <div *ngIf="hasImages(publication.publishedVehicle)" class="col-md-12">
-	      	<img src="{{ publication.publishedVehicle.pictures[0] }}">
-	      </div>
+						<ng-template #prev>
+							<button class="btn btn-primary" id="left">-</button>
+						</ng-template>
+						<ng-template #next>
+						
+							<button class="btn btn-primary" id="right">-</button>
+						</ng-template>
+						<ng-template #item let-item let-i="index">
 
-	      <label class="col-md-6 label" i18n="@@pricePerHour:">pricePerHour:</label>
-	      <label class="col-md-6">{{ publication.pricePerHour }}</label>
-	      <br>
+							<div class="items">
+								<img src="{{ item }}">
+							</div>
 
-	      <label class="col-md-6 label" i18n="@@phone:">phone:</label>
-	      <label class="col-md-6">{{ publication.phone }}</label>
-	      <br>
+						</ng-template>
+					</div>
+					<!--
+				<div id="demo" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" *ngFor="let x of this.publication.publishedVehicle.pictures;let i = index" [attr.data-slide-to]="i" ngClass="i == 0 ? 'active' : ''"></li>
+					</ol>
 
-	      <label class="col-md-6 label" i18n="@@fromDate:">fromDate:</label>
-	      <label class="col-md-6">{{ dateService.shortDate(publication.fromDate) }}, {{ dateService.shortTime(publication.fromDate) }}</label>
-	      <br>
+					<div class="carousel-item">
+						<div *ngFor="let picture of this.publication.publishedVehicle.pictures; let k = index" [ngClass]="k == 0 ? 'item active' : 'item'">
+							<img src="{{this.publication.publishedVehicle.pictures[k]}}" alt="Image" class="vehiclePicture">
+						</div>
+					</div>
 
-	      <label class="col-md-6 label" i18n="@@toDate:">toDate:</label>
-	      <label class="col-md-6">{{ dateService.shortDate(publication.toDate) }}, {{ dateService.shortTime(publication.toDate) }}</label>
-	      <br>
+					<a class="carousel-control-prev" href="#demo" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next" href="#demo" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+				</div>
+-->
+					<label class="col-md-6 label" i18n="@@pricePerHour:">pricePerHour:</label>
+					<label class="col-md-6">{{ publication.pricePerHour }}</label>
+					<br>
 
-	      <label class="col-md-6 label" i18n="@@pickUpZoneAddress:">pickUpZoneAddress:</label>
-	      <label class="col-md-6">{{ publication.pickUpZone.description }}</label>
-	      <br>
+					<label class="col-md-6 label" i18n="@@phone:">phone:</label>
+					<label class="col-md-6">{{ publication.phone }}</label>
+					<br>
 
-	      <label class="col-md-6 label" i18n="@@dropZoneAddress:">dropZoneAddress:</label>
-	      <label class="col-md-6">{{ publication.dropZone.description }}</label>
-	    </div>
+					<label class="col-md-6 label" i18n="@@fromDate:">fromDate:</label>
+					<label class="col-md-6">{{ dateService.shortDate(publication.fromDate) }}, {{ dateService.shortTime(publication.fromDate) }}</label>
+					<br>
 
-		  <div class="col-md-6">
-				<app-map></app-map>
+					<label class="col-md-6 label" i18n="@@toDate:">toDate:</label>
+					<label class="col-md-6">{{ dateService.shortDate(publication.toDate) }}, {{ dateService.shortTime(publication.toDate) }}</label>
+					<br>
+
+					<label class="col-md-6 label" i18n="@@pickUpZoneAddress:">pickUpZoneAddress:</label>
+					<label class="col-md-6">{{ publication.pickUpZone.description }}</label>
+					<br>
+
+					<label class="col-md-6 label" i18n="@@dropZoneAddress:">dropZoneAddress:</label>
+					<label class="col-md-6">{{ publication.dropZone.description }}</label>
+				</div>
+
+				<div class="col-md-6">
+					<app-map></app-map>
+				</div>
+
+				<div class="row"></div>
+
+				<div class="row col-md-12 justify-content-md-center">
+					<button class="btn btn-primary" (click)="request()" i18n="@@request">request</button>
+					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+				</div>
 			</div>
 
-			<div class="row"></div>			
-
-      <div class="row col-md-12 justify-content-md-center">
-        <button class="btn btn-primary" (click)="request()" i18n="@@request">request</button>
-        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-      </div>    
-    </div>
-
-  </div>
-</div>
+		</div>
+	</div>

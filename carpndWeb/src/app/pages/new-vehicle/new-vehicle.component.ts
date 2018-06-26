@@ -15,8 +15,10 @@ import { UserService } from './../../services/user/user.service';
 export class NewVehicleComponent implements OnInit {
 
 	vehicle = new Vehicle();
-	profile: User;
-
+  profile: User;
+  newPicturePath: String;
+  selectCategory: Category;
+  
 	categories = [
 		new Category("Car"),
 		new Category("Scooter")
@@ -47,5 +49,16 @@ export class NewVehicleComponent implements OnInit {
     }
     this.usersService.update(this.profile.id,this.profile).subscribe();
     this.router.navigate(['']);
+  }
+
+  addPicture(newPicturePath){
+    console.log(newPicturePath)
+    this.vehicle.pictures.push(newPicturePath);
+  }
+  revomePicture(newPicturePath) {
+    var i = this.vehicle.pictures.indexOf(newPicturePath);
+    if (i != -1) {
+      this.vehicle.pictures.splice(i, 1);
+    }
   }
 }

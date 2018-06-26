@@ -52,20 +52,25 @@ public class VehiclesDummy implements DummyData{
 
 	private void initializeContext() {
 		
+		List<String> someList = this.listWith("https://img.clasf.com.ar/2016/11/15/FORD-KA-MOTOR-1-0-FULL-MOD-2000-20161115024340.jpg");
+		someList.add("http://www.cars-directory.net/pics/ford/ka/2000/ford_ka_a1247741434b2854979_3_orig.jpg");
+		someList.add("http://i.autos.com.ar/fotos/2010/1122/Ford-Ka-10-IMAGE-2000-201011220308263.jpg");
+		someList.add("https://i.ytimg.com/vi/mwGpWPsVjKk/hqdefault.jpg");
+		
 	    Vehicle vehicle1 = builder.createVehicle()
                 .withDescription("Ford KA usadito")
                 .withPassengerCapacity(2)
                 .withCategory(new Car())
-                .withPictures(new ArrayList<>())
+                .withPictures(someList)
                 .withOwner(userService.retriveAll().get(0))
                 .build();
         this.vehicles.add(vehicle1);
-
+       
         Vehicle vehicle2 = builder.createVehicle()
                 .withDescription("Kawasaki ninja")
                 .withPassengerCapacity(1)
                 .withCategory(new Scooter())
-                .withPictures(new ArrayList<>())
+                .withPictures(this.listWith("http://3.bp.blogspot.com/-2Y-TefVuSck/VhXrMPUO8gI/AAAAAAAABwo/uHvVy0K4hxw/s1600/Fotor_143640089326160.jpg"))
                 .withOwner(userService.retriveAll().get(1))
                 .build();
         this.vehicles.add(vehicle2);
@@ -92,7 +97,7 @@ public class VehiclesDummy implements DummyData{
                 .withDescription("Toyota Hilux 2009")
                 .withPassengerCapacity(1)
                 .withCategory(new Car())
-                .withPictures(new ArrayList<>())
+                .withPictures(this.listWith("https://autos.superclasificados.hn/uploads/advices/images/gallery_1515613973-9332.jpg"))
                 .withOwner(userService.retriveAll().get(1))
                 .build();
         this.vehicles.add(vehicle5);
@@ -160,5 +165,10 @@ public class VehiclesDummy implements DummyData{
                 .build();
         this.vehicles.add(vehicle12);
 		
+	}
+	private List<String> listWith(String string) {
+		List<String> list = new ArrayList<String>();
+		list.add(string);
+		return list;
 	}
 }

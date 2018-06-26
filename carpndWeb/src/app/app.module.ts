@@ -15,7 +15,8 @@ import { MapComponent } from './components/google/map/map.component';
 import { HeaderComponent } from './components/navbar/header/header.component';
 import { FooterComponent } from './components/navbar/footer/footer.component';
 import { GenericRestService } from './services/generic/generic-rest.service';
-import { AlertService } from './services/alert/alert.service';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { DateService } from './services/date/date.service';
@@ -90,13 +91,15 @@ const appRoutes: Routes = [
     NewPublicationComponent,
     PublicationListComponent,
     PublicationDetailsComponent,
-    RequestDetailsComponent
+    RequestDetailsComponent,
+    
   ],
   imports: [
     NgxPaginationModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    Ng2CarouselamosModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -105,7 +108,6 @@ const appRoutes: Routes = [
   providers: [
     DatePipe,
     GenericRestService,
-    AlertService,
     AuthService,
     UserService,
     DateService,

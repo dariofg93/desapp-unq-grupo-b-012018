@@ -2,7 +2,6 @@ package model.vehicle;
 
 import static org.junit.Assert.*;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +17,11 @@ import static org.mockito.Mockito.*;
 public class VehicleTest {
 	
 	private Vehicle vehicle;
-	private List<BufferedImage> collectionOfPictures;
+	private List<String> collectionOfPictures;
 	
     @Before
     public void setUp() {
-    	collectionOfPictures = spy(new ArrayList<BufferedImage>());
+    	collectionOfPictures = spy(new ArrayList<String>());
     	vehicle = new Vehicle(Category.car(), "Auto grande y espacioso. Motor 2.0." , collectionOfPictures, 5);
     }
 
@@ -38,9 +37,9 @@ public class VehicleTest {
 	
 	@Test
 	public void testAddPicture() {
-		BufferedImage img = mock(BufferedImage.class);
+		String img = mock(String.class);
 		vehicle.addPicture(img);
-		verify(collectionOfPictures).add(any(BufferedImage.class));
+		verify(collectionOfPictures).add(any(String.class));
 
 	}
 
