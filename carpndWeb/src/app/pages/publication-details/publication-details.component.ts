@@ -37,8 +37,12 @@ export class PublicationDetailsComponent implements OnInit {
     return vehicle.pictures? vehicle.pictures.length > 0: false;
   }
 
-  request() {
-    console.log(this.publication);
+  isMyPublication() {
+    return this.publication.user.id == JSON.parse(localStorage.getItem('id'));
+  }
+
+  request(form) {
+    console.log(form,this.publication);
   }
 
   return() {

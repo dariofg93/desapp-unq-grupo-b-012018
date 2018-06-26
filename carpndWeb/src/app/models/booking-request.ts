@@ -2,10 +2,10 @@ import { User } from './../models/user'
 import { BookingState } from './../models/booking-state'
 
 export class BookingRequest {
-	id_request: number;
+	id: number;
   state: BookingState;
   requester: User;
   totalHours: number;
-  dateTimeOfReservation: Date;
+  reservationDateTime: Date;
   hoursOfTheReservation: number;
 }

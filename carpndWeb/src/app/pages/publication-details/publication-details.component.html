@@ -80,6 +80,7 @@
 					<app-map></app-map>
 				</div>
 
+<<<<<<< HEAD
 				<div class="row"></div>
 
 				<div class="row col-md-12 justify-content-md-center">
@@ -87,6 +88,34 @@
 					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
 				</div>
 			</div>
+=======
+      <div class="row col-md-12 justify-content-md-center">
+	      <form *ngIf="!isMyPublication()" (ngSubmit)="request(requestForm)" #requestForm="ngForm" class="col-md-12 justify-content-md-center">
+
+	      	<hr>
+	      	<div class="row col-md-12 justify-content-md-center">
+			      <h3 class="sectionTitle" i18n="@@bookingRequest">bookingRequest</h3>
+			    </div>
+		 
+		      <div class="form-group row col-md justify-content-md-center">
+		        <label class="col-md-4" for="totalHours" i18n="@@totalHours">totalHours</label>
+		        <input type="number" min="1" max="120" class="form-control col-md-4" id="totalHours" name="totalHours"
+		               [(ngModel)]="request.totalHours" required>
+		        <!--<div class="col-md-4" [hidden]="totalHours.valid || totalHours.pristine" 
+		        		 class="alert alert-danger" i18n="@@totalHours">
+		          CapacityRequired
+		        </div>-->
+		      </div>
+	 
+		 			<div class="form-group row col-md justify-content-md-center">
+			      <button type="submit" class="btn btn-primary" [disabled]="!requestForm.form.valid" i18n="@@request">request</button>
+			    </div>
+		    </form>
+
+        <button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
+      </div>    
+    </div>
+>>>>>>> 52df2fd81c132946243b62e72b943d72466d8426
 
 		</div>
 	</div>

@@ -31,8 +31,6 @@ export class VehiclesEditComponent implements OnInit {
     new Category("Scooter")
   ];
 
-  return;
-
   constructor(
     private vehiclesService: GenericRestService<Vehicle>,
     private router: Router,
@@ -56,6 +54,7 @@ export class VehiclesEditComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+<<<<<<< HEAD
 
   addPicture(newPicturePath) {
     this.vehicle.pictures.push(newPicturePath);
@@ -65,5 +64,9 @@ export class VehiclesEditComponent implements OnInit {
     if (i != -1) {
       this.vehicle.pictures.splice(i, 1);
     }
+=======
+  return() {
+    this.location.back();
+>>>>>>> 52df2fd81c132946243b62e72b943d72466d8426
   }
 }
