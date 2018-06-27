@@ -4,6 +4,9 @@ import { ActivatedRoute } from "@angular/router";
 
 import { Vehicle } from './../../models/vehicle'
 import { Publication } from './../../models/publication';
+import { BookingState } from './../../models/booking-state';
+import { BookingRequest } from './../../models/booking-request';
+import { UserService } from './../../services/user/user.service';
 import { DateService } from './../../services/date/date.service';
 import { PublicationService } from './../../services/publication/publication.service';
 
@@ -15,13 +18,19 @@ import { PublicationService } from './../../services/publication/publication.ser
 export class PublicationDetailsComponent implements OnInit {
 
 	publication: Publication = null;
+  request: BookingRequest = new BookingRequest();
 
   constructor(
   	private activatedRoute: ActivatedRoute,
   	private location: Location,
+    private usersService: UserService,
     private publicationsService: PublicationService,
     private dateService: DateService
-  ) {}
+  ) {
+    this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
+      data => this.request.requester = data.body
+    );
+  }
 
   ngOnInit() {
   	this.publicationsService.read(this.activatedRoute.snapshot.params.id).subscribe(
@@ -41,8 +50,13 @@ export class PublicationDetailsComponent implements OnInit {
     return this.publication.user.id == JSON.parse(localStorage.getItem('id'));
   }
 
-  request(form) {
-    console.log(form,this.publication);
+  executeRequest(form): void {
+    this.request.requester.myVehicles = [];
+    this.request.requester.myPublications = [];
+    this.request.reservationDateTime = new Date();
+    this.request.state = new BookingState("AWA");
+
+    this.publicationsService.rentVehicle(this.publication,this.request).subscribe();
   }
 
   return() {

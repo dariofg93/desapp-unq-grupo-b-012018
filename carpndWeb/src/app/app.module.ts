@@ -5,6 +5,7 @@ import { NgModule,LOCALE_ID } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { NgxPaginationModule } from 'ngx-pagination';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsersEditComponent } from './pages/users-edit/users-edit.component';
@@ -18,6 +19,7 @@ import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { DateService } from './services/date/date.service';
 import { PublicationService } from './services/publication/publication.service';
+
 import { CallbackComponent } from './components/callback/callback.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NewVehicleComponent } from './pages/new-vehicle/new-vehicle.component';
