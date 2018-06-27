@@ -14,6 +14,7 @@ public class WebSite {
 
     public WebSite(){
         this.users = new ArrayList<>();
+        this.notifier = new Notifier();
     }
 
     public void addUSer(User anyUser) {

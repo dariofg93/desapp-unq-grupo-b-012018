@@ -36,6 +36,7 @@ public class User extends Entity {
 
 	public User() {
 		this.movementsOfMonth = new MovementsOfMonth();
+		this.webSite= new WebSite();
 	}
 
 	public void publish(Publication anyPublication) throws BannedException {

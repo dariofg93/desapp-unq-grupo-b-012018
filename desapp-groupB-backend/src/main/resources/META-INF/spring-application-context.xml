@@ -58,15 +58,13 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 	<bean id="publicationRest"
 		class="webService.vehiclecorcern.PublicationRest">
 		<property name="publicationService" ref="publicationsService" />
+		<property name="userService" ref="usersService" />
 	</bean>
 	
 	<bean id="bookingRequestRest"
 		class="webService.vehiclecorcern.BookingRequestRest">
 		<property name="bookingRequestService" ref="bookingRequestsService" />
 	</bean>
-
-
-
 
 	<bean id="usersRest" class="webService.vehiclecorcern.UserRest">
 		<property name="userService" ref="usersService" />
