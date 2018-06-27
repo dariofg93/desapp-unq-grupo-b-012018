@@ -84,25 +84,6 @@ public class UserRest extends AbstractRest {
 				HttpStatus.BAD_REQUEST);
 	}
 	
-	@PUT
-	@Path("/rentVehicle")
-	@Produces("application/json")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response rentVehicle (@RequestBody Publication publication , @RequestBody BookingRequest request) {
-		return responseHandlingErrorsExecuting((() -> {
-			User user = publication.getUser();
-			try {
-				user.rentVehicle(publication, request);
-			} catch (BannedException e) {
-				
-			}
-			publicationService.updateById(publication.getId(), publication);
-			userService.updateById(user.getId(), user);
-			return user;
-		}), JsonReturn.notFoundError("No se pudo modificar el usuario."),
-				HttpStatus.BAD_REQUEST);
-	}
-
 	@DELETE
 	@Path("/{id}")
 	@Produces("application/json")

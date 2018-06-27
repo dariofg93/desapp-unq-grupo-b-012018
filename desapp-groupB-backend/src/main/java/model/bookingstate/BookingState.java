@@ -1,6 +1,7 @@
 package model.bookingstate;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonSubTypes.Type;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 
@@ -8,13 +9,13 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
 import model.exceptions.NoAceptedException;
 import model.utils.Entity;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY , property = "concretType")
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = Approved.class, name = "APP"),
+    @Type(value = Approved.class, name = "APP"),
 
-    @JsonSubTypes.Type(value = AwaitingApproval.class, name = "AWA"),
+    @Type(value = AwaitingApproval.class, name = "AWA"),
     
-    @JsonSubTypes.Type(value = Rejected.class, name = "REJ")}
+    @Type(value = Rejected.class, name = "REJ")}
 )
 public abstract class BookingState extends Entity{
 	

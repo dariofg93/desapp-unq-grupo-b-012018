@@ -5,33 +5,33 @@
         <h3 class="sectionTitle" i18n="@@MyVehicles">MyVehicles</h3>
       </div>
 
-      <div class="table-responsive-md">
-        <table class="table table-hover">
-          <thead class="thead-dark">
-            <tr>
-              <th class="text-center" i18n="@@image">image</th>
-              <th class="text-center" i18n="@@vehicleDescription">description</th>
-              <th class="text-right" i18n="@@vehicleCapacity">capacity</th>
-              <th></th><th></th>
-            </tr>
-          </thead>
-          <tbody class="table table-striped">
-            <tr *ngFor="let vehicle of profile?.myVehicles | paginate: { itemsPerPage: 5, currentPage: currentP }"> 
-              <td align="center">
-                <img *ngIf="hasImages(vehicle)" src="{{pathImage(vehicle)}}" class="vehicleHome">
-                <div *ngIf="!hasImages(vehicle)"><i class="fa fa-car fa-3x"></i></div>
-              </td>
-              <td align="left">{{ vehicle.description }}</td>
-              <td align="right">{{ vehicle.passengerCapacity }}</td>
-              <td align="center">
-                <a href="vehicles/{{vehicle.id}}"><i class="fa fa-edit fa-2x"></i></a>
-              </td>
-              <td align="center">
-                <a routerLink (click)="deleteVehicle(vehicle.id)"><i class="fa fa-trash fa-2x"></i></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="table-responsive-md">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th class="text-center" i18n="@@image">image</th>
+            <th class="text-center" i18n="@@vehicleDescription">description</th>
+            <th class="text-right" i18n="@@vehicleCapacity">capacity</th>
+            <th></th><th></th>
+          </tr>
+        </thead>
+        <tbody class="table table-striped">
+          <tr *ngFor="let vehicle of profile?.myVehicles | paginate: { itemsPerPage: 5, currentPage: currentP }"> 
+            <td align="center">
+              <img *ngIf="hasImages(vehicle)" src="{{pathImage(vehicle)}}" class="vehicleHome">
+              <div *ngIf="!hasImages(vehicle)"><i class="fa fa-car fa-3x"></i></div>
+            </td>
+            <td align="left">{{ vehicle.description }}</td>
+            <td align="right">{{ vehicle.passengerCapacity }}</td>
+            <td align="center">
+              <a routerLink="vehicles/{{vehicle.id}}"><i class="fa fa-edit fa-2x"></i></a>
+            </td>
+            <td align="center">
+              <a routerLink (click)="deleteVehicle(vehicle.id)"><i class="fa fa-trash fa-2x"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
         <div class="row justify-content-md-center">
           <pagination-controls (pageChange)="currentP = $event"></pagination-controls>
