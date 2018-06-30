@@ -1,7 +1,7 @@
-import { Publication } from './../models/publication';
-import { BookingRequest } from './../models/booking-request';
+import { Publication } from './../../models/publication';
+import { BookingRequest } from './../../models/booking-request';
 
-export class PublicationRequestDto {
+export class RentVehicle {
 	publication: Publication;
 	request: BookingRequest;
 

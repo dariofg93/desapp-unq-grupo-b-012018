@@ -1,4 +1,4 @@
-<div *ngIf="hasRequest()" class="row justify-content-md-center">
+<div *ngIf="hasRequest() && hasUser()" class="row justify-content-md-center">
   <div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
 
     <div class="row col-md-12 justify-content-md-center">
@@ -49,8 +49,35 @@
 			</div>	
 
       <div class="row col-md-12 justify-content-md-center">
-        <button class="btn btn-primary" (click)="request()" i18n="@@request">request</button>
-        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+      	<div *ngIf="requestToMyPublicationIsAWA()">
+	        <button class="btn btn-primary" (click)="aceptRequest()" i18n="@@aceptRequest">aceptRequest</button>
+	        <button class="btn btn-default ml-3" (click)="rejectRequest()" i18n="@@rejectRequest">rejectRequest</button>
+	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+	      </div>
+
+      	<div *ngIf="requestToMyPublicationIsAPPButNotInit()">
+	        <button class="btn btn-primary" (click)="initBySeller()" i18n="@@initBySeller">initBySeller</button>
+	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+	      </div>
+
+      	<div *ngIf="requestToMyPublicationIsAPPAndWantFinish()">
+	        <button class="btn btn-primary" (click)="finishBYSeller()" i18n="@@finishBYSeller">finishBYSeller</button>
+	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+	      </div>
+
+      	<div *ngIf="myRequestWasAceptedButNotInit()">
+	        <button class="btn btn-primary" (click)="initByBuyer()" i18n="@@initByBuyer">initByBuyer</button>
+	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+	      </div>
+
+      	<div *ngIf="myRequestIsAPPAndWantFinish()">
+	        <button class="btn btn-primary" (click)="finishByBuyer()" i18n="@@finishByBuyer">finishByBuyer</button>
+	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+	      </div>
+
+      	<div *ngIf="requestWithOutActions()">
+	        <button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
+	      </div>
       </div>    
     </div>
 

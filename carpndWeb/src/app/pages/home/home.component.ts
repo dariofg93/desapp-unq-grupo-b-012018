@@ -1,5 +1,4 @@
 import { Inject, Component, AfterViewChecked, LOCALE_ID } from '@angular/core';
-import { ASSETS } from './../../variables/variables'
 import { registerLocaleData } from '@angular/common'
 import localeEs from '@angular/common/locales/es';
 

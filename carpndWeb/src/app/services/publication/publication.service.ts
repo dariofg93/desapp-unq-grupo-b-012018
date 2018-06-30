@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { ResponseEntity } from './../../models/response-entity';
-import { PublicationRequestDto } from './../../models/publication-request-dto';
+import { RentVehicle } from './../../models/dtos/rent-vehicle';
 import { BookingRequest } from './../../models/booking-request';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
 import { PATHBACKEND } from './../../../environments/environment';
@@ -20,6 +20,6 @@ export class PublicationService extends GenericRestService<Publication>{
 
   public rentVehicle(publication: Publication, request: BookingRequest): Observable<ResponseEntity<Publication>> {
     return this.http
-      .put<ResponseEntity<Publication>>(`${this.url}/${this.endpoint}`,new PublicationRequestDto(publication, request));
+      .put<ResponseEntity<Publication>>(`${this.url}/${this.endpoint}/rentVehicle`,new RentVehicle(publication, request));
   }
 }

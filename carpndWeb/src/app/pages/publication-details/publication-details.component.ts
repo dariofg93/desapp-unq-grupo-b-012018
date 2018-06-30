@@ -43,7 +43,15 @@ export class PublicationDetailsComponent implements OnInit {
   }
 
   hasImages(vehicle: Vehicle): boolean {
-    return vehicle.pictures? vehicle.pictures.length > 0: false;
+    return vehicle? vehicle.pictures? vehicle.pictures.length > 0:
+                                       false:
+                    false;
+  }
+
+  hasRequest(): boolean {
+    return this.publication? 
+        this.publication.requests && this.publication.requests.length > 0:
+        false;
   }
 
   isMyPublication() {
@@ -56,7 +64,9 @@ export class PublicationDetailsComponent implements OnInit {
     this.request.reservationDateTime = new Date();
     this.request.state = new BookingState("AWA");
 
-    this.publicationsService.rentVehicle(this.publication,this.request).subscribe();
+    this.publicationsService.rentVehicle(this.publication,this.request).subscribe(
+      data => console.log(data)
+    );
   }
 
   return() {

@@ -12,14 +12,15 @@
 				<label class="col-md-6">{{ publication.publishedVehicle.description }}</label>
 				<br>
 			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-					<div class="carousel-inner" *ngIf="this.publication.publishedVehicle.pictures.length >= 1">
-							<div class="carousel-item active" >
-									<img class="d-block w-100" src="{{this.publication.publishedVehicle.pictures[0]}}" class="vehiclePicture" alt="First slide">
-							</div>
+					<div class="carousel-inner" *ngIf="hasImages()">
+						<div class="carousel-item active" >
+								<img class="d-block w-100" src="{{this.publication.publishedVehicle.pictures[0]}}" class="vehiclePicture" alt="First slide">
+						</div>
 						<div class="carousel-item" *ngFor="let x of this.publication.publishedVehicle.pictures;let idx = index">
 							<img class="d-block w-100" src="{{x}}" class="vehiclePicture"alt="First slide">
 						</div>
 					</div>
+					<div class="vehiclePicture" *ngIf="!hasImages(vehicle)"><i class="fa fa-image fa-5x"></i></div>
 					
 					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -57,31 +58,32 @@
 
 		<div class="col-md-6">
 			<app-map></app-map>
-		</div>
 
-			<div class="row col-md-12 justify-content-md-center">
+			<br>
+
+			<div *ngIf="hasRequest()" class="row col-md-12 justify-content-md-center">
 				<div class="table-responsive-md">
 					<table class="table table-hover">
 						<thead class="thead-dark">
 							<tr>
-								<th class="text-center" i18n="@@userDescription">userDescription</th>
 								<th class="text-center" i18n="@@totalHours">totalHours</th>
-								<th class="text-center" i18n="@@reservetionDate">creservetionDate</th>
 								<th class="text-center" i18n="@@bookingState">bookingState</th>
-								<th></th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody class="table table-striped">
-							<tr *ngFor="let request of publication.request | paginate: { itemsPerPage: 5, currentPage: currentP }">
-								<td align="center">{{request.requester.email.accountName}}</td>
+							<tr *ngFor="let request of publication.requests | paginate: { itemsPerPage: 2, currentPage: currentP }">
 								<td align="center">{{ request.totalHours }}</td>
-								<td align="center">{{ request.reservationDateTime }}</td>
 								<td align="center">{{request.state.description}}</td>
+								<td align="center">
+	                <a href="requests/{{request.id}}"><i class="fa fa-eye fa-2x"></i></a>
+	              </td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
+			</div>
+		</div>
 
 		<div class="row col-md-12 justify-content-md-center">
 			<form *ngIf="!isMyPublication()" (ngSubmit)="executeRequest(requestForm)" #requestForm="ngForm" class="col-md-12 justify-content-md-center">

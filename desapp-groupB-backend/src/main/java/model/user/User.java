@@ -50,14 +50,14 @@ public class User extends Entity {
 	}
 
 	public void rentVehicle(Publication anyPublication, BookingRequest bookingRequest) throws BannedException {
-		if (!this.isBanned()) {
+		//if (!this.isBanned()) {
 			anyPublication.addBookingRequest(bookingRequest);
-			this.webSite.getNotifier().notifyRequestByMail(anyPublication.getUser(), bookingRequest);
+			//this.webSite.getNotifier().notifyRequestByMail(anyPublication.getUser(), bookingRequest);
 			this.movementsOfMonth.addToHistory("You have sent a successful request to rent a vehicle for "
 					+ bookingRequest.getTotalHours() + " hours!");
-		} else {
+		/*} else {
 			throw new BannedException("You can't rent a vehicle if you're banned");
-		}
+		}*/
 	}
 
 	public Integer numberOfPublications() {

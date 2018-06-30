@@ -19,6 +19,7 @@ import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 import { DateService } from './services/date/date.service';
 import { PublicationService } from './services/publication/publication.service';
+import { BookingRequestService } from './services/booking/booking-request.service';
 
 import { CallbackComponent } from './components/callback/callback.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -110,6 +111,7 @@ const appRoutes: Routes = [
     UserService,
     DateService,
     PublicationService,
+    BookingRequestService,
     { 
       provide: LOCALE_ID, useValue: localStorage.getItem('language')? 
                                       localStorage.getItem('language'): 
