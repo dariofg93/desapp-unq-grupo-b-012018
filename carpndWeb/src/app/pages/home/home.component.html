@@ -18,7 +18,7 @@
         <tbody class="table table-striped">
           <tr *ngFor="let vehicle of profile?.myVehicles | paginate: { itemsPerPage: 5, currentPage: currentP }"> 
             <td align="center">
-              <img *ngIf="hasImages(vehicle)" src="{{pathImage(vehicle)}}" class="vehicleHome">
+              <a href="{{pathImage(vehicle)}}"><img *ngIf="hasImages(vehicle)" src="{{pathImage(vehicle)}}" class="vehicleHome"></a>
               <div *ngIf="!hasImages(vehicle)"><i class="fa fa-car fa-3x"></i></div>
             </td>
             <td align="left">{{ vehicle.description }}</td>
