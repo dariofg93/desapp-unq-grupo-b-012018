@@ -78,15 +78,15 @@ public class User extends Entity {
 
 	public void aceptRequest(BookingRequest anyRequest) throws RequestNoExistException {
 		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
-
+		
 		if (anyPublication != null) {
 			this.webSite.getNotifier().notifyAceptByMail(this, anyRequest);
-
+			System.out.println("___________________________A");
 			anyPublication.allBookingRequest().stream()
 					.filter(request -> !request.equals(anyRequest)
 							&& anyPublication.remainingTime() < anyRequest.getTotalHours())
-					.forEach(request -> this.webSite.getNotifier().notifyRejectByMail(this, request));
-
+					.forEach(request -> this.rejectRequest(request));
+			System.out.println("___________________________B");
 			this.movementsOfMonth
 					.addToHistory("You have accepted a reservation by " + anyRequest.getTotalHours() + " hours.");
 		} else {
@@ -95,6 +95,7 @@ public class User extends Entity {
 	}
 
 	public void rejectRequest(BookingRequest anyRequest) {
+		anyRequest.reject();
 		this.webSite.getNotifier().notifyRejectByMail(this, anyRequest);
 		this.movementsOfMonth
 				.addToHistory("You have rejected a reservation by " + anyRequest.getTotalHours() + " hours.");

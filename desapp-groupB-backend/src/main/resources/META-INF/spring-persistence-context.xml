@@ -155,7 +155,7 @@
 	<bean id="bookingRequestsDummy"
 		class="dummies.RequestsDummy">
 		<property name="service" ref="bookingRequestsService" />
-	
+		<property name="userService" ref="usersService" />
 	</bean>
 	
 

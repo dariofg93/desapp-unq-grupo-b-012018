@@ -2,19 +2,19 @@ package dto;
 
 public class RequestsCorcernPayload {
 	
-	private Integer userId;
-	private Integer requestId;
+	private Long  userId;
+	private Long requestId;
 
-	public Integer getUserId() {
+	public Long  getUserId() {
 		return this.userId;
 	}
-	public void setUserId(Integer userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public Integer getRequestId() {
+	public Long getRequestId() {
 		return this.requestId;
 	}
-	public void setRequestId(Integer requestId) {
+	public void setRequestId(Long requestId) {
 		this.requestId = requestId;
 	}
 }

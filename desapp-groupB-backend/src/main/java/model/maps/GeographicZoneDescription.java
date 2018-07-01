@@ -58,11 +58,12 @@ public class GeographicZoneDescription extends Entity {
 	}
 
 	private String getAddressByGpsCoordinates(String lat, String lng ) {
-	    Geocoder geocoder = new Geocoder();
+	   
+		Geocoder geocoder = new Geocoder();
 	    LatLng location = new LatLng(lat,  lng);
 	    String addressResult = "unknown address";
 	    
-	 
+	    try {
        GeocoderRequest request = new GeocoderRequest();
 	        request.setLocation(location);
 
@@ -70,7 +71,10 @@ public class GeographicZoneDescription extends Entity {
 	        if (response.getStatus() == GeocoderStatus.OK) {
 	           addressResult = response.getResults().get(0).getFormattedAddress();
 	        }
-	        
+	    }
+	       catch(Exception e) {
+	    
+	       }
 	    return addressResult;
 	}
 

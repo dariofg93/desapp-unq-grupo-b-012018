@@ -105,9 +105,18 @@
 
 				<div class="form-group row col-md justify-content-md-center">
 					<button type="submit" class="btn btn-primary" [disabled]="!requestForm.form.valid" i18n="@@executeRequest">executeRequest</button>
-					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+					<button type="reset" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
 				</div>
 			</form>
 
 			<button class="btn btn-default" *ngIf="isMyPublication()" (click)="return()" i18n="@@return">return</button>
 		</div>
+
+	</div>
+</div>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	$("#btnLimpiar").click(function (event) {
+		$("#formEjemplo")[1].reset();
+	});
+</script>
