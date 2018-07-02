@@ -70,26 +70,35 @@ export class RequestDetailsComponent implements OnInit {
   }
 
   requestToMyPublicationIsAPPButNotInit(): boolean {
-    return  this.isMyPublication() && this.request.state.concretType == "APP" && this.request.reservationDateTime == null;
+    return  this.isMyPublication() && this.request.state.concretType == "APP" && 
+                                      this.request.status.confirmRetreatSeller == false && 
+                                      this.request.status.confirmReturnSeller == false;
   }
 
   requestToMyPublicationIsAPPAndWantFinish(): boolean {
-    return  this.isMyPublication() && this.request.state.concretType == "APP" && this.request.reservationDateTime != null;
+    return  this.isMyPublication() && this.request.state.concretType == "APP" && 
+                                      this.request.status.confirmRetreatSeller == true && 
+                                      this.request.status.confirmReturnSeller == false;
   }
 
   myRequestWasAceptedButNotInit(): boolean {
-    return  this.isMyRequest() && this.request.state.concretType == "APP" && this.request.reservationDateTime == null;
+    return  this.isMyRequest() && this.request.state.concretType == "APP" && 
+                                  this.request.status.confirmRetreatBuyer == false &&
+                                  this.request.status.confirmReturnBuyer == false;
   }
 
   myRequestIsAPPAndWantFinish(): boolean {
-    return  this.isMyRequest() && this.request.state.concretType == "APP" && this.request.reservationDateTime != null;
+    return  this.isMyRequest() && this.request.state.concretType == "APP" && 
+                                  this.request.status.confirmRetreatSeller == true && 
+                                  this.request.status.confirmReturnBuyer == false;
   }
 
   requestWithOutActions(): boolean {
-    return (this.request.state.concretType != null || !this.isMyPublication() || !this.isMyRequest()) &&
-           (!this.requestToMyPublicationIsAWA() &&
-            !this.requestToMyPublicationIsAPPButNotInit() && !this.requestToMyPublicationIsAPPAndWantFinish() &&
-            !this.myRequestWasAceptedButNotInit() && !this.myRequestIsAPPAndWantFinish());
+    return  !this.requestToMyPublicationIsAWA() &&
+            !this.requestToMyPublicationIsAPPButNotInit() && 
+            !this.requestToMyPublicationIsAPPAndWantFinish() &&
+            !this.myRequestWasAceptedButNotInit() && 
+            !this.myRequestIsAPPAndWantFinish();
   }
 
   aceptRequest(): void {
@@ -110,6 +119,7 @@ export class RequestDetailsComponent implements OnInit {
 
   initBySeller(): void {
     this.request.reservationDateTime = new Date();
+    this.request.status.confirmRetreatSeller = true;
     this.requestsService.initBySeller(this.user.id,this.request.id).subscribe(
       data => console.log(data)
     );
@@ -117,6 +127,7 @@ export class RequestDetailsComponent implements OnInit {
 
   finishBYSeller(): void {
     this.request.hoursOfTheReservation = Math.round(Math.abs(new Date().getTime() - new Date(this.request.reservationDateTime).getTime()) / 36e5);
+    this.request.status.confirmReturnSeller = true;
     this.requestsService.finishBYSeller(this.user.id,this.request.id).subscribe(
       data => console.log(data)
     );
@@ -124,6 +135,7 @@ export class RequestDetailsComponent implements OnInit {
 
   initByBuyer(): void {
     this.request.reservationDateTime = new Date();
+    this.request.status.confirmRetreatBuyer = true;
     this.requestsService.initByBuyer(this.user.id,this.request.id).subscribe(
       data => console.log(data)
     );
@@ -131,6 +143,7 @@ export class RequestDetailsComponent implements OnInit {
 
   finishByBuyer(): void {
     this.request.hoursOfTheReservation = Math.round(Math.abs(new Date().getTime() - new Date(this.request.reservationDateTime).getTime()) / 36e5);
+    this.request.status.confirmReturnBuyer = true;
     this.requestsService.finishByBuyer(this.user.id,this.request.id).subscribe(
       data => console.log(data)
     );

@@ -7,38 +7,42 @@
     <form (ngSubmit)="savePublication(publicationForm)" #publicationForm="ngForm" class="col-md-12 justify-content-md-center">
       <div class="form-group row col-md justify-content-sm">
 
-        <label class="col-md-12" for="vehicle" i18n="@@vehicle">vehicle</label>
-        <select class="form-control col-md-12" id="publishedVehicle" name="publishedVehicle" [(ngModel)]="publication.publishedVehicle"
-          required
-          #publishedVehicle="ngModel">
-          <option  disabled selected i18n="@@selectVehicle">selectAvailableVehicle</option>
-          <option *ngFor="let vehicle of profile?.myVehicles" [ngValue]="vehicle">{{vehicle.description}}</option>
-        </select>
+        <div class="col-md-6">
+          <label class="col-md-12" for="vehicle" i18n="@@vehicle">vehicle</label>
+          <select class="form-control col-md-12" id="publishedVehicle" name="publishedVehicle" [(ngModel)]="publication.publishedVehicle"
+            required
+            #publishedVehicle="ngModel">
+            <option  disabled selected i18n="@@selectVehicle">selectAvailableVehicle</option>
+            <option *ngFor="let vehicle of profile?.myVehicles" [ngValue]="vehicle">{{vehicle.description}}</option>
+          </select>
 
-        <label class="col-md-12" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
-        <input type="number" min="0" step=".01" class="form-control col-md-12" id="pricePerHour" name="pricePerHour" placeholder="" [(ngModel)]="publication.pricePerHour" required
-          
-      >
+          <label class="col-md-12" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
+          <input type="number" min="0" step=".01" class="form-control col-md-12" id="pricePerHour" name="pricePerHour" placeholder="" [(ngModel)]="publication.pricePerHour" required>
 
-        <label class="col-md-12" for="phone" i18n="@@phone">phone</label>
-        <input type="number" min="0" step="1" class="form-control col-md-12" id="phone" name="phone" placeholder="" [(ngModel)]="publication.phone"
-          required>
+          <label class="col-md-12" for="phone" i18n="@@phone">phone</label>
+          <input type="number" min="0" step="1" class="form-control col-md-12" id="phone" name="phone" placeholder="" [(ngModel)]="publication.phone"
+            required>
 
-        <label class="col-md-12" for="fromDate" i18n="@@fromDate">fromDate</label>
-        <input type="date" value="today()" class="form-control col-md-12" id="fromDate" name="fromDate" placeholder="" [(ngModel)]="publication.fromDate"
-          required>
+          <label class="col-md-12" for="fromDate" i18n="@@fromDate">fromDate</label>
+          <input type="date" value="today()" class="form-control col-md-12" id="fromDate" name="fromDate" placeholder="" [(ngModel)]="publication.fromDate"
+            required>
 
-        <label class="col-md-12" for="toDate" i18n="@@toDate">toDate</label>
-        <input type="date" value="today()" class="form-control col-md-12" id="toDate" name="toDate" placeholder="" [(ngModel)]="publication.toDate"
-          required>
+          <label class="col-md-12" for="toDate" i18n="@@toDate">toDate</label>
+          <input type="date" value="today()" class="form-control col-md-12" id="toDate" name="toDate" placeholder="" [(ngModel)]="publication.toDate"
+            required>
+        </div>
 
-        <label class="col-md-12" for="pickUpZoneAddress" i18n="@@pickUpZoneAddress">pickUpZoneAddress</label>
+        <div class="col-md-6 justify-content-md-center">
+          <app-map [puntos]="null" [view]="true"></app-map>
+        </div>
+
+        <!--<label class="col-md-12" for="pickUpZoneAddress" i18n="@@pickUpZoneAddress">pickUpZoneAddress</label>
         <input type="text" class="form-control col-md-12" id="pickUpZoneAddress" name="pickUpZoneAddress"  placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires"
           [(ngModel)]="publication.pickUpZone.description" required>
 
         <label class="col-md-12" for="dropZoneAddress" i18n="@@dropZoneAddress">dropZoneAddress</label>
         <input type="text" class="form-control col-md-12" id="dropZoneAddress" name="dropZoneAddress" placeholder="Roque Sáenz Peña 352, Bernal, Buenos Aires"
-          [(ngModel)]="publication.dropZone.description" required>
+          [(ngModel)]="publication.dropZone.description" required>-->
       </div>
 
       <div class="form-group row col-md justify-content-md-center">
