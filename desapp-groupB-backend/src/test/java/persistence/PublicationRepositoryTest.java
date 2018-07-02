@@ -161,6 +161,8 @@ public class PublicationRepositoryTest {
 
 	}
 
+	
+	
 	private Publication createPublication() {
 
 		fromDate = DateTime.parse("2018-04-01");

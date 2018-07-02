@@ -64,11 +64,13 @@ export class PublicationDetailsComponent implements OnInit {
     this.request.reservationDateTime = new Date();
     this.request.state = new BookingState("AWA");
 
-    this.publication.requests.push(this.request)
-
     this.publicationsService.rentVehicle(this.publication,this.request).subscribe(
-      data => console.log(data)
+      data => {this.publication = data.body, console.log(data.body.requests.length, data.body.requests)}
     );
+  }
+
+  hasRequestTotalHours(request){
+    return request.totalHours != null
   }
 
   return() {

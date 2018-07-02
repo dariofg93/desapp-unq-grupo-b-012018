@@ -22,27 +22,27 @@ public class ApprovedTest extends TestCase {
     public void testSetRejected(){
         assertTrue(anyApproved.reject() instanceof Rejected);
     }
-
-    public void testSetAndGetConfirmRetreatBuyer(){
-        anyApproved.setConfirmRetreatBuyer(true);
-        assertTrue(anyApproved.getConfirmRetreatBuyer());
-    }
-
-    public void testSetAndGetConfirmRetreatSeller(){
-        anyApproved.setConfirmRetreatSeller(false);
-        assertFalse(anyApproved.getConfirmRetreatSeller());
-    }
-
-    public void testSetAndGetConfirmReturnSeller(){
-        anyApproved.setConfirmReturnSeller(false);
-        assertFalse(anyApproved.getConfirmReturnSeller());
-    }
-
-    public void testSetAndGetConfirmReturnBuyer(){
-        anyApproved.setConfirmReturnBuyer(true);
-        assertTrue(anyApproved.getConfirmReturnBuyer());
-    }
-    
+//
+//    public void testSetAndGetConfirmRetreatBuyer(){
+//        anyApproved.setConfirmRetreatBuyer(true);
+//        assertTrue(anyApproved.getConfirmRetreatBuyer());
+//    }
+//
+//    public void testSetAndGetConfirmRetreatSeller(){
+//        anyApproved.setConfirmRetreatSeller(false);
+//        assertFalse(anyApproved.getConfirmRetreatSeller());
+//    }
+//
+//    public void testSetAndGetConfirmReturnSeller(){
+//        anyApproved.setConfirmReturnSeller(false);
+//        assertFalse(anyApproved.getConfirmReturnSeller());
+//    }
+//
+//    public void testSetAndGetConfirmReturnBuyer(){
+//        anyApproved.setConfirmReturnBuyer(true);
+//        assertTrue(anyApproved.getConfirmReturnBuyer());
+//    }
+//    
     public void testIsApproved(){
         assertTrue(anyApproved.isApproved());
     }

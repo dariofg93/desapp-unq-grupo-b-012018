@@ -355,8 +355,6 @@ public class UserTest {
         when(anyBookingRequestMock.getRequester()).thenReturn(anyUserMock);
         when(anyUserMock.getCreditsAccount()).thenReturn(anotherCreditsMock);
         when(anyBookingRequestMock.getState()).thenReturn(anyBookingStateMock);
-        when(anyBookingStateMock.getConfirmRetreatBuyer()).thenReturn(confirmParts);
-        when(anyBookingStateMock.getConfirmRetreatSeller()).thenReturn(confirmParts);
         when(anyWebSiteMock.getNotifier()).thenReturn(anyNotifierMock);
     }
 
@@ -369,7 +367,5 @@ public class UserTest {
         when(anyPublicationMock.containsRequest(anyBookingRequestMock)).thenReturn(true);
         when(anyWebSiteMock.getNotifier()).thenReturn(anyNotifierMock);
         when(anyBookingRequestMock.getState()).thenReturn(anyBookingStateMock);
-        when(anyBookingStateMock.getConfirmReturnBuyer()).thenReturn(returnParts);
-        when(anyBookingStateMock.getConfirmReturnSeller()).thenReturn(returnParts);
-    }
+     }
 }
