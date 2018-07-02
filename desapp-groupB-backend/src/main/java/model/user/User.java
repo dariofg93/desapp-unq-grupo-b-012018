@@ -132,16 +132,17 @@ public class User extends Entity {
 
 		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
 		anyRequest.setStateOfVehicleRetreatBuyer(true);
+		
 		this.webSite.getNotifier().notifyRetreatBuyerByMail(anyPublication.getUser(), anyRequest);
 
 		this.movementsOfMonth.addToHistory("You have confirmed that you have retreat a vehicle for a "
 				+ anyRequest.getTotalHours() + " hours reservation.");
 
-		if (anyRequest.getState().getConfirmRetreatBuyer() && anyRequest.getState().getConfirmRetreatSeller())
+		//if (anyRequest.getConfirmReturnBuyer() && anyRequest.getConfirmRetreatSeller())
 			this.executeTransfer(anyRequest, anyRequest.getRequester().getCreditsAccount(), this.creditsAccount,
 					anyPublication);
-		else
-			this.cancelTransferByTimeLimit(anyRequest);
+		//else
+			//this.cancelTransferByTimeLimit(anyRequest);
 	}
 
 	public void confirmVehicleRetreatSeller(BookingRequest anyRequest) throws NoAceptedException {
@@ -153,12 +154,12 @@ public class User extends Entity {
 		this.movementsOfMonth.addToHistory("You have confirmed the retreat of your vehicle for a "
 				+ anyRequest.getTotalHours() + " hours reservation.");
 
-		if (anyRequest.getState().getConfirmRetreatBuyer() && anyRequest.getState().getConfirmRetreatSeller())
+		//if (anyRequest.getConfirmReturnBuyer() && anyRequest.getConfirmRetreatSeller())
 			this.executeTransfer(anyRequest, this.creditsAccount, anyRequest.getRequester().getCreditsAccount(),
 					anyPublication);
-		else
-			this.executeTransferByTimeLimit(anyRequest, this.creditsAccount,
-					anyRequest.getRequester().getCreditsAccount(), anyPublication);
+		//else
+		//	this.executeTransferByTimeLimit(anyRequest, this.creditsAccount,
+		//			anyRequest.getRequester().getCreditsAccount(), anyPublication);
 	}
 
 	/**
@@ -241,7 +242,7 @@ public class User extends Entity {
 	 */
 
 	private void checkFixRentalTime(BookingRequest anyRequest, Publication anyPublication) throws NoAceptedException {
-		if (anyRequest.getState().getConfirmReturnBuyer() && anyRequest.getState().getConfirmReturnSeller()) {
+		if (anyRequest.getConfirmReturnBuyer() && anyRequest.getConfirmReturnSeller()) {
 			Integer hoursOfTheReservation = Hours.hoursBetween(anyRequest.getReservationDateTime(), DateTime.now())
 					.getHours();
 			anyRequest.setHoursOfTheReservation(hoursOfTheReservation);

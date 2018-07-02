@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="model.booking.BookingStatus" table="BOOKING_STATUS" polymorphism="implicit">
+		
+		<id column="id" name="id" type="java.lang.Long">
+			<generator class="identity" />
+		</id>
+
+		<property name="confirmRetreatSeller" type="boolean"
+			column="RETREAT_SELLER" />
+		<property name="confirmRetreatBuyer" type="boolean"
+			column="RETREAT_BUYER" />
+		<property name="confirmReturnBuyer" type="boolean"
+			column="RETURN_BUYER" />
+		<property name="confirmReturnSeller" type="boolean"
+			column="RETURN_SELLER" />
+
+	<!--   <one-to-one name="request" class="model.booking.BookingRequest"
+            cascade="save-update"></one-to-one> -->
+
+	</class>
+</hibernate-mapping>

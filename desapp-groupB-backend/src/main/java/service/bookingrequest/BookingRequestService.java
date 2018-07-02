@@ -57,6 +57,12 @@ public class BookingRequestService extends GenericService<BookingRequest> {
 			user.confirmVehicleRetreatBuyer(request);
 		} catch (NoAceptedException e) {}
 		
+		System.out.println("______________________________");
+		System.out.println(request.getStatus().getConfirmRetreatBuyer());
+		System.out.println(request.getStatus().getConfirmRetreatSeller());
+		System.out.println(request.getStatus().getConfirmReturnBuyer());
+		System.out.println(request.getStatus().getConfirmReturnSeller()); 
+		
 		this.updateById(requestId, request);
 		
 	}
@@ -66,8 +72,6 @@ public class BookingRequestService extends GenericService<BookingRequest> {
 		User user = userService.searchById(userId);
 		user.setMyPublications(
 				publicationService.selectByFunction((publication) -> publication.getUser().getId() == userId));
-	
-	
 		
 		this.updateById(requestId, request);
 	}

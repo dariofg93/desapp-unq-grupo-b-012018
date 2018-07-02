@@ -33,7 +33,7 @@ public class PublicationService extends GenericService<Publication> {
 		};
 		this.updateById(post.getId(), post);
 		userService.updateById(user.getId(), user);
-		return publication;
+		return post;
 	}
 	
 }

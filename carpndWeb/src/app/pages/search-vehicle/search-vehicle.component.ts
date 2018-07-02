@@ -21,6 +21,8 @@ import { GeographicZoneDescription } from './../../models/geographic-zone-descri
 })
 export class SearchVehicleComponent implements OnInit {
 
+  selectCategory;
+  changeFilter;
 	publications: Publication[];
   currentP = 1;
   categoryFilter;

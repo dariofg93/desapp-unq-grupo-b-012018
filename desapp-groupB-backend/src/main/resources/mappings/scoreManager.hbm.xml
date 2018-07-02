@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping default-cascade="save-update">
+<hibernate-mapping>
 	<class name="model.score.ScoreManager" table="SCORE_MANAGERS">
 
 		<id column="id_sm" name="id" type="java.lang.Long">
