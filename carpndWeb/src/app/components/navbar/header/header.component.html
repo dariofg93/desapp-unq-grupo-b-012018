@@ -12,37 +12,29 @@
       </li>
     </ul>
 
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />-->
-
     <div class="col-sm">
       <div class="float-right">
-        <div class="d-flex">
-          <select [(ngModel)]="i18nValue">
-            <option [ngValue]="undefined" disabled  selected i18n="@@selectLanguage">selectLanguage</option>
-            <option *ngFor="let l of languages" [value]="l.i18n">
-              {{l.name}}
-            </option>
-          </select>
-
-          <button class="btn btn-secondary" (click)="changeLanguage()" i18n="@@translate">translate</button>
-
-          <a
-            routerLink="users/{{id()}}"
-            class="btn btn-light btn-margin"
-            i18n="@@profile">
-              profile
-          </a>
-
-          <button
-            class="btn btn-warning btn-margin"
-            *ngIf="auth.isAuthenticated()"
-            (click)="auth.logout()" i18n="@@logOut">
-              logOut
-          </button>
-
-          <a class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <div class="d-flex" dropdown>
+          <a class="dropdown" dropdownToggle aria-controls="dropdown-basic">
             <img class="user-avatar rounded-circle" src="{{profile?.picture}}" alt="User Avatar">
           </a>
+
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+              role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" routerLink="users/{{id()}}" i18n="@@profile">profile</a></li>
+
+            <li class="divider dropdown-divider"></li>
+            <ul *ngFor="let l of languages">
+              <li role="menuitem">
+                <button class="dropdown-item" (click)="changeLanguage(l.i18n)">{{l.name}}</button>
+              </li>
+            </ul>
+
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem">
+              <button class="dropdown-item" (click)="auth.logout()" i18n="@@logOut">logOut</button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
