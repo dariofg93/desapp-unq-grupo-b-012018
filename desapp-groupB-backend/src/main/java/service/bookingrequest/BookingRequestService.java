@@ -60,7 +60,7 @@ public class BookingRequestService extends GenericService<BookingRequest> {
 		this.updateById(requestId, request);
 		
 	}
-
+	@Transactional
 	public void finishBySeller(Long userId, Long requestId, UserService userService, PublicationService publicationService) {
 		BookingRequest request = this.searchById(requestId);
 		User user = userService.searchById(userId);
