@@ -27,8 +27,8 @@
 		<many-to-one name="movementsOfMonth"
 			class="model.movements.MovementsOfMonth" cascade="all" lazy="false" />
 
-		<property name="email">
-			<column name="EMAIL" />
+		<property name="email"  type="serializable" length="1000">
+			<column name="EMAIL" sql-type="blob"/>
 			<type name="model.email.Email" />
 		</property>
 

@@ -25,13 +25,13 @@ public class PublicationService extends GenericService<Publication> {
 	}
 	@Transactional
 	public Publication rentVehicleUsing(Publication publication, BookingRequest request, UserService userService) {
-		User user = userService.searchById(publication.getUser().getId());
+		Publication post = this.searchById(publication.getId());
+		User user = userService.searchById(request.getRequester().getId());
 		try {
-			user.rentVehicle(publication, request);
+			user.rentVehicle(post, request);
 		} catch (BannedException e) {
-			
 		};
-		this.updateById(publication.getId(), publication);
+		this.updateById(post.getId(), post);
 		userService.updateById(user.getId(), user);
 		return publication;
 	}

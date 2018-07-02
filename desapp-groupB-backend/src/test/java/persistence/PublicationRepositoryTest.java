@@ -93,10 +93,10 @@ public class PublicationRepositoryTest {
 		BookingRequestBuilder builder = new BookingRequestBuilder();
 
 		BookingRequest request = builder.createBookingRequest().withState(new AwaitingApproval())
-				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withRequester(userService.retriveAll().get(2)).withTotalHours(5)
 				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
 		BookingRequest request2 = builder.createBookingRequest().withState(new AwaitingApproval())
-				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withRequester(userService.retriveAll().get(2)).withTotalHours(5)
 				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
 
 		request2.acept();
@@ -121,10 +121,10 @@ public class PublicationRepositoryTest {
 		BookingRequestBuilder builder = new BookingRequestBuilder();
 
 		BookingRequest request = builder.createBookingRequest().withState(new AwaitingApproval())
-				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withRequester(userService.retriveAll().get(2)).withTotalHours(5)
 				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
 		BookingRequest request2 = builder.createBookingRequest().withState(new AwaitingApproval())
-				.withRequester(new UsersDummy().getUsers().get(2)).withTotalHours(5)
+				.withRequester(userService.retriveAll().get(2)).withTotalHours(5)
 				.withDateTimeOfReservation(DateTime.now()).withHoursOfTheReservation(30).build();
 
 

@@ -26,10 +26,11 @@ public class Email implements Serializable {
 	}
 
 	/** Setters and Getters **/
+	@JsonIgnore
 	public List<MailCarpnd> getReceived() {
 		return this.received;
 	}
-
+	
 	public String getAccountName() {
 		return this.accountName;
 	}

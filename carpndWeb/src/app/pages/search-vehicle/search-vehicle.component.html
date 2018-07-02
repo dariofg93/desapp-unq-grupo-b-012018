@@ -14,7 +14,7 @@
 		<div class="row justify-content-md-center">
 			<div class="col-md-3">
 				<select class="custom-select mr-sm-2" [(ngModel)]="categoryFilter">
-					<option [ngValue]="undefined" disabled selected i18n="@@searchByCategory">searchByCategory</option>
+					<option [ngValue]="undefined" selected i18n="@@searchByCategory">searchByCategory</option>
 					<option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
 				</select>
 			</div>
