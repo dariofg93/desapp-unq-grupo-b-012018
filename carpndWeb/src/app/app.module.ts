@@ -30,6 +30,7 @@ import { NewPublicationComponent } from './pages/new-publication/new-publication
 import { PublicationListComponent } from './pages/publication-list/publication-list.component';
 import { PublicationDetailsComponent } from './pages/publication-details/publication-details.component';
 import { RequestDetailsComponent } from './pages/request-details/request-details.component';
+import { CategoryPipe } from './pipes/category/category.pipe';
 
 // Routes Constants:
 const appRoutes: Routes = [
@@ -93,7 +94,7 @@ const appRoutes: Routes = [
     PublicationListComponent,
     PublicationDetailsComponent,
     RequestDetailsComponent,
-    
+    CategoryPipe
   ],
   imports: [
     NgxPaginationModule,

@@ -76,7 +76,7 @@
       <ul>
 
       <div *ngIf="hasProfile()">
-        <li *ngFor="let request of requestOfPublications()">
+        <li *ngFor="let request of requestOfPublications()" class="without-points">
           <a class="row col-md shadow p-2 mb-3 bg-white" routerLink="requests/{{request.id}}">
             <div class="col-md-2">
               <i class="fa fa-child fa-3x"></i>

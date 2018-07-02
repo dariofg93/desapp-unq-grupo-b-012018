@@ -43,7 +43,7 @@ public class PublicationsDummy implements DummyData {
 		
 		Publication publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
 				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9));
-		publication.addBookingRequest(createStartedBooking(new UsersDummy().getUsers().get(0),20,new DateTime(2018,2,15,0,0)));
+		publication.addBookingRequest(createStartedBooking(new UsersDummy().getUsers().get(0),20,new DateTime(2018,2,15,5,28)));
 		publication.addBookingRequest(createBooking(new UsersDummy().getUsers().get(0),40));
 		publications.add(publication);
 
@@ -54,7 +54,7 @@ public class PublicationsDummy implements DummyData {
 				
 		publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(2),
 				vehicleService.retriveAll().get(2), new City("Bernal"), "2018-09-04", "2018-12-03", new Double(15.6));
-		publication.addBookingRequest(createStartedBooking(new UsersDummy().getUsers().get(0),20,new DateTime(2018,2,15,0,0)));
+		publication.addBookingRequest(createStartedBooking(new UsersDummy().getUsers().get(0),20,new DateTime(2018,2,15,10,41)));
 
 		publications.add(publication);
 		publications.add(builder.createPublicationForUserAndVehicle(userService.retriveAll().get(7),

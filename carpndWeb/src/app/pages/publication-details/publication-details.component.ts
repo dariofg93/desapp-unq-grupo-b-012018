@@ -42,7 +42,8 @@ export class PublicationDetailsComponent implements OnInit {
     return this.publication != null;
   }
 
-  hasImages(vehicle: Vehicle): boolean {
+  hasImages(): boolean {
+    var vehicle = this.publication.publishedVehicle;
     return vehicle? vehicle.pictures? vehicle.pictures.length > 0:
                                        false:
                     false;

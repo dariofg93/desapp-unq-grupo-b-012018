@@ -23,7 +23,7 @@ export class SearchVehicleComponent implements OnInit {
 
 	publications: Publication[];
   currentP = 1;
-  categoryFilter = undefined;
+  categoryFilter;
   categories = [
     new Category("Car"),
     new Category("Scooter")
@@ -48,5 +48,4 @@ export class SearchVehicleComponent implements OnInit {
   pickUpZones(): GeographicZoneDescription[]{
     return this.publications.map(function(p) { return p.pickUpZone })
   }
-
 }

@@ -23,10 +23,11 @@
 			<div class="form-group row col-md justify-content-md-center">
 				<label class="col-md-4" for="category" i18n="@@category">category</label>
 				<select class="form-control col-md-5" id="category" name="category" [(ngModel)]="vehicle.category" #category="ngModel">
-					<option [ngValue]="undefined" disabled selected i18n="@@selectCategory">selectCategory</option>
-					<option *ngFor="let category of categories" [value]="category">{{category}}</option>
+					<option [ngValue]="selectCategory" disabled selected i18n="@@selectCategory">selectCategory</option>
+					<option *ngFor="let category of categories" [value]="category">{{category.concretType}}</option>
 				</select>
 			</div>
+
 			<form (ngSubmit)="addPicture(imageForm)" #imageForm="ngForm" class="form-group row col-md justify-content-md-center">
 				<label class="col-md-4" for="newPicturePath" i18n="@@newImage">newImage</label>
 				<input type="text" class="form-control col-md-4" id="newPicturePath" name="newPicturePath" [(ngModel)]="newPicturePath" required>

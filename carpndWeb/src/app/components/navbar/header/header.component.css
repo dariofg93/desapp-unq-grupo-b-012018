@@ -35,3 +35,11 @@
 .navbar-brand {
   margin-left: 1rem;
 }
+
+li:last-child {
+   list-style-type: none;
+}
+
+.left-side{
+   margin-left: -40px;
+ }

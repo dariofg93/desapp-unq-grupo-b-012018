@@ -12,12 +12,12 @@
 
 	<div class="col-md-12">
 		<div class="row justify-content-md-center">
-			<select [(ngModel)]="categoryFilter">
-					<option [ngValue]="selectCategory" selected i18n="@@selectCategory">selectCategory</option>
+			<div class="col-md-3">
+				<select class="custom-select mr-sm-2" [(ngModel)]="categoryFilter">
+					<option [ngValue]="undefined" disabled selected i18n="@@searchByCategory">searchByCategory</option>
 					<option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
 				</select>
-
-      <button class="btn btn-secondary" (click)="changeFilter()" i18n="@@filter">filter</button>
+			</div>
     </div>
 	</div>
 
@@ -38,7 +38,7 @@
 						</tr>
 					</thead>
 					<tbody class="table table-striped">
-						<tr *ngFor="let publication of publications | paginate: { itemsPerPage: 5, currentPage: currentP }">
+						<tr *ngFor="let publication of (publications | searchByCategory: categoryFilter | paginate: { itemsPerPage: 5, currentPage: currentP })">
 							<td>{{ publication.publishedVehicle.description }}</td>
 							<td>{{ publication.pricePerHour }}</td>
 							<td>{{ publication.phone }}</td>

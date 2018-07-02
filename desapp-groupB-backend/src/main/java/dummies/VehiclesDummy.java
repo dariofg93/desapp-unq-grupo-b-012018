@@ -18,8 +18,6 @@ public class VehiclesDummy implements DummyData{
     private VehicleService service;
     private UserService userService;
 
-
-
     public void setVehicleBuilder(VehicleBuilder vehicleBuilder) { this.builder= vehicleBuilder; }
     public VehicleBuilder getVehicleBuilder() { return this.builder; }
 

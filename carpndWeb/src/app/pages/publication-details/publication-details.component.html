@@ -8,29 +8,9 @@
 		<div class="row col-md-12 justify-content-md-center">
 
 		<div class="row justify-content-sm col-md-6">
-				<label class="col-md-6 label" i18n="@@publishedVehicle:">publishedVehicle:</label>
-				<label class="col-md-6">{{ publication.publishedVehicle.description }}</label>
-				<br>
-			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-					<div class="carousel-inner" *ngIf="hasImages()">
-						<div class="carousel-item active" >
-								<img class="d-block w-100" src="{{this.publication.publishedVehicle.pictures[0]}}" class="vehiclePicture" alt="First slide">
-						</div>
-						<div class="carousel-item" *ngFor="let x of this.publication.publishedVehicle.pictures;let idx = index">
-							<img class="d-block w-100" src="{{x}}" class="vehiclePicture"alt="First slide">
-						</div>
-					</div>
-					<div class="vehiclePicture" *ngIf="!hasImages(vehicle)"><i class="fa fa-image fa-5x"></i></div>
-					
-					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
+			<label class="col-md-6 label" i18n="@@publishedVehicle:">publishedVehicle:</label>
+			<label class="col-md-6">{{ publication.publishedVehicle.description }}</label>
+			<br>
 
 			<label class="col-md-6 label" i18n="@@pricePerHour:">pricePerHour:</label>
 			<label class="col-md-6">{{ publication.pricePerHour }}</label>
@@ -54,6 +34,27 @@
 
 			<label class="col-md-6 label" i18n="@@dropZoneAddress:">dropZoneAddress:</label>
 			<label class="col-md-6">{{ publication.dropZone.description }}</label>
+
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner" *ngIf="hasImages()">
+					<div class="carousel-item active" >
+							<img class="d-block w-100" src="{{this.publication.publishedVehicle.pictures[0]}}" class="vehiclePicture" alt="First slide">
+					</div>
+					<div class="carousel-item" *ngFor="let x of this.publication.publishedVehicle.pictures;let idx = index">
+						<img class="d-block w-100" src="{{x}}" class="vehiclePicture"alt="First slide">
+					</div>
+				</div>
+				<div class="vehiclePicture" *ngIf="!hasImages(vehicle)"><i class="fa fa-image fa-5x"></i></div>
+				
+				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
 		</div>
 
 		<div class="col-md-6">
@@ -109,5 +110,8 @@
 				</div>
 			</form>
 
-			<button class="btn btn-default" *ngIf="isMyPublication()" (click)="return()" i18n="@@return">return</button>
+			<div *ngIf="isMyPublication()">
+				<br>
+				<button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
+			</div>
 		</div>
