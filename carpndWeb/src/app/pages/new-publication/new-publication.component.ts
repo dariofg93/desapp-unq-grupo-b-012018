@@ -44,9 +44,7 @@ export class NewPublicationComponent implements OnInit {
   }
 
   savePublication(form) {
-
     this.publication.user = this.profile;
-    console.log(this.publication);
     this.publicationsService.create(this.publication).subscribe();
     this.router.navigate(['/publications']);
   }

@@ -43,7 +43,7 @@ public class PublicationsDummy implements DummyData {
 		
 		Publication publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
 				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9));
-		publication.addBookingRequest(createStartedBooking(userService.retriveAll().get(0),20,new DateTime(2018,2,15,5,28)));
+		publication.addBookingRequest(createStartedBooking(userService.retriveAll().get(2),20,new DateTime(2018,2,15,5,28)));
 		publication.addBookingRequest(createBooking(userService.retriveAll().get(1),40));
 		publications.add(publication);
 

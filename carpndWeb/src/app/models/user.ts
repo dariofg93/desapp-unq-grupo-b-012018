@@ -3,6 +3,7 @@ import { Publication } from './../models/publication';
 import { GeographicZoneDescription } from './../models/geographic-zone-description';
 import { MovementsOfMonth } from './../models/movements-of-month';
 import { CreditsAccount } from './../models/credits-account';
+import { ScoreManager } from './../models/score-manager';
 import { Email } from './../models/email';
 
 export class User {
@@ -12,7 +13,7 @@ export class User {
   creditsAccount: CreditsAccount;
   myPublications: Publication[];
   movementsOfMonth: MovementsOfMonth;
-  //scoreManager: ScoreManager;
+  scoreManager: ScoreManager;
   cuil: string;
   firstName: string;
   lastName: string;

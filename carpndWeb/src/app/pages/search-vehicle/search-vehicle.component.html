@@ -57,7 +57,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-6">
-		<app-map [points]="pickUpZones()"></app-map>
+	<div *ngIf="hasPublications()" class="col-md-6">
+		<app-map [puntos]="pickUpZones()" [view]="false"></app-map>
 	</div>
 </div>
