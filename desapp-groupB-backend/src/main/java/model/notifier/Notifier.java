@@ -8,9 +8,10 @@ import model.email.MailSender;
 import model.user.User;
 import org.joda.time.DateTime;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Notifier {
+public class Notifier implements Serializable{
 
     private MailCarpnd mailBuilded;
     private MailSender mailSender;

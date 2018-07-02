@@ -8,9 +8,11 @@
 		<id column="id_movement_month" name="id" type="java.lang.Long">
 			<generator class="increment" />
 		</id>
+	
 		
-		<property name="description" type="string" column="DESCRIPTION" />
-		
+		  <property name="description" type="serializable">
+          <column name="description" sql-type="blob" />
+   </property>
 		<property name="date"
 			type="org.jadira.usertype.dateandtime.joda.PersistentDateTime">
 			<column name="DATE" />

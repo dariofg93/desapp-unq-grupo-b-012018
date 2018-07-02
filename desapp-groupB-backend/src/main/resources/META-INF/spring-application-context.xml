@@ -65,6 +65,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 		class="webService.vehiclecorcern.BookingRequestRest">
 		<property name="bookingRequestService" ref="bookingRequestsService" />
 		<property name="userService" ref="usersService" />
+		<property name="publicationService" ref="publicationsService" />
 	</bean>
 
 	<bean id="usersRest" class="webService.vehiclecorcern.UserRest">

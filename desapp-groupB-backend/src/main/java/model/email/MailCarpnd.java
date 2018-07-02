@@ -1,6 +1,8 @@
 package model.email;
 
-public class MailCarpnd {
+import java.io.Serializable;
+
+public class MailCarpnd  implements Serializable{
 
     private String subject;
     private MailBody body;

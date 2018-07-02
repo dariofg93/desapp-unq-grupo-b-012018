@@ -4,10 +4,11 @@ import model.notifier.Notifier;
 import model.publication.Publication;
 import model.user.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebSite {
+public class WebSite implements Serializable{
 
     private List<User> users;
     private Notifier notifier;

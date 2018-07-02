@@ -14,6 +14,8 @@ import model.score.*;
 import model.utils.Entity;
 import model.vehicle.Vehicle;
 import model.website.WebSite;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 
@@ -24,6 +26,7 @@ public class User extends Entity {
 
 	private List<Publication> myPublications;
 	private ScoreManager scoreManager;
+	@JsonIgnore
 	private WebSite webSite;
 	private CreditsAccount creditsAccount;
 	private Email email;
@@ -81,12 +84,11 @@ public class User extends Entity {
 		
 		if (anyPublication != null) {
 			this.webSite.getNotifier().notifyAceptByMail(this, anyRequest);
-			System.out.println("___________________________A");
+
 			anyPublication.allBookingRequest().stream()
 					.filter(request -> !request.equals(anyRequest)
 							&& anyPublication.remainingTime() < anyRequest.getTotalHours())
 					.forEach(request -> this.rejectRequest(request));
-			System.out.println("___________________________B");
 			this.movementsOfMonth
 					.addToHistory("You have accepted a reservation by " + anyRequest.getTotalHours() + " hours.");
 		} else {

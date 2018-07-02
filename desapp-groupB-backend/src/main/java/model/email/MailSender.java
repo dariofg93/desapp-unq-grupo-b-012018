@@ -1,10 +1,13 @@
 package model.email;
 
 import java.util.*;
+import java.io.Serializable;
+
 import javax.mail.*;
 import javax.mail.internet.*;
 
-public class MailSender {
+@SuppressWarnings("serial")
+public class MailSender implements Serializable{
 
     private final String USERNAME = "carpnd2018@gmail.com";
     private final String PASSWORD = "grupob2018";
