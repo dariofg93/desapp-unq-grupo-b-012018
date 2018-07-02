@@ -10,7 +10,6 @@ import { AuthService } from './../../../services/auth/auth.service';
 export class HeaderComponent implements OnInit {
 
   languages;
-  i18nValue: string;
   profile: any;
 
   constructor(
@@ -27,9 +26,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  changeLanguage(): void{
-    if(this.i18nValue != undefined){
-      localStorage.setItem('language', this.i18nValue);
+  changeLanguage(i18n: string): void{
+    if(i18n != undefined){
+      localStorage.setItem('language', i18n);
       location.reload();
     }
   }

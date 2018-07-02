@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { ActivatedRoute,Router } from "@angular/router";
 
+import { Category } from './../../models/categories';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
 import { PATHBACKEND } from './../../../environments/environment';
 import { Publication } from './../../models/publication';
@@ -19,8 +20,14 @@ import { GeographicZoneDescription } from './../../models/geographic-zone-descri
   ]
 })
 export class SearchVehicleComponent implements OnInit {
+
 	publications: Publication[];
   currentP = 1;
+  categoryFilter = undefined;
+  categories = [
+    new Category("Car"),
+    new Category("Scooter")
+  ];
 
   constructor(
     private publicationsService: GenericRestService<Publication>, 

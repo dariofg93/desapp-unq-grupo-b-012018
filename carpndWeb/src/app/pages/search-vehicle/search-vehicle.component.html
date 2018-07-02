@@ -10,6 +10,19 @@
 	<br>
 	<br>
 
+	<div class="col-md-12">
+		<div class="row justify-content-md-center">
+			<select [(ngModel)]="categoryFilter">
+					<option [ngValue]="selectCategory" selected i18n="@@selectCategory">selectCategory</option>
+					<option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
+				</select>
+
+      <button class="btn btn-secondary" (click)="changeFilter()" i18n="@@filter">filter</button>
+    </div>
+	</div>
+
+	<br><br>
+
 	<div class="col-md-6">
 		<div class="row justify-content-sm-center">
 			<div class="table-responsive-sm">

@@ -5,6 +5,7 @@ import { NgModule,LOCALE_ID } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -99,6 +100,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    BsDropdownModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
