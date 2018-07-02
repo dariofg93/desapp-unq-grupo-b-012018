@@ -82,6 +82,10 @@
 							</tr>
 						</tbody>
 					</table>
+
+					<div class="row justify-content-md-center">
+		        <pagination-controls (pageChange)="currentP = $event"></pagination-controls>
+		      </div>
 				</div>
 			</div>
 		</div>
@@ -106,7 +110,7 @@
 
 				<div class="form-group row col-md justify-content-md-center">
 					<button type="submit" class="btn btn-primary" [disabled]="!requestForm.form.valid" i18n="@@executeRequest">executeRequest</button>
-					<button type="reset" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+					<button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
 				</div>
 			</form>
 
@@ -119,9 +123,3 @@
 		</div>
 	</div>
 </div>
-		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
-	$("#btnLimpiar").click(function (event) {
-		$("#formEjemplo")[1].reset();
-	});
-</script>
