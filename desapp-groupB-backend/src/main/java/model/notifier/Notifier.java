@@ -62,14 +62,19 @@ public class Notifier implements Serializable{
     }
 
     public void notifyRetreatBuyerByMail(User seller, BookingRequest anyRequest) {
+    	
+    	System.out.print("________________________________X");
         String endSubject = "! the retreat for " + anyRequest.getTotalHours() + " hours was confirmed!";
+        System.out.print("________________________________X2");
         String subject = "Congratulations " + seller.getFirstName() + endSubject;
-
+        System.out.print("________________________________X3");
         mailSender.send(seller.getEmail().getAccountName(),
                 subject,
                 "The buyer has confirmed the retreat of the vehicle, you can see the details on the site!");
+        System.out.print("________________________________X4");
         this.prepareMailCarpndWithSubject(anyRequest,subject);
 
+        System.out.print("________________________________X5");
         seller.getEmail().addMailCarpnd(this.mailBuilded);
     }
 

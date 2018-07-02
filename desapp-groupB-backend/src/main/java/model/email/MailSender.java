@@ -13,7 +13,7 @@ public class MailSender implements Serializable{
     private final String PASSWORD = "grupob2018";
 
     public void send(String to, String subject, String body) {
-
+        try {
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.auth", "true");
@@ -27,7 +27,7 @@ public class MailSender implements Serializable{
                 }
             });
 
-        try {
+   
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(USERNAME));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
@@ -36,8 +36,8 @@ public class MailSender implements Serializable{
 
             Transport.send(message);
 
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+           
         }
     }
 }

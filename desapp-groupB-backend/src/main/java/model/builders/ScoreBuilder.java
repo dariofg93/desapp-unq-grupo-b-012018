@@ -1,7 +1,6 @@
 package model.builders;
 
 import model.score.Score;
-import model.score.ScoreType;
 
 public class ScoreBuilder {
 
@@ -21,8 +20,4 @@ public class ScoreBuilder {
         return this;
     }
 
-    public ScoreBuilder withScoreType(ScoreType scoreType) {
-        this.buildScore.setScoreType(scoreType);
-        return this;
-    }
 }

@@ -3,6 +3,6 @@ import { RequestsCorcernPayload } from './../../models/dtos/requests-corcern-pay
 export class RejectRequest extends RequestsCorcernPayload{
 	
 	constructor(userId: number, requestId: number){
-		super(userId,requestId);
+		super(userId,requestId, 0);
 	}
 }

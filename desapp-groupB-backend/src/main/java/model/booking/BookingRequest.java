@@ -133,4 +133,5 @@ public class BookingRequest extends Entity implements MailBody {
 			this.status.setRequest(this.getId());
 		}
 	}
+	
 }

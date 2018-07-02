@@ -2,9 +2,12 @@ package service.bookingrequest;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import dto.RequestsCorcernPayload;
 import model.booking.BookingRequest;
 import model.exceptions.NoAceptedException;
 import model.exceptions.RequestNoExistException;
+import model.publication.Publication;
+import model.score.Score;
 import model.user.User;
 import persistence.generic.GenericService;
 import service.publication.PublicationService;
@@ -54,27 +57,63 @@ public class BookingRequestService extends GenericService<BookingRequest> {
 				publicationService.selectByFunction((publication) -> publication.getUser().getId() == userId));
 		
 		try {
-			user.confirmVehicleRetreatBuyer(request);
+			user.confirmVehicleRetreatSeller(request);
 		} catch (NoAceptedException e) {}
-		
-		System.out.println("______________________________");
-		System.out.println(request.getStatus().getConfirmRetreatBuyer());
-		System.out.println(request.getStatus().getConfirmRetreatSeller());
-		System.out.println(request.getStatus().getConfirmReturnBuyer());
-		System.out.println(request.getStatus().getConfirmReturnSeller()); 
-		
 		this.updateById(requestId, request);
 		
 	}
 	@Transactional
-	public void finishBySeller(Long userId, Long requestId, UserService userService, PublicationService publicationService) {
-		BookingRequest request = this.searchById(requestId);
-		User user = userService.searchById(userId);
+	public void finishBySeller(RequestsCorcernPayload dto, UserService userService, PublicationService publicationService) {
+		BookingRequest request = this.searchById(dto.getRequestId());
+		User user = userService.searchById(dto.getUserId());
 		user.setMyPublications(
-				publicationService.selectByFunction((publication) -> publication.getUser().getId() == userId));
+				publicationService.selectByFunction((publication) -> publication.getUser().getId() == dto.getUserId()));
 		
-		this.updateById(requestId, request);
+		try {
+			user.confirmVehicleReturnSeller(request, this.createScoreWith(dto.getScoreValue()));
+		} catch (NoAceptedException e) {}
+		
+		this.updateById(dto.getRequestId(), request);
+		userService.updateById(dto.getUserId(), user);
 	}
+
+	private Score createScoreWith(Double scoreValue) {
+		Score score = new Score();
+		score.setValue(scoreValue);
 		
-	
+		return score;
+	}
+	@Transactional
+	public void finishByBuyer(RequestsCorcernPayload requestPayload, UserService userService,
+			PublicationService publicationService) {
+		
+		BookingRequest request = this.searchById(requestPayload.getRequestId());
+		User user = userService.searchById(requestPayload.getUserId());
+		user.setMyPublications(
+				publicationService.selectByFunction((publication) -> publication.getUser().getId() == requestPayload.getUserId()));
+		
+		try {
+			user.confirmVehicleReturnBuyer(request, this.createScoreWith(requestPayload.getScoreValue()), new Score());
+		} catch (NoAceptedException e) {}
+		
+		this.updateById(requestPayload.getRequestId(), request);
+		userService.updateById(requestPayload.getUserId(), user);
+		
+	}
+	@Transactional
+	public void initByBuyer(RequestsCorcernPayload requestPayload, UserService userService,
+			PublicationService publicationService) {
+		
+		BookingRequest request = this.searchById(requestPayload.getRequestId());
+		User user = userService.searchById(requestPayload.getUserId());
+		user.setMyPublications(
+				publicationService.selectByFunction((publication) -> publication.getUser().getId() == requestPayload.getUserId()));
+		
+		Publication post = publicationService.selectByFunction((publication) -> publication.containsRequest(request)).get(0);
+		
+		try {
+			user.confirmVehicleRetreatBuyer(request, post);
+		} catch (NoAceptedException e) {}
+		this.updateById(requestPayload.getRequestId(), request);
+	}	
 }

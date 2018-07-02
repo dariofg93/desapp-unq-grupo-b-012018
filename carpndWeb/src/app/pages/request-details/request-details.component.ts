@@ -17,7 +17,8 @@ import { BookingRequestService } from './../../services/booking/booking-request.
 export class RequestDetailsComponent implements OnInit {
 
   request: BookingRequest = null;
-	user: User = null;
+  user: User = null;
+  scoreValue: number;
 	
   constructor(
     private requestsService: BookingRequestService,
@@ -62,6 +63,7 @@ export class RequestDetailsComponent implements OnInit {
   }
 
   isMyRequest(): boolean{
+    console.log(this.request.requester)
     return this.request.requester.id == this.user.id;
   }
 
@@ -96,7 +98,7 @@ export class RequestDetailsComponent implements OnInit {
     this.request.state.concretType = "APP"
     this.request.state.description = "Approved"
     this.requestsService.aceptRequest(this.user.id,this.request.id).subscribe(
-      data => console.log(data)
+      data => this.request = data.body
     );
   }
 
@@ -104,35 +106,35 @@ export class RequestDetailsComponent implements OnInit {
     this.request.state.concretType = "REJ"
     this.request.state.description = "Rejected"
     this.requestsService.rejectRequest(this.user.id,this.request.id).subscribe(
-      data => console.log(data)
+      data =>this.request = data.body
     );
   }
 
   initBySeller(): void {
     this.request.reservationDateTime = new Date();
     this.requestsService.initBySeller(this.user.id,this.request.id).subscribe(
-      data => console.log(data)
+      data => this.request = data.body
     );
   }
 
   finishBYSeller(): void {
     this.request.hoursOfTheReservation = Math.round(Math.abs(new Date().getTime() - new Date(this.request.reservationDateTime).getTime()) / 36e5);
-    this.requestsService.finishBYSeller(this.user.id,this.request.id).subscribe(
-      data => console.log(data)
+    this.requestsService.finishBYSeller(this.user.id,this.request.id, this.scoreValue).subscribe(
+      data => this.request = data.body
     );
   }
 
   initByBuyer(): void {
     this.request.reservationDateTime = new Date();
     this.requestsService.initByBuyer(this.user.id,this.request.id).subscribe(
-      data => console.log(data)
+      data => {this.request = data.body, console.log(data.body)}
     );
   }
 
   finishByBuyer(): void {
     this.request.hoursOfTheReservation = Math.round(Math.abs(new Date().getTime() - new Date(this.request.reservationDateTime).getTime()) / 36e5);
-    this.requestsService.finishByBuyer(this.user.id,this.request.id).subscribe(
-      data => console.log(data)
+    this.requestsService.finishByBuyer(this.user.id,this.request.id, this.scoreValue).subscribe(
+      data =>  {this.request = data.body, console.log(data.body)}
     );
   }
 

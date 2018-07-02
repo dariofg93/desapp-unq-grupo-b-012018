@@ -18,7 +18,6 @@ import model.builders.UserBuilder;
 import model.creditsaccount.CreditsAccount;
 import model.email.Email;
 import model.maps.GeographicZoneDescription;
-import model.score.OwnerScoreType;
 import model.score.Score;
 import model.score.ScoreManager;
 import model.user.User;
@@ -67,19 +66,20 @@ public class UserRepositoryServiceTest {
 		assertEquals(1, userService.retriveAll().size());
 	}
 
-//	@Test
-//	public void testSaveAndRestoreSomeUser() {
-//		userService.save(anyUser);
-//		User restoredUser = userService.searchById(anyUser.getId());
-//		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
-//		assertEquals(cuil, restoredUser.getCuil());
-//		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
-//		assertEquals(restoredUser.getFirstName(), "Pepe");
-//		assertEquals(restoredUser.getLastName(), "Bueno");
-//		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
-//	
-//	
-//	}
+	@Test
+	public void testSaveAndRestoreSomeUser() {
+		userService.save(anyUser);
+		User restoredUser = userService.searchById(anyUser.getId());
+		assertEquals(restoredUser.getCreditsAccount().getAmount(), creditAmount);
+		assertEquals(cuil, restoredUser.getCuil());
+		assertEquals(restoredUser.getEmail().getAccountName(), "pepe-bueno@hotmail.com");
+		assertEquals(restoredUser.getFirstName(), "Pepe");
+		assertEquals(restoredUser.getLastName(), "Bueno");
+		assertEquals(restoredUser.getMovementsOfMonth().allHistory(), "Hoy alquile\n" + "Hoy alquile otro auto\n");
+		assertEquals(restoredUser.getScoreManager().averageScore(), 4.0d, 0);
+	
+	
+	}
 
 //	@Test
 //	public void testGetUserForEmailName() {
@@ -105,9 +105,12 @@ public class UserRepositoryServiceTest {
 		account = new CreditsAccount();
 		GeographicZoneDescription zone = new GeographicZoneDescription(-58.302840100000026, -34.6907607);
 		cuil = "20-35317288-7";
-		Score score = new Score(new OwnerScoreType());
+		Score score = new Score( );
+		score.setValue(3.0);
 		List<Score>  scoreList = new ArrayList<Score>();
 		scoreList.add(score);
+		scoreList.add(new Score( ));
+		
 
 		anyUser = new UserBuilder().createUser().withScoreManager(new ScoreManager(scoreList)).build();
 

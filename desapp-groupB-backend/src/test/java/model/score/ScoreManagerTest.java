@@ -30,7 +30,7 @@ public class ScoreManagerTest {
 	
 	@Test
 	public void testAddScore() {
-		scoreManager.addScore(new Score(new OwnerScoreType()));
+		scoreManager.addScore(new Score());
 		verify(scores).add(any(Score.class));
 	}
 	
@@ -41,9 +41,9 @@ public class ScoreManagerTest {
 	
 	@Test
 	public void testAverageScore() {
-		Score score = new Score(new OwnerScoreType());
+		Score score = new Score();
 		score.setValue(4d);
-		Score anotherScore = new Score(new OwnerScoreType());
+		Score anotherScore = new Score();
 		anotherScore.setValue(5d);
 		
 		scoreManager.addScore(anotherScore);

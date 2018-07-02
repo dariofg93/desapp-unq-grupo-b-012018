@@ -99,12 +99,38 @@ public class BookingRequestRest extends AbstractRest{
     public Response finishBySeller(@RequestBody RequestsCorcernPayload requestPayload) {
         return responseHandlingErrorsExecuting(
             (() -> {
-            		this.bookingRequestService.finishBySeller(requestPayload.getUserId(), requestPayload.getRequestId(), userService, publicationService);
+            		this.bookingRequestService.finishBySeller(requestPayload, userService, publicationService);
             		return bookingRequestService.searchById(requestPayload.getRequestId());
         }), JsonReturn.notFoundError("No se puso rechazar la reserva"),
                 HttpStatus.BAD_REQUEST);
     }
     
+    
+    @PUT
+    @Path("/finishByBuyer")
+    @Produces("application/json")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response finishByBuyer(@RequestBody RequestsCorcernPayload requestPayload) {
+        return responseHandlingErrorsExecuting(
+            (() -> {
+            		this.bookingRequestService.finishByBuyer(requestPayload, userService, publicationService);
+            		return bookingRequestService.searchById(requestPayload.getRequestId());
+        }), JsonReturn.notFoundError("No se puso rechazar la reserva"),
+                HttpStatus.BAD_REQUEST);
+    }
+    
+    @PUT
+    @Path("/initByBuyer")
+    @Produces("application/json")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response initByBuyer(@RequestBody RequestsCorcernPayload requestPayload) {
+        return responseHandlingErrorsExecuting(
+            (() -> {
+            		this.bookingRequestService.initByBuyer(requestPayload, userService, publicationService);
+            		return bookingRequestService.searchById(requestPayload.getRequestId());
+        }), JsonReturn.notFoundError("No se puso rechazar la reserva"),
+                HttpStatus.BAD_REQUEST);
+    }
     
     
     

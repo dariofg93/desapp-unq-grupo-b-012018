@@ -1,8 +1,6 @@
 package dummies;
 
 import model.builders.ScoreBuilder;
-import model.score.LesseeScoreType;
-import model.score.OwnerScoreType;
 import model.score.Score;
 import persistence.generic.GenericService;
 
@@ -18,13 +16,11 @@ public class ScoresDummy implements DummyData{
     public ScoresDummy(){
         Score score1 = builder.createScore()
                 .withValue(4.5)
-                .withScoreType(new OwnerScoreType())
                 .build();
         this.scores.add(score1);
 
         Score score2 = builder.createScore()
                 .withValue(4.0)
-                .withScoreType(new LesseeScoreType())
                 .build();
         this.scores.add(score2);
     }

@@ -128,19 +128,27 @@ public class User extends Entity {
 	 * en su poder y no exista respuesta de su contraparte dentro de los 30 minutos,
 	 * la misma se da por rechazada.
 	 */
-	public void confirmVehicleRetreatBuyer(BookingRequest anyRequest) throws NoAceptedException {
+	public void confirmVehicleRetreatBuyer(BookingRequest anyRequest, Publication anyPublication) throws NoAceptedException {
 
-		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
-		anyRequest.setStateOfVehicleRetreatBuyer(true);
 		
-		this.webSite.getNotifier().notifyRetreatBuyerByMail(anyPublication.getUser(), anyRequest);
+		System.out.println("__________________________________1");
+		anyRequest.setStateOfVehicleRetreatBuyer(true);
+		anyRequest.setReservationDateTime(DateTime.now());
+		
+		System.out.println("__________________________________2");
+				
+		this.webSite.getNotifier().notifyRetreatBuyerByMail(this, anyRequest);
 
+		System.out.println("__________________________________3");
+		
 		this.movementsOfMonth.addToHistory("You have confirmed that you have retreat a vehicle for a "
 				+ anyRequest.getTotalHours() + " hours reservation.");
 
+		System.out.println("__________________________________4");
 		//if (anyRequest.getConfirmReturnBuyer() && anyRequest.getConfirmRetreatSeller())
 			this.executeTransfer(anyRequest, anyRequest.getRequester().getCreditsAccount(), this.creditsAccount,
 					anyPublication);
+			System.out.println("__________________________________5");
 		//else
 			//this.cancelTransferByTimeLimit(anyRequest);
 	}
@@ -149,6 +157,8 @@ public class User extends Entity {
 
 		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
 		anyRequest.setStateOfVehicleRetreatSeller(true);
+		anyRequest.setReservationDateTime(DateTime.now());
+		
 		this.webSite.getNotifier().notifyRetreatSellerByMail(anyRequest);
 
 		this.movementsOfMonth.addToHistory("You have confirmed the retreat of your vehicle for a "
@@ -214,10 +224,10 @@ public class User extends Entity {
 
 		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
 		anyRequest.setStateOfVehicleReturnBuyer(true);
+		
 		this.webSite.getNotifier().notifyReturnBuyerByMail(anyPublication.getUser(), anyRequest);
 
 		anyPublication.getUser().addScore(scoreOfSeller);
-		anyPublication.getUser().addScore(scoreOfVehicle);
 
 		this.movementsOfMonth.addToHistory("You have confirmed the return of a vehicle that you had ordered.");
 

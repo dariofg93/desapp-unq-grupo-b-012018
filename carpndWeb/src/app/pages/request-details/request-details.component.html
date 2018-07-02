@@ -1,85 +1,107 @@
 <div *ngIf="hasRequest() && hasUser()" class="row justify-content-md-center">
-  <div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
+	<div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
 
-    <div class="row col-md-12 justify-content-md-center">
-      <h1 class="pageTitle" i18n="@@RequestDetails">RequestDetails</h1>
-    </div>
+		<div class="row col-md-12 justify-content-md-center">
+			<h1 class="pageTitle" i18n="@@RequestDetails">RequestDetails</h1>
+		</div>
 
-    <div class="col-md-12 justify-content-md-center">
-    	<div class="row">
-		    <div class="col-md-6">
-		    	<div class="row col-md-12 justify-content-md-center">
-			      <h3 class="sectionTitle" i18n="@@request">request</h3>
-			    </div>
+		<div class="col-md-12 justify-content-md-center">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row col-md-12 justify-content-md-center">
+						<h3 class="sectionTitle" i18n="@@request">request</h3>
+					</div>
 
-			    <hr>
+					<hr>
 
-		      <label class="col-md-6 label" i18n="@@state:">state:</label>
-		      <label class="col-md-5">{{ request.state.description }}</label>
+					<label class="col-md-6 label" i18n="@@state:">state:</label>
+					<label class="col-md-5">{{ request.state.description }}</label>
 
-		      <label class="col-md-6 label" i18n="@@totalHours:">totalHours:</label>
-		      <label class="col-md-5">{{ request.totalHours }}</label>
+					<label class="col-md-6 label" i18n="@@totalHours:">totalHours:</label>
+					<label class="col-md-5">{{ request.totalHours }}</label>
 
-		      <label class="col-md-6 label" i18n="@@reservationDateTime:">reservationDateTime:</label>
-		      <label class="col-md-5">{{ dateService.shortDate(request.reservationDateTime) }}, {{ dateService.shortTime(request.reservationDateTime) }}</label>
+					<label class="col-md-6 label" i18n="@@reservationDateTime:">reservationDateTime:</label>
+					<label class="col-md-5">{{ dateService.shortDate(request.reservationDateTime) }}, {{ dateService.shortTime(request.reservationDateTime) }}</label>
 
-		      <label class="col-md-6 label" i18n="@@hoursOfTheReservation:">hoursOfTheReservation:</label>
-		      <label class="col-md-5">{{ request.hoursOfTheReservation }}</label>
-		    </div>
-
-			  <div class="col-md-6">
-			  	<div class="row col-md-12 justify-content-md-center">
-			      <h3 class="sectionTitle" i18n="@@requester">requester</h3>
-			    </div>
-
-			    <hr>
-
-		      <label class="col-md-6 label" i18n="@@fullName:">fullName:</label>
-		      <label class="col-md-5">{{ request.requester.firstName }} {{ request.requester.lastName }}</label>
-
-		      <label class="col-md-6 label" i18n="@@address:">address:</label>
-		      <label class="col-md-5">{{ request.requester.address.description }}</label>
-
-		      <label class="col-md-6 label" i18n="@@email:">email:</label>
-		      <label class="col-md-5">{{ request.requester.email.accountName }}</label>
-
-		      <label class="col-md-6 label" i18n="@@cuil:">cuil:</label>
-		      <label class="col-md-5">{{ request.requester.cuil }}</label>
+					<label class="col-md-6 label" i18n="@@hoursOfTheReservation:">hoursOfTheReservation:</label>
+					<label class="col-md-5">{{ request.hoursOfTheReservation }}</label>
 				</div>
-			</div>	
 
-      <div class="row col-md-12 justify-content-md-center">
-      	<div *ngIf="requestToMyPublicationIsAWA()">
-	        <button class="btn btn-primary" (click)="aceptRequest()" i18n="@@aceptRequest">aceptRequest</button>
-	        <button class="btn btn-default ml-3" (click)="rejectRequest()" i18n="@@rejectRequest">rejectRequest</button>
-	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-	      </div>
+				<div class="col-md-6">
+					<div class="row col-md-12 justify-content-md-center">
+						<h3 class="sectionTitle" i18n="@@requester">requester</h3>
+					</div>
 
-      	<div *ngIf="requestToMyPublicationIsAPPButNotInit()">
-	        <button class="btn btn-primary" (click)="initBySeller()" i18n="@@initBySeller">initBySeller</button>
-	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-	      </div>
+					<hr>
 
-      	<div *ngIf="requestToMyPublicationIsAPPAndWantFinish()">
-	        <button class="btn btn-primary" (click)="finishBYSeller()" i18n="@@finishBYSeller">finishBYSeller</button>
-	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-	      </div>
+					<label class="col-md-6 label" i18n="@@fullName:">fullName:</label>
+					<label class="col-md-5">{{ request.requester.firstName }} {{ request.requester.lastName }}</label>
 
-      	<div *ngIf="myRequestWasAceptedButNotInit()">
-	        <button class="btn btn-primary" (click)="initByBuyer()" i18n="@@initByBuyer">initByBuyer</button>
-	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-	      </div>
+					<label class="col-md-6 label" i18n="@@address:">address:</label>
+					<label class="col-md-5">{{ request.requester.address.description }}</label>
 
-      	<div *ngIf="myRequestIsAPPAndWantFinish()">
-	        <button class="btn btn-primary" (click)="finishByBuyer()" i18n="@@finishByBuyer">finishByBuyer</button>
-	        <button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-	      </div>
+					<label class="col-md-6 label" i18n="@@email:">email:</label>
+					<label class="col-md-5">{{ request.requester.email.accountName }}</label>
 
-      	<div *ngIf="requestWithOutActions()">
-	        <button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
-	      </div>
-      </div>    
-    </div>
+					<label class="col-md-6 label" i18n="@@cuil:">cuil:</label>
+					<label class="col-md-5">{{ request.requester.cuil }}</label>
+				</div>
+			</div>
 
-  </div>
+			<div class="row col-md-12 justify-content-md-center">
+				<div *ngIf="requestToMyPublicationIsAWA()">
+					<button class="btn btn-primary" (click)="aceptRequest()" i18n="@@aceptRequest">aceptRequest</button>
+					<button class="btn btn-default ml-3" (click)="rejectRequest()" i18n="@@rejectRequest">rejectRequest</button>
+					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+				</div>
+
+				<div *ngIf="requestToMyPublicationIsAPPButNotInit()">
+					<button class="btn btn-primary" (click)="initBySeller()" i18n="@@initBySeller">initBySeller</button>
+					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+				</div>
+
+				<div *ngIf="requestToMyPublicationIsAPPAndWantFinish()">
+					<hr>
+
+					<div class="row col-md-12 justify-content-md-center">
+						<h3 class="sectionTitle" i18n="@@score">score</h3>
+					</div>
+
+					<div class="form-group row col-md justify-content-md-center">
+						<input type="number" min="1" max="5" class="form-control col-md-4" id="totalHours" name="scoreValue" [(ngModel)]="scoreValue"
+						 required>
+					</div>
+
+					<button class="btn btn-primary" (click)="finishBYSeller()" i18n="@@finishBYSeller">finishBYSeller</button>
+					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+				</div>
+
+				<div *ngIf="myRequestWasAceptedButNotInit()">
+					<button class="btn btn-primary" (click)="initByBuyer()" i18n="@@initByBuyer">initByBuyer</button>
+					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+				</div>
+
+				<div *ngIf="myRequestIsAPPAndWantFinish()">
+					<hr>
+					<div>
+						<div class="row col-md-12 justify-content-md-center">
+							<h3 class="sectionTitle" i18n="@@score">score</h3>
+						</div>
+
+						<div class="form-group row col-md justify-content-md-center">
+							<input type="number" min="1" max="5" class="form-control col-md-4" id="totalHours" name="scoreValue" [(ngModel)]="scoreValue"
+							 required>
+						</div>
+					</div>
+					<button class="btn btn-primary" (click)="finishByBuyer()" i18n="@@finishByBuyer">finishByBuyer</button>
+					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+				</div>
+
+				<div *ngIf="requestWithOutActions()">
+					<button class="btn btn-default" (click)="return()" i18n="@@return">return</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </div>

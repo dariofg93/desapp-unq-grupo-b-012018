@@ -14,8 +14,8 @@
 
 		<property name="cuil" type="string" column="CUIL" />
 
-		<!-- <many-to-one name="scoreManager" class="model.score.ScoreManager" 
-			cascade="all" lazy= "false"/> -->
+		<many-to-one name="scoreManager" class="model.score.ScoreManager" 
+			cascade="all" lazy= "false"/> 
 
 		<one-to-one name="creditsAccount"
 			class="model.creditsaccount.CreditsAccount" cascade="all" />

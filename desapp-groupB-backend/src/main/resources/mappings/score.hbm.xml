@@ -9,12 +9,6 @@
 		</id>
 
 		<property name="value" type="double" column="VALUE" />
-
-		<property name="scoreType" lazy="false">
-			<column name="TYPE" />
-			<type name="model.score.Score" />
-		</property>
-
-		
+	
 	</class>
 </hibernate-mapping>

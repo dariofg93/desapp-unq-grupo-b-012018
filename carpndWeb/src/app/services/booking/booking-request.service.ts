@@ -37,9 +37,9 @@ export class BookingRequestService extends GenericRestService<BookingRequest>{
       .put<ResponseEntity<BookingRequest>>(`${this.url}/${this.endpoint}/initBySeller/`, new InitBySeller(userId,requestId));
   }
 
-  public finishBYSeller(userId: number, requestId: number): Observable<ResponseEntity<BookingRequest>> {
+  public finishBYSeller(userId: number, requestId: number, scoreValue: number): Observable<ResponseEntity<BookingRequest>> {
     return this.http
-      .put<ResponseEntity<BookingRequest>>(`${this.url}/${this.endpoint}/finishBYSeller/`, new FinishBySeller(userId,requestId));
+      .put<ResponseEntity<BookingRequest>>(`${this.url}/${this.endpoint}/finishBYSeller/`, new FinishBySeller(userId,requestId, scoreValue));
   }
 
   public initByBuyer(userId: number, requestId: number): Observable<ResponseEntity<BookingRequest>> {
@@ -47,8 +47,8 @@ export class BookingRequestService extends GenericRestService<BookingRequest>{
       .put<ResponseEntity<BookingRequest>>(`${this.url}/${this.endpoint}/initByBuyer/`, new InitByBuyer(userId,requestId));
   }
 
-  public finishByBuyer(userId: number, requestId: number): Observable<ResponseEntity<BookingRequest>> {
+  public finishByBuyer(userId: number, requestId: number , scoreValue: number): Observable<ResponseEntity<BookingRequest>> {
     return this.http
-      .put<ResponseEntity<BookingRequest>>(`${this.url}/${this.endpoint}/finishByBuyer/`, new FinishByBuyer(userId,requestId));
+      .put<ResponseEntity<BookingRequest>>(`${this.url}/${this.endpoint}/finishByBuyer/`, new FinishByBuyer(userId,requestId, scoreValue));
   }
 }
