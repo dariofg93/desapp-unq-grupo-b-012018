@@ -19,6 +19,7 @@ export class NewPublicationComponent implements OnInit {
 
   publication = new Publication();
   profile: User;
+  errors;
 
   constructor(
     private usersService: UserService,
@@ -44,12 +45,31 @@ export class NewPublicationComponent implements OnInit {
   }
 
   savePublication(form) {
-    this.publication.user = this.profile;
-    this.publicationsService.create(this.publication).subscribe();
-    this.router.navigate(['/publications']);
+    console.log(this.publication.fromDate, this.publication.toDate)
+    if (this.publication.fromDate > this.publication.toDate) {
+      alert('La fecha desde no puede ser mayor a la fecha hasta')
+    } else {
+
+      this.publication.user = this.profile;
+      this.publicationsService.create(this.publication).subscribe(
+        data => this.errors = (data.body),
+        error => {
+          this.errors = error;
+        },
+        () => {
+          console.log(this.errors)
+          if (this.errors.error) {
+            this.errors = JSON.parse(this.errors);
+            if (this.errors.error) {
+              alert(this.errors.error)
+            }
+          } else {
+            this.router.navigate(['/publications']);
+          }
+        }
+      );
+    }
   }
-
-
 }
 
 

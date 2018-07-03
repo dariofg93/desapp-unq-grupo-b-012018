@@ -35,6 +35,11 @@
 									i18n="@@description">vehicleDescription 
 								<span>▼</span><span>▲</span>
 							</th>
+							<th [class.active]="order === 'userScoreValue'" 
+							(click)="setOrder('userScoreValue')" 
+							i18n="@@userScoreValue">userScoreValue 
+							<span>▼</span><span>▲</span>
+							</th>
 							<th [class.active]="order === 'pricePerHour'" 
 									(click)="setOrder('pricePerHour')"
 									class="mdl-data-table__cell--non-numeric"
@@ -57,6 +62,7 @@
 					<tbody class="table table-striped">
 						<tr *ngFor="let publication of (publications | orderBy: order:reverse:'case-insensitive' | searchByCategory: categoryFilter | paginate: { itemsPerPage: 5, currentPage: currentP })">
 							<td>{{ publication.publishedVehicle.description }}</td>
+							<td>{{ publication.user.scoreManager.averageScore()}}</td>
 							<td>{{ publication.pricePerHour }}</td>
 							<td>{{ publication.phone }}</td>
 							<td>{{ publication.pickUpZone.description }}</td>

@@ -31,6 +31,13 @@
 						<input type="number" min="0" class="form-control col-md-4" id="creditsAccount" name="creditsAccount"
 									 [(ngModel)]="profile.creditsAccount.amount">
 					</div>
+
+					<div class="form-group row col-md justify-content-md-center">
+						<label class="col-md-4" for="averageScore" i18n="@@averageScore">averageScore</label>						
+						<input type="text" value="profile.scoreManager.averageScore()" class="form-control col-md-4 ng-untouched ng-pristine" id="averageScore" name="averageScore">
+
+					</div>
+
 					<div class="form-group row col-md justify-content-md-center">
 							<label class="col-md-4" for="creditsAccount" i18n="@@email">email</label>
 							<textarea readonly class="form-control col-md-4" id="email" name="email"

@@ -63,4 +63,5 @@ export class SearchVehicleComponent implements OnInit {
 
     this.order = value;
   }
+
 }
