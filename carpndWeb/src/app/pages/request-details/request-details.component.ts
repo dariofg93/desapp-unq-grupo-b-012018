@@ -103,6 +103,10 @@ export class RequestDetailsComponent implements OnInit {
             !this.myRequestIsAPPAndWantFinish();
   }
 
+  isMyPublicationOrMyRequestAndApp(): boolean {
+  console.log((this.isMyPublication() && this.request.state.concretType == "APP" || this.isMyRequest() && this.request.state.concretType == "APP"))
+    return  (this.isMyPublication() && this.request.state.concretType == "APP" || this.isMyRequest() && this.request.state.concretType == "APP")
+  }
   aceptRequest(): void {
     this.request.state.concretType = "APP"
     this.request.state.description = "Approved"

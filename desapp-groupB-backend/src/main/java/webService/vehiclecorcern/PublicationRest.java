@@ -38,10 +38,25 @@ public class PublicationRest extends AbstractRest{
 	@Produces("application/json")
 	public Response newPublication(@RequestBody Publication post) {
 		
-		return responseHandlingErrorsExecuting(
-				() -> {publicationService.save(post); return post;}, 
-				JsonReturn.notFoundError("No se pudo agregar la publicaión"), 
-				HttpStatus.INTERNAL_SERVER_ERROR);
+		System.out.println(post.getDropZone().getLatitud());
+		System.out.println(post.getDropZone().getLongitud());
+		
+		if(publicationService.selectByFunction((publication) -> 
+			publication.getUser() == post.getUser() &&
+			publication.getPublishedVehicle() == post.getPublishedVehicle() &&
+			publication.getFromDate().isBefore(post.getToDate()) &&
+			publication.getToDate().isAfter(post.getFromDate())).isEmpty())
+		{
+
+			return responseHandlingErrorsExecuting(
+					() -> {publicationService.save(post); return post;}, 
+					JsonReturn.notFoundError("No se pudo agregar la publicaión"), 
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		} else {
+			return response(JsonReturn.notFoundError("Ya existe una Publicacion para este vehiculo que no se superpone con las fechas indicadas"), 
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
 	}
 
 	@PUT

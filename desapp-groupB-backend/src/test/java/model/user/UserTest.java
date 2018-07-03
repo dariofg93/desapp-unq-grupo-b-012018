@@ -263,8 +263,6 @@ public class UserTest {
 
         verify(anyBookingRequestMock).setStateOfVehicleRetreatBuyer(true);
         verify(anyNotifierMock).notifyRetreatBuyerByMail(anyUser,anyBookingRequestMock);
-        verify(anyBookingRequestMock).setStateOfVehicleRetreatBuyer(false);
-        verify(anyBookingRequestMock).setStateOfVehicleRetreatSeller(false);
     }
 
     @Test
@@ -319,12 +317,12 @@ public class UserTest {
 
         anyUser.confirmVehicleReturnBuyer(anyBookingRequestMock, anyVehicleScoreMock, anySellerScoreMock, anyPublicationMock);
 
-        verify(anyBookingRequestMock).setHoursOfTheReservation(5);
+  
 
         verify(anyBookingRequestMock).setStateOfVehicleReturnBuyer(true);
         verify(anyNotifierMock).notifyReturnBuyerByMail(anyUser,anyBookingRequestMock);
         verify(anyScoreManagerMock).addScore(anySellerScoreMock);
-        verify(anyScoreManagerMock).addScore(anyVehicleScoreMock);
+
     }
 
     @Test

@@ -17,7 +17,7 @@ public class GeographicZoneDescription extends Entity {
 		latitud = aLatitud;
 		longitud = aLongitud;
 		
-		if(this.latitud != null && this.longitud != null && this.description ==null) {
+		if(this.latitud != null && this.longitud != null) {
 			this.description = this.getAddressByGpsCoordinates(this.latitud.toString(),this.longitud.toString() );
 		}
 	}
@@ -42,7 +42,7 @@ public class GeographicZoneDescription extends Entity {
 	}
 
 	public String getDescription() {
-		return description;
+		return this.getAddressByGpsCoordinates(this.latitud.toString(),this.longitud.toString() );
 	}
 
 	public void setDescription(String description) {

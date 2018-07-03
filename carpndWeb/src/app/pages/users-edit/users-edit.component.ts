@@ -12,18 +12,18 @@ import { UserService } from './../../services/user/user.service';
 })
 export class UsersEditComponent implements OnInit {
 
-	profile: User = null;
-
+  profile: User = null;
+ 
   constructor(
-  	private usersService: UserService,
-  	private router: Router,
-  	private location: Location,
-  ) {}
+    private usersService: UserService,
+    private router: Router,
+    private location: Location,
+  ) { }
 
   ngOnInit() {
     this.usersService.read(JSON.parse(localStorage.getItem('id'))).subscribe(
-        data => this.profile = data.body
-      );
+      data => this.profile = data.body
+    );
   }
 
   return() {
@@ -35,7 +35,12 @@ export class UsersEditComponent implements OnInit {
   }
 
   saveProfile(form) {
-    this.usersService.update(this.profile.id,this.profile).subscribe();
+    this.usersService.update(this.profile.id, this.profile).subscribe();
     this.location.back();
   }
+
+  averageScore():number{
+    return this.profile.scoreManager.averageScore()
+  }
+
 }
