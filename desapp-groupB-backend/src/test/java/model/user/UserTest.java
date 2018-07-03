@@ -240,7 +240,7 @@ public class UserTest {
 
         this.prepareTestConfirmRequest(anyUser,anyUserMock,anotherCreditsMock,true);
 
-        anyUser.confirmVehicleRetreatBuyer(anyBookingRequestMock);
+        anyUser.confirmVehicleRetreatBuyer(anyBookingRequestMock, anyPublicationMock);
 
         verify(anyBookingRequestMock).setStateOfVehicleRetreatBuyer(true);
         verify(anyNotifierMock).notifyRetreatBuyerByMail(anyUser,anyBookingRequestMock);
@@ -259,7 +259,7 @@ public class UserTest {
 
         this.prepareTestConfirmRequest(anyUser,anyUserMock,anotherCreditsMock,false);
 
-        anyUser.confirmVehicleRetreatBuyer(anyBookingRequestMock);
+        anyUser.confirmVehicleRetreatBuyer(anyBookingRequestMock, anyPublicationMock);
 
         verify(anyBookingRequestMock).setStateOfVehicleRetreatBuyer(true);
         verify(anyNotifierMock).notifyRetreatBuyerByMail(anyUser,anyBookingRequestMock);
@@ -317,7 +317,7 @@ public class UserTest {
         when(anyBookingRequestMock.getReservationDateTime()).thenReturn(DateTime.now().minusHours(5));
         this.prepareTestConfirmReturn(true);
 
-        anyUser.confirmVehicleReturnBuyer(anyBookingRequestMock, anyVehicleScoreMock, anySellerScoreMock);
+        anyUser.confirmVehicleReturnBuyer(anyBookingRequestMock, anyVehicleScoreMock, anySellerScoreMock, anyPublicationMock);
 
         verify(anyBookingRequestMock).setHoursOfTheReservation(5);
 
