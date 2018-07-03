@@ -42,7 +42,7 @@ public class GeographicZoneDescription extends Entity {
 	}
 
 	public String getDescription() {
-		return this.getAddressByGpsCoordinates(this.latitud.toString(),this.longitud.toString() );
+		return this.description;
 	}
 
 	public void setDescription(String description) {
