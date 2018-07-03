@@ -47,34 +47,90 @@
 					<label class="col-md-5">{{ request.requester.cuil }}</label>
 				</div>
 			</div>
-			
+
 			<div *ngIf="requestToMyPublicationIsAPPButNotInit()" class="row col-md-12 justify-content-md-center">
-					<button class="btn btn-primary" (click)="initBySeller()" i18n="@@initBySeller">initBySeller</button>
-					<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
-				</div>
-				<div *ngIf="isMyPublicationOrMyRequestAndApp()">
+				<button class="btn btn-primary" (click)="initBySeller()" i18n="@@initBySeller">initBySeller</button>
+				<button class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+			</div>
+			<div *ngIf="isMyPublicationOrMyRequestAndApp()">
 				<hr>
 				<table class="table table-hover">
-						<thead class="thead-dark">
-							<tr>
-								<th class="text-center" i18n="@@confirmRetreatSeller">confirmRetreatSeller</th>
-								<th class="text-center" i18n="@@confirmRetreatBuyer">confirmRetreatBuyer</th>
-								<th class="text-center" i18n="@@confirmReturnSeller">confirmReturnSeller</th>
-								<th class="text-center" i18n="@@confirmReturnBuyer">confirmReturnBuyer</th>
-								<th></th>
-							</tr>
+					<thead class="thead-dark">
+						<tr>
+							<th class="text-center" i18n="@@confirmRetreatSeller">confirmRetreatSeller</th>
+							<th class="text-center" i18n="@@confirmRetreatBuyer">confirmRetreatBuyer</th>
+							<th class="text-center" i18n="@@confirmReturnSeller">confirmReturnSeller</th>
+							<th class="text-center" i18n="@@confirmReturnBuyer">confirmReturnBuyer</th>
+							<th></th>
+						</tr>
 
-						</thead>
-						<tbody class="table table-striped">
-							<tr>
-								<td align="center">{{ request.status.confirmRetreatSeller }}</td>
-								<td align="center">{{ request.status.confirmRetreatBuyer }}</td>
-								<td align="center">{{ request.status.confirmReturnSeller }}</td>
-								<td align="center">{{ request.status.confirmReturnBuyer }}</td>								
-							</tr>
-						</tbody>
-					</table>
-				</div>
+					</thead>
+					<tbody class="table table-striped">
+						<tr>
+							<td align="center">
+								<div *ngIf="request.status.confirmRetreatSeller">
+									<a>
+										<i class="fa fa-check"></i>
+									</a>
+
+								</div>
+								<div *ngIf="!request.status.confirmRetreatSeller">
+
+									<a>
+										<i class="fa fa-times"></i>
+									</a>
+
+								</div>
+							</td>
+							<td align="center">
+								<div *ngIf="request.status.confirmRetreatBuyer">
+									<a>
+										<i class="fa fa-check"></i>
+									</a>
+
+								</div>
+								<div *ngIf="!request.status.confirmRetreatBuyer">
+
+									<a>
+										<i class="fa fa-times"></i>
+									</a>
+
+								</div>
+							</td>
+							<td align="center">
+								<div *ngIf="request.status.confirmReturnSeller">
+									<a>
+										<i class="fa fa-check"></i>
+									</a>
+
+								</div>
+								<div *ngIf="!request.status.confirmReturnSeller">
+
+									<a>
+										<i class="fa fa-times"></i>
+									</a>
+
+								</div>
+							</td>
+							<td align="center">
+								<div *ngIf="request.status.confirmReturnBuyer">
+									<a>
+										<i class="fa fa-check"></i>
+									</a>
+
+								</div>
+								<div *ngIf="!request.status.confirmReturnBuyer">
+
+									<a>
+										<i class="fa fa-times"></i>
+									</a>
+
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
 			<div class="row col-md-12 justify-content-md-center">
 				<div *ngIf="requestToMyPublicationIsAWA()">
