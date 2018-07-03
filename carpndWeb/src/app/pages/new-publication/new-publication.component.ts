@@ -44,7 +44,14 @@ export class NewPublicationComponent implements OnInit {
   }
 
   savePublication(form) {
+    var pickUp = JSON.parse(localStorage.getItem('PickUp'));
+    var pickDown = JSON.parse(localStorage.getItem('PickDown'));
+
     this.publication.user = this.profile;
+    this.publication.pickUpZone = new GeographicZoneDescription(pickUp.lat,pickUp.lng);
+    this.publication.dropZone = new GeographicZoneDescription(pickDown.lat,pickDown.lng);
+
+    localStorage.removeItem('PickUp'); localStorage.removeItem('PickDown');
     this.publicationsService.create(this.publication).subscribe();
     this.router.navigate(['/publications']);
   }

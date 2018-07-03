@@ -44,7 +44,6 @@
 						<img class="d-block w-100" src="{{x}}" class="vehiclePicture"alt="First slide">
 					</div>
 				</div>
-				<div class="vehiclePicture" *ngIf="!hasImages(vehicle)"><i class="fa fa-image fa-5x"></i></div>
 				
 				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -58,7 +57,7 @@
 		</div>
 
 		<div class="col-md-6">
-			<app-map></app-map>
+			<app-map [puntos]="myPublication()" [view]="true"></app-map>
 
 			<br>
 

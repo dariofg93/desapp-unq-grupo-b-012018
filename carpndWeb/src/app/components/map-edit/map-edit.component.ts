@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import {} from '@types/googlemaps';
 
@@ -9,16 +9,16 @@ import { GeographicZoneDescription } from './../../models/geographic-zone-descri
   templateUrl: './map-edit.component.html',
   styleUrls: ['./map-edit.component.css']
 })
-export class MapEditComponent implements OnInit,OnChanges {
+export class MapEditComponent implements OnInit {
 
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
 
   ngOnInit() {
     /*------------------------ Init Map -----------------------------------*/
-    var markerTouches = 0;
-    var pickUpMarker = null;
-    var pickDownMarker = null;
+    var markerTouches: number = 0;
+    var pickUpMarker: google.maps.Marker = null;
+    var pickDownMarker: google.maps.Marker = null;
 
     var mapProp = {
       center: new google.maps.LatLng(-34.70655181101466, -58.27852249145508),
@@ -45,6 +45,8 @@ export class MapEditComponent implements OnInit,OnChanges {
           title: 'Pick up'
         });
 
+        localStorage.setItem('PickUp', JSON.stringify(pickUpMarker.getPosition()))
+
         if(pickDownMarker != null) 
           pickDownMarker.setMap(null);
       }else{
@@ -53,19 +55,11 @@ export class MapEditComponent implements OnInit,OnChanges {
           map: mapChanged,
           title: 'Pick down'
         });
+
+        localStorage.setItem('PickDown', JSON.stringify(pickDownMarker.getPosition()))
       }
 
       markerTouches++;
-      this.map = map;
     }
-  }
-
-  prints(){
-    console.log("mapa",this.map);
-  }
-
-  ngOnChanges(changes: SimpleChanges): void{
-    console.log(changes);
-    console.log(this.map);
   }
 }
