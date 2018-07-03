@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { NgModule,LOCALE_ID } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -7,6 +7,8 @@ import { FormsModule } from "@angular/forms";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrderModule } from 'ngx-order-pipe'
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -34,6 +36,10 @@ import { RequestDetailsComponent } from './pages/request-details/request-details
 import { CategoryPipe } from './pipes/category/category.pipe';
 import { LocalityPipe } from './pipes/locality/locality.pipe';
 import { MapEditComponent } from './components/map-edit/map-edit.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 // Routes Constants:
 const appRoutes: Routes = [
@@ -108,6 +114,13 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     BsDropdownModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
