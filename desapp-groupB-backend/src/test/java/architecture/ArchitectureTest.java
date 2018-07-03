@@ -1,15 +1,15 @@
 package architecture;
 
 import static org.junit.Assert.assertNotNull;
-import static org.reflections.ReflectionUtils.getAllMethods;
-import static org.reflections.ReflectionUtils.withModifier;
-import static org.reflections.ReflectionUtils.withPrefix;
+
+import static org.reflections.ReflectionUtils.*;
 
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Set;
 
+import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
 import org.junit.Test;
@@ -34,23 +34,14 @@ public class ArchitectureTest {
 		Set<Class<? extends AbstractRest>> allClasses = reflections.getSubTypesOf(AbstractRest.class);
 		System.out.println(allClasses);
 		for (Class myClass : allClasses) {
-			Set<Method> allMethods = getAllMethods(myClass, withModifier(Modifier.PUBLIC),
+			Set<Method> allMethods = getAllMethods(myClass, withAnnotation(Path.class),
 					Predicates.and(Predicates.not(withPrefix("get")), Predicates.not(withPrefix("set"))));
 
 			System.out.println(allMethods);
 			
-			this.assertAllMethodsAreTransactional(allMethods);
+			for (Method method : allMethods) {
+				assertNotNull(method.getReturnType().equals(Response.class));
+			}
 		}
 	}
-
-	private void assertAllMethodsAreTransactional(Set<Method> allMethods) {
-		for (Method method : allMethods) {
-			System.out.println("________");
-			System.out.println(method.getName());
-			
-			System.out.println(method.getReturnType());
-			assertNotNull(method.getReturnType().equals(Response.class));
-		}
-	}
-
 }
