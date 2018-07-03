@@ -10,9 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import model.booking.BookingRequest;
-import model.exceptions.BannedException;
-import model.publication.Publication;
 import model.user.User;
 import persistence.user.UserRepository;
 import service.publication.PublicationService;
