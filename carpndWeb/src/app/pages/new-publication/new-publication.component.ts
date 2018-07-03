@@ -49,6 +49,9 @@ export class NewPublicationComponent implements OnInit {
     var pickDown = JSON.parse(localStorage.getItem('PickDown'));
 
     this.publication.user = this.profile;
+    if(pickUp === null || pickDown === null){
+      alert("Debe seleccionar Zona de retiro y zona de deposito del vehiculo")
+    }
     this.publication.pickUpZone = new GeographicZoneDescription(pickUp.lat,pickUp.lng);
     this.publication.dropZone = new GeographicZoneDescription(pickDown.lat,pickDown.lng);
 
@@ -58,8 +61,9 @@ export class NewPublicationComponent implements OnInit {
     if (this.publication.fromDate > this.publication.toDate) {
       alert('La fecha desde no puede ser mayor a la fecha hasta')
     } else {
-      
+    
       this.publication.user = this.profile;
+      console.log(this.publication)
       this.publicationsService.create(this.publication).subscribe(
         data => this.errors = (data.body),
         error => {
