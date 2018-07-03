@@ -33,7 +33,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("dariofg93@gmail.com"))
                 .withFirstName("Dario")
                 .withLastName("Gutierrez")
-                .withCuil("1234567890")
+                .withCuil("20-35317288-4")
                 .build();
         user1.getMovementsOfMonth().addToHistory("Hoy alquile");
         user1.getMovementsOfMonth().addToHistory("Hoy alquile otro auto");
@@ -47,7 +47,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("fabri1108@gmail.com"))
                 .withFirstName("Fabrizio")
                 .withLastName("Britez")
-                .withCuil("0987654321")
+                .withCuil("20-35317287-6")
                 .build();
         this.users.add(user2);
 
@@ -69,7 +69,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("unMail@gmail.com"))
                 .withFirstName("Homero")
                 .withLastName("Thompson")
-                .withCuil("35337222")
+                .withCuil("20-35334432-6")
                 .build();
         user4.getMovementsOfMonth().addToHistory("Se esta por vencer su alquiler");
         user4.getMovementsOfMonth().addToHistory("N/A");
@@ -82,7 +82,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("cherly@gmail.com"))
                 .withFirstName("Charly")
                 .withLastName("Garcia")
-                .withCuil("35327222")
+                .withCuil("20-33312387-6")
                 .build();
         this.users.add(user5);
         this.users.add(builder.createUser()
@@ -93,7 +93,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("elFlaco@gmail.com"))
                 .withFirstName("El Flaco")
                 .withLastName("Spinetta")
-                .withCuil("35317122")
+                .withCuil("20-17317287-6")
                 .build());
         this.users.add(builder.createUser()
                 .withWebSite(new WebSite())
@@ -103,7 +103,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("Leon@gmail.com"))
                 .withFirstName("Leon")
                 .withLastName("Gieco")
-                .withCuil("35317212")
+                .withCuil("20-33317287-6")
                 .build());
         this.users.add(builder.createUser()
                 .withWebSite(new WebSite())
@@ -113,7 +113,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("ValeLinch@gmail.com"))
                 .withFirstName("Vale")
                 .withLastName("Lynch")
-                .withCuil("35317221")
+                .withCuil("21-12717287-6")
                 .build());
         this.users.add(builder.createUser()
                 .withWebSite(new WebSite())
@@ -123,7 +123,7 @@ public class UsersDummy implements DummyData{
                 .withEmail(new Email("fabrizio.a.britez@gmail.com"))
                 .withFirstName("Paolo")
                 .withLastName("El Rockero")
-                .withCuil("35317751")
+                .withCuil("20-35317287-6")
                 .build());
     }
 

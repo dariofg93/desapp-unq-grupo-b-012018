@@ -38,9 +38,6 @@ public class PublicationRest extends AbstractRest{
 	@Produces("application/json")
 	public Response newPublication(@RequestBody Publication post) {
 		
-		System.out.println(post.getDropZone().getLatitud());
-		System.out.println(post.getDropZone().getLongitud());
-		
 		if(publicationService.selectByFunction((publication) -> 
 			publication.getUser() == post.getUser() &&
 			publication.getPublishedVehicle() == post.getPublishedVehicle() &&
