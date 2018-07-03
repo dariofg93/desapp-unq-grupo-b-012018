@@ -5,10 +5,10 @@
     </a>
     <ul class="navbar-nav">
       <li class="nav-item" [ngClass]="{'active': selectedItem() == 1}" (click)="setSelectedItem(1)">
-        <a class="nav-link" routerLink="searchVehicle" i18n="@@searchVehicle">searchVehicle</a>
+        <a class="nav-link" routerLink="searchVehicle" translate="header.searchVehicle">searchVehicle</a>
       </li> 
       <li class="nav-item" [ngClass]="{'active': selectedItem() == 2}" (click)="setSelectedItem(2)">
-        <a class="nav-link" routerLink="publications" i18n="@@publications">publications</a>
+        <a class="nav-link" routerLink="publications" translate="header.publications">publications</a>
       </li>
     </ul>
 
@@ -21,18 +21,18 @@
 
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
               role="menu" aria-labelledby="button-basic">
-            <li role="menuitem"><a class="dropdown-item" routerLink="users/{{id()}}" i18n="@@profile">profile</a></li>
+            <li role="menuitem"><a class="dropdown-item" routerLink="users/{{id()}}" translate="header.profile">profile</a></li>
 
             <li class="divider dropdown-divider"></li>
             <ul *ngFor="let l of languages">
               <li role="menuitem">
-                <button class="dropdown-item left-side" (click)="changeLanguage(l.i18n)">{{l.name}}</button>
+                <button class="dropdown-item left-side" (click)="changeLanguage(l.i18n)" translate="languages.{{l.name}}">{{l.name}}</button>
               </li>
             </ul>
 
             <li class="divider dropdown-divider"></li>
             <li role="menuitem">
-              <button class="dropdown-item" (click)="auth.logout()" i18n="@@logOut">logOut</button>
+              <button class="dropdown-item" (click)="auth.logout()" translate="header.logOut">logOut</button>
             </li>
           </ul>
         </div>

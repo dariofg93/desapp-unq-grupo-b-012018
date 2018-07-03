@@ -2,7 +2,7 @@
 
 	<div class="col-md-12">
 		<div class="row justify-content-md-center">
-			<h1 class="pageTitle" i18n="@@searchVehicleTitle">searchVehicleTitle</h1>
+			<h1 class="pageTitle" translate="searchV.searchVehicle">searchVehicleTitle</h1>
 		</div>
 	</div>
 
@@ -14,7 +14,7 @@
 		<div class="row justify-content-md-center">
 			<div class="col-md-3">
 				<select class="custom-select mr-sm-2" [(ngModel)]="categoryFilter">
-					<option [ngValue]="undefined" selected i18n="@@searchByCategory">searchByCategory</option>
+					<option [ngValue]="undefined" selected translate="searchV.searchByCategory">searchByCategory</option>
 					<option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
 				</select>
 			</div>
@@ -32,23 +32,23 @@
 						<tr>
 							<th [class.active]="order === 'vehicleDescription'" 
 									(click)="setOrder('publishedVehicle.description')" 
-									i18n="@@description">vehicleDescription 
+									translate="searchV.description">vehicleDescription 
 								<span>▼</span><span>▲</span>
 							</th>
 							<th [class.active]="order === 'pricePerHour'" 
 									(click)="setOrder('pricePerHour')"
 									class="mdl-data-table__cell--non-numeric"
-									i18n="@@publicationPricePerHour">publicationPricePerHour
+									translate="searchV.pricePerHour">publicationPricePerHour
 								<span>▼</span><span>▲</span>
 							</th>
 							<th [class.active]="order === 'phone'" 
 									(click)="setOrder('phone')" 
-									i18n="@@publicationPhone">publicationPhone 
+									translate="searchV.phone">publicationPhone 
 								<span>▼</span><span>▲</span>
 							</th>
 							<th [class.active]="order === 'publicationPickUpZone'" 
 									(click)="setOrder('pickUpZone.description')" 
-									i18n="@@publicationPickUpZone">publicationPickUpZone 
+									translate="searchV.pickUpZone">publicationPickUpZone 
 								<span>▼</span><span>▲</span>
 							</th>
 							<th></th>

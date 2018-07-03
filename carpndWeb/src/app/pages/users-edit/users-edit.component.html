@@ -2,50 +2,50 @@
 
 	<div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
 		<div class="row col-md-12 justify-content-md-center">
-			<h1 class="pageTitle" i18n="@@editProfile">editProfile</h1>
+			<h1 class="pageTitle" translate="profile.editProfile">editProfile</h1>
 		</div>
 
 			<form (ngSubmit)="saveProfile(profileForm)" #profileForm="ngForm" class="col-md-12 justify-content-md-center">
 	      <div class="form-group row col-md justify-content-md-center">
-	        <label class="col-md-4" for="firstName" i18n="@@firstName">firstName</label>
+	        <label class="col-md-4" for="firstName" translate="profile.firstName">firstName</label>
 	        <input type="text" class="form-control col-md-4" name="firstName" id="firstName"
 	               [(ngModel)]="profile.firstName" required
 	               #firstName="ngModel">
 	      </div>
 
 	      <div class="form-group row col-md justify-content-md-center">
-	        <label class="col-md-4" for="lastName" i18n="@@lastName">lastName</label>
+	        <label class="col-md-4" for="lastName" translate="profile.lastName">lastName</label>
 	        <input type="text" class="form-control col-md-4" name="lastName" id="lastName"
 	               [(ngModel)]="profile.lastName" required
 	               #lastName="ngModel">
 	      </div>
 	 
 	      <div class="form-group row col-md justify-content-md-center">
-	        <label class="col-md-4" for="cuil" i18n="@@cuil">cuil</label>
+	        <label class="col-md-4" for="cuil" translate="profile.cuil">cuil</label>
 	        <input type="text" class="form-control col-md-4" id="cuil" name="cuil"
 	               [(ngModel)]="profile.cuil">
 				</div>
 				
 	      <div class="form-group row col-md justify-content-md-center">
-						<label class="col-md-4" for="creditsAccount" i18n="@@creditsAccount">creditsAccount</label>
+						<label class="col-md-4" for="creditsAccount" translate="profile.creditsAccount">creditsAccount</label>
 						<input type="number" min="0" class="form-control col-md-4" id="creditsAccount" name="creditsAccount"
 									 [(ngModel)]="profile.creditsAccount.amount">
 					</div>
 
-					<div class="form-group row col-md justify-content-md-center">
-						<label class="col-md-4" for="averageScore" i18n="@@averageScore">averageScore</label>						
+					<!--<div class="form-group row col-md justify-content-md-center">
+						<label class="col-md-4" for="averageScore" translate="profile.averageScore">averageScore</label>						
 						<input type="text" value="profile.scoreManager.averageScore()" class="form-control col-md-4 ng-untouched ng-pristine" id="averageScore" name="averageScore">
 
-					</div>
+					</div>-->
 
 					<div class="form-group row col-md justify-content-md-center">
-							<label class="col-md-4" for="creditsAccount" i18n="@@email">email</label>
+							<label class="col-md-4" for="creditsAccount" translate="profile.email">email</label>
 							<textarea readonly class="form-control col-md-4" id="email" name="email"
 									[(ngModel)]="profile.email.accountName"></textarea>
 						</div>
 	 			<div class="form-group row col-md justify-content-md-center">
-		      <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid" i18n="@@save">save</button>
-		      <button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+		      <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid" translate="layout.save">save</button>
+		      <button type="button" class="btn btn-default ml-3" (click)="return()" translate="layout.return">return</button>
 		    </div>
 	    </form>
 	</div>

@@ -2,16 +2,16 @@
 
     <div class="col-md-4">
       <div class="row justify-content-md-center">
-        <h3 class="sectionTitle" i18n="@@MyVehicles">MyVehicles</h3>
+        <h3 class="sectionTitle" translate="home.myVehicles">MyVehicles</h3>
       </div>
 
       <div class="table-responsive-md">
         <table class="table table-hover">
           <thead class="thead-dark">
             <tr>
-              <th class="text-center" i18n="@@image">image</th>
-              <th class="text-center" i18n="@@vehicleDescription">description</th>
-              <th class="text-right" i18n="@@vehicleCapacity">capacity</th>
+              <th class="text-center" translate="home.image">image</th>
+              <th class="text-center" translate="home.vehicleDescription">description</th>
+              <th class="text-right" translate="home.vehicleCapacity">capacity</th>
               <th></th><th></th>
             </tr>
           </thead>
@@ -41,7 +41,7 @@
       <div class="row justify-content-md-center">
         <a href="vehicles/new" 
           class="btn btn-primary btn-margin"
-          i18n="@@addVehicle">
+          translate="home.addVehicle">
             addVehicle
         </a>
       </div>
@@ -54,7 +54,7 @@
 
       <div class="row col-md-11">
         <div class="row col-md-12 justify-content-md-center">
-          <h3 class="sectionTitle" i18n="@@Movements">Movements</h3>
+          <h3 class="sectionTitle" translate="home.movements">Movements</h3>
         </div>
 
         <div *ngIf="hasProfile() && hasMovements()" class="row col-md-12 justify-content-md-center">
@@ -70,7 +70,7 @@
 
     <div class="col-md-4">
       <div class="row justify-content-md-center">
-        <h3 class="sectionTitle" i18n="@@PublicationRequests">PublicationRequests</h3>
+        <h3 class="sectionTitle" translate="home.publicationRequests">PublicationRequests</h3>
       </div>
 
       <ul>
@@ -84,11 +84,11 @@
 
               <div class="col-md-7 align-self-center">
                 <p class="mb-1"><span>{{request.requester.firstName}}</span> <span>{{request.requester.lastName}}</span></p>
-                <p class="mb-1" i18n="@state">state: <span>{{request.state.description}}</span></p>
+                <p class="mb-1" translate="home.state">state: </p><span translate="state.{{request.state.description}}"></span>
               </div>
 
               <div class="col-md-3">
-                <p i18n="@hours"><span>{{request.totalHours}}</span> hours</p>
+                {{request.totalHours}}<p translate="home.hours">hours</p>
               </div>
             </a>
           </li>
@@ -97,7 +97,3 @@
     </div>
 
 </div>
-
-<p>
-  {{ 'Intro' | translate }}
-</p>

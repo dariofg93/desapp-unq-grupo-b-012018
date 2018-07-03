@@ -2,32 +2,32 @@
 
   <div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
     <div class="row col-md-12 justify-content-md-center">
-      <h1 class="pageTitle" i18n="@@createpublication">createpublication</h1>
+      <h1 class="pageTitle" translate="newPub.createpublication">createpublication</h1>
     </div>
     <form (ngSubmit)="savePublication(publicationForm)" #publicationForm="ngForm" class="col-md-12 justify-content-md-center">
       <div class="form-group row col-md justify-content-sm">
 
         <div class="col-md-6">
-          <label class="col-md-12" for="vehicle" i18n="@@vehicle">vehicle</label>
+          <label class="col-md-12" for="vehicle" translate="newPub.vehicle">vehicle</label>
           <select class="form-control col-md-12" id="publishedVehicle" name="publishedVehicle" [(ngModel)]="publication.publishedVehicle"
             required
             #publishedVehicle="ngModel">
-            <option  disabled selected i18n="@@selectVehicle">selectAvailableVehicle</option>
+            <option  disabled selected translate="newPub.selectAvailableVehicle">selectAvailableVehicle</option>
             <option *ngFor="let vehicle of profile?.myVehicles" [ngValue]="vehicle">{{vehicle.description}}</option>
           </select>
 
-          <label class="col-md-12" for="pricePerHour" i18n="@@pricePerHour">pricePerHour</label>
+          <label class="col-md-12" for="pricePerHour" translate="newPub.pricePerHour">pricePerHour</label>
           <input type="number" min="0" step=".01" class="form-control col-md-12" id="pricePerHour" name="pricePerHour" placeholder="" [(ngModel)]="publication.pricePerHour" required>
 
-          <label class="col-md-12" for="phone" i18n="@@phone">phone</label>
+          <label class="col-md-12" for="phone" translate="newPub.phone">phone</label>
           <input type="number" min="0" step="1" class="form-control col-md-12" id="phone" name="phone" placeholder="" [(ngModel)]="publication.phone"
             required>
 
-          <label class="col-md-12" for="fromDate" i18n="@@fromDate">fromDate</label>
+          <label class="col-md-12" for="fromDate" translate="newPub.fromDate">fromDate</label>
           <input type="date" value="today()" class="form-control col-md-12" id="fromDate" name="fromDate" placeholder="" [(ngModel)]="publication.fromDate"
             required>
 
-          <label class="col-md-12" for="toDate" i18n="@@toDate">toDate</label>
+          <label class="col-md-12" for="toDate" translate="newPub.toDate">toDate</label>
           <input type="date" value="today()" class="form-control col-md-12" id="toDate" name="toDate" placeholder="" [(ngModel)]="publication.toDate"
             required>
         </div>
@@ -46,8 +46,8 @@
       </div>
 
       <div class="form-group row col-md justify-content-md-center">
-        <button type="submit" class="btn btn-primary" [disabled]="!publicationForm.form.valid" i18n="@@save">save</button>
-        <button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!publicationForm.form.valid" translate="layout.save">save</button>
+        <button type="button" class="btn btn-default ml-3" (click)="return()" translate="layout.return">return</button>
       </div>
       
     </form>

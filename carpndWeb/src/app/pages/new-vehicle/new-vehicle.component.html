@@ -2,12 +2,12 @@
 
 	<div class="row col-md-8 shadow-lg p-2 mb-3 bg-white">
 		<div class="row col-md-12 justify-content-md-center">
-			<h1 class="pageTitle" i18n="@@createVehicle">createVehicle</h1>
+			<h1 class="pageTitle" translate="newVehicle.create">createVehicle</h1>
 		</div>
 
 		<form (ngSubmit)="saveVehicle(vehicleForm)" #vehicleForm="ngForm" class="col-md-12 justify-content-md-center">
 			<div class="form-group row col-md justify-content-md-center">
-				<label class="col-md-4" for="description" i18n="@@description">description</label>
+				<label class="col-md-4" for="description" translate="newVehicle.description">description</label>
 				<input type="text" class="form-control col-md-5" name="description" id="description" [(ngModel)]="vehicle.description" required
 				 #description="ngModel">
 				<!--<div class="col-md-4" [hidden]="description.valid || description.pristine"
@@ -17,7 +17,7 @@
 			</div>
 
 			<div class="form-group row col-md justify-content-md-center">
-				<label class="col-md-4" for="passengerCapacity" i18n="@@passengerCapacity">passengerCapacity</label>
+				<label class="col-md-4" for="passengerCapacity" translate="newVehicle.capacity">passengerCapacity</label>
 				<input type="number" min="1" max="5" class="form-control col-md-5" id="passengerCapacity" name="passengerCapacity" [(ngModel)]="vehicle.passengerCapacity"
 				 required>
 				<!--<div class="col-md-4" [hidden]="passengerCapacity.valid || passengerCapacity.pristine" 
@@ -28,15 +28,15 @@
 			</div>
 
 			<div class="form-group row col-md justify-content-md-center">
-				<label class="col-md-4" for="category" i18n="@@category">category</label>
+				<label class="col-md-4" for="category" translate="newVehicle.category">category</label>
 				<select class="form-control col-md-5" id="category" name="category" [(ngModel)]="vehicle.category" #category="ngModel">
-					<option [ngValue]="selectCategory" disabled selected i18n="@@selectCategory">selectCategory</option>
-					<option *ngFor="let category of categories" [value]="category.concretType">{{category.concretType}}</option>
+					<option [ngValue]="selectCategory" disabled selected translate="category.selectCategory">selectCategory</option>
+					<option *ngFor="let category of categories" [value]="category.concretType" translate="category.{{category.concretType}}"></option>
 				</select>
 			</div>
 
 			<form (ngSubmit)="addPicture(imageForm)" #imageForm="ngForm" class="form-group row col-md justify-content-md-center">
-				<label class="col-md-4" for="newPicturePath" i18n="@@newImage">newImage</label>
+				<label class="col-md-4" for="newPicturePath" translate="newVehicle.newImage">newImage</label>
 				<input type="text" class="form-control col-md-4" id="newPicturePath" name="newPicturePath" [(ngModel)]="newPicturePath" required>
 				<button type="reset" class="btn btn-primary" (click)="addPicture(newPicturePath)" i18n="@@plus">+</button>
 			</form>
@@ -57,8 +57,8 @@
 
 
 			<div class="form-group row col-md justify-content-md-center">
-				<button type="submit" class="btn btn-primary" [disabled]="!vehicleForm.form.valid" i18n="@@save">save</button>
-				<button type="button" class="btn btn-default ml-3" (click)="return()" i18n="@@return">return</button>
+				<button type="submit" class="btn btn-primary" [disabled]="!vehicleForm.form.valid" translate="layout.save">save</button>
+				<button type="button" class="btn btn-default ml-3" (click)="return()" translate="layout.return">return</button>
 			</div>
 		</form>
 	</div>

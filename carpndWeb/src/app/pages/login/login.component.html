@@ -7,7 +7,7 @@
 
 	<div class="row col-md-12 align-items-center justify-content-center">
 		<div class="clear">
-			<h3 i18n="@@loginRequired">loginRequired</h3>
+			<h3 translate="login.required">loginRequired</h3>
 		</div>
 	</div>
 
@@ -18,7 +18,7 @@
 			<button
 			  class="btn btn-primary btn-margin"
 			  *ngIf="!auth.isAuthenticated()"
-			  (click)="auth.login()" i18n="loginButton">
+			  (click)="auth.login()" translate="login.login">
 			    loginButton
 			</button>
 		</div>
