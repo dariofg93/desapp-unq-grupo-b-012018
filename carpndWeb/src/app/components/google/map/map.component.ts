@@ -1,8 +1,9 @@
 import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import {} from '@types/googlemaps';
 
-import { GeographicZoneDescription } from './../../../models/geographic-zone-description';
+import { Publication } from './../../../models/publication';
 
 @Component({
   selector: 'app-map',
@@ -12,10 +13,12 @@ import { GeographicZoneDescription } from './../../../models/geographic-zone-des
 export class MapComponent implements OnInit,OnChanges {
 
   @ViewChild('gmap') gmapElement: any;
-  @Input('puntos') points: GeographicZoneDescription[];
+  @Input('puntos') points: Publication[];
   @Input('view') isViewed: boolean;
+  @Input('rout') router: Router;
   map: google.maps.Map;
   printPoints: boolean = false;
+
 
   ngOnInit() {
     /*------------------------ Init Map -----------------------------------*/
@@ -30,51 +33,33 @@ export class MapComponent implements OnInit,OnChanges {
     };
 
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-    /*------------------------ -------- -----------------------------------*/
-
-
-    this.map.addListener('click', function(ev) {
-      console.log("gato");
-      placeMarker(ev.latLng, this.map);
-    });
-
-    function placeMarker(latLng, mapChanged) {
-      if(markerTouches%2 == 0){
-        //if(pickUpMarker != null) 
-          //pickUpMarker.setMap(null);
-
-        pickUpMarker = new google.maps.Marker({
-          position: latLng,
-          map: mapChanged,
-          title: 'Pick up'
-        });
-
-        //if(pickDownMarker != null) 
-          //pickDownMarker.setMap(null);
-      }else{
-        pickDownMarker = new google.maps.Marker({
-          position: latLng,
-          map: mapChanged,
-          title: 'Pick down'
-        });
-      }
-
-      markerTouches++;
-    }
   }
 
   ngOnChanges(changes: SimpleChanges): void{
     if(this.map && changes.points.currentValue.length > 0 && !this.printPoints) {
-      changes.points.currentValue.forEach(point => this.addPoint(point,this.map, this.isViewed));
+      console.log(changes);
+      changes.points.currentValue.forEach(point => this.addPoint(point,this.map, this.isViewed, this.router));
       this.printPoints = true; 
     }
   }
 
-  addPoint(point: GeographicZoneDescription, mapChange: google.maps.Map, isViewed: boolean){
-    var pickUpMarker = new google.maps.Marker({
-      position: new google.maps.LatLng(point.latitud, point.longitud),
+  addPoint(point: Publication, mapChange: google.maps.Map, isViewed: boolean, router: Router){
+    var markerUp = new google.maps.Marker({
+      position: new google.maps.LatLng(point.pickUpZone.latitud, point.pickUpZone.longitud),
       map: mapChange,
       title: 'Pick up'
     });
+
+    if (isViewed) {
+      var markerDown = new google.maps.Marker({
+        position: new google.maps.LatLng(point.dropZone.latitud, point.dropZone.longitud),
+        map: mapChange,
+        title: 'Pick Down'
+      });
+    }else{
+      markerUp.addListener('click', function() {
+        router.navigate(['/publications/' + point.id]);
+      });
+    }
   }
 }

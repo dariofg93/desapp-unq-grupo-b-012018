@@ -59,6 +59,8 @@ export class PublicationDetailsComponent implements OnInit {
     return this.publication.user.id == JSON.parse(localStorage.getItem('id'));
   }
 
+  myPublication(): Publication[]{ return [this.publication] }
+
   executeRequest(form): void {
     this.request.requester.myVehicles = [];
     this.request.requester.myPublications = [];

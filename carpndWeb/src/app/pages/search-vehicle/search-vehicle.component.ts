@@ -48,8 +48,8 @@ export class SearchVehicleComponent implements OnInit {
       );
   }
 
-  pickUpZones(): GeographicZoneDescription[]{
-    return this.publications.map(function(p) { return p.pickUpZone })
+  getRouter(){
+    return this.router;
   }
 
   hasPublications(){
