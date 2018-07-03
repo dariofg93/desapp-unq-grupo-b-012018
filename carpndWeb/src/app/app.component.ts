@@ -13,7 +13,9 @@ import { setTheme } from 'ngx-bootstrap/utils';
 export class AppComponent {
 	title = 'Carpnd';
 
-	constructor(public auth: AuthService) {
+	constructor(
+    public auth: AuthService
+  ) {
     auth.handleAuthentication();
     setTheme('bs4');
   }

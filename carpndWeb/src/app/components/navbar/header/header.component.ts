@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AuthService } from './../../../services/auth/auth.service';
 
@@ -13,8 +14,12 @@ export class HeaderComponent implements OnInit {
   profile: any;
 
   constructor(
-    public auth: AuthService
-  ) { }
+    public auth: AuthService,
+    private translate: TranslateService
+  ) {
+    var language = localStorage.getItem('language');
+    translate.setDefaultLang(language? language: 'en-US');
+  }
   
   ngOnInit() {
     this.languages = [
@@ -29,7 +34,8 @@ export class HeaderComponent implements OnInit {
   changeLanguage(i18n: string): void{
     if(i18n != undefined){
       localStorage.setItem('language', i18n);
-      location.reload();
+      this.translate.use(i18n);
+      //location.reload();
     }
   }
 
@@ -43,5 +49,9 @@ export class HeaderComponent implements OnInit {
 
   id(): number{
     return JSON.parse(localStorage.getItem('id'));
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
   }
 }
