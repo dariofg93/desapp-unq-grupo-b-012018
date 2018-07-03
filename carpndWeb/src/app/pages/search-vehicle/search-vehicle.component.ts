@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { ActivatedRoute,Router } from "@angular/router";
+import { OrderPipe } from 'ngx-order-pipe';
 
 import { Category } from './../../models/categories';
 import { GenericRestService } from './../../services/generic/generic-rest.service';
@@ -21,8 +22,8 @@ import { GeographicZoneDescription } from './../../models/geographic-zone-descri
 })
 export class SearchVehicleComponent implements OnInit {
 
-  selectCategory;
-  changeFilter;
+  reverse: boolean = false;
+  order: string = 'pricePerHour'
 	publications: Publication[];
   currentP = 1;
   categoryFilter;
@@ -34,9 +35,9 @@ export class SearchVehicleComponent implements OnInit {
   constructor(
     private publicationsService: GenericRestService<Publication>, 
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private orderPipe: OrderPipe
   ) {
-
     this.publications = [] 
   }
 
@@ -53,5 +54,13 @@ export class SearchVehicleComponent implements OnInit {
 
   hasPublications(){
     return this.publications;
+  }
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
   }
 }

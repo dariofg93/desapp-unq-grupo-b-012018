@@ -40,8 +40,8 @@ export class MapComponent implements OnInit,OnChanges {
 
     function placeMarker(latLng, mapChanged) {
       if(markerTouches%2 == 0){
-        if(pickUpMarker != null) 
-          pickUpMarker.setMap(null);
+        //if(pickUpMarker != null) 
+          //pickUpMarker.setMap(null);
 
         pickUpMarker = new google.maps.Marker({
           position: latLng,
@@ -49,8 +49,8 @@ export class MapComponent implements OnInit,OnChanges {
           title: 'Pick up'
         });
 
-        if(pickDownMarker != null) 
-          pickDownMarker.setMap(null);
+        //if(pickDownMarker != null) 
+          //pickDownMarker.setMap(null);
       }else{
         pickDownMarker = new google.maps.Marker({
           position: latLng,

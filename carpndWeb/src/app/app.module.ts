@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { OrderModule } from 'ngx-order-pipe'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -32,6 +33,7 @@ import { PublicationDetailsComponent } from './pages/publication-details/publica
 import { RequestDetailsComponent } from './pages/request-details/request-details.component';
 import { CategoryPipe } from './pipes/category/category.pipe';
 import { LocalityPipe } from './pipes/locality/locality.pipe';
+import { MapEditComponent } from './components/map-edit/map-edit.component';
 
 // Routes Constants:
 const appRoutes: Routes = [
@@ -96,9 +98,11 @@ const appRoutes: Routes = [
     PublicationDetailsComponent,
     RequestDetailsComponent,
     CategoryPipe,
-    LocalityPipe
+    LocalityPipe,
+    MapEditComponent
   ],
   imports: [
+    OrderModule,
     NgxPaginationModule,
     BrowserModule,
     HttpClientModule,

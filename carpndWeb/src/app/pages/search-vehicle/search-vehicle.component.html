@@ -30,15 +30,32 @@
 
 					<thead class="thead-dark">
 						<tr>
-							<th i18n="@@publicationVehicleDescription">description</th>
-							<th i18n="@@publicationPricePerHour">publicationPricePerHour</th>
-							<th i18n="@@publicationPhone">publicationPhone</th>
-							<th i18n="@@publicationPickUpZone">publicationPickUpZone</th>
+							<th [class.active]="order === 'vehicleDescription'" 
+									(click)="setOrder('publishedVehicle.description')" 
+									i18n="@@description">vehicleDescription 
+								<span>▼</span><span>▲</span>
+							</th>
+							<th [class.active]="order === 'pricePerHour'" 
+									(click)="setOrder('pricePerHour')"
+									class="mdl-data-table__cell--non-numeric"
+									i18n="@@publicationPricePerHour">publicationPricePerHour
+								<span>▼</span><span>▲</span>
+							</th>
+							<th [class.active]="order === 'phone'" 
+									(click)="setOrder('phone')" 
+									i18n="@@publicationPhone">publicationPhone 
+								<span>▼</span><span>▲</span>
+							</th>
+							<th [class.active]="order === 'publicationPickUpZone'" 
+									(click)="setOrder('pickUpZone.description')" 
+									i18n="@@publicationPickUpZone">publicationPickUpZone 
+								<span>▼</span><span>▲</span>
+							</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody class="table table-striped">
-						<tr *ngFor="let publication of (publications | searchByCategory: categoryFilter | paginate: { itemsPerPage: 5, currentPage: currentP })">
+						<tr *ngFor="let publication of (publications | orderBy: order:reverse:'case-insensitive' | searchByCategory: categoryFilter | paginate: { itemsPerPage: 5, currentPage: currentP })">
 							<td>{{ publication.publishedVehicle.description }}</td>
 							<td>{{ publication.pricePerHour }}</td>
 							<td>{{ publication.phone }}</td>
@@ -57,7 +74,7 @@
 		</div>
 	</div>
 
-	<div *ngIf="hasPublications()" class="col-md-6">
+	<div class="col-md-6">
 		<app-map [puntos]="pickUpZones()" [view]="false"></app-map>
 	</div>
 </div>
