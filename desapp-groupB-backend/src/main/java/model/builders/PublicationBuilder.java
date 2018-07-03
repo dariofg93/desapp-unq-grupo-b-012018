@@ -35,5 +35,14 @@ public class PublicationBuilder {
 		return new Publication(aVehicle, fromDate, toDate,anUser, city, pickUpZone, dropZone, price, 13454344);
 	}
 	
+	public Publication createPublicationForUserAndVehicle(User anUser, Vehicle aVehicle, City city, String stringDateFrom, String stringDateTo, Double price, GeographicZoneDescription gpsInit, GeographicZoneDescription gpsFinish) {		
+		DateTime fromDate;
+		DateTime toDate;
+
+		fromDate = DateTime.parse(stringDateFrom);
+		toDate = DateTime.parse(stringDateTo);
+		return new Publication(aVehicle, fromDate, toDate,anUser, city, gpsInit, gpsFinish, price, 13454344);
+	}
+	
 
 }

@@ -92,8 +92,9 @@ public class BookingRequestService extends GenericService<BookingRequest> {
 		user.setMyPublications(
 				publicationService.selectByFunction((publication) -> publication.getUser().getId() == requestPayload.getUserId()));
 		
+		Publication post = publicationService.selectByFunction((publication) -> publication.containsRequest(request)).get(0);
 		try {
-			user.confirmVehicleReturnBuyer(request, this.createScoreWith(requestPayload.getScoreValue()), new Score());
+			user.confirmVehicleReturnBuyer(request, this.createScoreWith(requestPayload.getScoreValue()), new Score(), post);
 		} catch (NoAceptedException e) {}
 		
 		this.updateById(requestPayload.getRequestId(), request);

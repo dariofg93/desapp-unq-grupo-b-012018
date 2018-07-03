@@ -39,7 +39,7 @@ public class User extends Entity {
 
 	public User() {
 		this.movementsOfMonth = new MovementsOfMonth();
-		this.webSite= new WebSite();
+		this.webSite = new WebSite();
 	}
 
 	public void publish(Publication anyPublication) throws BannedException {
@@ -53,14 +53,16 @@ public class User extends Entity {
 	}
 
 	public void rentVehicle(Publication anyPublication, BookingRequest bookingRequest) throws BannedException {
-		//if (!this.isBanned()) {
-			anyPublication.addBookingRequest(bookingRequest);
-			//this.webSite.getNotifier().notifyRequestByMail(anyPublication.getUser(), bookingRequest);
-			this.movementsOfMonth.addToHistory("You have sent a successful request to rent a vehicle for "
-					+ bookingRequest.getTotalHours() + " hours!");
-		/*} else {
-			throw new BannedException("You can't rent a vehicle if you're banned");
-		}*/
+		// if (!this.isBanned()) {
+		anyPublication.addBookingRequest(bookingRequest);
+		// this.webSite.getNotifier().notifyRequestByMail(anyPublication.getUser(),
+		// bookingRequest);
+		this.movementsOfMonth.addToHistory("You have sent a successful request to rent a vehicle for "
+				+ bookingRequest.getTotalHours() + " hours!");
+		/*
+		 * } else { throw new
+		 * BannedException("You can't rent a vehicle if you're banned"); }
+		 */
 	}
 
 	public Integer numberOfPublications() {
@@ -81,7 +83,7 @@ public class User extends Entity {
 
 	public void aceptRequest(BookingRequest anyRequest) throws RequestNoExistException {
 		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
-		
+
 		if (anyPublication != null) {
 			this.webSite.getNotifier().notifyAceptByMail(this, anyRequest);
 
@@ -128,29 +130,24 @@ public class User extends Entity {
 	 * en su poder y no exista respuesta de su contraparte dentro de los 30 minutos,
 	 * la misma se da por rechazada.
 	 */
-	public void confirmVehicleRetreatBuyer(BookingRequest anyRequest, Publication anyPublication) throws NoAceptedException {
+	public void confirmVehicleRetreatBuyer(BookingRequest anyRequest, Publication anyPublication)
+			throws NoAceptedException {
 
-		
-		System.out.println("__________________________________1");
 		anyRequest.setStateOfVehicleRetreatBuyer(true);
 		anyRequest.setReservationDateTime(DateTime.now());
-		
-		System.out.println("__________________________________2");
-				
+
 		this.webSite.getNotifier().notifyRetreatBuyerByMail(this, anyRequest);
 
-		System.out.println("__________________________________3");
-		
 		this.movementsOfMonth.addToHistory("You have confirmed that you have retreat a vehicle for a "
 				+ anyRequest.getTotalHours() + " hours reservation.");
 
-		System.out.println("__________________________________4");
-		//if (anyRequest.getConfirmReturnBuyer() && anyRequest.getConfirmRetreatSeller())
-			this.executeTransfer(anyRequest, anyRequest.getRequester().getCreditsAccount(), this.creditsAccount,
-					anyPublication);
-			System.out.println("__________________________________5");
-		//else
-			//this.cancelTransferByTimeLimit(anyRequest);
+		// if (anyRequest.getConfirmReturnBuyer() &&
+		// anyRequest.getConfirmRetreatSeller())
+		this.executeTransfer(anyRequest, anyRequest.getRequester().getCreditsAccount(), this.creditsAccount,
+				anyPublication);
+
+		// else
+		// this.cancelTransferByTimeLimit(anyRequest);
 	}
 
 	public void confirmVehicleRetreatSeller(BookingRequest anyRequest) throws NoAceptedException {
@@ -158,18 +155,19 @@ public class User extends Entity {
 		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
 		anyRequest.setStateOfVehicleRetreatSeller(true);
 		anyRequest.setReservationDateTime(DateTime.now());
-		
+
 		this.webSite.getNotifier().notifyRetreatSellerByMail(anyRequest);
 
 		this.movementsOfMonth.addToHistory("You have confirmed the retreat of your vehicle for a "
 				+ anyRequest.getTotalHours() + " hours reservation.");
 
-		//if (anyRequest.getConfirmReturnBuyer() && anyRequest.getConfirmRetreatSeller())
-			this.executeTransfer(anyRequest, this.creditsAccount, anyRequest.getRequester().getCreditsAccount(),
-					anyPublication);
-		//else
-		//	this.executeTransferByTimeLimit(anyRequest, this.creditsAccount,
-		//			anyRequest.getRequester().getCreditsAccount(), anyPublication);
+		// if (anyRequest.getConfirmReturnBuyer() &&
+		// anyRequest.getConfirmRetreatSeller())
+		this.executeTransfer(anyRequest, this.creditsAccount, anyRequest.getRequester().getCreditsAccount(),
+				anyPublication);
+		// else
+		// this.executeTransferByTimeLimit(anyRequest, this.creditsAccount,
+		// anyRequest.getRequester().getCreditsAccount(), anyPublication);
 	}
 
 	/**
@@ -219,12 +217,11 @@ public class User extends Entity {
 	 * momento de puntuar a su contraparte.
 	 */
 
-	public void confirmVehicleReturnBuyer(BookingRequest anyRequest, Score scoreOfVehicle, Score scoreOfSeller)
+	public void confirmVehicleReturnBuyer(BookingRequest anyRequest, Score scoreOfVehicle, Score scoreOfSeller, Publication anyPublication)
 			throws NoAceptedException {
 
-		Publication anyPublication = this.searchPublicationOfRequest(anyRequest);
 		anyRequest.setStateOfVehicleReturnBuyer(true);
-		
+
 		this.webSite.getNotifier().notifyReturnBuyerByMail(anyPublication.getUser(), anyRequest);
 
 		anyPublication.getUser().addScore(scoreOfSeller);
@@ -361,13 +358,13 @@ public class User extends Entity {
 	public void setMyVehicles(List<Vehicle> myVehicles) {
 		this.myVehicles = myVehicles;
 	}
-	
+
 	@Override
 	public boolean equals(Object object) {
 		User user = (User) object;
-		
-		return (object.getClass().equals(User.class) && user.getEmail().getAccountName() == this.getEmail().getAccountName());
+
+		return (object.getClass().equals(User.class)
+				&& user.getEmail().getAccountName() == this.getEmail().getAccountName());
 	}
-	
 
 }

@@ -11,6 +11,7 @@ import model.builders.BookingRequestBuilder;
 import model.builders.PublicationBuilder;
 
 import model.city.City;
+import model.maps.GeographicZoneDescription;
 import model.user.User;
 import model.publication.Publication;
 
@@ -42,13 +43,15 @@ public class PublicationsDummy implements DummyData {
 		builder = new PublicationBuilder();
 		
 		Publication publication = builder.createPublicationForUserAndVehicle(userService.retriveAll().get(0),
-				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9));
+				vehicleService.retriveAll().get(0), new City("Wilde"), "2018-04-01", "2018-04-03", new Double(8.9),  new GeographicZoneDescription( -34.7065578, -58.274670000000015),  new GeographicZoneDescription( -34.690765, -58.30288));
+		
 		publication.addBookingRequest(createStartedBooking(userService.retriveAll().get(2),20,new DateTime(2018,2,15,5,28)));
 		publication.addBookingRequest(createBooking(userService.retriveAll().get(1),40));
 		publications.add(publication);
 
 		publication = builder.createPublicationForUserAndVehicle(userService.searchById((long) 2),
-				vehicleService.retriveAll().get(0), new City("La Plata"), "2018-12-01", "2018-12-03", new Double(8.6));
+				vehicleService.retriveAll().get(0), new City("La Plata"), "2018-12-01", "2018-12-03", new Double(8.6),  new GeographicZoneDescription( -34.706180, -58.277138),  new GeographicZoneDescription( -34.690755, -58.30288));
+		
 		publication.addBookingRequest(createBooking(userService.retriveAll().get(0),40));
 		publications.add(publication);
 				
