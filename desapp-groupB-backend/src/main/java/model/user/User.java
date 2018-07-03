@@ -53,16 +53,9 @@ public class User extends Entity {
 	}
 
 	public void rentVehicle(Publication anyPublication, BookingRequest bookingRequest) throws BannedException {
-		// if (!this.isBanned()) {
 		anyPublication.addBookingRequest(bookingRequest);
-		// this.webSite.getNotifier().notifyRequestByMail(anyPublication.getUser(),
-		// bookingRequest);
 		this.movementsOfMonth.addToHistory("You have sent a successful request to rent a vehicle for "
 				+ bookingRequest.getTotalHours() + " hours!");
-		/*
-		 * } else { throw new
-		 * BannedException("You can't rent a vehicle if you're banned"); }
-		 */
 	}
 
 	public Integer numberOfPublications() {
@@ -140,14 +133,8 @@ public class User extends Entity {
 
 		this.movementsOfMonth.addToHistory("You have confirmed that you have retreat a vehicle for a "
 				+ anyRequest.getTotalHours() + " hours reservation.");
-
-		// if (anyRequest.getConfirmReturnBuyer() &&
-		// anyRequest.getConfirmRetreatSeller())
 		this.executeTransfer(anyRequest, anyRequest.getRequester().getCreditsAccount(), this.creditsAccount,
 				anyPublication);
-
-		// else
-		// this.cancelTransferByTimeLimit(anyRequest);
 	}
 
 	public void confirmVehicleRetreatSeller(BookingRequest anyRequest) throws NoAceptedException {
@@ -161,13 +148,8 @@ public class User extends Entity {
 		this.movementsOfMonth.addToHistory("You have confirmed the retreat of your vehicle for a "
 				+ anyRequest.getTotalHours() + " hours reservation.");
 
-		// if (anyRequest.getConfirmReturnBuyer() &&
-		// anyRequest.getConfirmRetreatSeller())
 		this.executeTransfer(anyRequest, this.creditsAccount, anyRequest.getRequester().getCreditsAccount(),
 				anyPublication);
-		// else
-		// this.executeTransferByTimeLimit(anyRequest, this.creditsAccount,
-		// anyRequest.getRequester().getCreditsAccount(), anyPublication);
 	}
 
 	/**

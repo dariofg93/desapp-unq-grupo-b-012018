@@ -32,13 +32,10 @@ public class ArchitectureTest {
 		Reflections reflections = new Reflections(paquete.getName());
 		
 		Set<Class<? extends AbstractRest>> allClasses = reflections.getSubTypesOf(AbstractRest.class);
-		System.out.println(allClasses);
 		for (Class myClass : allClasses) {
 			Set<Method> allMethods = getAllMethods(myClass, withAnnotation(Path.class),
 					Predicates.and(Predicates.not(withPrefix("get")), Predicates.not(withPrefix("set"))));
-
-			System.out.println(allMethods);
-			
+	
 			for (Method method : allMethods) {
 				assertNotNull(method.getReturnType().equals(Response.class));
 			}

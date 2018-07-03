@@ -32,7 +32,7 @@ public class PublicationBuilder {
 		toDate = DateTime.parse(stringDateTo);
 		pickUpZone = new GeographicZoneDescription( -34.706189, -58.277137);
 		dropZone =  new GeographicZoneDescription( -34.690761, -58.30284);
-		return new Publication(aVehicle, fromDate, toDate,anUser, city, pickUpZone, dropZone, price, 13454344);
+		return new Publication(aVehicle, fromDate, toDate,anUser, city, pickUpZone, dropZone, price, 1134616661);
 	}
 	
 	public Publication createPublicationForUserAndVehicle(User anUser, Vehicle aVehicle, City city, String stringDateFrom, String stringDateTo, Double price, GeographicZoneDescription gpsInit, GeographicZoneDescription gpsFinish) {		
