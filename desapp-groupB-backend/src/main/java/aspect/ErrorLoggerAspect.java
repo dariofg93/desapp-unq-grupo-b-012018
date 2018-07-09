@@ -13,6 +13,7 @@ public class ErrorLoggerAspect {
 	
 	@AfterThrowing(pointcut = "execution(*webService.vehiclecorcerns..*(..))",throwing = "exception")
 	public void log(JoinPoint joinPoint, Exception exception){
+		System.out.println("__________________________________________________________");
 		log.error("#ERROR " + LocalDateTime.now() + " -> " + exception.getMessage());
 	}
 

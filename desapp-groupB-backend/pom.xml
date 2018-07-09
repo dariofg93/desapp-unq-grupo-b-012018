@@ -124,7 +124,7 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.4</version>
+			<version>1.9.1</version>
 		</dependency>
 
 		<dependency>

@@ -70,6 +70,8 @@ public class PublicationRest extends AbstractRest{
 	public Response rentVehicle (@RequestBody PublicationRequestDto dto) {
 		return responseHandlingErrorsExecuting(
 			(() -> {
+				//PublicationRequestDto u = null;
+				//u.getPublication();
 				return publicationService.rentVehicleUsing(dto.getPublication(), dto.getRequest(), userService);
 		}), JsonReturn.notFoundError("No se ingresar la reserva"),
 				HttpStatus.BAD_REQUEST);

@@ -25,6 +25,6 @@
 		<property name="repository" ref="bookingRequestsRepository" />
 	</bean>
 
-
+	
 </beans>
 

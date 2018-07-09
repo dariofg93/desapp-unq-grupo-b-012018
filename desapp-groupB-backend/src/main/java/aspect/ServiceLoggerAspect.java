@@ -7,13 +7,14 @@ import java.util.stream.Collectors;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
 
-public class TransactionalLoggerAspect {
+@Aspect  
+public class ServiceLoggerAspect {
 	
-	private Logger log = Logger.getLogger(TransactionalLoggerAspect.class);
+	private Logger log = Logger.getLogger(ServiceLoggerAspect.class);
 	
-
-	@After("execution(*persistence.generic..*(..))")
+	@After("execution(* *(..)) && @annotation(javax.ws.rs.Path)")
 	public void log(JoinPoint point) {
 		String infoResult = getInfo(point).stream().collect(Collectors.joining(""));
 		log.info("# trace" + LocalDateTime.now() + " -> " + infoResult);
