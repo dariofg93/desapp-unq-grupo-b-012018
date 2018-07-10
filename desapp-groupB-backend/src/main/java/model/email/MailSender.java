@@ -13,7 +13,9 @@ public class MailSender implements Serializable{
     private final String PASSWORD = "grupob2018";
 
     public void send(String to, String subject, String body) {
-        try {
+    
+    	SendingThread thread = new SendingThread( () -> {
+    	try {
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.auth", "true");
@@ -38,6 +40,8 @@ public class MailSender implements Serializable{
 
         } catch (Exception e) {
            
-        }
+        }});
+    	
+    	thread.start();
     }
 }
